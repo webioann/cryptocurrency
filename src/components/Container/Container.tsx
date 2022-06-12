@@ -1,14 +1,18 @@
 import React from 'react'
-import { PropsChildren } from '../../TYPES';
+import { PropsChildren } from '../../TYPES'
+import { useAppSelector } from '../../Redux/store'
 import './container.scss'
 
 const Container:React.FC<PropsChildren> = ({ children }) => {
 
+    const color_theme = useAppSelector(state => state.redux.theme_mode)
+
     return (
         <div className='container-fluid'>
-            <div className='container'>
+            <div className={`container ${color_theme}`}>
                 { children }
-            </div>
+            </div> 
+
         </div>
     )
 }

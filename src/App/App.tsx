@@ -2,6 +2,7 @@ import React,{ useRef,useEffect } from 'react'
 import { useAppSelector } from '../Redux/store'
 import { Routes, Route, Link } from "react-router-dom"
 import Navbar from '../components/Navbar/Navbar'
+import ThemeToggle from '../components/ThemeToggle/ThemeToggle'
 import CoinPage from '../components/CoinPage/CoinPage'
 import HomePage from '../components/HomePage/HomePage'
 import Account from '../components/Account/Account'
@@ -18,10 +19,11 @@ const  App:React.FC = () => {
   return (
     <Container>
       <Navbar>
-        <h2 className='logo'>Cryptocurrency ts == {test}</h2>
+        <h2 className='logo'>Cryptocurrency</h2>
         <Link to="/sing-in" className='link'>Sing In</Link>
         <Link to="/sing-up" className='link'>Sing Up</Link>
         <Link to="/coin-page" className='link'>Coin page</Link>
+        <ThemeToggle/>
       </Navbar>
       <Routes>
         <Route path="/" element={<HomePage/>}/>

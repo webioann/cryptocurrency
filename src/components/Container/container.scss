@@ -1,3 +1,5 @@
+@import '../../App/index.scss';
+
 .container-fluid{
     min-width: 100%;
     // delete thise line
@@ -6,7 +8,15 @@
     .container{
         max-width: 1200px;
         margin: 0 auto;
-        background-color: #fff;
         position: relative;
+        border: 1px solid red
+    }
+    .light{
+        background-color: $bg-light;
+        color: $text-dark;
+    }
+    .dark{
+        background-color: $bg-dark;
+        color: $text-light;
     }
 }
