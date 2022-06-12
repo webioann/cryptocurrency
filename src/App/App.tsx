@@ -15,14 +15,16 @@ import './app.scss'
 const  App:React.FC = () => {
 
   const test = useAppSelector(state => state.redux.test)
+  const color_theme = useAppSelector(state => state.redux.theme_mode)
+
 
   return (
     <Container>
       <Navbar>
         <h2 className='logo'>Cryptocurrency</h2>
-        <Link to="/sing-in" className='link'>Sing In</Link>
-        <Link to="/sing-up" className='link'>Sing Up</Link>
-        <Link to="/coin-page" className='link'>Coin page</Link>
+        <Link to="/sing-in" className={`link ${color_theme}`}>Sing In</Link>
+        <Link to="/sing-up" className={`link ${color_theme}`}>Sing Up</Link>
+        <Link to="/coin-page" className={`link ${color_theme}`}>Coin page</Link>
         <ThemeToggle/>
       </Navbar>
       <Routes>

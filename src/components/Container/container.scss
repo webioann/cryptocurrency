@@ -9,14 +9,13 @@
         max-width: 1200px;
         margin: 0 auto;
         position: relative;
-        border: 1px solid red
     }
-    .light{
-        background-color: $bg-light;
-        color: $text-dark;
-    }
-    .dark{
-        background-color: $bg-dark;
-        color: $text-light;
-    }
+}
+.light{
+    background-color: $bg-light;
+    color: $text-dark;
+}
+.dark{
+    background-color: $bg-dark;
+    color: $text-light;
 }
