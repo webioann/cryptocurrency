@@ -11,11 +11,21 @@ const Navbar:React.FC = () => {
 
     return (
         <nav className='navbar'>
-            <h2 className='logo'>Cryptocurrency</h2>
-            <Link to="/sing-in" className='link'>Sing In</Link>
-            <Link to="/sing-up" className='link'>Sing Up</Link>
-            <Link to="/coin-page" className='link'>Coin Page</Link>
-            <ThemeToggle/>
+            <div className='nav-item'>
+                <h2 className='logo'>Cryptocurrency</h2>
+            </div>
+            <div className='nav-item'>
+                <Link to="/sing-in" className='link'>Sing In</Link>
+            </div>
+            <div className='nav-item'>
+                <Link to="/sing-up" className='link'>Sing Up</Link>
+            </div>
+            <div className='nav-item'>
+                <Link to="/coin-page" className='link'>Coin Page</Link>
+            </div>
+            <div className='nav-item'>
+                <ThemeToggle/>
+            </div>
         </nav>
     )
 }
