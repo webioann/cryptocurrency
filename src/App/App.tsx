@@ -1,8 +1,6 @@
-import React,{ useRef,useEffect } from 'react'
-import { useAppSelector } from '../Redux/store'
+import React from 'react'
 import { Routes, Route, Link } from "react-router-dom"
 import Navbar from '../components/Navbar/Navbar'
-import ThemeToggle from '../components/ThemeToggle/ThemeToggle'
 import CoinPage from '../components/CoinPage/CoinPage'
 import HomePage from '../components/HomePage/HomePage'
 import Account from '../components/Account/Account'
@@ -14,19 +12,9 @@ import './app.scss'
 
 const  App:React.FC = () => {
 
-  const test = useAppSelector(state => state.redux.test)
-  const color_theme = useAppSelector(state => state.redux.theme_mode)
-
-
   return (
     <Container>
-      <Navbar>
-        <h2 className='logo'>Cryptocurrency</h2>
-        <Link to="/sing-in" className={`link ${color_theme}`}>Sing In</Link>
-        <Link to="/sing-up" className={`link ${color_theme}`}>Sing Up</Link>
-        <Link to="/coin-page" className={`link ${color_theme}`}>Coin page</Link>
-        <ThemeToggle/>
-      </Navbar>
+      <Navbar/>
       <Routes>
         <Route path="/" element={<HomePage/>}/>
         <Route path="/coin-page" element={<CoinPage/>}/>
