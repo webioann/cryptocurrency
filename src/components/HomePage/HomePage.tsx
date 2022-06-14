@@ -1,23 +1,12 @@
 import React,{ useState,useEffect } from 'react'
-import axios from "axios"
+import PageContainer from '../PageContainer/PageContainer'
 
 const HomePage:React.FC = () => {
 
-    const [coins_data,setCoinsData] =useState<object[]>([])
-
-    const url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=true"
-
-    useEffect(() => {
-        axios.get(url)
-        .then( respons => console.log(respons.data))
-    },[url])
-
     return (
-        <div>
-            Home Page
+        <PageContainer>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ex eius blanditiis dolores velit voluptatum corporis at, est exercitationem voluptates ducimus minus, vero fugiat rerum ab dolor, libero soluta recusandae sed. Nobis voluptatibus repellendus reprehenderit. Eum natus animi architecto nulla minima perspiciatis officiis minus possimus voluptate corrupti unde omnis eveniet illo ullam sit atque nostrum non consequatur est, autem maxime dolore sunt. Voluptates rem voluptatem dolorum culpa officiis eos magnam dignissimos aliquam dolores exercitationem magni inventore perferendis quos accusamus assumenda, vero, suscipit maxime vitae blanditiis. Reprehenderit error vero temporibus. Magnam quos voluptatem aperiam aliquam ea architecto vero dolor eos enim, itaque odit maxime cum recusandae similique officia, sit nulla? Neque et porro reiciendis cupiditate. Facilis cumque consequatur inventore mollitia voluptates, quas consectetur vitae, adipisci nihil eaque recusandae harum ullam doloremque at quia saepe minus eveniet commodi, animi similique deserunt? Repellendus pariatur ullam, facere odio voluptates recusandae iusto necessitatibus, iste sapiente saepe, sed nemo modi consectetur. Quod inventore enim quis minima dolorem dolorum provident quibusdam? Aliquid, quam beatae? Sapiente, perspiciatis exercitationem veritatis inventore nulla, architecto impedit ex cumque et, cum reiciendis rerum ullam vitae molestias. Similique harum quis ducimus numquam quasi officiis fuga voluptatibus ipsum pariatur perspiciatis, rem molestias ipsam, voluptates necessitatibus deleniti ut qui blanditiis dolore. Impedit nostrum maiores provident quas ab ad voluptas quam adipisci facere repellat pariatur, nobis corporis quaerat quia qui incidunt obcaecati explicabo consequatur. Similique ratione voluptatum eligendi, ut consectetur vel ipsum odit nesciunt id quos harum hic nisi provident quasi obcaecati ex velit blanditiis non asperiores repellendus dolores suscipit veniam voluptatem neque. Amet, iste ratione. Natus distinctio aut rem fugit harum enim, nesciunt vitae quaerat, ut perspiciatis ipsa earum sit cum id voluptas quam? Tempora quisquam a quia mollitia aliquid optio aliquam non ratione facilis reiciendis eum consequatur natus minima minus amet, quidem in quam explicabo officia rem? Architecto, error vitae cupiditate a ullam repudiandae exercitationem blanditiis aliquam aspernatur reprehenderit, omnis fuga voluptates quam enim fugit. Possimus accusantium maxime blanditiis quas esse, quibusdam dicta illum animi praesentium nemo asperiores sint. Veniam officiis culpa sint cupiditate vero iusto earum, asperiores dolorum quam nemo rerum labore nam voluptas minima aperiam alias harum voluptates corrupti ipsum nisi consequatur vel itaque provident. Blanditiis asperiores rerum minima, voluptatibus repudiandae saepe sit molestias quam, unde animi incidunt eius officia officiis quis? Soluta quidem illum veritatis placeat doloremque repellendus quod tenetur maxime eos quasi aliquam porro ea saepe, vero esse vitae cum maiores earum quis laborum nulla ipsam debitis vel distinctio? Esse magni voluptate, officia vel doloremque, incidunt maiores explicabo facere aliquid non sapiente suscipit tempora inventore ad quisquam saepe numquam! Alias similique consequuntur incidunt accusantium eaque numquam dolorum repellendus vel? Veritatis rerum praesentium illo delectus voluptatibus facilis. Excepturi praesentium incidunt consectetur est sequi ea itaque non quia, necessitatibus, culpa porro consequatur quibusdam iusto doloribus amet officiis veritatis, ab dicta doloremque reprehenderit obcaecati. Delectus odio ea deleniti quae. Adipisci natus ea saepe. Error eius recusandae, delectus, cumque nostrum magni veritatis veniam, saepe at molestias provident. Delectus quisquam corporis tenetur eius, accusamus explicabo.</p>
-        </div>
+        </PageContainer>
     )
 }
-
 export default HomePage;

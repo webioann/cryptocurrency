@@ -10,10 +10,6 @@ const Navbar:React.FC = () => {
     const color_theme = useAppSelector(state => state.redux.theme_mode)
     const [active,setActive] = useState<boolean>(false)
 
-    const display = () => {
-        setActive(!active)
-    }
-
     return (
         <nav className='navbar'>
             <div className='logo-wrapper'>

@@ -28,4 +28,3 @@ const ThemeToggle:React.FC = () => {
 }
 export default ThemeToggle;
 
-// if ( color_theme === 'dark' )

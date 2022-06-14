@@ -1,6 +1,6 @@
 import React from "react"
 
-export type PropsChildren = {
+export type PropsChildrenType = {
     children: JSX.Element | JSX.Element[]
 }
 

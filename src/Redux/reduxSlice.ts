@@ -1,24 +1,24 @@
 import { createSlice,PayloadAction } from "@reduxjs/toolkit";
 
-type InitialState = {
-    test: string;
+type InitialStateType = {
     theme_mode: string;
+    coins: object[]
 }
-const initialState:InitialState = {
-    test: 'TEST',
-    theme_mode: 'light'
+const initialState:InitialStateType = {
+    theme_mode: 'light',
+    coins: []
 }
 
 export const reduxSlice = createSlice({
     name: "redux",
     initialState,
     reducers: {
-        getTest: (state) => { state.test = 'TEST_2' },
         installLightTheme: (state) => { state.theme_mode = 'light' },
         installDarkTheme: (state) => { state.theme_mode = 'dark' },
+        getCoins: (state,actions) => {state.coins = actions.payload}
     },
 });
 
-export const { getTest,installLightTheme,installDarkTheme } = reduxSlice.actions;
+export const { installLightTheme,installDarkTheme,getCoins } = reduxSlice.actions;
 
 export default reduxSlice.reducer;

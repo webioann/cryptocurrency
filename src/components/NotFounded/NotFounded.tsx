@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import PageContainer from '../PageContainer/PageContainer'
 
-const NotFounded = () => {
+const NotFounded:React.FC = () => {
     return (
-        <div>
+        <PageContainer>
             <p>NotFounded</p>
             <Link to="/">BACK TO HOME</Link>
-        </div>
+        </PageContainer>
     )
 }
 

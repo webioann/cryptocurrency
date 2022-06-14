@@ -1,9 +1,9 @@
 import React from 'react'
-import { PropsChildren } from '../../TYPES'
+import { PropsChildrenType } from '../../TYPES'
 import { useAppSelector } from '../../Redux/store'
 import './container.scss'
 
-const Container:React.FC<PropsChildren> = ({ children }) => {
+const Container:React.FC<PropsChildrenType> = ({ children }) => {
 
     const color_theme = useAppSelector(state => state.redux.theme_mode)
 
@@ -12,7 +12,6 @@ const Container:React.FC<PropsChildren> = ({ children }) => {
             <div className='container'>
                 { children }
             </div> 
-
         </div>
     )
 }

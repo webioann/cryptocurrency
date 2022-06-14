@@ -1,10 +1,12 @@
 import React from 'react'
+import PageContainer from '../PageContainer/PageContainer'
 
 const SingUp = () => {
     
     return (
-        <div>SingUp</div>
+        <PageContainer>
+            <p>SingUp</p>
+        </PageContainer>
     )
 }
-
 export default SingUp;
