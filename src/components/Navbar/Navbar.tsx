@@ -20,9 +20,9 @@ const Navbar:React.FC = () => {
                 <Link to="/" className={`logo ${color_theme}`}>Cryptocurrency</Link>
             </div>
             <div className={active ? 'menu active' : 'menu'}>
-                <Link to="/sing-in" className={`link ${color_theme}`}>Sing In</Link>
-                <Link to="/sing-up" className={`link ${color_theme}`}>Sing Up</Link>
-                <Link to="/coin-page" className={`link ${color_theme}`}>Coin Page</Link>
+                <Link to="/singin" className={`link ${color_theme}`}>Sing In</Link>
+                <Link to="/singup" className={`link ${color_theme}`}>Sing Up</Link>
+                <Link to="/coinpage" className={`link ${color_theme}`}>Coin Page</Link>
                 <ThemeToggle/>
             </div>
             <div  onClick={() => setActive(!active)}>

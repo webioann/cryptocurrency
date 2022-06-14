@@ -17,10 +17,10 @@ const  App:React.FC = () => {
       <Navbar/>
       <Routes>
         <Route path="/" element={<HomePage/>}/>
-        <Route path="/coin-page" element={<CoinPage/>}/>
+        <Route path="/coinpage" element={<CoinPage/>}/>
         <Route path="/account" element={<Account/>}/>
-        <Route path="/sing-in" element={<SingIn/>}/>
-        <Route path="/sing-up" element={<SingUp/>}/>
+        <Route path="/singin" element={<SingIn/>}/>
+        <Route path="/singup" element={<SingUp/>}/>
         <Route path="*" element={<NotFounded/>}/>
       </Routes>
     </Container>

@@ -11,9 +11,13 @@ module.exports = {
     output: {
         filename: "[name].[hash:4].js", 
         path: path.resolve( __dirname,"build" ),
+        // down code string for correct work with React-Router
+        publicPath: '/'
     },
     devServer: {
         port: 8001,
+        // down code string for correct work with React-Router
+        historyApiFallback: true,
     },
     plugins: [
         new HTMLWebpackPlugin({ template : 'src/index.html' }),
