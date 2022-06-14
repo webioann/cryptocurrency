@@ -2,7 +2,6 @@
 
 .toggle{
     width: $button-maxsize;
-
     margin-top: 1rem;
     display: flex;
     align-items: center;
@@ -10,13 +9,18 @@
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     cursor: pointer;
-    background-color: green;
     .toggle-icon{
         color: #f85904;
     }
     span{
         margin-left: 0.5rem;
     }
+}
+.light{
+
+}
+.dark{
+    background-color: $bg-block-dark;
 }
 @media (min-width: 640px) {
     .toggle{

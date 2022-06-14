@@ -1,25 +1,31 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import { useAppSelector } from '../../Redux/store'
 import { Link } from "react-router-dom"
 import ThemeToggle from '../ThemeToggle/ThemeToggle'
+import { VscChromeClose } from 'react-icons/vsc';
+import { GiHamburgerMenu } from 'react-icons/gi';
 import './navbar.scss'
 
 const Navbar:React.FC = () => {
 
     const color_theme = useAppSelector(state => state.redux.theme_mode)
+    const [active,setActive] = useState<boolean>(false)
 
     return (
         <nav className='navbar'>
-            <Link to="/" className={`logo ${color_theme}`}>Cryptocurrency</Link>
+            <div className='logo-wrapper'>
+                <Link to="/" className={`logo ${color_theme}`}>Cryptocurrency</Link>
+            </div>
 
-            <div className='menu'>
+            <div className={active ? 'menu active' : 'menu'}>
                 <Link to="/sing-in" className={`link ${color_theme}`}>Sing In</Link>
                 <Link to="/sing-up" className={`link ${color_theme}`}>Sing Up</Link>
                 <Link to="/coin-page" className={`link ${color_theme}`}>Coin Page</Link>
                 <ThemeToggle/>
             </div>
-            
-            <div className='nav-item'>
+
+            <div className="burger" onClick={() => setActive(!active)}>
+                <GiHamburgerMenu className={`burger-icon ${color_theme}`}/>
             </div>
         </nav>
     )
