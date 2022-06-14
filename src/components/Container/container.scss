@@ -4,11 +4,14 @@
     min-width: 100%;
     // delete thise line
     min-height: 100vh;
+    background-color: #ccc;
     // ===================
     .container{
         max-width: 1200px;
         margin: 0 auto;
         position: relative;
+        overflow: hidden;
+        padding: 0 1rem;
     }
 }
 .light{

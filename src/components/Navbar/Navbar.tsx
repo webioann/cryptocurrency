@@ -2,8 +2,9 @@ import React,{ useState } from 'react'
 import { useAppSelector } from '../../Redux/store'
 import { Link } from "react-router-dom"
 import ThemeToggle from '../ThemeToggle/ThemeToggle'
-import { VscChromeClose } from 'react-icons/vsc';
-import { GiHamburgerMenu } from 'react-icons/gi';
+// import { VscChromeClose } from 'react-icons/vsc';
+import { GiHamburgerMenu } from 'react-icons/gi'
+import Burger from '../BurgerSpiner/BurgerSpiner'
 import './navbar.scss'
 
 const Navbar:React.FC = () => {
@@ -25,7 +26,8 @@ const Navbar:React.FC = () => {
             </div>
 
             <div className="burger" onClick={() => setActive(!active)}>
-                <GiHamburgerMenu className={`burger-icon ${color_theme}`}/>
+                {/* <GiHamburgerMenu className={`burger-icon ${color_theme}`}/> */}
+                <Burger active={active}/>
             </div>
         </nav>
     )
