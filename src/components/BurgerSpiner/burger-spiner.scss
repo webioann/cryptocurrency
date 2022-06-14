@@ -31,7 +31,10 @@
     }
     .bottom-line{
         transform: rotate(45deg) translateY(-14px);
-
     }
-
+}
+@media (min-width: 640px) {
+    .burger-spiner{
+        display: none;
+    }
 }

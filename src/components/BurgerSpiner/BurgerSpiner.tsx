@@ -2,7 +2,9 @@ import React,{ useState,useEffect } from 'react'
 import { useAppSelector } from '../../Redux/store'
 import './burger-spiner.scss'
 
-interface burgerProps { active: boolean; }
+interface burgerProps { 
+    active: boolean;
+}
 
 const BurgerSpiner:React.FC<burgerProps> = ({ active }) => {
 
