@@ -11,18 +11,18 @@ const ThemeToggle:React.FC = () => {
 
     if ( color_theme === 'light' ) {
         return (
-            <div className='toggle' onClick={() => dispatch(installDarkTheme())}>
+            <button className='toggle' onClick={() => dispatch(installDarkTheme())}>
                 <FaMoon className='toggle-icon'/>
                 <span>Dark Mode</span>
-            </div>
+            </button>
         )
     }
     else {
         return (
-            <div className='toggle' onClick={() => dispatch(installLightTheme())}>
+            <button className='toggle' onClick={() => dispatch(installLightTheme())}>
                 <FaSun className='toggle-icon'/>
                 <span>Light Mode</span>
-            </div>
+            </button>
         )
     }
 }
