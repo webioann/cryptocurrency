@@ -1,15 +1,12 @@
-import React from 'react'
-// import { PropsChildrenType } from '../../TYPES'
+import React,{ useState,useEffect } from 'react'
 import { useAppSelector } from '../../Redux/store'
-
+import { IoStarOutline,IoStar } from 'react-icons/io5'
 import './coins-table.scss'
 
 const CoinsTable:React.FC = () => {
 
     const coins = useAppSelector(state => state.redux.coins)
-    console.log(coins);
-
-
+    
     return (
         <table className='w-full border-collapse text-center'>
         <thead>
@@ -26,9 +23,22 @@ const CoinsTable:React.FC = () => {
             </tr>
         </thead>
         <tbody>
-            { coins.map((coin) => (
-                <tr>uuuuuu</tr>
-            )) }
+                {coins.map( (coin) => (<tr key={coin.ath}>
+                    <td><IoStarOutline/></td>
+                    <td>{coin.market_cap_rank}</td>
+                    <td>
+                        <div>
+                            <img src={coin.image} alt={coin.id}/>
+                            <p>{coin.name}</p>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>))}
         </tbody>
     </table>    )
 }

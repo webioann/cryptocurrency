@@ -1,8 +1,9 @@
-import { createSlice,PayloadAction } from "@reduxjs/toolkit";
+import { createSlice,PayloadAction } from "@reduxjs/toolkit"
+import { CoinsType } from '../TYPES'
 
 type InitialStateType = {
     theme_mode: string;
-    coins: object[]
+    coins: CoinsType[]
 }
 const initialState:InitialStateType = {
     theme_mode: 'light',
