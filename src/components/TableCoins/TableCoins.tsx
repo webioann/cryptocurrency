@@ -1,4 +1,5 @@
 import React,{ useState,useEffect } from 'react'
+import { Sparklines, SparklinesLine } from 'react-sparklines';
 import { useAppSelector } from '../../Redux/store'
 import { IoStarOutline,IoStar } from 'react-icons/io5'
 import './table-coins.scss'
@@ -10,11 +11,11 @@ const CoinsTable:React.FC = () => {
     return (
         <table className='table'>
             <thead className='tab-head'>
-                <tr className='border-b'>
+                <tr className='tab-head-row'>
                     <th></th>
                     <th className='px-4'>#</th>
-                    <th className='text-left'>Coin</th>
-                    <th></th>
+                    <th className='text-left'>coin</th>
+                    <th>coin symbol</th>
                     <th>Price</th>
                     <th>24h</th>
                     <th className='hidden md:table-cell'>24h Volume</th>
@@ -35,12 +36,16 @@ const CoinsTable:React.FC = () => {
                             <p className='coin-name'>{coin.name}</p>
                         </div>
                     </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{coin.symbol}</td>
+                    <td>{coin.current_price}</td>
+                    <td>{coin.price_change_percentage_24h}</td>
+                    <td>{coin.total_volume}</td>
+                    <td>{coin.market_cap}</td>
+                    <td>
+                        <Sparklines data={coin.sparkline_in_7d.price}>
+                            <SparklinesLine color="#5388cd" />
+                        </Sparklines>
+                    </td>
                 </tr>))}
             </tbody>
     </table>    )
