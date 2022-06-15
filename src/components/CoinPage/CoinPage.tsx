@@ -3,9 +3,9 @@ import { CoinsType } from '../../TYPES'
 import { useAppDispatch } from '../../Redux/store'
 import axios from "axios"
 import { getCoins } from '../../Redux/reduxSlice'
-import CoinSearch from '../CoinSearch/CoinSearch'
+import Search_Coins from '../CoinSearch/CoinSearch'
 import PageContainer from '../PageContainer/PageContainer'
-import CoinsTable from '../CoinsTable/CoinsTable'
+import Table_Coins from '../TableCoins/TableCoins'
 
 const CoinPage:React.FC = () => {
 
@@ -28,8 +28,8 @@ const CoinPage:React.FC = () => {
 
     return (
         <PageContainer>
-            <CoinSearch/>
-            <CoinsTable/>
+            <Search_Coins/>
+            <Table_Coins/>
         </PageContainer>
     )
 }

@@ -1,7 +1,7 @@
 import React,{ useState,useEffect } from 'react'
 import { useAppSelector } from '../../Redux/store'
 import { IoStarOutline,IoStar } from 'react-icons/io5'
-import './coins-table.scss'
+import './table-coins.scss'
 
 const CoinsTable:React.FC = () => {
 
