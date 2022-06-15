@@ -8,28 +8,31 @@ const CoinsTable:React.FC = () => {
     const coins = useAppSelector(state => state.redux.coins)
     
     return (
-        <table className='w-full border-collapse text-center'>
-        <thead>
-            <tr className='border-b'>
-                <th></th>
-                <th className='px-4'>#</th>
-                <th className='text-left'>Coin</th>
-                <th></th>
-                <th>Price</th>
-                <th>24h</th>
-                <th className='hidden md:table-cell'>24h Volume</th>
-                <th className='hidden sm:table-cell'>Mkt</th>
-                <th>Last 7 Days</th>
-            </tr>
-        </thead>
-        <tbody>
-                {coins.map( (coin) => (<tr key={coin.ath}>
+        <table className='table'>
+            <thead className='tab-head'>
+                <tr className='border-b'>
+                    <th></th>
+                    <th className='px-4'>#</th>
+                    <th className='text-left'>Coin</th>
+                    <th></th>
+                    <th>Price</th>
+                    <th>24h</th>
+                    <th className='hidden md:table-cell'>24h Volume</th>
+                    <th className='hidden sm:table-cell'>Mkt</th>
+                    <th>Last 7 Days</th>
+                </tr>
+            </thead>
+            <tbody className='tab-body'>
+                {coins.map( (coin) => (
+                <tr className='tab-row' key={coin.ath}>
                     <td><IoStarOutline/></td>
                     <td>{coin.market_cap_rank}</td>
                     <td>
-                        <div>
-                            <img src={coin.image} alt={coin.id}/>
-                            <p>{coin.name}</p>
+                        <div className='coin-link'>
+                            <div className='img-wrapper'>
+                                <img src={coin.image} alt={coin.id}/>
+                            </div>
+                            <p className='coin-name'>{coin.name}</p>
                         </div>
                     </td>
                     <td></td>
@@ -39,7 +42,7 @@ const CoinsTable:React.FC = () => {
                     <td></td>
                     <td></td>
                 </tr>))}
-        </tbody>
+            </tbody>
     </table>    )
 }
 export default CoinsTable;
