@@ -2,6 +2,8 @@ import React,{ useState,useEffect } from 'react'
 import { Sparklines, SparklinesLine } from 'react-sparklines';
 import { useAppSelector } from '../../Redux/store'
 import { IoStarOutline,IoStar } from 'react-icons/io5'
+import { FaLongArrowAltDown,FaLongArrowAltUp } from 'react-icons/fa'
+import { HiArrowNarrowUp,HiArrowNarrowDown } from 'react-icons/hi'
 import './table-coins.scss'
 
 const CoinsTable:React.FC = () => {
@@ -13,21 +15,25 @@ const CoinsTable:React.FC = () => {
             <thead className='tab-head'>
                 <tr className='tab-head-row'>
                     <th></th>
-                    <th className='px-4'>#</th>
-                    <th className='text-left'>coin</th>
-                    <th>coin symbol</th>
+                    <th>#</th>
+                    <th>Coin</th>
+                    <th>Coin</th>
                     <th>Price</th>
                     <th>24h</th>
-                    <th className='hidden md:table-cell'>24h Volume</th>
-                    <th className='hidden sm:table-cell'>Mkt</th>
+                    <th>24h Volume</th>
+                    <th className='market-cap'>
+                        <p className='hidden'>Mkt</p>
+                    </th>
                     <th>Last 7 Days</th>
                 </tr>
             </thead>
             <tbody className='tab-body'>
                 {coins.map( (coin) => (
                 <tr className='tab-row' key={coin.ath}>
-                    <td><IoStarOutline/></td>
-                    <td>{coin.market_cap_rank}</td>
+                    <td><IoStarOutline className='hidden'/></td>
+                    <td>
+                        <p className='hidden'>{coin.market_cap_rank}</p>
+                    </td>
                     <td>
                         <div className='coin-link'>
                             <div className='img-wrapper'>
@@ -36,12 +42,28 @@ const CoinsTable:React.FC = () => {
                             <p className='coin-name'>{coin.name}</p>
                         </div>
                     </td>
-                    <td>{coin.symbol}</td>
-                    <td>{coin.current_price}</td>
-                    <td>{coin.price_change_percentage_24h}</td>
-                    <td>{coin.total_volume}</td>
-                    <td>{coin.market_cap}</td>
-                    <td>
+                    <td>{coin.symbol.toUpperCase()}</td>
+                    <td>$ {coin.current_price.toLocaleString()}</td>
+
+                    <td className='percent-change'>
+                        <div className='wrapper'>
+                            {coin.price_change_percentage_24h > 0 
+                                ? <HiArrowNarrowUp className='arrow' color='green'/> 
+                                : <HiArrowNarrowDown className='arrow' color='#f85904'/>
+                            }
+                            {coin.price_change_percentage_24h > 0 
+                                ? <p style={{color: 'green'}}>{coin.price_change_percentage_24h.toFixed(4)}</p> 
+                                : <p style={{color: '#f85904'}}>{coin.price_change_percentage_24h.toFixed(4)}</p>
+                            }
+                            <span className='percent'>%</span>
+                        </div>
+                    </td>
+
+                    <td>${coin.total_volume.toLocaleString()}</td>
+                    <td className='market-cap'>
+                        <div className='hidden'> ${coin.market_cap.toLocaleString()}</div>
+                    </td>
+                    <td className='spark-line'>
                         <Sparklines data={coin.sparkline_in_7d.price}>
                             <SparklinesLine color="#5388cd" />
                         </Sparklines>
