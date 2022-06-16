@@ -3,10 +3,12 @@ import { CoinsType } from '../TYPES'
 
 type InitialStateType = {
     theme_mode: string;
-    coins: CoinsType[]
+    coins_data: CoinsType[];
+    coins: CoinsType[];
 }
 const initialState:InitialStateType = {
     theme_mode: 'light',
+    coins_data: [],
     coins: []
 }
 
@@ -16,10 +18,11 @@ export const reduxSlice = createSlice({
     reducers: {
         installLightTheme: (state) => { state.theme_mode = 'light' },
         installDarkTheme: (state) => { state.theme_mode = 'dark' },
-        getCoins: (state,actions) => {state.coins = actions.payload}
+        getFetchCoins: (state,actions) => {state.coins_data = actions.payload},
+        getSerchedCoins: (state,actions) => {state.coins = actions.payload}
     },
 });
 
-export const { installLightTheme,installDarkTheme,getCoins } = reduxSlice.actions;
+export const { installLightTheme,installDarkTheme,getFetchCoins,getSerchedCoins } = reduxSlice.actions;
 
 export default reduxSlice.reducer;

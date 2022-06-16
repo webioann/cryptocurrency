@@ -2,14 +2,14 @@ import React,{ useState,useEffect } from 'react'
 import { Sparklines, SparklinesLine } from 'react-sparklines';
 import { useAppSelector } from '../../Redux/store'
 import { IoStarOutline,IoStar } from 'react-icons/io5'
-import { FaLongArrowAltDown,FaLongArrowAltUp } from 'react-icons/fa'
 import { HiArrowNarrowUp,HiArrowNarrowDown } from 'react-icons/hi'
 import './table-coins.scss'
 
 const CoinsTable:React.FC = () => {
 
-    const coins = useAppSelector(state => state.redux.coins)
-    
+    const coins = useAppSelector(state => state.redux.coins_data)
+    const found = useAppSelector(state => state.redux.coins)
+    console.log(found);
     return (
         <table className='table'>
             <thead className='tab-head'>
@@ -73,16 +73,3 @@ const CoinsTable:React.FC = () => {
     </table>    )
 }
 export default CoinsTable;
-// {coins
-//     .filter((value) => {
-//       if (searchText === '') {
-//         return value;
-//       } else if (
-//         value.name.toLowerCase().includes(searchText.toLowerCase())
-//       ) {
-//         return value;
-//       }
-//     })
-//     .map((coin) => (
-//       <CoinItem key={coin.id} coin={coin} />
-//     ))}
