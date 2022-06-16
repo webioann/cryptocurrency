@@ -7,18 +7,18 @@ import './navbar.scss'
 
 const Navbar:React.FC = () => {
 
-    const color_theme = useAppSelector(state => state.redux.theme_mode)
+    const theme = useAppSelector(state => state.redux.theme_mode)
     const [active,setActive] = useState<boolean>(false)
 
     return (
-        <nav className='navbar'>
+        <nav className={`navbar ${theme}`}>
             <div className='logo-wrapper'>
-                <Link to="/" className={`logo ${color_theme}`}>Cryptocurrency</Link>
+                <Link to="/" className={`logo ${theme}`}>Cryptocurrency</Link>
             </div>
             <div className={active ? 'menu active' : 'menu'}>
-                <Link to="/singin" className={`link ${color_theme}`}>Sing In</Link>
-                <Link to="/singup" className={`link ${color_theme}`}>Sing Up</Link>
-                <Link to="/coinpage" className={`link ${color_theme}`}>Coin Page</Link>
+                <Link to="/singin" className={`link ${theme}`}>Sing In</Link>
+                <Link to="/singup" className={`link ${theme}`}>Sing Up</Link>
+                <Link to="/coinpage" className={`link ${theme}`}>Coin Page</Link>
                 <ThemeToggle/>
             </div>
             <div  onClick={() => setActive(!active)}>

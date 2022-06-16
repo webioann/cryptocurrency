@@ -9,10 +9,11 @@ const CoinsTable:React.FC = () => {
 
     const coins = useAppSelector(state => state.redux.coins_data)
     const input_value = useAppSelector(state => state.redux.input_value)
-    
+    const theme = useAppSelector(state => state.redux.theme_mode)
+
     return (
-        <table className='table'>
-            <thead className='tab-head'>
+        <table className={`table ${theme}`}>
+            <thead className={`tab-head ${theme}`}>
                 <tr className='tab-head-row'>
                     <th></th>
                     <th>#</th>
@@ -20,7 +21,7 @@ const CoinsTable:React.FC = () => {
                     <th>Coin</th>
                     <th>Price</th>
                     <th>24h</th>
-                    <th>24h Volume</th>
+                    <th>24h trade volume</th>
                     <th className='market-cap'>
                         <p className='hidden'>Mkt</p>
                     </th>
@@ -33,8 +34,8 @@ const CoinsTable:React.FC = () => {
                     else if (value.name.toLowerCase().includes(input_value.toLowerCase())) { return value }}
                     ) 
                 .map( (coin) => (
-                <tr className='tab-row' key={coin.ath}>
-                    <td><IoStarOutline className='hidden'/></td>
+                <tr className={`tab-row ${theme}`} key={coin.ath}>
+                    <td className='first-cell'><IoStarOutline className='hidden'/></td>
                     <td>
                         <p className='hidden'>{coin.market_cap_rank}</p>
                     </td>

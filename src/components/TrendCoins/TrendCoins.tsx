@@ -1,5 +1,5 @@
 import React,{ useState,useEffect } from 'react'
-import { useAppDispatch } from '../../Redux/store'
+import { useAppDispatch,useAppSelector } from '../../Redux/store'
 import { getFetchCoins } from '../../Redux/reduxSlice'
 import axios from "axios"
 import { TrendingType } from '../../TYPES'
@@ -9,6 +9,7 @@ import './trend-coins.scss'
 const TrendCoins:React.FC = () => {
 
     const [trend_coins,setTrendCoins] = useState<TrendingType[]>([])
+    const theme = useAppSelector(state => state.redux.theme_mode)
 
     const url = "https://api.coingecko.com/api/v3/search/trending"
 
@@ -25,20 +26,25 @@ const TrendCoins:React.FC = () => {
             <h1>Trending Coins</h1>
             <div className='trending-wrapper'>
                 {trend_coins.map( coin => (
-                <div>
+                <div key={coin.item.coin_id} className={`trend-coin ${theme}`}>
+
                     <div className='logo'>
                         <img src={coin.item.small} alt={coin.item.name}/>
                     </div>
-                    <div className='coin-name'>
-                        <p>{coin.item.name}</p>
-                        <p>{coin.item.symbol}</p>
-                    </div>
-                    <div>
-                        <div className='small-logo'>
-                            <img src={"https://assets.coingecko.com/coins/images/1/small/bitcoin.png"} alt="/"/>
+
+                    <div className='coin-data'>
+                        <h3 className='name'>{coin.item.name}</h3>
+
+                        <div className='bottom-row'>
+                            <p className='symbol'>{coin.item.symbol}</p>
+                            <div className='small-logo'>
+                                <img src={"https://assets.coingecko.com/coins/images/1/small/bitcoin.png"} alt="/"/>
+                            </div>
+                            <p>{coin.item.price_btc.toFixed(7)}</p>
                         </div>
-                        <p>{coin.item.price_btc.toFixed(7)}</p>
+
                     </div>
+
                 </div>
                 ))}
             </div>

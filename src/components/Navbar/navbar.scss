@@ -9,7 +9,7 @@
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: 0px 8px 14px 0px rgba(0,0,0,0.1);
+    box-shadow: $box-shadow;
     margin: 1rem 0;
     .logo-wrapper{
         display: flex;
@@ -51,9 +51,10 @@
             padding: 0.5rem 1rem;
             border-radius: 0.5rem;
             color: $text-dark;
+            box-shadow: $box-shadow;
         }
         .light{
-            box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.1);
+            box-shadow: $box-shadow;
         }
         .dark{
             color: $text-light;
@@ -63,6 +64,11 @@
     .active{
         left: 0;
     }
+    .dark{
+        box-shadow: none;
+        color: $text-light;
+    }
+    
 }
 @media (min-width: 640px) {
     .navbar{

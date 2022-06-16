@@ -1,10 +1,11 @@
 import React,{ useState } from 'react'
-import { useAppDispatch } from '../../Redux/store'
+import { useAppDispatch,useAppSelector } from '../../Redux/store'
 import { putInputValue } from '../../Redux/reduxSlice'
 import './search-coins.scss'
 
 const SearchCoins:React.FC = () => {
 
+    const theme = useAppSelector(state => state.redux.theme_mode)
     const dispatch = useAppDispatch()
     const [value,setValue] = useState<string>('')
 
@@ -20,10 +21,11 @@ const SearchCoins:React.FC = () => {
     }
 
     return (
-        <div className='coin-search'>
+        <div className={`coin-search ${theme}`}>
             <h2>Search Crypto Currency</h2>
-            <form className='form' onSubmit={onSubmited}>
+            <form className={`form ${theme}`} onSubmit={onSubmited}>
                 <input 
+                    className={`input ${theme}`}
                     type='text' 
                     placeholder='Search a coins'
                     value={value}
