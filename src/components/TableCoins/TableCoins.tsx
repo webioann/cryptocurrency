@@ -8,8 +8,8 @@ import './table-coins.scss'
 const CoinsTable:React.FC = () => {
 
     const coins = useAppSelector(state => state.redux.coins_data)
-    const found = useAppSelector(state => state.redux.coins)
-    console.log(found);
+    const input_value = useAppSelector(state => state.redux.input_value)
+    
     return (
         <table className='table'>
             <thead className='tab-head'>
@@ -28,7 +28,11 @@ const CoinsTable:React.FC = () => {
                 </tr>
             </thead>
             <tbody className='tab-body'>
-                {coins.map( (coin) => (
+                {coins.filter((value) => {
+                    if (input_value === '') { return value }
+                    else if (value.name.toLowerCase().includes(input_value.toLowerCase())) { return value }}
+                    ) 
+                .map( (coin) => (
                 <tr className='tab-row' key={coin.ath}>
                     <td><IoStarOutline className='hidden'/></td>
                     <td>
@@ -73,3 +77,20 @@ const CoinsTable:React.FC = () => {
     </table>    )
 }
 export default CoinsTable;
+// const filteredCoinsData = coins_data.filter((coin) => {
+//     if(coin.name.toLowerCase().includes(event.currentTarget.value.toLowerCase())) {
+//         return coin
+//     }
+//     else if( event.currentTarget.value = "") {
+//         return coin
+//     }
+// })
+
+
+
+
+
+
+
+
+
