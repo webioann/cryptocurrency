@@ -1,12 +1,12 @@
 import React from 'react'
-import PageContainer from '../PageContainer/PageContainer'
+import './sing-up.scss'
 
 const SingUp = () => {
     
     return (
-        <PageContainer>
+        <div className='g-page-container'>
             <p>SingUp</p>
-        </PageContainer>
+        </div>
     )
 }
 export default SingUp;

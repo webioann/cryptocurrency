@@ -1,8 +1,11 @@
 import React from 'react'
+import './account.scss'
 
 const Account = () => {
     return (
-        <div>Account</div>
+        <div className='g-page-container'>
+            Account
+        </div>
     )
 }
 

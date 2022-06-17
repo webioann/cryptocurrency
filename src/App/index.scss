@@ -15,3 +15,15 @@ $spark-line: #5388cd;
 // ===== sizes =====
 $button-max-size: 120px;
 $button-min-size: 90px;
+
+// ==== global classes =====
+.g-page-container{
+    min-width: 100%;
+    min-height: calc(100vh - 60px - 14px - 14px);
+    padding-bottom: 1rem;
+}
+
+
+
+
+

@@ -14,6 +14,11 @@ import { getFetchCoins } from '../Redux/reduxSlice'
 import axios from "axios"
 import { CoinsType } from '../TYPES'
 import './app.scss'
+// -------------------------------------------
+import SearchCoins from '../components/SearchCoins/SearchCoins'
+import Table_Coins from '../components/TableCoins/TableCoins'
+import TrendCoins from '../components/TrendCoins/TrendCoins'
+// -----------------------------------------
 
 const  App:React.FC = () => {
 
@@ -41,8 +46,16 @@ const  App:React.FC = () => {
     <Container>
       <Navbar/>
       <Routes>
-        <Route path="/" element={<HomePage/>}/>
-        <Route path="/coinpage" element={<CoinPage/>}/>
+        <Route path="/" element={
+          <HomePage>
+              <SearchCoins/>
+              <Table_Coins/>
+              <TrendCoins/>
+          </HomePage>
+        }/>
+        <Route path="/coin/:coinId" element={<CoinPage/>}>
+          <Route path=':coinId'/>
+        </Route>
         <Route path="/account" element={<Account/>}/>
         <Route path="/singin" element={<SingIn/>}/>
         <Route path="/singup" element={<SingUp/>}/>

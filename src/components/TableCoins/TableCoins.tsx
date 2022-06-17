@@ -1,5 +1,6 @@
 import React,{ useState,useEffect } from 'react'
-import { Sparklines, SparklinesLine } from 'react-sparklines';
+import { Sparklines, SparklinesLine } from 'react-sparklines'
+import { Link } from 'react-router-dom'
 import { useAppSelector } from '../../Redux/store'
 import { IoStarOutline,IoStar } from 'react-icons/io5'
 import { HiArrowNarrowUp,HiArrowNarrowDown } from 'react-icons/hi'
@@ -43,12 +44,14 @@ const CoinsTable:React.FC = () => {
                         {/* <p className='hidden'>{coin.price_change_percentage_7d_in_currency}</p> */}
                     </td>
                     <td>
-                        <div className='coin-link'>
-                            <div className='img-wrapper'>
-                                <img src={coin.image} alt={coin.id}/>
+                        <Link to="/coin/:coinId">
+                            <div className='coin-link'>
+                                <div className='img-wrapper'>
+                                    <img src={coin.image} alt={coin.id}/>
+                                </div>
+                                <p className='coin-name'>{coin.name}</p>
                             </div>
-                            <p className='coin-name'>{coin.name}</p>
-                        </div>
+                        </Link>
                     </td>
                     <td>{coin.symbol.toUpperCase()}</td>
                     <td>$ {coin.current_price.toLocaleString()}</td>

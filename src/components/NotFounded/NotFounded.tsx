@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import PageContainer from '../PageContainer/PageContainer'
+import './not-found.scss'
 
 const NotFounded:React.FC = () => {
     return (
-        <PageContainer>
+        <div className='g-page-container'>
             <p>NotFounded</p>
             <Link to="/">BACK TO HOME</Link>
-        </PageContainer>
+        </div>
     )
 }
 

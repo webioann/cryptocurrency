@@ -1,14 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-import PageContainer from '../PageContainer/PageContainer'
+import { Link } from 'react-router-dom'
+import './sing-in.scss'
 
 const SingIn:React.FC = () => {
     
     return (
-        <PageContainer>
+        <div className='g-page-container'>
             <p>SING IN</p>
             <Link to="/">home</Link>  
-        </PageContainer>
+        </div>
     )
 }
 
