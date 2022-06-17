@@ -73,6 +73,7 @@ const CoinsTable:React.FC = () => {
                     </td>
                     <td className='spark-line'>
                         <Sparklines data={coin.sparkline_in_7d.price}>
+                            {/* to paint the SparkLine depending on the data for 7 days */}
                             {coin.price_change_percentage_7d_in_currency > 0 
                                 ? <SparklinesLine color="green" /> 
                                 : <SparklinesLine color="red" /> 
