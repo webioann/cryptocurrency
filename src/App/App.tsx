@@ -9,8 +9,8 @@ import SingUp from '../components/SingUp/SingUp'
 import NotFounded from '../components/NotFounded/NotFounded'
 import Container from '../components/Container/Container'
 // ==== Redux axios and ect ====
-import { useAppDispatch } from '../Redux/store'
-import { getFetchCoins } from '../Redux/reduxSlice'
+import { useAppDispatch,useAppSelector } from '../Redux/store'
+import { getFetchCoins,putStoragedThemeMode } from '../Redux/reduxSlice'
 import axios from "axios"
 import { CoinsType } from '../TYPES'
 import './app.scss'
@@ -18,9 +18,10 @@ import './app.scss'
 const  App:React.FC = () => {
 
   const dispatch = useAppDispatch()
+
+  // ===== get coin data =============
   const [coins,setCoins] =useState<CoinsType[]>([])
   const URL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=true&price_change_percentage=24h%2C7d%2C14d%2C30d%2C1y"
-  // ===== get coin data =============
   const coin_url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=true"
   useEffect(() => {
       axios.get(URL)
@@ -29,6 +30,12 @@ const  App:React.FC = () => {
           dispatch(getFetchCoins(respons.data))
       })
   },[coin_url])
+
+  // ===== save color theme mode in Localstorage ====
+  const theme = useAppSelector(state => state.redux.theme_mode)
+  useEffect(() => {
+    window.localStorage.setItem("theme", theme)
+  },[theme])
 
   return (
     <Container>

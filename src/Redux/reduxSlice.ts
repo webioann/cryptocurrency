@@ -7,8 +7,10 @@ type InitialStateType = {
     coins: CoinsType[];
     input_value: string;
 }
+const storedTheme = localStorage.getItem('theme') || "light";
+
 const initialState:InitialStateType = {
-    theme_mode: 'light',
+    theme_mode: storedTheme,
     coins_data: [],
     coins: [],
     input_value: ""
@@ -20,12 +22,20 @@ export const reduxSlice = createSlice({
     reducers: {
         installLightTheme: (state) => { state.theme_mode = 'light' },
         installDarkTheme: (state) => { state.theme_mode = 'dark' },
+        putStoragedThemeMode: (state,actions) => {state.theme_mode = actions.payload},
         getFetchCoins: (state,actions) => {state.coins_data = actions.payload},
         getSerchedCoins: (state,actions) => {state.coins = actions.payload},
         putInputValue: (state,actions) => {state.input_value = actions.payload}
     },
 });
 
-export const { installLightTheme,installDarkTheme,getFetchCoins,getSerchedCoins,putInputValue } = reduxSlice.actions;
+export const { 
+    installLightTheme,
+    installDarkTheme,
+    getFetchCoins,
+    getSerchedCoins,
+    putInputValue,
+    putStoragedThemeMode
+} = reduxSlice.actions;
 
 export default reduxSlice.reducer;
