@@ -3,6 +3,7 @@ import { useAppDispatch,useAppSelector } from '../../Redux/store'
 import { Sparklines, SparklinesLine } from 'react-sparklines'
 import axios from "axios"
 import { UnitCoinType } from '../../Types/unit_coin_types'
+import { GoArrowDown,GoArrowUp } from 'react-icons/go';
 
 import './coin-page.scss'
 
@@ -30,19 +31,31 @@ const CoinPage:React.FC = () => {
                                 <img src={coin.image?.small} alt='/'/>
                             </div>
                             <div className='name'>
-                                <h2>{coin.name}</h2>
-                                <h4>( {coin.symbol} / usd)</h4>
+                                <div className='header'>
+                                    <h1>{coin.name}</h1>
+                                    <h2>({coin.symbol?.toUpperCase()})</h2>
+                                </div>
+                                <div className='rank'>
+                                    Rank {coin.market_cap_rank}
+                                </div>
                             </div>
                             <div className='price'>
-                                <h3 className='top'>Price</h3>
+                                <h2 className='top'>Price</h2>
                                 {coin.market_data?.current_price ? (
                                 <h3 className='bold'>${coin.market_data.current_price.usd.toLocaleString()}</h3>
                                 ) : null}
                             </div>
                         </div>
                         <div className='spark-line'>
+                            <div className='absolut'>
+                                <span className='title'>dynamics for 7 days</span>
+                                <div className='persent'>
+                                    {coin.market_data?.price_change_percentage_7d > 0 ? <GoArrowUp color='green'/> : <GoArrowDown color='red'/>}
+                                    <span>{coin.market_data?.price_change_percentage_7d.toFixed(2)}%</span>
+                                </div>
+                            </div>
                             <Sparklines data={coin.market_data?.sparkline_7d.price}>
-                                <SparklinesLine color="green" /> 
+                                <SparklinesLine color="#5388cd" /> 
                             </Sparklines>
                         </div>
 
