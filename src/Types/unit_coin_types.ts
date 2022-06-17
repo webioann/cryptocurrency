@@ -1,19 +1,22 @@
 // ========= unit_coin ==============
-type descEngType = {
-    eng: string
+type enType = {
+    en: string;
 }
-type img = {
+type imgType = {
     large: string;
     small: string;
     thumb: string;
 }
-type PriceType = {
+type priceType = {
     price: Array<number>
+}
+type usdType = {
+    usd: number
 }
 
 type market_data = {
-    current_price: object;
-    sparkline_in_7d: PriceType;
+    current_price: usdType;
+    sparkline_7d: priceType;
     market_cap: object;
     total_volume: object;
     high_24h: object;
@@ -35,11 +38,11 @@ export type UnitCoinType = {
     id: string;
     symbol: string;
     name: string;
-    image: img;
+    image: imgType;
     market_data: market_data;
     market_cap_rank: number;
     hashing_algorithm: string;
     tickers: Array<ticker>;
     liquidity_score: number;
-    description: descEngType;
+    description: enType;
 }

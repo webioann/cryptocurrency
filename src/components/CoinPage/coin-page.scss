@@ -1,4 +1,60 @@
 @import '../../App/index.scss';
 
 .g-page-container{
+    .unit-coin{
+        display: flex;
+        flex-direction: column;
+        .info{
+            display: grid;
+            grid-template-columns: 1fr;
+            .coin-info{
+                border: 1px solid red;
+                .main{
+                    border: 1px solid blue;
+                    display: flex;
+                    // justify-content: space-between;
+                    padding: 0.5rem;
+                    .logo{
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        margin-right: 20px;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    .name{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-evenly;
+                        flex: 1 1 auto;
+                    }
+                    .price{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-evenly;
+                        border: 1px solid green;
+                        .top{
+                            text-align: right;
+                        }
+                        .bold{
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+            .market-info{
+                background-color: #ddd;
+            }
+        }
+        @media (min-width: 640px) {
+            .info{
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+    }
 }
