@@ -2,10 +2,14 @@
 export type PropsChildrenType = {
     children: JSX.Element | JSX.Element[]
 }
-
-export interface sparkLineType {
+// ===== SparkLine ==========
+export interface SparkLineType {
     price: Array<number>
 }
+export interface SparkType {
+    sparkline_in_7d: SparkLineType;
+}
+// ====== coins ===========
 export interface CoinsType {
     market_cap_rank: number;
     image: string;
@@ -18,8 +22,14 @@ export interface CoinsType {
     ath: number;
     id: string;
     low_24h: number;
-    sparkline_in_7d: sparkLineType;
+    sparkline_in_7d: SparkLineType;
+    price_change_percentage_24h_in_currency: number;
+    price_change_percentage_7d_in_currency: number;
+    price_change_percentage_14d_in_currency: number;
+    price_change_percentage_30d_in_currency: number;
+    price_change_percentage_1y_in_currency: number;
 }
+// ====== trending =========
 export type TrendingItem = {
     coin_id: number;
     id: string;
@@ -36,3 +46,5 @@ export type TrendingItem = {
 export interface TrendingType {
     item: TrendingItem;
 }
+// ===========================
+

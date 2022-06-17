@@ -15,7 +15,7 @@ const CoinsTable:React.FC = () => {
         <table className={`table ${theme}`}>
             <thead className={`tab-head ${theme}`}>
                 <tr className='tab-head-row'>
-                    <th></th>
+                <th></th>
                     <th>#</th>
                     <th>Coin</th>
                     <th>Coin</th>
@@ -35,9 +35,12 @@ const CoinsTable:React.FC = () => {
                     ) 
                 .map( (coin) => (
                 <tr className={`tab-row ${theme}`} key={coin.ath}>
-                    <td className='first-cell'><IoStarOutline className='hidden'/></td>
+                    <td className='first-cell'>
+                        <IoStarOutline className='hidden'/>
+                    </td>
                     <td>
                         <p className='hidden'>{coin.market_cap_rank}</p>
+                        {/* <p className='hidden'>{coin.price_change_percentage_7d_in_currency}</p> */}
                     </td>
                     <td>
                         <div className='coin-link'>
@@ -70,7 +73,10 @@ const CoinsTable:React.FC = () => {
                     </td>
                     <td className='spark-line'>
                         <Sparklines data={coin.sparkline_in_7d.price}>
-                            <SparklinesLine color="#5388cd" />
+                            {coin.price_change_percentage_7d_in_currency > 0 
+                                ? <SparklinesLine color="green" /> 
+                                : <SparklinesLine color="red" /> 
+                            }
                         </Sparklines>
                     </td>
                 </tr>))}
@@ -78,20 +84,5 @@ const CoinsTable:React.FC = () => {
     </table>    )
 }
 export default CoinsTable;
-// const filteredCoinsData = coins_data.filter((coin) => {
-//     if(coin.name.toLowerCase().includes(event.currentTarget.value.toLowerCase())) {
-//         return coin
-//     }
-//     else if( event.currentTarget.value = "") {
-//         return coin
-//     }
-// })
-
-
-
-
-
-
-
 
 
