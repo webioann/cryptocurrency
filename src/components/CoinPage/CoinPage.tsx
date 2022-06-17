@@ -58,13 +58,70 @@ const CoinPage:React.FC = () => {
                                 <SparklinesLine color="#5388cd" /> 
                             </Sparklines>
                         </div>
-
+                        <div className='general'>
+                            <div className='cell algor'>
+                                <p className='l-cell'>Hashing algorithm</p>
+                                <p className='r-cell'>{coin.hashing_algorithm}</p>
+                            </div>
+                            <div className='cell trust'>
+                                <p className='l-cell'>Trust score</p>
+                                <p className='r-cell'>{coin.liquidity_score}</p>
+                            </div>
+                            <div className='cell cap'>
+                                <p className='l-cell'>Market cap</p>
+                                <p className='r-cell'>$ {coin.market_data?.market_cap.usd}</p>
+                            </div>
+                            <div className='cell volume'>
+                                <p className='l-cell'>Trading volum</p>
+                                <p className='r-cell'>$ {coin.market_data?.total_volume.usd}</p>
+                            </div>
+                        </div>
                     </div>
                     <div className='market-info'>
-                        <h3>Market stats</h3>
+                        <h3 className='mk-title'>Market stats</h3>
+                        <div className='row-info'>
+                            <div className='cell-info-left'>
+                                <p className='l-cell'>Price change 24h</p>
+                                <p className='r-cell'>{coin.market_data?.price_change_percentage_24h.toFixed(2)}%</p>
+                            </div>
+                            <div className='cell-info-right'>
+                                <p className='l-cell'>Price change 30 day</p>
+                                <p className='r-cell'>{coin.market_data?.price_change_percentage_30d.toFixed(2)}%</p>
+                            </div>
+                        </div>
+                        <div className='row-info'>
+                            <div className='cell-info-left'>
+                                <p className='l-cell'>Price change 7 day</p>
+                                <p className='r-cell'>{coin.market_data?.price_change_percentage_7d.toFixed(2)}%</p>
+                            </div>
+                            <div className='cell-info-right'>
+                                <p className='l-cell'>Price change 60 day</p>
+                                <p className='r-cell'>{coin.market_data?.price_change_percentage_60d.toFixed(2)}%</p>
+                            </div>
+                        </div>
+                        <div className='row-info'>
+                            <div className='cell-info-left'>
+                                <p className='l-cell'>Price change 14 day</p>
+                                <p className='r-cell'>{coin.market_data?.price_change_percentage_14d.toFixed(2)}%</p>
+                            </div>
+                            <div className='cell-info-right'>
+                                <p className='l-cell'>Price change 1 year</p>
+                                <p className='r-cell'>{coin.market_data?.price_change_percentage_1y.toFixed(2)}%</p>
+                            </div>
+                        </div>
+                        <div className='row-info'>
+                            <div className='cell-info-left'>
+                                <p className='l-cell'>24h high</p>
+                                <p className='r-cell'>$ {coin.market_data?.high_24h.usd}</p>
+                            </div>
+                            <div className='cell-info-right'>
+                                <p className='l-cell'>24h low</p>
+                                <p className='r-cell'>$ {coin.market_data?.low_24h.usd}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                 {/*  */}
+                
                 <div className='discription'>
                     {coin.description?.en}
                 </div>

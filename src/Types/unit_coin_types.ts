@@ -10,17 +10,17 @@ type imgType = {
 type priceType = {
     price: Array<number>
 }
-type usdType = {
+type capType = {
     usd: number
 }
 
 type market_data = {
-    current_price: usdType;
+    current_price: capType;
     sparkline_7d: priceType;
-    market_cap: object;
-    total_volume: object;
-    high_24h: object;
-    low_24h: object;
+    market_cap: capType;
+    total_volume: capType;
+    high_24h: capType;
+    low_24h: capType;
     price_change_percentage_24h: number;
     price_change_percentage_7d: number;
     price_change_percentage_14d: number;

@@ -2,12 +2,15 @@
 
 .g-page-container{
     .unit-coin{
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        // flex-direction: column;
+        border: 1px dashed red;
         .info{
             display: grid;
             grid-template-columns: 1fr;
+            border: 1px solid blue;
             .coin-info{
+                // border: 1px solid green;
                 .main{
                     display: flex;
                     // justify-content: space-between;
@@ -85,15 +88,67 @@
                         }
                     }
                 }
+                .general{
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 1rem;
+                    padding: 1rem;
+                    .cell{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                }
             }
+
             .market-info{
-                background-color: #ddd;
+                display: grid;
+                grid-template-columns: 1fr;
+                padding: 1rem;
+                font-weight: 600;
+                .mk-title{
+                    margin-bottom: 0.5rem;
+                }
+                .row-info{
+                    display: grid;
+                    gap: 1.5rem;
+                    .cell-info-left{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        // border: 1px solid red;
+                        .l-cell{
+                            display: flex;
+                            flex: 1 1 auto;
+                            border-bottom: 1px solid grey;
+                        }
+                        .r-cell{
+                            font-weight: 600;
+                        }
+                    }
+                    .cell-info-right{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        // border: 1px solid blue;
+                        .l-cell{
+                            display: flex;
+                            flex: 1 1 auto;
+                            border-bottom: 1px solid grey;
+
+                        }
+                        .r-cell{
+                            // font-weight: 600;
+                        }
+                    }
+
+                }
             }
         }
         .discription{
 
         }
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
             .info{
                 grid-template-columns: 1fr 1fr;
             }
