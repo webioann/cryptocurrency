@@ -1,15 +1,12 @@
-
+// ====== props children ===========
 export type PropsChildrenType = {
     children: JSX.Element | JSX.Element[]
 }
-// ===== SparkLine ==========
-export interface SparkLinePriceType {
+// ====== coins ===========
+type PriceType = {
     price: Array<number>
 }
-export interface SparkLineType {
-    sparkline_in_7d: SparkLinePriceType;
-}
-// ====== coins ===========
+
 export interface CoinsType {
     market_cap_rank: number;
     image: string;
@@ -22,7 +19,7 @@ export interface CoinsType {
     ath: number;
     id: string;
     low_24h: number;
-    sparkline_in_7d: SparkLineType;
+    sparkline_in_7d: PriceType;
     price_change_percentage_24h_in_currency: number;
     price_change_percentage_7d_in_currency: number;
     price_change_percentage_14d_in_currency: number;
@@ -30,7 +27,7 @@ export interface CoinsType {
     price_change_percentage_1y_in_currency: number;
 }
 // ====== trending =========
-export type TrendingItem = {
+type TrendingItem = {
     coin_id: number;
     id: string;
     large: string;
@@ -57,7 +54,7 @@ type img = {
 }
 type market_data = {
     current_price: object;
-    sparkline_in_7d: SparkLineType;
+    sparkline_in_7d: PriceType;
     market_cap: object;
     total_volume: object;
     high_24h: object;

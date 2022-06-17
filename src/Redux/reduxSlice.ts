@@ -1,5 +1,5 @@
 import { createSlice,PayloadAction } from "@reduxjs/toolkit"
-import { CoinsType } from '../TYPES'
+import { CoinsType } from '../Types/coins_types'
 
 type InitialStateType = {
     theme_mode: string;

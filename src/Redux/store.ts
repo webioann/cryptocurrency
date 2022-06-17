@@ -8,8 +8,8 @@ const store = configureStore({
     reducer: {
         redux: reduxSlice,
     } 
-
 })
+
 type reduxState = ReturnType<typeof store.getState>;
 type AppDispatch = typeof store.dispatch;
 

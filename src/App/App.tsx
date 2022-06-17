@@ -12,7 +12,7 @@ import Container from '../components/Container/Container'
 import { useAppDispatch,useAppSelector } from '../Redux/store'
 import { getFetchCoins } from '../Redux/reduxSlice'
 import axios from "axios"
-import { CoinsType } from '../TYPES'
+import { CoinsType } from '../TYPES_1'
 import './app.scss'
 // -------------------------------------------
 import SearchCoins from '../components/SearchCoins/SearchCoins'
@@ -35,12 +35,14 @@ const  App:React.FC = () => {
           dispatch(getFetchCoins(respons.data))
       })
   },[coins_url])
+  // ------------------------------------------------
 
   // ===== save color theme mode in Localstorage ====
   const theme = useAppSelector(state => state.redux.theme_mode)
   useEffect(() => {
     window.localStorage.setItem("theme", theme)
   },[theme])
+  // ------------------------------------------------
 
   return (
     <Container>

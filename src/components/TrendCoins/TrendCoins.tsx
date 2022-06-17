@@ -1,9 +1,7 @@
 import React,{ useState,useEffect } from 'react'
-import { useAppDispatch,useAppSelector } from '../../Redux/store'
-import { getFetchCoins } from '../../Redux/reduxSlice'
+import { useAppSelector } from '../../Redux/store'
 import axios from "axios"
-import { TrendingType } from '../../TYPES'
-
+import { TrendingType } from '../../Types/trending-types'
 import './trend-coins.scss'
 
 const TrendCoins:React.FC = () => {
@@ -17,7 +15,6 @@ const TrendCoins:React.FC = () => {
         axios.get(url)
         .then( respons => {
             setTrendCoins(respons.data.coins)
-            console.log(respons.data.coins);
         })
     },[url])
 

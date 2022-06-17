@@ -1,5 +1,5 @@
 import React from 'react'
-import { PropsChildrenType } from '../../TYPES'
+import { PropsChildrenType } from '../../Types/react_types'
 import { useAppSelector } from '../../Redux/store'
 import './container.scss'
 

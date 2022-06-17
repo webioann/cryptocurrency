@@ -1,6 +1,5 @@
-import React,{ useState,useEffect } from 'react'
-import PageContainer from '../PageContainer/PageContainer'
-import { PropsChildrenType } from '../../TYPES'
+import React from 'react'
+import { PropsChildrenType } from '../../Types/react_types'
 
 const HomePage:React.FC<PropsChildrenType> = ({ children }) => {
 

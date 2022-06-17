@@ -1,12 +1,9 @@
 import React,{ useState,useEffect } from 'react'
 import { useAppSelector } from '../../Redux/store'
+import { burgerPropsType } from '../../Types/react_types'
 import './burger-spiner.scss'
 
-interface burgerProps { 
-    active: boolean;
-}
-
-const BurgerSpiner:React.FC<burgerProps> = ({ active }) => {
+const BurgerSpiner:React.FC<burgerPropsType> = ({ active }) => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
     const [top_line,setTopLine] = useState<string>('')

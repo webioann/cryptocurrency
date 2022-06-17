@@ -2,7 +2,7 @@ import React,{ useState,useEffect } from 'react'
 import { useAppDispatch,useAppSelector } from '../../Redux/store'
 import { getFetchCoins } from '../../Redux/reduxSlice'
 import axios from "axios"
-import { UnitCoinType } from '../../TYPES'
+import { UnitCoinType } from '../../Types/unit_coin_types'
 
 import './coin-page.scss'
 
@@ -21,8 +21,12 @@ const CoinPage:React.FC = () => {
 
     return (
         <div className='g-page-container'>
-            <h1>COIN PAGE = {coin.name}</h1>
-            <img src={coin.image?.small} alt='/' />      
+            <div className='unit-coin'>
+                <div></div>
+                <div className='discription'>
+                    {coin.description?.eng}
+                </div>
+            </div>
         </div>
     )
 }
