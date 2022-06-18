@@ -12,7 +12,7 @@ import Container from '../components/Container/Container'
 import { useAppDispatch,useAppSelector } from '../Redux/store'
 import { getFetchCoins } from '../Redux/reduxSlice'
 import axios from "axios"
-import { CoinsType } from '../TYPES_1'
+import { CoinsType } from '../Types/coins_types'
 import './app.scss'
 // -------------------------------------------
 import SearchCoins from '../components/SearchCoins/SearchCoins'

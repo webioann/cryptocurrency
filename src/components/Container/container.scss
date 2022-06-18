@@ -8,7 +8,7 @@
         position: relative;
         overflow: hidden;
         padding: 0 1rem;
-        // border: 1px solid red;
+        border: 1px solid red;
     }
 }
 .light{
@@ -16,6 +16,6 @@
     color: $text-dark;
 }
 .dark{
-    background-color: #3c3f47;
+    background-color: $bg-dark;
     color: $text-light;
 }

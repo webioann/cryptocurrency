@@ -4,7 +4,7 @@ import { Sparklines, SparklinesLine } from 'react-sparklines'
 import axios from "axios"
 import { UnitCoinType } from '../../Types/unit_coin_types'
 import { GoArrowDown,GoArrowUp } from 'react-icons/go';
-
+import DOMPurify from 'dompurify'
 import './coin-page.scss'
 
 const CoinPage:React.FC = () => {
@@ -26,10 +26,12 @@ const CoinPage:React.FC = () => {
 
                 <div className='info'>
                     <div className='coin-info'>
+                        {/* ----- PRICE AND LOGO -------------- */}
                         <div className='main'>
                             <div className='logo'>
                                 <img src={coin.image?.small} alt='/'/>
                             </div>
+
                             <div className='name'>
                                 <div className='header'>
                                     <h1>{coin.name}</h1>
@@ -39,6 +41,7 @@ const CoinPage:React.FC = () => {
                                     Rank {coin.market_cap_rank}
                                 </div>
                             </div>
+
                             <div className='price'>
                                 <h2 className='top'>Price</h2>
                                 {coin.market_data?.current_price ? (
@@ -46,6 +49,8 @@ const CoinPage:React.FC = () => {
                                 ) : null}
                             </div>
                         </div>
+
+                        {/* ---- SPARK_LINE ---------- */}
                         <div className='spark-line'>
                             <div className='absolut'>
                                 <span className='title'>dynamics for 7 days</span>
@@ -58,7 +63,57 @@ const CoinPage:React.FC = () => {
                                 <SparklinesLine color="#5388cd" /> 
                             </Sparklines>
                         </div>
-                        <div className='general'>
+                        {/* ---- MARKET CAP and VOLUME ----- */}
+                        <div className='cap-volume'>
+                            <div className='cell cap'>
+                                <p className='l-cell'>Market cap</p>
+                                <p className='r-cell'>$ {coin.market_data?.market_cap.usd}</p>
+                            </div>
+                            <div className='cell volume'>
+                                <p className='l-cell'>Volume</p>
+                                <p className='r-cell'>$ {coin.market_data?.total_volume.usd}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    {/* ---- MARKET STATS ------ */}
+                    <div className='market-info'>
+                        <h2 className='stats-title'>Market stats</h2>
+                        <section className='stats-table'>
+                            <div className='cell'>
+                                <p className='l-cell'>Price change 24h</p>
+                                <p className='r-cell'>{coin.market_data?.price_change_percentage_24h.toFixed(2)}%</p>
+                            </div>
+                            <div className='cell'>
+                                <p className='l-cell'>Price change 30 day</p>
+                                <p className='r-cell'>{coin.market_data?.price_change_percentage_30d.toFixed(2)}%</p>
+                            </div>
+
+                            <div className='cell'>
+                                <p className='l-cell'>Price change 7 day</p>
+                                <p className='r-cell'>{coin.market_data?.price_change_percentage_7d.toFixed(2)}%</p>
+                            </div>
+                            <div className='cell'>
+                                <p className='l-cell'>Price change 60 day</p>
+                                <p className='r-cell'>{coin.market_data?.price_change_percentage_60d.toFixed(2)}%</p>
+                            </div>
+
+                            <div className='cell'>
+                                <p className='l-cell'>Price change 14 day</p>
+                                <p className='r-cell'>{coin.market_data?.price_change_percentage_14d.toFixed(2)}%</p>
+                            </div>
+                            <div className='cell'>
+                                <p className='l-cell'>Price change 1 year</p>
+                                <p className='r-cell'>{coin.market_data?.price_change_percentage_1y.toFixed(2)}%</p>
+                            </div>
+                            <div className='cell'>
+                                <p className='l-cell'>24h high</p>
+                                <p className='r-cell'>$ {coin.market_data?.high_24h.usd}</p>
+                            </div>
+                            <div className='cell'>
+                                <p className='l-cell'>24h low</p>
+                                <p className='r-cell'>$ {coin.market_data?.low_24h.usd}</p>
+                            </div>
                             <div className='cell algor'>
                                 <p className='l-cell'>Hashing algorithm</p>
                                 <p className='r-cell'>{coin.hashing_algorithm}</p>
@@ -67,63 +122,13 @@ const CoinPage:React.FC = () => {
                                 <p className='l-cell'>Trust score</p>
                                 <p className='r-cell'>{coin.liquidity_score}</p>
                             </div>
-                            <div className='cell cap'>
-                                <p className='l-cell'>Market cap</p>
-                                <p className='r-cell'>$ {coin.market_data?.market_cap.usd}</p>
-                            </div>
-                            <div className='cell volume'>
-                                <p className='l-cell'>Trading volum</p>
-                                <p className='r-cell'>$ {coin.market_data?.total_volume.usd}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='market-info'>
-                        <h3 className='mk-title'>Market stats</h3>
-                        <div className='row-info'>
-                            <div className='cell-info-left'>
-                                <p className='l-cell'>Price change 24h</p>
-                                <p className='r-cell'>{coin.market_data?.price_change_percentage_24h.toFixed(2)}%</p>
-                            </div>
-                            <div className='cell-info-right'>
-                                <p className='l-cell'>Price change 30 day</p>
-                                <p className='r-cell'>{coin.market_data?.price_change_percentage_30d.toFixed(2)}%</p>
-                            </div>
-                        </div>
-                        <div className='row-info'>
-                            <div className='cell-info-left'>
-                                <p className='l-cell'>Price change 7 day</p>
-                                <p className='r-cell'>{coin.market_data?.price_change_percentage_7d.toFixed(2)}%</p>
-                            </div>
-                            <div className='cell-info-right'>
-                                <p className='l-cell'>Price change 60 day</p>
-                                <p className='r-cell'>{coin.market_data?.price_change_percentage_60d.toFixed(2)}%</p>
-                            </div>
-                        </div>
-                        <div className='row-info'>
-                            <div className='cell-info-left'>
-                                <p className='l-cell'>Price change 14 day</p>
-                                <p className='r-cell'>{coin.market_data?.price_change_percentage_14d.toFixed(2)}%</p>
-                            </div>
-                            <div className='cell-info-right'>
-                                <p className='l-cell'>Price change 1 year</p>
-                                <p className='r-cell'>{coin.market_data?.price_change_percentage_1y.toFixed(2)}%</p>
-                            </div>
-                        </div>
-                        <div className='row-info'>
-                            <div className='cell-info-left'>
-                                <p className='l-cell'>24h high</p>
-                                <p className='r-cell'>$ {coin.market_data?.high_24h.usd}</p>
-                            </div>
-                            <div className='cell-info-right'>
-                                <p className='l-cell'>24h low</p>
-                                <p className='r-cell'>$ {coin.market_data?.low_24h.usd}</p>
-                            </div>
-                        </div>
+                        </section>
                     </div>
                 </div>
-                
+                {/* ------ DISKRIPTION --------------- */}
                 <div className='discription'>
-                    {coin.description?.en}
+                    <h2>About {coin.name}</h2>
+                    <p dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(coin.description ? coin.description.en : ''),}} ></p>
                 </div>
             </div>
         </div>

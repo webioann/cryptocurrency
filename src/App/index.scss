@@ -18,9 +18,10 @@ $button-min-size: 90px;
 
 // ==== global classes =====
 .g-page-container{
-    min-width: 100%;
+    width: 100%;
     min-height: calc(100vh - 60px - 14px - 14px);
     padding-bottom: 1rem;
+    border: 1px solid green;
 }
 
 

@@ -34,6 +34,15 @@ type ticker = {
     market: object;
     target: string;
 }
+type url = {
+    url: Array<string>
+}
+type links = {
+    blockchain_site: string;
+    homepage: url;
+    official_forum_url: url;
+    subreddit_url: string;
+}
 export type UnitCoinType = {
     id: string;
     symbol: string;
@@ -45,4 +54,5 @@ export type UnitCoinType = {
     tickers: Array<ticker>;
     liquidity_score: number;
     description: enType;
+    link: links;
 }
