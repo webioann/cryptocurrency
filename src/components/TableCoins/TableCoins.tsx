@@ -44,7 +44,7 @@ const CoinsTable:React.FC = () => {
                         {/* <p className='hidden'>{coin.price_change_percentage_7d_in_currency}</p> */}
                     </td>
                     <td>
-                        <Link to="/coin/:coinId">
+                        <Link to={`/coin/${coin.id}`}>
                             <div className='coin-link'>
                                 <div className='img-wrapper'>
                                     <img src={coin.image} alt={coin.id}/>

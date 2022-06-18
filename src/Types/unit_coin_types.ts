@@ -38,10 +38,13 @@ type url = {
     url: Array<string>
 }
 type links = {
-    blockchain_site: string;
-    homepage: url;
-    official_forum_url: url;
+    blockchain_site: Array<string>;
+    homepage: Array<string>;
+    official_forum_url: Array<string>;
     subreddit_url: string;
+    facebook_username: string;
+    twitter_screen_name: string;
+    telegram_channel_identifier: string;
 }
 export type UnitCoinType = {
     id: string;
@@ -54,5 +57,5 @@ export type UnitCoinType = {
     tickers: Array<ticker>;
     liquidity_score: number;
     description: enType;
-    link: links;
+    links: links;
 }

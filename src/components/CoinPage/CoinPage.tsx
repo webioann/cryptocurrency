@@ -4,13 +4,19 @@ import { Sparklines, SparklinesLine } from 'react-sparklines'
 import axios from "axios"
 import { UnitCoinType } from '../../Types/unit_coin_types'
 import { GoArrowDown,GoArrowUp } from 'react-icons/go';
+
+import { FaTelegramPlane,FaTwitter,FaFacebook } from 'react-icons/fa';
+import { AiFillRedditCircle } from 'react-icons/ai';
+
 import DOMPurify from 'dompurify'
 import './coin-page.scss'
+import { useParams } from 'react-router-dom'
 
 const CoinPage:React.FC = () => {
 
     const [coin,setUnitCoin] = useState<UnitCoinType>( {} as UnitCoinType )
-    const coin_url = "https://api.coingecko.com/api/v3/coins/bitcoin?localization=false&sparkline=true"
+    const params = useParams()
+    const coin_url = `https://api.coingecko.com/api/v3/coins/${params.coinId}?localization=false&sparkline=true`
     
     useEffect(() => {
         axios.get(coin_url)
@@ -34,8 +40,8 @@ const CoinPage:React.FC = () => {
 
                             <div className='name'>
                                 <div className='header'>
-                                    <h1>{coin.name}</h1>
-                                    <h2>({coin.symbol?.toUpperCase()})</h2>
+                                    <h2>{coin.name}</h2>
+                                    <h3>({coin.symbol?.toUpperCase()})</h3>
                                 </div>
                                 <div className='rank'>
                                     Rank {coin.market_cap_rank}
@@ -43,7 +49,7 @@ const CoinPage:React.FC = () => {
                             </div>
 
                             <div className='price'>
-                                <h2 className='top'>Price</h2>
+                                <h3 className='top'>Price</h3>
                                 {coin.market_data?.current_price ? (
                                 <h3 className='bold'>${coin.market_data.current_price.usd.toLocaleString()}</h3>
                                 ) : null}
@@ -51,7 +57,7 @@ const CoinPage:React.FC = () => {
                         </div>
 
                         {/* ---- SPARK_LINE ---------- */}
-                        <div className='spark-line'>
+                        <section className='spark-line'>
                             <div className='absolut'>
                                 <span className='title'>dynamics for 7 days</span>
                                 <div className='persent'>
@@ -62,10 +68,63 @@ const CoinPage:React.FC = () => {
                             <Sparklines data={coin.market_data?.sparkline_7d.price}>
                                 <SparklinesLine color="#5388cd" /> 
                             </Sparklines>
-                        </div>
-                        {/* ---- MARKET CAP and VOLUME ----- */}
-                        <div className='cap-volume'>
-                            <div className='cell cap'>
+                        </section>
+                        {/* ------ LINKS ON SOCIAL -------------- */} 
+                        <section className='social-links'>
+
+                            {/* ------- home page ------ */}
+                            <div className='link home-page'>
+                                <div className='coin-icon'>
+                                    <img src={coin.image?.thumb} alt="coin image"></img>
+                                </div>
+                                <a href={coin.links?.homepage[0]} target="blank">home page</a>
+                            </div>
+                            {/* ------ facebook -------------------- */}
+                            { coin.links?.facebook_username ? (
+                                <div className='link reddit'>
+                                    <FaFacebook className='link-icon'/>
+                                    <a href={`https://facebook.com/${coin.links?.facebook_username}/`} target="blank">
+                                        facebook
+                                    </a>
+                                </div>
+                            ) : null }
+                            {/* ------ reddit ---------------- */}
+                            { coin.links?.subreddit_url ? (
+                                <div className='link reddit'>
+                                    <AiFillRedditCircle className='link-icon'/>
+                                    <a href={coin.links?.subreddit_url} target="blank">
+                                        reddit
+                                    </a>
+                                </div>
+                            ) : null }
+
+                            {/* ------ telegram ----------- */}
+                            { coin.links?.telegram_channel_identifier ? (
+                                <div className='link reddit'>
+                                    <FaTelegramPlane className='link-icon'/>
+                                    <a href={`https://t.me/${coin.links?.telegram_channel_identifier}`} target="blank">
+                                        telegram
+                                    </a>
+                                </div>
+                            ) : null }
+                            {/* ---------- twitter ----------- */}
+                            { coin.links?.twitter_screen_name ? (
+                                <div className='link reddit'>
+                                    <FaTwitter className='link-icon'/>
+                                    <a href={`https://twitter.com/${coin.links?.twitter_screen_name}`} target="blank">
+                                        twitter
+                                    </a>
+                                </div>
+                            ) : null }
+
+                        </section>
+
+                    </div>
+                    {/* ---- MARKET STATS ------ */}
+                    <section className='market-info'>
+                        <h2 className='stats-title'>Market stats</h2>
+                        <section className='stats-table'>
+                        <div className='cell cap'>
                                 <p className='l-cell'>Market cap</p>
                                 <p className='r-cell'>$ {coin.market_data?.market_cap.usd}</p>
                             </div>
@@ -73,13 +132,6 @@ const CoinPage:React.FC = () => {
                                 <p className='l-cell'>Volume</p>
                                 <p className='r-cell'>$ {coin.market_data?.total_volume.usd}</p>
                             </div>
-                        </div>
-
-                    </div>
-                    {/* ---- MARKET STATS ------ */}
-                    <div className='market-info'>
-                        <h2 className='stats-title'>Market stats</h2>
-                        <section className='stats-table'>
                             <div className='cell'>
                                 <p className='l-cell'>Price change 24h</p>
                                 <p className='r-cell'>{coin.market_data?.price_change_percentage_24h.toFixed(2)}%</p>
@@ -88,7 +140,6 @@ const CoinPage:React.FC = () => {
                                 <p className='l-cell'>Price change 30 day</p>
                                 <p className='r-cell'>{coin.market_data?.price_change_percentage_30d.toFixed(2)}%</p>
                             </div>
-
                             <div className='cell'>
                                 <p className='l-cell'>Price change 7 day</p>
                                 <p className='r-cell'>{coin.market_data?.price_change_percentage_7d.toFixed(2)}%</p>
@@ -97,7 +148,6 @@ const CoinPage:React.FC = () => {
                                 <p className='l-cell'>Price change 60 day</p>
                                 <p className='r-cell'>{coin.market_data?.price_change_percentage_60d.toFixed(2)}%</p>
                             </div>
-
                             <div className='cell'>
                                 <p className='l-cell'>Price change 14 day</p>
                                 <p className='r-cell'>{coin.market_data?.price_change_percentage_14d.toFixed(2)}%</p>
@@ -123,7 +173,7 @@ const CoinPage:React.FC = () => {
                                 <p className='r-cell'>{coin.liquidity_score}</p>
                             </div>
                         </section>
-                    </div>
+                    </section>
                 </div>
                 {/* ------ DISKRIPTION --------------- */}
                 <div className='discription'>

@@ -22,14 +22,15 @@
                 padding: 1rem;
                 display: flex;
                 flex-direction: column;
-
+                justify-content: space-between;
+                border: 1px solid red;
                 // ----- PRICE AND LOGO --------------
                 .main{
                     display: flex;
-                    flex: 1 1 auto;
+                    // flex: 1 1 auto;
                     .logo{
-                        width: 50px;
-                        height: 50px;
+                        width: 40px;
+                        height: 40px;
                         border-radius: 50%;
                         overflow: hidden;
                         margin-right: 20px;
@@ -67,7 +68,7 @@
                         flex-direction: column;
                         // justify-content: space-evenly;
                         .top{
-                            // text-align: right;
+                            text-align: right;
                             padding-bottom: 10px;
                         }
                         .bold{
@@ -96,14 +97,41 @@
                         }
                     }
                 }
-                .cap-volume{
-                    display: grid;
-                    grid-template-columns: 1fr;
-                    gap: 1rem;
-                }
-                @media (min-width: 576px) {
-                    .cap-volume{
-                        grid-template-columns: 1fr 1fr;
+                // ---- SOCIAL LINKS -------
+                .social-links{
+                    display: flex;
+                    .link{
+                        min-width: 100px;
+                        min-height: 30px;
+                        border-radius: 5px;
+                        // background-color: $spark-line;
+                        background-color: #eee;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 5px 10px;
+                        margin-right: 10px;
+                        .link-icon{
+                            margin-right: 5px;
+                            color: $text-dark;
+                            font-size: 20px;
+                        }
+                        a{
+                            font-weight: 700;
+                        }
+                        .coin-icon{
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 50%;
+                            overflow: hidden;
+                            margin-right: 5px;
+                            img{
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        }
+    
                     }
                 }
 
