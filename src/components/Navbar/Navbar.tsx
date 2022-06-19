@@ -11,14 +11,16 @@ const Navbar:React.FC = () => {
     const [active,setActive] = useState<boolean>(false)
 
     return (
-        <nav className={`navbar ${theme}`}>
+        <nav className={`navbar ${theme}-nav`}>
             <div className='logo-wrapper'>
-                <Link to="/" className={`logo ${theme}`}>Cryptocurrency</Link>
+                <Link to="/" className='logo'>
+                    Cryptocurrency
+                </Link>
             </div>
             <div className={active ? 'menu active' : 'menu'}>
-                <Link to="/singin" className={`link ${theme}`}>Sing In</Link>
-                <Link to="/singup" className={`link ${theme}`}>Sing Up</Link>
-                <Link to="/account" className={`link ${theme}`}>Account</Link>
+                <Link to="/singin" className={`link ${theme}-nl`}>Sing In</Link>
+                <Link to="/singup" className={`link ${theme}-nl`}>Sing Up</Link>
+                <Link to="/account" className={`link ${theme}-nl`}>Account</Link>
                 <ThemeToggle/>
             </div>
             <div  onClick={() => setActive(!active)}>

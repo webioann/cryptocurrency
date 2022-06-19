@@ -12,11 +12,11 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-gap: 1.5rem;
+        padding: 1rem 0;
         .trend-coin{
             display: flex;
             padding: 1rem;
             border-radius: 0.5rem;
-            box-shadow: $box-shadow;
 
             .logo{
                 width: 50px;
@@ -58,7 +58,10 @@
                 }
             }
         }
-        .dark{
+        .light-trend{
+            box-shadow: $box-shadow-lt;
+        }
+        .dark-trend{
             color: $text-light;
             background-color: $bg-block-dark;
         }

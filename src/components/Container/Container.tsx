@@ -8,7 +8,7 @@ const Container:React.FC<PropsChildrenType> = ({ children }) => {
     const color_theme = useAppSelector(state => state.redux.theme_mode)
 
     return (
-        <div className={`container-fluid ${color_theme}`}>
+        <div className={`container-fluid ${color_theme}-mode`}>
             <div className='container'>
                 { children }
             </div> 

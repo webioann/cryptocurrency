@@ -17,6 +17,7 @@ const CoinPage:React.FC = () => {
     const [coin,setUnitCoin] = useState<UnitCoinType>( {} as UnitCoinType )
     const params = useParams()
     const coin_url = `https://api.coingecko.com/api/v3/coins/${params.coinId}?localization=false&sparkline=true`
+    const theme = useAppSelector(state => state.redux.theme_mode)
     
     useEffect(() => {
         axios.get(coin_url)
@@ -58,6 +59,7 @@ const CoinPage:React.FC = () => {
 
                         {/* ---- SPARK_LINE ---------- */}
                         <section className='spark-line'>
+
                             <div className='absolut'>
                                 <span className='title'>dynamics for 7 days</span>
                                 <div className='persent'>
@@ -65,6 +67,7 @@ const CoinPage:React.FC = () => {
                                     <span>{coin.market_data?.price_change_percentage_7d.toFixed(2)}%</span>
                                 </div>
                             </div>
+                            
                             <Sparklines data={coin.market_data?.sparkline_7d.price}>
                                 <SparklinesLine color="#5388cd" /> 
                             </Sparklines>
@@ -73,16 +76,18 @@ const CoinPage:React.FC = () => {
                         <section className='social-links'>
 
                             {/* ------- home page ------ */}
-                            <div className='link home-page'>
+                            <div className={`link ${theme}-lk`}>
                                 <div className='coin-icon'>
                                     <img src={coin.image?.thumb} alt="coin image"></img>
                                 </div>
-                                <a href={coin.links?.homepage[0]} target="blank">home page</a>
+                                <a href={coin.links?.homepage[0]} target="blank">
+                                    site
+                                </a>
                             </div>
                             {/* ------ facebook -------------------- */}
                             { coin.links?.facebook_username ? (
-                                <div className='link reddit'>
-                                    <FaFacebook className='link-icon'/>
+                                <div className={`link ${theme}-lk`}>
+                                    <FaFacebook className='link-icon' color='#5388cd'/>
                                     <a href={`https://facebook.com/${coin.links?.facebook_username}/`} target="blank">
                                         facebook
                                     </a>
@@ -90,8 +95,8 @@ const CoinPage:React.FC = () => {
                             ) : null }
                             {/* ------ reddit ---------------- */}
                             { coin.links?.subreddit_url ? (
-                                <div className='link reddit'>
-                                    <AiFillRedditCircle className='link-icon'/>
+                                <div className={`link ${theme}-lk`}>
+                                    <AiFillRedditCircle className='link-icon' color='#5388cd'/>
                                     <a href={coin.links?.subreddit_url} target="blank">
                                         reddit
                                     </a>
@@ -100,8 +105,8 @@ const CoinPage:React.FC = () => {
 
                             {/* ------ telegram ----------- */}
                             { coin.links?.telegram_channel_identifier ? (
-                                <div className='link reddit'>
-                                    <FaTelegramPlane className='link-icon'/>
+                                <div className={`link ${theme}-lk`}>
+                                    <FaTelegramPlane className='link-icon' color='#5388cd'/>
                                     <a href={`https://t.me/${coin.links?.telegram_channel_identifier}`} target="blank">
                                         telegram
                                     </a>
@@ -109,8 +114,8 @@ const CoinPage:React.FC = () => {
                             ) : null }
                             {/* ---------- twitter ----------- */}
                             { coin.links?.twitter_screen_name ? (
-                                <div className='link reddit'>
-                                    <FaTwitter className='link-icon'/>
+                                <div className={`link ${theme}-lk`}>
+                                    <FaTwitter className='link-icon' color='#5388cd'/>
                                     <a href={`https://twitter.com/${coin.links?.twitter_screen_name}`} target="blank">
                                         twitter
                                     </a>
@@ -176,7 +181,7 @@ const CoinPage:React.FC = () => {
                     </section>
                 </div>
                 {/* ------ DISKRIPTION --------------- */}
-                <div className='discription'>
+                <div className={`discription-${theme}`}>
                     <h2>About {coin.name}</h2>
                     <p dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(coin.description ? coin.description.en : ''),}} ></p>
                 </div>

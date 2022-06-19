@@ -2,20 +2,21 @@
 
 .container-fluid{
     min-width: 100%;
+    min-height: 100vh;
     .container{
         max-width: 1200px;
         margin: 0 auto;
         position: relative;
         overflow: hidden;
         padding: 0 1rem;
-        border: 1px solid red;
     }
 }
-.light{
+
+.light-mode{
     background-color: $bg-light;
     color: $text-dark;
 }
-.dark{
+.dark-mode{
     background-color: $bg-dark;
     color: $text-light;
 }

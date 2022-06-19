@@ -9,24 +9,16 @@
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: $box-shadow;
     margin: 1rem 0;
     .logo-wrapper{
         display: flex;
         align-items: center;
         flex: 1 1 auto;
         .logo{
-            color: $text-dark;
+            color: inherit;
             font-size: 1.5rem;
             font-weight: 600;
             padding: 0.5rem 1rem;
-            background-color: inherit;
-        }
-        .light{
-            color: $text-dark;
-        }
-        .dark{
-            color: $text-light;
         }
     }
     .menu{
@@ -42,7 +34,7 @@
         flex-direction: column;
         align-items: center;
         padding: 0 0 1rem 0;
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(10px);
         .link{
             width: $button-max-size;
             margin-top: 1rem;
@@ -50,26 +42,27 @@
             align-items: center;
             padding: 0.5rem 1rem;
             border-radius: 0.5rem;
-            color: $text-dark;
-            box-shadow: $box-shadow;
         }
-        .light{
-            box-shadow: $box-shadow;
+        .light-nl{
+            box-shadow: $box-shadow-lt;
         }
-        .dark{
-            color: $text-light;
+        .dark-nl{
             background-color: $bg-block-dark;
+
         }
     }
     .active{
         left: 0;
     }
-    .dark{
-        box-shadow: none;
-        color: $text-light;
-    }
-    
 }
+.light-nav{
+    box-shadow: $box-shadow-lt;
+}
+.dark-nav{
+    background-color: $bg-dark;
+    color: $text-light;
+}
+
 @media (min-width: 640px) {
     .navbar{
         flex-direction: row;

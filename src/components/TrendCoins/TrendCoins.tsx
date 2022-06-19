@@ -20,10 +20,10 @@ const TrendCoins:React.FC = () => {
 
     return (
         <div className='trending'>
-            <h1>Trending Coins</h1>
+            <h2>Trending Coins</h2>
             <div className='trending-wrapper'>
                 {trend_coins.map( coin => (
-                <div key={coin.item.coin_id} className={`trend-coin ${theme}`}>
+                <div key={coin.item.coin_id} className={`trend-coin ${theme}-trend`}>
 
                     <div className='logo'>
                         <img src={coin.item.small} alt={coin.item.name}/>

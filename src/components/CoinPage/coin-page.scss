@@ -18,12 +18,12 @@
         .info{
             display: grid;
             grid-template-columns: 1fr;
+            gap: 1rem;
+            padding: 1rem 0;
             .coin-info{
-                padding: 1rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                border: 1px solid red;
                 // ----- PRICE AND LOGO --------------
                 .main{
                     display: flex;
@@ -48,19 +48,24 @@
                         .header{
                             display: flex;
                             align-items: center;
-                            h1{
-                                margin-right: 10px;
+                            h2{
+                                margin-right: 5px;
                             }
                         }
                         .rank{
-                            background-color: #5388cd;
+                            // background-color: #5388cd;
                             max-width: 80px;
-                            height: 24px;
-                            border-radius: 5px;
+                            // height: 24px;
+                            // border-radius: 5px;
                             display: flex;
                             justify-content: center;
                             align-items: center;
                             font-weight: 700;
+                            padding: 5px;
+                            border-radius: 5px;
+                            backdrop-filter: blur(10px);
+                            border: 1px solid $text-blue;
+    
                         }
                     }
                     .price{
@@ -87,6 +92,10 @@
                         font-weight: 500;
                         display: flex;
                         flex-direction: column;
+                        padding: 5px;
+                        border-radius: 5px;
+                        backdrop-filter: blur(10px);
+                        border: 1px solid $text-blue;
                         .persent{
                             display: flex;
                             align-items: center;
@@ -100,20 +109,23 @@
                 // ---- SOCIAL LINKS -------
                 .social-links{
                     display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    // padding 5px need because spark-line have padding 5px
+                    padding: 0 0 0 5px ;
                     .link{
                         min-width: 100px;
                         min-height: 30px;
                         border-radius: 5px;
-                        // background-color: $spark-line;
-                        background-color: #eee;
                         display: flex;
                         justify-content: center;
                         align-items: center;
                         padding: 5px 10px;
-                        margin-right: 10px;
+                        margin-right: 0.5rem;
+                        margin-top: 0.5rem;
                         .link-icon{
                             margin-right: 5px;
-                            color: $text-dark;
+                            color: $text-blue;
                             font-size: 20px;
                         }
                         a{
@@ -131,7 +143,15 @@
                                 object-fit: cover;
                             }
                         }
-    
+                    }
+                    .light-lk{
+                        box-shadow: $box-shadow-lt;
+                    }
+                    .dark-lk{
+                        background-color: $bg-block-dark;
+                        .link-icon{
+                            color: $text-light;
+                        }
                     }
                 }
 
@@ -140,7 +160,6 @@
             .market-info{
                 display: flex;
                 flex-direction: column;
-                padding: 1rem;
                 font-weight: 500;
                 .stats-title{
                     margin-bottom: 1rem;
@@ -172,15 +191,31 @@
             
         }
         // -----DISCRIPTION ------------
-        .discription{
+        .discription-light{
             padding: 1rem;
+            border-radius: 0.5rem;
             h2{
                 margin-bottom: 1rem;
             }
             p{
                 line-height: 1.5;
+
             }
         }
+        .discription-dark{
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background-color: $bg-block-dark;
+            h2{
+                margin-bottom: 1rem;
+            }
+            p{
+                line-height: 1.5;
+
+            }
+        }
+
+
         @media (min-width: 768px) {
             .info{
                 grid-template-columns: 1.2fr 1fr;

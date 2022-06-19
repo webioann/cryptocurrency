@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: column;
     padding: 1rem 0;
-    color: $text-dark;
     margin-bottom: 1rem;
     h2{
         display: flex;
@@ -12,21 +11,27 @@
         margin-bottom: 1rem;
     }
     .form{
-        input{
-            // font-size: 1.2rem ;
-            box-shadow: $box-shadow;
+        color: inherit;
+        .input-light{
             border-radius: 0.5rem;
             padding: 0.5rem 1rem;
+            box-shadow: $box-shadow-lt;
         }
-        .dark{
+        .input-dark{
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
             color: $text-light;
             background-color: $bg-block-dark;
         }
     }
 }
-.dark{
+.light-search{
+    color: $text-dark;
+
+}
+.dark-search{
     color: $text-light;
-    background-color: $bg-block-dark;
+    background-color: $bg-dark;
 }
 @media (min-width: 450px) {
     .coin-search{
