@@ -4,10 +4,8 @@ import { Sparklines, SparklinesLine } from 'react-sparklines'
 import axios from "axios"
 import { UnitCoinType } from '../Types/unit_coin_types'
 import { GoArrowDown,GoArrowUp } from 'react-icons/go';
-
 import { FaTelegramPlane,FaTwitter,FaFacebook } from 'react-icons/fa';
 import { AiFillRedditCircle } from 'react-icons/ai';
-
 import DOMPurify from 'dompurify'
 import { useParams } from 'react-router-dom'
 import '../CSS/coin-page.scss'

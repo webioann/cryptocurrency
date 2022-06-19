@@ -1,5 +1,4 @@
 //====== VARIABLES ======
-// $text-light: #ffffff;
 $text-carrot: #f85904;
 $text-blue: #5388cd;
 
@@ -26,8 +25,6 @@ $button-min-size: 90px;
 .g-page-container{
     width: 100%;
     min-height: calc(100vh - 74px);
-    padding-bottom: 1rem;
-    // border: 1px solid green;
 }
 // -------------------------------
 // === hidde table on min 425px ==

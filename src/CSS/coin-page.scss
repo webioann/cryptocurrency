@@ -27,7 +27,6 @@
                 // ----- PRICE AND LOGO --------------
                 .main{
                     display: flex;
-                    // flex: 1 1 auto;
                     .logo{
                         width: 40px;
                         height: 40px;
@@ -43,7 +42,6 @@
                     .name{
                         display: flex;
                         flex-direction: column;
-                        // justify-content: space-evenly;
                         flex: 1 1 auto;
                         .header{
                             display: flex;
@@ -53,24 +51,20 @@
                             }
                         }
                         .rank{
-                            // background-color: #5388cd;
                             max-width: 80px;
-                            // height: 24px;
-                            // border-radius: 5px;
                             display: flex;
                             justify-content: center;
                             align-items: center;
                             font-weight: 700;
                             padding: 5px;
                             border-radius: 5px;
-                            // backdrop-filter: blur(10px);
                             border: 1px solid $text-blue;
                         }
                     }
                     .price{
                         display: flex;
                         flex-direction: column;
-                        // justify-content: space-evenly;
+                        padding-right: 10px;
                         .top{
                             text-align: right;
                             padding-bottom: 10px;
@@ -192,6 +186,7 @@
         // -----DISCRIPTION ------------
         .discription-light{
             padding: 1rem;
+            margin-top: 1rem;
             border-radius: 0.5rem;
             h2{
                 margin-bottom: 1rem;
@@ -203,6 +198,7 @@
         }
         .discription-dark{
             padding: 1rem;
+            margin-top: 1rem;
             border-radius: 0.5rem;
             background-color: $bg-block-dark;
             h2{
