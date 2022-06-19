@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { AiFillLock, AiOutlineMail,AiFillUnlock } from 'react-icons/ai'
+import { HiOutlineMail } from 'react-icons/hi'
 import { GoEye,GoEyeClosed } from 'react-icons/go'
 import '../CSS/sing-up.scss'
 
@@ -26,7 +26,7 @@ const SingUp = () => {
                         <label>Email</label>
                         <div className='email-input'>
                             <input type='email' placeholder='email'/>
-                            <AiOutlineMail className='input-icon'/>
+                            <HiOutlineMail className='input-icon'/>
                         </div>
                     </div>
                     <div className='password-box'>
