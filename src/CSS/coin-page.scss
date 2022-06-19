@@ -1,0 +1,230 @@
+@import './index.scss';
+
+.cell{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    .l-cell{
+        display: flex;
+        flex: 1 1 auto;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+}
+
+.g-page-container{
+    .unit-coin{
+        display: grid;
+        .info{
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            padding: 1rem 0;
+            .coin-info{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                // ----- PRICE AND LOGO --------------
+                .main{
+                    display: flex;
+                    // flex: 1 1 auto;
+                    .logo{
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        margin-right: 20px;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    .name{
+                        display: flex;
+                        flex-direction: column;
+                        // justify-content: space-evenly;
+                        flex: 1 1 auto;
+                        .header{
+                            display: flex;
+                            align-items: center;
+                            h2{
+                                margin-right: 5px;
+                            }
+                        }
+                        .rank{
+                            // background-color: #5388cd;
+                            max-width: 80px;
+                            // height: 24px;
+                            // border-radius: 5px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-weight: 700;
+                            padding: 5px;
+                            border-radius: 5px;
+                            // backdrop-filter: blur(10px);
+                            border: 1px solid $text-blue;
+                        }
+                    }
+                    .price{
+                        display: flex;
+                        flex-direction: column;
+                        // justify-content: space-evenly;
+                        .top{
+                            text-align: right;
+                            padding-bottom: 10px;
+                        }
+                        .bold{
+                            font-weight: 600;
+                        }
+                    }
+                }
+                // ---- SPRK_LINE -------------
+                .spark-line{
+                    position: relative;
+                    .absolut{
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        font-size: 1.1rem;
+                        font-weight: 500;
+                        display: flex;
+                        flex-direction: column;
+                        padding: 5px;
+                        border-radius: 5px;
+                        backdrop-filter: blur(10px);
+                        border: 1px solid $text-blue;
+                        .persent{
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-end;
+                            span{
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                }
+                // ---- SOCIAL LINKS -------
+                .social-links{
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    // padding 5px need because spark-line have padding 5px
+                    padding: 0 0 0 5px ;
+                    .link{
+                        min-width: 100px;
+                        min-height: 30px;
+                        border-radius: 5px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 5px 10px;
+                        margin-right: 0.5rem;
+                        margin-top: 0.5rem;
+                        .link-icon{
+                            margin-right: 5px;
+                            color: $text-blue;
+                            font-size: 20px;
+                        }
+                        a{
+                            font-weight: 700;
+                        }
+                        .coin-icon{
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 50%;
+                            overflow: hidden;
+                            margin-right: 5px;
+                            img{
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        }
+                    }
+                    .light-lk{
+                        box-shadow: $box-shadow-lt;
+                    }
+                    .dark-lk{
+                        background-color: $bg-block-dark;
+                        .link-icon{
+                            color: $text-light;
+                        }
+                    }
+                }
+
+            }
+            // ----- MARKET STATS ---------------
+            .market-info{
+                display: flex;
+                flex-direction: column;
+                font-weight: 500;
+                .stats-title{
+                    margin-bottom: 1rem;
+                    display: flex;
+                    flex: 1 1 auto;
+                }
+                .stats-table{
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 0.5rem 1rem;
+                }
+                @media (min-width: 575px) and (max-width:767.9999px ) {
+                    .stats-table{
+                        grid-template-columns: 1fr 1fr;
+                    }
+                }
+                @media (min-width: 768px) and (max-width:1023.9999px) {
+                    .stats-table{
+                        grid-template-columns: 1fr;
+                    }
+                }
+                @media (min-width: 1024px) {
+                    .stats-table{
+                        grid-template-columns: 1fr 1fr;
+                    }
+                }
+        
+            }
+            
+        }
+        // -----DISCRIPTION ------------
+        .discription-light{
+            padding: 1rem;
+            border-radius: 0.5rem;
+            h2{
+                margin-bottom: 1rem;
+            }
+            p{
+                line-height: 1.5;
+
+            }
+        }
+        .discription-dark{
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background-color: $bg-block-dark;
+            h2{
+                margin-bottom: 1rem;
+            }
+            p{
+                line-height: 1.5;
+
+            }
+        }
+
+
+        @media (min-width: 768px) {
+            .info{
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+        @media (min-width: 1024px) {
+            .info{
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+    }
+}
