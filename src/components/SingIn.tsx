@@ -1,10 +1,23 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import { Link } from 'react-router-dom'
-import { AiFillLock, AiOutlineMail } from 'react-icons/ai'
+import { AiFillLock, AiOutlineMail,AiFillUnlock } from 'react-icons/ai'
+
+import { GoEye,GoEyeClosed } from 'react-icons/go'
 import '../CSS/sing-in.scss'
 
 const SingIn:React.FC = () => {
     
+    const [lock,setLock] = useState<string>('password')
+
+    const showPassword = () => {
+        if( lock === 'password' ) {
+            setLock('text')
+        }
+        else{
+            setLock('password')
+        }
+    }
+
     return (
         <div className='g-page-container'>
             <div className='sing-in-wrapper'>
@@ -20,11 +33,14 @@ const SingIn:React.FC = () => {
                     <div className='password-box'>
                         <label>Password</label>
                         <div className='password-input'>
-                            <input type='password' placeholder='password'/>
-                            <AiFillLock className='input-icon'/>
+                            <input type={lock} placeholder='password'/>
+                            {lock === 'text' 
+                                ? <GoEye className='input-icon' onClick={showPassword}/> 
+                                : <GoEyeClosed className='input-icon' onClick={showPassword}/>
+                            }
                         </div>
                     </div>
-                    <button className='btn'>Sing in</button>
+                    <button className='btn'>Sing In</button>
                 </form>
                 <div className='question'>
                     <p className='q-text'>Don't have an account ?</p>
