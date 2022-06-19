@@ -18,7 +18,7 @@ const CoinsTable:React.FC = () => {
                 <tr className='tab-head-row'>
                     <th className='star g-tab-hidden-640'></th>
                     <th className='rank g-tab-hidden-640'>#</th>
-                    <th>Coin</th>
+                    <th className='coin'>Coin</th>
                     <th className='g-tab-hidden-756'></th>
                     <th>Price</th>
                     <th>24h</th>

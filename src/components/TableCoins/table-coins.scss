@@ -6,8 +6,11 @@
     .tab-head{
         .tab-head-row{
             th{
-                padding: 1rem 0 0.5rem 0;
+                padding: 1rem 0 0.5rem 1rem;
                 text-align: left;
+            }
+            .coin{
+                padding-left: 1rem;
             }
         }
     }
@@ -33,7 +36,6 @@
                         }
                     }
                     .coin-name{
-                        // display: none;
                         font-weight: 500;
                     }
                 }
@@ -43,15 +45,11 @@
                 .wrapper{
                     display: flex;
                     align-items: center;
-                    // .arrow{
-                    //     margin-right: 0.3rem;
-                    // }
                     .percent{
                         margin-left: 5px;
                     }
                 }
             }
-
         }
         .light-tab-row:nth-child(odd){
             background-color: $bg-active-light;
