@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useAppSelector } from '../Redux/store'
 import { HiOutlineMail } from 'react-icons/hi'
 import { GoEye,GoEyeClosed } from 'react-icons/go'
 import '../CSS/sing-up.scss'
 
 const SingUp = () => {
 
+    const theme = useAppSelector(state => state.redux.theme_mode)
     const [lock,setLock] = useState<string>('password')
 
     const showPassword = () => {
@@ -19,19 +21,19 @@ const SingUp = () => {
     
     return (
         <div className='g-page-container'>
-            <div className='sing-in-wrapper'>
+            <div className={`sing-up-wrapper ${theme}-sing-up`}>
                 <h1 className='header'>Sing Up</h1>
                 <form>
                     <div className='email-box'>
                         <label>Email</label>
-                        <div className='email-input'>
+                        <div className='email-input-box'>
                             <input type='email' placeholder='email'/>
                             <HiOutlineMail className='input-icon'/>
                         </div>
                     </div>
                     <div className='password-box'>
                         <label>Password</label>
-                        <div className='password-input'>
+                        <div className='password-input-box'>
                             <input type={lock} placeholder='password'/>
                             {lock === 'text' 
                                 ? <GoEye className='input-icon' onClick={showPassword}/> 

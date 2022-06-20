@@ -18,7 +18,7 @@
                     padding-left: 10px;
                     font-weight: 600;
                 }
-                .email-input{
+                .email-input-box{
                     width: 100%;
                     margin-top: 10px;
                     display: flex;
@@ -31,6 +31,9 @@
                     position: relative;
                     input{
                         width: 100%;
+                        letter-spacing: 3px;
+                        background-color: inherit;
+
                     }
                     .input-icon{
                         position: absolute;
@@ -48,19 +51,18 @@
                     padding-left: 10px;
                     font-weight: 600;
                 }
-                .password-input{
+                .password-input-box{
                     width: 100%;
                     margin-top: 10px;
                     display: flex;
                     align-items: center;
                     padding: 0.5rem 1rem;
                     border-radius: 0.5rem;
-
-                    box-shadow: $box-shadow-lt;
-                    
                     position: relative;
                     input{
                         width: 100%;
+                        letter-spacing: 3px;
+                        background-color: inherit;
                     }
                     .input-icon{
                         position: absolute;
@@ -104,5 +106,23 @@
             }
         }
     }
+    .dark-sing-in{
+        color: $text-light;
+        .email-input-box{
+            background-color: $bg-block-dark;
+            input{
+                color: $text-light;
+            }
+        }
+        .password-input-box{
+            background-color: $bg-block-dark;
+            input{
+                color: $text-light;
+            }
+
+        }
+
+    }
+
 }
 
