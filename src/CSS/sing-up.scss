@@ -106,7 +106,24 @@
             }
         }
     }
-    .dark-sing-in{
+    // ===== light color mode =====
+    .light-sing-up{
+        color: $text-dark;
+        .email-input-box{
+            box-shadow: $box-shadow-lt;
+            input{
+                color: $text-dark;
+            }
+        }
+        .password-input-box{
+            box-shadow: $box-shadow-lt;
+            input{
+                color: $text-dark;
+            }
+        }
+    }
+        // ===== dark  color mode =====
+    .dark-sing-up{
         color: $text-light;
         .email-input-box{
             background-color: $bg-block-dark;
@@ -119,9 +136,7 @@
             input{
                 color: $text-light;
             }
-
         }
-
     }
 
 }

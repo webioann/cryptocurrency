@@ -24,8 +24,13 @@ $button-min-size: 90px;
 // ==== global classes =====
 .g-page-container{
     width: 100%;
-    min-height: calc(100vh - 74px);
+    // === 60px hight Navbar 2rem = (1rem + 1rem padding container)
+    min-height: calc(100vh - 60px - 2rem);
+    position: relative;
 }
+
+
+
 // -------------------------------
 // === hidde table on min 425px ==
 .g-tab-hidden-425{

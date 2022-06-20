@@ -2,6 +2,10 @@
 
 .g-page-container{
     .sing-in-wrapper{
+        // position: relative;
+        // z-index: 1000;
+
+
         width: 290px;
         margin: 0 auto;
         padding: 100px 1rem 2rem 1rem;
@@ -82,7 +86,6 @@
                 background-color: $text-blue;
                 color: $text-light;
                 position: relative;
-
             }
         }
         .question{
@@ -98,44 +101,65 @@
             }
         }
     }
+    // .down-bg-text{
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     right: 0;
+    //     bottom: 0;
+    //     width: 100%;
+    //     height: 50%;
+    //     background-color: blue;
+    //     z-index: 1;
+    //     display: flex;
+    //     justify-content: center;
+    //     .down-text{
+    //         display: flex;
+    //         flex-direction: column;
+    //         span{
+    //             font-size: 60px;
+    //             font-weight: 900;
+    //             opacity: 0.2;
+    //         }
+    //     }
+    // }
+
+    // ===== light color mode =====
     .light-sing-in{
         color: $text-dark;
+        // background-color: $bg-light;
         .email-input-box{
             box-shadow: $box-shadow-lt;
+            background-color: #fff;
+
             input{
                 color: $text-dark;
-
             }
         }
         .password-input-box{
             box-shadow: $box-shadow-lt;
             input{
                 color: $text-dark;
-
             }
-
         }
-
     }
+    // ===== dark color mode =====
     .dark-sing-in{
         color: $text-light;
+        // background-color: $bg-dark;
         .email-input-box{
             background-color: $bg-block-dark;
             input{
                 color: $text-light;
                 letter-spacing: 3px;
             }
-
         }
         .password-input-box{
             background-color: $bg-block-dark;
             input{
                 color: $text-light;
             }
-
         }
-
     }
-
 }
 

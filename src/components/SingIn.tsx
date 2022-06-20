@@ -21,6 +21,17 @@ const SingIn:React.FC = () => {
 
     return (
         <div className='g-page-container'>
+            {/* <div className='down-bg-text'>
+                <div className='down-text'>
+                    <span>S</span>
+                    <span>i</span>
+                    <span>n</span>
+                    <span>g</span>
+                    <span>&nbsp;</span>
+                    <span>I</span>
+                    <span>n</span>
+                </div>
+            </div> */}
             <div className={`sing-in-wrapper ${theme}-sing-in`}>
                 <h1 className='header'>Sing In</h1>
                 <form>
