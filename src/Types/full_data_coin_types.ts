@@ -46,7 +46,7 @@ type links = {
     twitter_screen_name: string;
     telegram_channel_identifier: string;
 }
-export type UnitCoinType = {
+export type FullDataCoinType = {
     id: string;
     symbol: string;
     name: string;

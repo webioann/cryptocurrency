@@ -2,7 +2,7 @@ import React,{ useState,useEffect } from 'react'
 import { useAppDispatch,useAppSelector } from '../Redux/store'
 import { Sparklines, SparklinesLine } from 'react-sparklines'
 import axios from "axios"
-import { UnitCoinType } from '../Types/unit_coin_types'
+import { FullDataCoinType } from '../Types/full_data_coin_types'
 import { GoArrowDown,GoArrowUp } from 'react-icons/go';
 import { FaTelegramPlane,FaTwitter,FaFacebook } from 'react-icons/fa';
 import { AiFillRedditCircle } from 'react-icons/ai';
@@ -12,7 +12,7 @@ import '../CSS/coin-page.scss'
 
 const CoinPage:React.FC = () => {
 
-    const [coin,setUnitCoin] = useState<UnitCoinType>( {} as UnitCoinType )
+    const [coin,setUnitCoin] = useState<FullDataCoinType>( {} as FullDataCoinType )
     const params = useParams()
     const coin_url = `https://api.coingecko.com/api/v3/coins/${params.coinId}?localization=false&sparkline=true`
     const theme = useAppSelector(state => state.redux.theme_mode)
