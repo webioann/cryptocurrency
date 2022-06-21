@@ -1,7 +1,7 @@
 @import './index.scss';
 
 .g-page-container{
-    .account{
+    .account-page{
         width: 100%;
         height: 100%;
         .account-header{
@@ -11,13 +11,34 @@
 
         }
         .watch-list{
+            border: 1px solid red;
             .saved-coins-list{
                 .empty-list{
 
                 }
                 // list-item ===>
                 .list-item{
-                    
+                    display: flex;
+                    flex-direction: column;
+                    .coin{
+                        display: flex;
+                        .logo{
+                            width: 60px;
+                            height: 60px;
+                            border-radius: 50%;
+                            overflow: hidden;
+                            margin-right: 20px;
+                            img{
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        }
+                        .name{
+
+                        }
+     
+                    }
                 }
             }
         }

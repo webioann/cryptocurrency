@@ -1,12 +1,12 @@
 import { createSlice,PayloadAction } from "@reduxjs/toolkit"
 import { CoinsType } from '../Types/coins_types'
-import { SavedCoinsType } from '../Types/saved_coins_types'
+import { savedCoin } from '../Types/saved_coins_types'
 
 type InitialStateType = {
     theme_mode: string;
     coins_data: CoinsType[];
     input_value: string;
-    temporary_data: SavedCoinsType[];
+    temporary_data: savedCoin[];
 }
 const storedTheme = localStorage.getItem('theme') || "light";
 

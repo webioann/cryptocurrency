@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { IoClose } from 'react-icons/io5'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
 
@@ -6,12 +6,11 @@ import '../CSS/account.scss'
 
 const Account = () => {
 
-    // const [savedCoins,setSavedCoins] = useState([])
     const savedCoins = useAppSelector(state => state.redux.temporary_data)
 
     return (
         <div className='g-page-container'>
-            <div className='accountpage'>
+            <div className='account-page'>
 
                 <h1 className='account-header'>Account</h1>
 
@@ -32,13 +31,13 @@ const Account = () => {
                         ) : (
                             <ul>
                                 {savedCoins.map(coin => (
-                                <li className='list-iten'>
-                                    <div>Rank #</div>
-                                    <div>
-                                        <div>
-                                            <img src='' alt='#'/>
+                                <li className='list-item' key={coin.id}>
+                                    <div>Rank # {coin.rank}</div>
+                                    <div className='coin'>
+                                        <div className='logo'>
+                                            <img src={coin.image} alt='#'/>
                                         </div>
-                                        <div>Bitcoin</div>
+                                        <div className='name'>Bitcoin</div>
                                         <div>(BTC)</div>
                                     </div>
                                     <div>Price</div>

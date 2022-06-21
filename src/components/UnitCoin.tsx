@@ -5,31 +5,40 @@ import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { AiFillStar,AiOutlineStar } from 'react-icons/ai'
 import { HiArrowNarrowUp,HiArrowNarrowDown } from 'react-icons/hi'
 import { CoinsType,UnitCoinType } from '../Types/coins_types'
-import { SavedCoinsType } from '../Types/saved_coins_types'
-
+// import { savedCoin } from '../Types/saved_coins_types'
 import { pushTemporaryData } from '../Redux/reduxSlice'
 import '../CSS/unit-coin.scss'
+
+type savedCoin = {
+    id: string;
+    name: string;
+    rank: number;
+    symbol: string;
+    image: string;
+    price: number;
+}
 
 const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
     const dispatch = useAppDispatch()
-
-
-    const [chooser,setChooser] = useState<boolean>(false)
-    // const [saved_coin,setSavedCoin] = useState<SavedCoinsType>( {} as SavedCoinsType )
     const push = useAppSelector(state => state.redux.temporary_data)
     console.log(`push ==> ${JSON.stringify(push)}`);
 
-    const createData = (obj:CoinsType) => {
 
+    const [chooser,setChooser] = useState<boolean>(false)
+    // const [saved_coin,setSavedCoin] = useState<savedCoin>( {} as savedCoin)
+
+
+
+    function createData (coin:CoinsType) {
         const raw = {
-            id: obj.id,
-            name: obj.name,
-            symbol: obj.symbol,
-            image: obj.image,
-            price: obj.current_price,
-            // spark_line: obj.sparkline_in_7d,
+            id: coin.id,
+            name: coin.name,
+            rank: coin.market_cap_rank,
+            symbol: coin.symbol,
+            image: coin.image,
+            price: coin.current_price,
         }
         dispatch(pushTemporaryData(raw))
         setChooser( !chooser )
@@ -91,3 +100,12 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
 }
 
 export default UnitCoin;
+
+
+    // const [saved_coin,setSavedCoin] = useState<savedCoin>( {
+    //     id: "bitcoin",
+    //     name: "Bitcoin",
+    //     symbol: "btc",
+    //     image: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+    //     price: 21386,
+    // })
