@@ -1,13 +1,15 @@
 import React, { useState,useEffect } from 'react'
 import { IoClose } from 'react-icons/io5'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
+import { removeSavedCoin } from '../Redux/reduxSlice'
 import { Link } from 'react-router-dom'
 
 import '../CSS/account.scss'
 
 const Account = () => {
 
-    const savedCoins = useAppSelector(state => state.redux.temporary_data)
+    const savedCoins = useAppSelector(state => state.redux.saved_coins)
+    const dispatch = useAppDispatch()
 
     return (
         <div className='g-page-container'>
@@ -46,7 +48,7 @@ const Account = () => {
                                     </div>
                                     <h3>${coin.price}</h3>
                                     <div>
-                                        <div>
+                                        <div className='remove' onClick={() => {dispatch(removeSavedCoin(coin.id))}}>
                                             <IoClose/>
                                             <p>Remove</p>
                                         </div>

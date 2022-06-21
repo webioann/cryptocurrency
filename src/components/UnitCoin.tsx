@@ -6,7 +6,7 @@ import { AiFillStar,AiOutlineStar } from 'react-icons/ai'
 import { HiArrowNarrowUp,HiArrowNarrowDown } from 'react-icons/hi'
 import { CoinsType,UnitCoinType } from '../Types/coins_types'
 // import { savedCoin } from '../Types/saved_coins_types'
-import { pushTemporaryData } from '../Redux/reduxSlice'
+import { pushSavedCoin } from '../Redux/reduxSlice'
 import '../CSS/unit-coin.scss'
 
 type savedCoin = {
@@ -21,34 +21,35 @@ type savedCoin = {
 const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
+    const saved_coins = useAppSelector(state => state.redux.saved_coins)
     const dispatch = useAppDispatch()
-    const push = useAppSelector(state => state.redux.temporary_data)
-    console.log(`push ==> ${JSON.stringify(push)}`);
+    const [coin_is_saved,setCoinIsSaved] = useState<boolean>(false)
 
-
-    const [chooser,setChooser] = useState<boolean>(false)
+    // const push = useAppSelector(state => state.redux.saved_coins)
+    // console.log(`push ==> ${JSON.stringify(push)}`);
     // const [saved_coin,setSavedCoin] = useState<savedCoin>( {} as savedCoin)
-
-
-
     function createData (coin:CoinsType) {
-        const raw = {
-            id: coin.id,
-            name: coin.name,
-            rank: coin.market_cap_rank,
-            symbol: coin.symbol,
-            image: coin.image,
-            price: coin.current_price,
+
+        let filteredArray = saved_coins.filter(item => item.id === coin.id)
+        if ( coin_is_saved === false) {
+            const raw = {
+                id: coin.id,
+                name: coin.name,
+                rank: coin.market_cap_rank,
+                symbol: coin.symbol,
+                image: coin.image,
+                price: coin.current_price,
+            }
+            dispatch(pushSavedCoin(raw))
+            setCoinIsSaved(true)
         }
-        dispatch(pushTemporaryData(raw))
-        setChooser( !chooser )
     }
 
     return (
         <tr className={`tab-row ${theme}-tab-row`} >
 
             <td onClick={() => createData(coin)} className='star g-tab-hidden-640'>
-                { chooser ? <AiFillStar/> : <AiOutlineStar/> }
+                { coin_is_saved ? <AiFillStar/> : <AiOutlineStar/> }
             </td>
 
             <td className='rank g-tab-hidden-640'>{coin.market_cap_rank}</td>
