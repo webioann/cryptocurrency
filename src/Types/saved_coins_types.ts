@@ -3,7 +3,7 @@ type PriceType = {
     price: Array<number>
 }
 
-export interface CoinsType {
+type SavedCoin = {
     id: string;
     name: string;
     symbol: string;
@@ -16,12 +16,7 @@ export interface CoinsType {
     ath: number;
     low_24h: number;
     sparkline_in_7d: PriceType;
-    price_change_percentage_24h_in_currency: number;
-    price_change_percentage_7d_in_currency: number;
-    price_change_percentage_14d_in_currency: number;
-    price_change_percentage_30d_in_currency: number;
-    price_change_percentage_1y_in_currency: number;
 }
-export interface UnitCoinType {
-    coin: CoinsType
+export interface SavedCoinsType {
+    coin: SavedCoin
 }

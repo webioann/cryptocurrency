@@ -1,17 +1,22 @@
 import { createSlice,PayloadAction } from "@reduxjs/toolkit"
 import { CoinsType } from '../Types/coins_types'
+import { SavedCoinsType } from '../Types/saved_coins_types'
 
 type InitialStateType = {
     theme_mode: string;
     coins_data: CoinsType[];
     input_value: string;
+    temporary_data: SavedCoinsType[];
 }
 const storedTheme = localStorage.getItem('theme') || "light";
 
 const initialState:InitialStateType = {
     theme_mode: storedTheme,
     coins_data: [],
-    input_value: ""
+    input_value: "",
+    // == remove thise soon
+    temporary_data: [],
+
 }
 
 export const reduxSlice = createSlice({
@@ -21,7 +26,8 @@ export const reduxSlice = createSlice({
         installLightTheme: (state) => { state.theme_mode = 'light' },
         installDarkTheme: (state) => { state.theme_mode = 'dark' },
         getFetchCoins: (state,actions) => {state.coins_data = actions.payload},
-        putInputValue: (state,actions) => {state.input_value = actions.payload}
+        putInputValue: (state,actions) => {state.input_value = actions.payload},
+        pushTemporaryData: (state,actions) => {state.temporary_data.push(actions.payload)},
     },
 });
 
@@ -30,6 +36,8 @@ export const {
     installDarkTheme,
     getFetchCoins,
     putInputValue,
+    pushTemporaryData,
+    
 } = reduxSlice.actions;
 
 export default reduxSlice.reducer;

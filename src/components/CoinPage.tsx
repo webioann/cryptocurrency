@@ -24,6 +24,8 @@ const CoinPage:React.FC = () => {
             console.log(respons.data);
     })
     },[coin_url])
+    
+    console.log(coin);
 
     return (
         <div className='g-page-container'>
