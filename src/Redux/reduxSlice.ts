@@ -34,11 +34,9 @@ export const reduxSlice = createSlice({
         putInputValue: (state,actions) => {state.input_value = actions.payload},
         pushSavedCoin: (state,actions) => {state.saved_coins.push(actions.payload)},
         removeSavedCoin: (state,actions) => {
-            if ( state.saved_coins !== [] ) {
-                let filteredArrayCoins = state.saved_coins.filter(item => 
-                    item.id !== actions.payload)
-                    state.saved_coins = filteredArrayCoins
-            }
+            let filteredArrayCoins = state.saved_coins.filter(item => 
+                item.id !== actions.payload)
+                state.saved_coins = filteredArrayCoins
         },
     }
 });

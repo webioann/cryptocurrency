@@ -1,22 +1,12 @@
-import React,{ useState } from 'react'
+import React,{ useState,useEffect } from 'react'
 import { Sparklines, SparklinesLine } from 'react-sparklines'
 import { Link } from 'react-router-dom'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { AiFillStar,AiOutlineStar } from 'react-icons/ai'
 import { HiArrowNarrowUp,HiArrowNarrowDown } from 'react-icons/hi'
 import { CoinsType,UnitCoinType } from '../Types/coins_types'
-// import { savedCoin } from '../Types/saved_coins_types'
 import { pushSavedCoin } from '../Redux/reduxSlice'
 import '../CSS/unit-coin.scss'
-
-type savedCoin = {
-    id: string;
-    name: string;
-    rank: number;
-    symbol: string;
-    image: string;
-    price: number;
-}
 
 const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
 
@@ -25,15 +15,16 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
     const dispatch = useAppDispatch()
     const [coin_is_saved,setCoinIsSaved] = useState<boolean>(false)
 
-    // const push = useAppSelector(state => state.redux.saved_coins)
-    // console.log(`push ==> ${JSON.stringify(push)}`);
-    // const [saved_coin,setSavedCoin] = useState<savedCoin>( {} as savedCoin)
-    function createData (coin:CoinsType) {
+    useEffect(() => {
+        let coin_in_array = saved_coins.some(item => item.id === coin.id)
+        coin_in_array ? setCoinIsSaved(true) : setCoinIsSaved(false)
+    },[saved_coins])
 
-        let filteredArray = saved_coins.filter(item => item.id === coin.id)
-        if ( coin_is_saved === false) {
+    function toSaveCoin (coin:CoinsType) {
+        if ( !coin_is_saved ) {
             const raw = {
                 id: coin.id,
+                star_is_checked: true,
                 name: coin.name,
                 rank: coin.market_cap_rank,
                 symbol: coin.symbol,
@@ -48,7 +39,7 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
     return (
         <tr className={`tab-row ${theme}-tab-row`} >
 
-            <td onClick={() => createData(coin)} className='star g-tab-hidden-640'>
+            <td onClick={() => toSaveCoin(coin)} className='star g-tab-hidden-640'>
                 { coin_is_saved ? <AiFillStar/> : <AiOutlineStar/> }
             </td>
 
