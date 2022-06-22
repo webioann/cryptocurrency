@@ -1,15 +1,42 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { useAppSelector } from '../Redux/store'
+import { useAppSelector,useAppDispatch } from '../Redux/store'
+import { putNewUser } from '../Redux/reduxSlice'
+import { useNavigate } from 'react-router-dom'
 import { HiOutlineMail } from 'react-icons/hi'
 import { GoEye,GoEyeClosed } from 'react-icons/go'
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
 import '../CSS/sing-up.scss'
 
-const SingUp = () => {
+const SingUp:React.FC = () => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
     const [lock,setLock] = useState<string>('password')
+    const [email,setEmail] = useState<string>('')
+    const [password,setPassword] = useState<string>('')
+    const dispatch = useAppDispatch()
+    const navigate = useNavigate()
 
+    // const user_email = useAppSelector(state => state.redux.user_email)
+
+    // useEffect(() => {
+    //     console.log(user_email);
+    // },[user_email])
+
+
+    const createNewUser = (event: React.FormEvent) => {
+        event.preventDefault()
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, email, password)
+        .then(({user}) => {
+            console.log(`email => ${JSON.stringify(user)}`);
+            dispatch(putNewUser(user.email))
+            navigate("/account")
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }
     const showPassword = () => {
         if( lock === 'password' ) {
             setLock('text')
@@ -23,18 +50,26 @@ const SingUp = () => {
         <div className='g-page-container'>
             <div className={`sing-up-wrapper ${theme}-sing-up`}>
                 <h1 className='header'>Sing Up</h1>
-                <form>
+                <form onSubmit={createNewUser}>
                     <div className='email-box'>
                         <label>Email</label>
                         <div className='email-input-box'>
-                            <input type='email' placeholder='email'/>
+                            <input 
+                                type='email' 
+                                placeholder='email'
+                                value={email}
+                                onChange={event => setEmail(event.target.value)}/>
                             <HiOutlineMail className='input-icon'/>
                         </div>
                     </div>
                     <div className='password-box'>
                         <label>Password</label>
                         <div className='password-input-box'>
-                            <input type={lock} placeholder='password'/>
+                            <input 
+                                type={lock} 
+                                placeholder='password'
+                                value={password}
+                                onChange={event => setPassword(event.target.value)}/>
                             {lock === 'text' 
                                 ? <GoEye className='input-icon' onClick={showPassword}/> 
                                 : <GoEyeClosed className='input-icon' onClick={showPassword}/>

@@ -7,6 +7,7 @@ type InitialStateType = {
     coins_data: CoinsType[];
     input_value: string;
     saved_coins: savedCoin[];
+    user_email: string ;
 }
 const storedTheme = localStorage.getItem('theme') || "light";
 
@@ -22,6 +23,7 @@ const initialState:InitialStateType = {
     coins_data: [],
     input_value: "",
     saved_coins: storedSavedCoins,
+    user_email: '',
 }
 
 export const reduxSlice = createSlice({
@@ -38,6 +40,8 @@ export const reduxSlice = createSlice({
                 item.id !== actions.payload)
                 state.saved_coins = filteredArrayCoins
         },
+        putNewUser: (state,actions) => {state.user_email = actions.payload},
+        removeUser: (state) => {state.user_email = ''},
     }
 });
 
@@ -48,7 +52,8 @@ export const {
     putInputValue,
     pushSavedCoin,
     removeSavedCoin,
-    
+    putNewUser,
+
 } = reduxSlice.actions;
 
 export default reduxSlice.reducer;

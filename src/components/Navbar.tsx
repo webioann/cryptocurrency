@@ -9,7 +9,6 @@ const Navbar:React.FC = () => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
     const [active,setActive] = useState<boolean>(false)
-    console.log(process.env.SECRET_NAME);
 
     return (
         <nav className={`navbar ${theme}-nav`}>
@@ -21,7 +20,7 @@ const Navbar:React.FC = () => {
             <div className={active ? 'menu active' : 'menu'}>
                 <Link to="/singin" className={`link ${theme}-nl`}>Sing In</Link>
                 <Link to="/singup" className={`link ${theme}-nl`}>Sing Up</Link>
-                <Link to="/account" className={`link ${theme}-nl`}>{process.env.SECRET_NAME}</Link>
+                <Link to="/account" className={`link ${theme}-nl`}>Account</Link>
                 <ThemeToggle/>
             </div>
             <div  onClick={() => setActive(!active)}>
