@@ -4,48 +4,70 @@
     .account-page{
         max-width: 640px;
         margin: 0 auto;
-        border: 1px solid red;
-        padding: 100px 1rem 2rem 1rem;
+        padding: 100px 0 2rem 0;
         .account-header{
             font-weight: 600;
-            border: 1px solid blue;
         }
         .wellcome-sing-out{
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding: 1rem 0;
-            border: 1px solid green;
-        }
-        .watch-list{
-            border: 1px solid red;
-            padding: 1rem 0;
+            .sing-out{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0.5rem 1rem;
+                border-radius: 0.5rem;
+                font-weight: 600;
+                background-color: $text-blue;
+                color: $text-light;
+            }
+            @media (min-width: 500px) {
+                .sing-out{
+                    margin-right: 2rem;
+                }
+            }
 
+        }
+        // ==== list ===========
+        .watch-list{
+            padding: 1rem 0;
             .saved-coins-list{
                 .empty-list{
                     .link-text{
                         color: $text-blue;
                     }
-
                 }
                 // list-item ===>
                 .saved-coins-list{
-                    display: flex;
-                    flex-direction: column;
-
+                    display: grid;
                     .list-item{
-                        display: flex;
-                        justify-content: space-between;
+                        display: grid;
+                        grid-template-columns: 2fr 1fr 1fr;
                         align-items: center;
-                        border: 1px solid blue;
+                        margin-top: 1rem;
+                        border-radius: 0.5rem;
+                        padding: 0.5rem 1rem;
+                        .rank{
+                            display: none;
+                        }
+                        @media (min-width: 500px) {
+                            .rank{
+                                display: flex;
+                                // font-weight: 600;
+                            }
+                        }
+
                         .coin{
                             display: flex;
                             align-items: center;
                             .logo{
-                                width: 40px;
-                                height: 40px;
+                                width: 30px;
+                                height: 30px;
                                 border-radius: 50%;
                                 overflow: hidden;
-                                margin-right: 20px;
+                                margin-right: 0.5rem;
                                 img{
                                     width: 100%;
                                     height: 100%;
@@ -56,11 +78,79 @@
                                 font-weight: 600;
                                 margin-right: 0.5rem;
                             }
+                            .symbol{
+                                display: none;
+                            }
+                            @media (min-width: 500px) {
+                                .symbol{
+                                    display: flex;
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+                        .price{
+                            display: flex;
+                            justify-content: flex-end;
+                            align-items: center;
+                            padding-right: 5px;
+                        }
+                        .remove{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            .remove-btn{
+                                display: flex;
+                                align-items: center;
+                                border-radius: 5px;
+                                padding: 5px 10px;
+                                cursor: pointer;
+                                .icon{
+                                    display: none;
+                                    margin-right: 5px;
+                                    font-size: 1.3rem;
+                                }
+                                @media (min-width: 350px) {
+                                    .icon{
+                                        display: flex;
+                                    }
+                                }
+                                }
+                        }
+
+                    }
+                    @media (min-width: 500px) {
+                        .list-item{
+                            grid-template-columns: 0.7fr 3fr 1fr 1.3fr;
                         }
                     }
-    
+
                 }
             }
         }
     }
+    .light-account{
+        color: $text-dark;
+        background-color: $bg-light;
+        .list-item{
+            box-shadow: $box-shadow-lt;
+            .remove{
+                .remove-btn{
+                    box-shadow: $box-shadow-lt;
+                }
+            }
+        }
+    }
+    .dark-account{
+        color: $text-light;
+        background-color: $bg-dark;
+        .list-item{
+            background-color: $bg-block-dark;
+            .remove{
+                .remove-btn{
+                    background-color: $bg-dark;
+                }
+            }
+        }
+    }
+
 }

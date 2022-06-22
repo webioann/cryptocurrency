@@ -24,7 +24,6 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
         if ( !coin_is_saved ) {
             const raw = {
                 id: coin.id,
-                star_is_checked: true,
                 name: coin.name,
                 rank: coin.market_cap_rank,
                 symbol: coin.symbol,

@@ -9,25 +9,23 @@ import '../CSS/account.scss'
 const Account = () => {
 
     const savedCoins = useAppSelector(state => state.redux.saved_coins)
+    const theme = useAppSelector(state => state.redux.theme_mode)
     const dispatch = useAppDispatch()
 
     return (
         <div className='g-page-container'>
-            <div className='account-page'>
-
+            <div className={`account-page ${theme}-account`}>
                 <h1 className='account-header'>Account</h1>
 
                 <div className='wellcome-sing-out'>
                     <div className='wellcome'>
                         <h3>Wellcome USER_NAME</h3>
                     </div>
-                    <div className='sing-out'>
-                        <button>Sing Out</button>
-                    </div>
+                    <button className='sing-out'>Sing Out</button>
                 </div>
 
                 <div className='watch-list'>
-                    <h3 className='list-header'>Watch list</h3>
+                    <h2 className='list-header'>Watch list</h2>
                     <div className='saved-coins-list'>
                         {savedCoins.length === 0 ? (
                             <div className='empty-list'>
@@ -38,19 +36,19 @@ const Account = () => {
                             <ul className='saved-coins-list'>
                                 {savedCoins.map(coin => (
                                 <li className='list-item' key={coin.id}>
-                                    <div>Rank # {coin.rank}</div>
+                                    <h3 className='rank'># {coin.rank}</h3>
                                     <div className='coin'>
                                         <div className='logo'>
                                             <img src={coin.image} alt='#'/>
                                         </div>
-                                        <h2 className='name'>Bitcoin</h2>
-                                        <div>(BTC)</div>
+                                        <h3 className='name'>{coin.name}</h3>
+                                        <div className='symbol'>({coin.symbol.toUpperCase()})</div>
                                     </div>
-                                    <h3>${coin.price}</h3>
-                                    <div>
-                                        <div className='remove' onClick={() => {dispatch(removeSavedCoin(coin.id))}}>
-                                            <IoClose/>
-                                            <p>Remove</p>
+                                    <h3 className='price'>${coin.price}</h3>
+                                    <div className='remove' onClick={() => {dispatch(removeSavedCoin(coin.id))}}>
+                                        <div className='remove-btn'>
+                                            <IoClose className='icon'/>
+                                            <h3 className='btn-text'>Remove</h3>
                                         </div>
                                     </div>
                                 </li>
