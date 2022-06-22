@@ -4,6 +4,7 @@ import App from './components/App'
 import store from "./Redux/store"
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
+import './firebase'
 
 ReactDOM.render(
     <Provider store={store}>
