@@ -30,7 +30,7 @@ const Account = () => {
                         {savedCoins.length === 0 ? (
                             <div className='empty-list'>
                                 <p className='text'>You don't have any coins saved. Please save a coin to add it to your watch list.</p>
-                                <Link to='/'  className='link-text'>Click here to search coins.</Link>
+                                <Link to='/' className='link-text'>Click here to search coins.</Link>
                             </div>
                         ) : (
                             <ul className='saved-coins-list'>

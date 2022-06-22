@@ -23,18 +23,16 @@
                 background-color: $text-blue;
                 color: $text-light;
             }
-            @media (min-width: 500px) {
-                .sing-out{
-                    margin-right: 2rem;
-                }
-            }
-
         }
         // ==== list ===========
         .watch-list{
             padding: 1rem 0;
             .saved-coins-list{
                 .empty-list{
+                    margin-top: 1rem;
+                    p{
+                        margin-bottom: 0.5rem;
+                    }
                     .link-text{
                         color: $text-blue;
                     }
