@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { putNewUser } from '../Redux/reduxSlice'
@@ -17,19 +17,12 @@ const SingUp:React.FC = () => {
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
 
-    // const user_email = useAppSelector(state => state.redux.user_email)
 
-    // useEffect(() => {
-    //     console.log(user_email);
-    // },[user_email])
-
-
-    const createNewUser = (event: React.FormEvent) => {
+    const Sing_Up = (event: React.FormEvent) => {
         event.preventDefault()
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
         .then(({user}) => {
-            console.log(`email => ${JSON.stringify(user)}`);
             dispatch(putNewUser(user.email))
             navigate("/account")
         })
@@ -37,6 +30,7 @@ const SingUp:React.FC = () => {
             console.log(error);
         });
     }
+
     const showPassword = () => {
         if( lock === 'password' ) {
             setLock('text')
@@ -50,7 +44,7 @@ const SingUp:React.FC = () => {
         <div className='g-page-container'>
             <div className={`sing-up-wrapper ${theme}-sing-up`}>
                 <h1 className='header'>Sing Up</h1>
-                <form onSubmit={createNewUser}>
+                <form onSubmit={Sing_Up}>
                     <div className='email-box'>
                         <label>Email</label>
                         <div className='email-input-box'>

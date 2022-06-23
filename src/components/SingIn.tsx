@@ -17,7 +17,7 @@ const SingIn:React.FC = () => {
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
 
-    const loginOldUser = (event: React.FormEvent) => {
+    const Sing_In = (event: React.FormEvent) => {
         event.preventDefault()
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
@@ -44,7 +44,7 @@ const SingIn:React.FC = () => {
         <div className='g-page-container'>
             <div className={`sing-in-wrapper ${theme}-sing-in`}>
                 <h1 className='header'>Sing In</h1>
-                <form onSubmit={loginOldUser}>
+                <form onSubmit={Sing_In}>
                     <div className='email-box'>
                         <label>Email</label>
                         <div className='email-input-box'>
