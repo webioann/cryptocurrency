@@ -23,7 +23,7 @@ const SingIn:React.FC = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then(({user}) => {
             dispatch(putNewUser(user.email))
-            navigate('/')
+            navigate('/account')
         })
         .catch((error) => {
             console.log(error);

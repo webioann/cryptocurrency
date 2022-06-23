@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router-dom'
 import { HiOutlineMail } from 'react-icons/hi'
 import { GoEye,GoEyeClosed } from 'react-icons/go'
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
+// import { doc, setDoc } from 'firebase/firestore'
+// import { db} from '../firebase'
+
 import '../CSS/sing-up.scss'
 
 const SingUp:React.FC = () => {
@@ -28,7 +31,7 @@ const SingUp:React.FC = () => {
         })
         .catch((error) => {
             console.log(error);
-        });
+        })
     }
 
     const showPassword = () => {

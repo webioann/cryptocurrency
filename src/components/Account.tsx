@@ -2,8 +2,8 @@ import React, { useState,useEffect } from 'react'
 import { IoClose } from 'react-icons/io5'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { removeSavedCoin } from '../Redux/reduxSlice'
-import { Link } from 'react-router-dom'
-
+import { Link,useNavigate } from 'react-router-dom'
+import { getAuth, signOut, onAuthStateChanged } from "firebase/auth"
 import '../CSS/account.scss'
 
 const Account = () => {
@@ -11,6 +11,25 @@ const Account = () => {
     const savedCoins = useAppSelector(state => state.redux.saved_coins)
     const theme = useAppSelector(state => state.redux.theme_mode)
     const dispatch = useAppDispatch()
+    const navigate = useNavigate()
+    const auth = getAuth()
+    const [user, setUser] = useState<string | null>(null);
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            if ( currentUser ) {
+                setUser(currentUser?.email);
+            }
+            else { navigate("/")}
+        })
+        return () => {
+            unsubscribe();
+        }
+    },[])
+
+    const Sing_Out = () => {
+        signOut(auth);
+    }
 
     return (
         <div className='g-page-container'>
@@ -19,9 +38,13 @@ const Account = () => {
 
                 <div className='wellcome-sing-out'>
                     <div className='wellcome'>
-                        <h3>Wellcome USER_NAME</h3>
+                        <h3 className='wellcome-user'>Wellcome
+                            <span className='user-name'>{user}</span>
+                        </h3>
+
                     </div>
-                    <button className='sing-out'>Sing Out</button>
+                    <button onClick={Sing_Out}
+                        className='sing-out'>Sing Out</button>
                 </div>
 
                 <div className='watch-list'>
