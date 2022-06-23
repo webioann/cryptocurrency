@@ -4,6 +4,8 @@ import axios from "axios"
 import { TrendingType } from '../Types/trending-types'
 import '../CSS/trend-coins.scss'
 
+import Test from './test'
+
 const TrendCoins:React.FC = () => {
 
     const [trend_coins,setTrendCoins] = useState<TrendingType[]>([])
@@ -20,7 +22,9 @@ const TrendCoins:React.FC = () => {
 
     return (
         <div className='trending'>
-            <h2>Trending Coins</h2>
+            <h2>Trending Coins
+                <Test/>
+            </h2>
             <div className='trending-wrapper'>
                 {trend_coins.map( coin => (
                 <div key={coin.item.coin_id} className={`trend-coin ${theme}-trend`}>
