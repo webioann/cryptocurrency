@@ -11,27 +11,27 @@ type InitialStateType = {
 }
 const storedTheme = localStorage.getItem('theme') || "light";
 
-// ==== put stored data in saved_coins
-// const getCoin: string | null  = localStorage.getItem("savedCoins");
-// let storedSavedCoins;
-// if ( typeof getCoin === 'string' ) {
-//     storedSavedCoins = JSON.parse(getCoin) || []
-// }
+//==== put stored data in saved_coins
+const getCoin: string | null  = localStorage.getItem("savedCoins");
+let storedSavedCoins;
+if ( typeof getCoin === 'string' ) {
+    storedSavedCoins = JSON.parse(getCoin) || []
+}
 
-// // ==== put user in user
-// const getUser: string | null  = localStorage.getItem("user");
-// let storedUser;
-// if ( typeof getUser === 'string' ) {
-//     storedUser = JSON.parse(getUser)
-// }
-// else {storedUser = null}
+// ==== put user in user
+const getUser: string | null  = localStorage.getItem("user");
+let storedUser;
+if ( typeof getUser === 'string' ) {
+    storedUser = JSON.parse(getUser)
+}
+else {storedUser = null}
 
 const initialState:InitialStateType = {
     theme_mode: storedTheme,
     coins_data: [],
     input_value: "",
-    saved_coins: [],
-    user: null,
+    saved_coins: storedSavedCoins,
+    user: storedUser,
 }
 
 export const reduxSlice = createSlice({
