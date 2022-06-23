@@ -1,7 +1,7 @@
 import React,{ useState,useEffect } from 'react'
 import { Routes, Route, Link } from "react-router-dom"
 import Navbar from './Navbar'
-import CoinPage from './CoinPage'
+import CoinFullInfo from './CoinFullInfo'
 import HomePage from './HomePage'
 import Account from './Account'
 import SingIn from './SingIn'
@@ -44,6 +44,13 @@ const  App:React.FC = () => {
     window.localStorage.setItem("savedCoins", JSON.stringify(saved_coins))
   },[saved_coins])
 
+    // ===== save current user in Localstorage (.getItem work in Redux) ====
+    const user = useAppSelector(state => state.redux.user)
+    useEffect(() => {
+      window.localStorage.setItem("user", JSON.stringify(user))
+    },[user])
+  
+
   return (
     <Container>
       <Navbar/>
@@ -55,7 +62,7 @@ const  App:React.FC = () => {
               <TrendCoins/>
           </HomePage>
         }/>
-        <Route path="/coin/:coinId" element={<CoinPage/>}>
+        <Route path="/coin/:coinId" element={<CoinFullInfo/>}>
           <Route path=':coinId'/>
         </Route>
         <Route path="/account" element={<Account/>}/>

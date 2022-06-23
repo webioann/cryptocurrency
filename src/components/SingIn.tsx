@@ -1,7 +1,7 @@
 import React,{ useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
-import { putNewUser } from '../Redux/reduxSlice'
+import { putUser } from '../Redux/reduxSlice'
 import { useNavigate } from 'react-router-dom'
 import { HiOutlineMail } from 'react-icons/hi'
 import { GoEye,GoEyeClosed } from 'react-icons/go'
@@ -22,22 +22,16 @@ const SingIn:React.FC = () => {
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
         .then(({user}) => {
-            dispatch(putNewUser(user.email))
-            navigate('/account')
+            dispatch(putUser(user.email))
+            navigate('/')
         })
         .catch((error) => {
             console.log(error);
         });    
     }
     
-
     const showPassword = () => {
-        if( lock === 'password' ) {
-            setLock('text')
-        }
-        else{
-            setLock('password')
-        }
+        lock === 'password' ? setLock('text') : setLock('password')
     }
 
     return (

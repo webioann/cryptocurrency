@@ -7,23 +7,31 @@ type InitialStateType = {
     coins_data: CoinsType[];
     input_value: string;
     saved_coins: savedCoin[];
-    user_email: string ;
+    user: string | null;
 }
 const storedTheme = localStorage.getItem('theme') || "light";
 
 // ==== put stored data in saved_coins
-const get: string | null  = localStorage.getItem("savedCoins");
-let storedSavedCoins;
-if ( typeof get === 'string' ) {
-    storedSavedCoins = JSON.parse(get) || []
-}
+// const getCoin: string | null  = localStorage.getItem("savedCoins");
+// let storedSavedCoins;
+// if ( typeof getCoin === 'string' ) {
+//     storedSavedCoins = JSON.parse(getCoin) || []
+// }
+
+// // ==== put user in user
+// const getUser: string | null  = localStorage.getItem("user");
+// let storedUser;
+// if ( typeof getUser === 'string' ) {
+//     storedUser = JSON.parse(getUser)
+// }
+// else {storedUser = null}
 
 const initialState:InitialStateType = {
     theme_mode: storedTheme,
     coins_data: [],
     input_value: "",
-    saved_coins: storedSavedCoins,
-    user_email: '',
+    saved_coins: [],
+    user: null,
 }
 
 export const reduxSlice = createSlice({
@@ -40,8 +48,8 @@ export const reduxSlice = createSlice({
                 item.id !== actions.payload)
                 state.saved_coins = filteredArrayCoins
         },
-        putNewUser: (state,actions) => {state.user_email = actions.payload},
-        removeUser: (state) => {state.user_email = ''},
+        putUser: (state,actions) => {state.user = actions.payload},
+        removeUser: (state) => {state.user = null},
     }
 });
 
@@ -52,7 +60,8 @@ export const {
     putInputValue,
     pushSavedCoin,
     removeSavedCoin,
-    putNewUser,
+    putUser,
+    removeUser
 
 } = reduxSlice.actions;
 

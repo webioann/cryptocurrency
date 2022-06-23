@@ -12,6 +12,7 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
     const saved_coins = useAppSelector(state => state.redux.saved_coins)
+    const user = useAppSelector(state => state.redux.user)
     const dispatch = useAppDispatch()
     const [coin_is_saved,setCoinIsSaved] = useState<boolean>(false)
 
@@ -37,11 +38,15 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
 
     return (
         <tr className={`tab-row ${theme}-tab-row`} >
-
-            <td onClick={() => toSaveCoin(coin)} className='star g-tab-hidden-640'>
+            { user ? (
+            <td onClick={() => toSaveCoin(coin)} className='star g-tab-hidden-640'> 
                 { coin_is_saved ? <AiFillStar/> : <AiOutlineStar/> }
             </td>
-
+            ) : (
+                <td className='star g-tab-hidden-640'>
+                <AiOutlineStar/> 
+            </td>
+            ) }
             <td className='rank g-tab-hidden-640'>{coin.market_cap_rank}</td>
 
             <td>

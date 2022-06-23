@@ -1,14 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
-import { putNewUser } from '../Redux/reduxSlice'
+import { putUser } from '../Redux/reduxSlice'
 import { useNavigate } from 'react-router-dom'
 import { HiOutlineMail } from 'react-icons/hi'
 import { GoEye,GoEyeClosed } from 'react-icons/go'
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
-// import { doc, setDoc } from 'firebase/firestore'
-// import { db} from '../firebase'
-
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth"
 import '../CSS/sing-up.scss'
 
 const SingUp:React.FC = () => {
@@ -19,14 +16,13 @@ const SingUp:React.FC = () => {
     const [password,setPassword] = useState<string>('')
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
-
+    const auth = getAuth()
 
     const Sing_Up = (event: React.FormEvent) => {
         event.preventDefault()
-        const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
         .then(({user}) => {
-            dispatch(putNewUser(user.email))
+            dispatch(putUser(user.email))
             navigate("/account")
         })
         .catch((error) => {
@@ -35,12 +31,7 @@ const SingUp:React.FC = () => {
     }
 
     const showPassword = () => {
-        if( lock === 'password' ) {
-            setLock('text')
-        }
-        else{
-            setLock('password')
-        }
+        lock === 'password' ? setLock('text') : setLock('password')
     }
     
     return (
@@ -84,3 +75,16 @@ const SingUp:React.FC = () => {
     )
 }
 export default SingUp;
+
+    // useEffect(() => {
+    //     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    //         if ( currentUser ) {
+    //             dispatch(removeUser())
+    //             dispatch(putUser(currentUser?.email))
+    //             navigate("/account")
+    //         }
+    //     })
+    //     return () => {
+    //         unsubscribe();
+    //     }
+    // },[])

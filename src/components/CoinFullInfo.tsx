@@ -10,7 +10,7 @@ import DOMPurify from 'dompurify'
 import { useParams } from 'react-router-dom'
 import '../CSS/coin-page.scss'
 
-const CoinPage:React.FC = () => {
+const CoinFullInfo:React.FC = () => {
 
     const [coin,setUnitCoin] = useState<FullDataCoinType>( {} as FullDataCoinType )
     const params = useParams()
@@ -190,4 +190,4 @@ const CoinPage:React.FC = () => {
     )
 }
 
-export default CoinPage;
+export default CoinFullInfo;
