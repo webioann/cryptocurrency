@@ -15,7 +15,7 @@ const Account = () => {
     const navigate = useNavigate()
     const auth = getAuth()
 
-    const Sing_Out = () => {
+    const User_Sign_Out = () => {
         signOut(auth).then(() => {
             dispatch(removeUser())
             navigate("/")
@@ -29,15 +29,15 @@ const Account = () => {
                 <div className={`account-page ${theme}-account`}>
                     <h1 className='account-header'>Account</h1>
     
-                    <div className='wellcome-sing-out'>
+                    <div className='wellcome-sign-out'>
                         <div className='wellcome'>
                             <h3 className='wellcome-user'>Wellcome
                                 <span className='user-name'>{user}</span>
                             </h3>
     
                         </div>
-                        <button onClick={Sing_Out}
-                            className='sing-out'>Sing Out</button>
+                        <button onClick={User_Sign_Out}
+                            className='sign-out'>Sing Out</button>
                     </div>
     
                     <div className='watch-list'>

@@ -1,21 +1,25 @@
 import React,{useState,useEffect} from 'react'
-import axios from "axios"
+import { db } from '../Firebase/firebase-config'
+import { getDocs, collection, doc } from 'firebase/firestore'
 
 function Test() {
 
-    const [data,setData] = useState('')
-    const url = "https://cryptocurrency-cea64-default-rtdb.europe-west1.firebasedatabase.app/"
+    const [savedCoins,setSavedCoins] = useState([])
+    const coinCollectionRef = collection( db,"saved_coins" )
     
     useEffect(() => {
-        axios.get(url)
-        .then( respons => {
-            setData(respons.data)
-            console.log(respons.data);
-    })
-    },[url])
-
+        const getSavedCoins = async () => {
+            const data = await getDocs(coinCollectionRef)
+            // setSavedCoins(data.docs.map({...doc.data()}))
+            setSavedCoins(data.docs.map({...doc.data()}))
+        }
+        getSavedCoins()
+    },[])
+    console.log(`sc ===> ${savedCoins[0].id}`)
     return (
-        <div>test {data}</div>
+        <div>test {savedCoins.map(coin =>
+            (<span>{coin.id}</span>)
+        )}</div>
     )
 }
 

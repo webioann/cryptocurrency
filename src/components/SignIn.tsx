@@ -1,44 +1,44 @@
-import React, { useState,useEffect } from 'react'
+import React,{ useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { putUser } from '../Redux/reduxSlice'
 import { useNavigate } from 'react-router-dom'
 import { HiOutlineMail } from 'react-icons/hi'
 import { GoEye,GoEyeClosed } from 'react-icons/go'
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth"
-import '../CSS/sing-up.scss'
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import '../CSS/sign-in.scss'
 
-const SingUp:React.FC = () => {
-
+const SignIn:React.FC = () => {
+    
     const theme = useAppSelector(state => state.redux.theme_mode)
     const [lock,setLock] = useState<string>('password')
     const [email,setEmail] = useState<string>('')
     const [password,setPassword] = useState<string>('')
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
-    const auth = getAuth()
 
-    const Sing_Up = (event: React.FormEvent) => {
+    const User_Sign_In = (event: React.FormEvent) => {
         event.preventDefault()
-        createUserWithEmailAndPassword(auth, email, password)
+        const auth = getAuth();
+        signInWithEmailAndPassword(auth, email, password)
         .then(({user}) => {
             dispatch(putUser(user.email))
-            navigate("/account")
+            navigate('/')
         })
         .catch((error) => {
             console.log(error);
-        })
+        });    
     }
-
+    
     const showPassword = () => {
         lock === 'password' ? setLock('text') : setLock('password')
     }
-    
+
     return (
         <div className='g-page-container'>
-            <div className={`sing-up-wrapper ${theme}-sing-up`}>
-                <h1 className='header'>Sing Up</h1>
-                <form onSubmit={Sing_Up}>
+            <div className={`sign-in-wrapper ${theme}-sign-in`}>
+                <h1 className='header'>Sing In</h1>
+                <form onSubmit={User_Sign_In}>
                     <div className='email-box'>
                         <label>Email</label>
                         <div className='email-input-box'>
@@ -64,27 +64,15 @@ const SingUp:React.FC = () => {
                             }
                         </div>
                     </div>
-                    <button className='btn'>Sing Up</button>
+                    <button className='btn'>Sing In</button>
                 </form>
                 <div className='question'>
-                    <p className='q-text'>Already have an account ?</p>
-                    <Link to='/singin' className='q-link'>Sing In</Link>
+                    <p className='q-text'>Don't have an account ?</p>
+                    <Link to='/signup' className='q-link'>Sing Up</Link>
                 </div>
             </div>
         </div>
     )
 }
-export default SingUp;
 
-    // useEffect(() => {
-    //     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-    //         if ( currentUser ) {
-    //             dispatch(removeUser())
-    //             dispatch(putUser(currentUser?.email))
-    //             navigate("/account")
-    //         }
-    //     })
-    //     return () => {
-    //         unsubscribe();
-    //     }
-    // },[])
+export default SignIn;

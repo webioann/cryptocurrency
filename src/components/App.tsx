@@ -4,8 +4,8 @@ import Navbar from './Navbar'
 import CoinFullInfo from './CoinFullInfo'
 import HomePage from './HomePage'
 import Account from './Account'
-import SingIn from './SingIn'
-import SingUp from './SingUp'
+import SignIn from './SignIn'
+import SignUp from './SignUp'
 import NotFounded from './NotFounded'
 import Container from './Container'
 // ==== Redux axios and ect ====
@@ -66,8 +66,8 @@ const  App:React.FC = () => {
           <Route path=':coinId'/>
         </Route>
         <Route path="/account" element={<Account/>}/>
-        <Route path="/singin" element={<SingIn/>}/>
-        <Route path="/singup" element={<SingUp/>}/>
+        <Route path="/signin" element={<SignIn/>}/>
+        <Route path="/signup" element={<SignUp/>}/>
         <Route path="*" element={<NotFounded/>}/>
       </Routes>
     </Container>

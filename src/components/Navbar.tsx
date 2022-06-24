@@ -31,8 +31,8 @@ const Navbar:React.FC = () => {
                     </Link>
                     ) : (
                     <>
-                        <Link to="/singin" className={`link ${theme}-nl`}>Sing In</Link>
-                        <Link to="/singup" className={`link ${theme}-nl`}>Sing Up</Link>
+                        <Link to="/signin" className={`link ${theme}-nl`}>Sing In</Link>
+                        <Link to="/signup" className={`link ${theme}-nl`}>Sing Up</Link>
                     </>
                 ) }
                 <ThemeToggle/>

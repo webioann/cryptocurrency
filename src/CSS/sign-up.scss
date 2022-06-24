@@ -1,7 +1,7 @@
 @import './index.scss';
 
 .g-page-container{
-    .sing-up-wrapper{
+    .sign-up-wrapper{
         color: $text-dark;
 
         width: 290px;
@@ -107,7 +107,7 @@
         }
     }
     // ===== light color mode =====
-    .light-sing-up{
+    .light-sign-up{
         color: $text-dark;
         .email-input-box{
             box-shadow: $box-shadow-lt;
@@ -123,7 +123,7 @@
         }
     }
         // ===== dark  color mode =====
-    .dark-sing-up{
+    .dark-sign-up{
         color: $text-light;
         .email-input-box{
             background-color: $bg-block-dark;

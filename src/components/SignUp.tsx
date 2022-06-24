@@ -1,44 +1,44 @@
-import React,{ useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { putUser } from '../Redux/reduxSlice'
 import { useNavigate } from 'react-router-dom'
 import { HiOutlineMail } from 'react-icons/hi'
 import { GoEye,GoEyeClosed } from 'react-icons/go'
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import '../CSS/sing-in.scss'
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth"
+import '../CSS/sign-up.scss'
 
-const SingIn:React.FC = () => {
-    
+const SignUp:React.FC = () => {
+
     const theme = useAppSelector(state => state.redux.theme_mode)
     const [lock,setLock] = useState<string>('password')
     const [email,setEmail] = useState<string>('')
     const [password,setPassword] = useState<string>('')
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
+    const auth = getAuth()
 
-    const Sing_In = (event: React.FormEvent) => {
+    const User_Sign_Up = (event: React.FormEvent) => {
         event.preventDefault()
-        const auth = getAuth();
-        signInWithEmailAndPassword(auth, email, password)
+        createUserWithEmailAndPassword(auth, email, password)
         .then(({user}) => {
             dispatch(putUser(user.email))
-            navigate('/')
+            navigate("/account")
         })
         .catch((error) => {
             console.log(error);
-        });    
+        })
     }
-    
+
     const showPassword = () => {
         lock === 'password' ? setLock('text') : setLock('password')
     }
-
+    
     return (
         <div className='g-page-container'>
-            <div className={`sing-in-wrapper ${theme}-sing-in`}>
-                <h1 className='header'>Sing In</h1>
-                <form onSubmit={Sing_In}>
+            <div className={`sign-up-wrapper ${theme}-sign-up`}>
+                <h1 className='header'>Sign Up</h1>
+                <form onSubmit={User_Sign_Up}>
                     <div className='email-box'>
                         <label>Email</label>
                         <div className='email-input-box'>
@@ -64,15 +64,15 @@ const SingIn:React.FC = () => {
                             }
                         </div>
                     </div>
-                    <button className='btn'>Sing In</button>
+                    <button className='btn'>Sign Up</button>
                 </form>
                 <div className='question'>
-                    <p className='q-text'>Don't have an account ?</p>
-                    <Link to='/singup' className='q-link'>Sing Up</Link>
+                    <p className='q-text'>Already have an account ?</p>
+                    <Link to='/signin' className='q-link'>Sign In</Link>
                 </div>
             </div>
         </div>
     )
 }
+export default SignUp;
 
-export default SingIn;

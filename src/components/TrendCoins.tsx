@@ -4,7 +4,7 @@ import axios from "axios"
 import { TrendingType } from '../Types/trending-types'
 import '../CSS/trend-coins.scss'
 
-import Test from './test'
+// import Test from './test'
 
 const TrendCoins:React.FC = () => {
 
@@ -23,7 +23,6 @@ const TrendCoins:React.FC = () => {
     return (
         <div className='trending'>
             <h2>Trending Coins
-                <Test/>
             </h2>
             <div className='trending-wrapper'>
                 {trend_coins.map( coin => (
