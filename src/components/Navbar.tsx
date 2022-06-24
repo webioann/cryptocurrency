@@ -46,7 +46,7 @@ const Navbar:React.FC = () => {
                             </div>
                             <span className='user-name'>{user}</span>
                         </Link>
-                        <div onClick={User_Sign_Out} className={`link ${theme}-sign-out`}>Sing Out</div>
+                        <button onClick={User_Sign_Out} className={`link ${theme}-sign-out`}>Sing Out</button>
                     </>
                     ) : (
                     <>
