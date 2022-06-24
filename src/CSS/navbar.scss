@@ -59,6 +59,17 @@
         .light-nl{
             box-shadow: $box-shadow-lt;
         }
+        .light-sign-out{
+            display: flex;
+            justify-content: center;
+            background-color: $text-blue;
+        }
+        .dark-sign-out{
+            display: flex;
+            justify-content: center;
+            background-color: $text-blue;
+        }
+
         .dark-nl{
             background-color: $bg-block-dark;
 
