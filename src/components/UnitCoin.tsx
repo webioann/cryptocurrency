@@ -5,11 +5,13 @@ import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { AiFillStar,AiOutlineStar } from 'react-icons/ai'
 import { HiArrowNarrowUp,HiArrowNarrowDown } from 'react-icons/hi'
 import { CoinsType,UnitCoinType } from '../Types/coins_types'
+import { savedCoin } from '../Types/saved_coins_types'
 import { pushSavedCoin } from '../Redux/reduxSlice'
 import '../CSS/unit-coin.scss'
 
 import { collection, addDoc } from "firebase/firestore"; 
 import { db } from "../Firebase/firebase-config"; 
+import { doc, setDoc, deleteDoc } from "firebase/firestore"; 
 
 const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
 
@@ -24,25 +26,40 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
         coin_in_array ? setCoinIsSaved(true) : setCoinIsSaved(false)
     },[saved_coins])
 
-    const  toSaveCoin  = (coin:CoinsType) => {
-        if ( !coin_is_saved ) {
-            const raw = {
+
+    // const  toSaveCoin  = (coin:CoinsType) => {
+    //     if ( !coin_is_saved ) {
+    //         const raw = {
+    //             id: coin.id,
+    //             name: coin.name,
+    //             rank: coin.market_cap_rank,
+    //             symbol: coin.symbol,
+    //             image: coin.image,
+    //             price: coin.current_price,
+    //         }
+    //         dispatch(pushSavedCoin(raw))
+    //         setCoinIsSaved(true)
+    //     }
+    // }
+
+    const  toSaveCoin  = async (coin:CoinsType) => {
+        
+        if( typeof user === "string" &&  !coin_is_saved ) {
+            await setDoc(doc(db, user, coin.id), { 
                 id: coin.id,
                 name: coin.name,
                 rank: coin.market_cap_rank,
                 symbol: coin.symbol,
                 image: coin.image,
                 price: coin.current_price,
-            }
-            dispatch(pushSavedCoin(raw))
-            setCoinIsSaved(true)
+            });
         }
     }
 
     return (
         <tr className={`tab-row ${theme}-tab-row`} >
             { user ? (
-            <td onClick={() => toSaveCoin(coin)} className='star g-tab-hidden-640'> 
+            <td onClick={() => {toSaveCoin(coin)}} className='star g-tab-hidden-640'> 
                 { coin_is_saved ? <AiFillStar/> : <AiOutlineStar/> }
             </td>
             ) : (

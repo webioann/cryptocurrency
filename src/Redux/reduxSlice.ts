@@ -12,12 +12,12 @@ type InitialStateType = {
 const storedTheme = localStorage.getItem('theme') || "light";
 
 //==== put stored data in saved_coins
-const getCoin: string | null  = localStorage.getItem("savedCoins");
-let storedSavedCoins;
-if ( typeof getCoin === 'string' ) {
-    storedSavedCoins = JSON.parse(getCoin)
-}
-else{ storedSavedCoins = [] }
+// const getCoin: string | null  = localStorage.getItem("savedCoins");
+// let storedSavedCoins;
+// if ( typeof getCoin === 'string' ) {
+//     storedSavedCoins = JSON.parse(getCoin)
+// }
+// else{ storedSavedCoins = [] }
 
 // ==== put user in user
 const getUser: string | null  = localStorage.getItem("user");
@@ -31,7 +31,7 @@ const initialState:InitialStateType = {
     theme_mode: storedTheme,
     coins_data: [],
     input_value: "",
-    saved_coins: storedSavedCoins,
+    saved_coins: [],
     user: storedUser,
 }
 
