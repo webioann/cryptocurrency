@@ -8,6 +8,9 @@ import { CoinsType,UnitCoinType } from '../Types/coins_types'
 import { pushSavedCoin } from '../Redux/reduxSlice'
 import '../CSS/unit-coin.scss'
 
+import { collection, addDoc } from "firebase/firestore"; 
+import { db } from "../Firebase/firebase-config"; 
+
 const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
@@ -21,7 +24,7 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
         coin_in_array ? setCoinIsSaved(true) : setCoinIsSaved(false)
     },[saved_coins])
 
-    function toSaveCoin (coin:CoinsType) {
+    const  toSaveCoin  = (coin:CoinsType) => {
         if ( !coin_is_saved ) {
             const raw = {
                 id: coin.id,

@@ -4,16 +4,28 @@ import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { removeSavedCoin,removeUser } from '../Redux/reduxSlice'
 import { Link,useNavigate } from 'react-router-dom'
 import { getAuth, signOut } from "firebase/auth"
+import { collection, addDoc } from "firebase/firestore"; 
+import { db } from "../Firebase/firebase-config"; 
+
 import '../CSS/account.scss'
 
 const Account = () => {
 
-    const savedCoins = useAppSelector(state => state.redux.saved_coins)
+    const saved_coins = useAppSelector(state => state.redux.saved_coins)
     const theme = useAppSelector(state => state.redux.theme_mode)
     const user = useAppSelector(state => state.redux.user)
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
     const auth = getAuth()
+
+    const createDB = async () => {
+        try {
+            const docRef = await addDoc(collection(db, "saved_coins"), { ...saved_coins });
+            console.log("Document written with ID: ", docRef.id);
+        } catch (error) {
+            console.error("Error adding document: ", error);
+        }
+    }
 
     const User_Sign_Out = () => {
         signOut(auth).then(() => {
@@ -21,8 +33,11 @@ const Account = () => {
             navigate("/")
         }).catch((error) => {
             console.log(error);
-        });    
+        })
+        createDB()    
     }
+
+
     if( user ) {
         return (
             <div className='g-page-container'>
@@ -43,14 +58,14 @@ const Account = () => {
                     <div className='watch-list'>
                         <h2 className='list-header'>Watch list</h2>
                         <div className='saved-coins-list'>
-                            {savedCoins.length === 0 ? (
+                            {saved_coins.length === 0 ? (
                                 <div className='empty-list'>
                                     <p className='text'>You don't have any coins saved. Please save a coin to add it to your watch list.</p>
                                     <Link to='/' className='link-text'>Click here to search coins.</Link>
                                 </div>
                             ) : (
                                 <ul className='saved-coins-list'>
-                                    {savedCoins.map(coin => (
+                                    {saved_coins.map(coin => (
                                     <li className='list-item' key={coin.id}>
                                         <h3 className='rank'># {coin.rank}</h3>
                                         <div className='coin'>
