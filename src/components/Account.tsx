@@ -4,11 +4,11 @@ import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { removeSavedCoin,removeUser } from '../Redux/reduxSlice'
 import { Link,useNavigate } from 'react-router-dom'
 import { getAuth, signOut } from "firebase/auth"
-import { collection, addDoc } from "firebase/firestore"
-import { doc, updateDoc, deleteField, deleteDoc  } from "firebase/firestore"; 
-
-import { db } from "../Firebase/firebase-config"; 
+import { doc, deleteDoc, getDocs, collection  } from "firebase/firestore" 
+import { db } from "../Firebase/firebase-config"
+import { savedCoin }  from '../Types/saved_coins_types'
 import '../CSS/account.scss'
+import SavedCoin from './SavedCoin'
 
 const Account = () => {
 
@@ -18,55 +18,22 @@ const Account = () => {
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
     const auth = getAuth()
-
-    const deleteCoinFromDB = async (id: string) => {
-        if( typeof user === "string" ) {
-            let coinDoc = doc(db, user, "saved_coins", id)
-            await deleteDoc(coinDoc);
-        }
-    }
-
-
-    // const remove_db = async () => {
-    //     if( typeof user === "string" ) {
-    //         const savedCoinsRef = doc(db, user, 'BJ');
-    //         await updateDoc(savedCoinsRef, {
-    //             capital: deleteField()
-    //         });
-    //     }
-    // }
-
-
-    // const createDB = async () => {
-    //     try {
-    //         const docRef = await addDoc(collection(db, "saved_coins"), { ...saved_coins });
-    //         console.log("Document written with ID: ", docRef.id);
-    //     } catch (error) {
-    //         console.error("Error adding document: ", error);
-    //     }
-    // }
-
-    // const save_coins_on_signout = async () => {
-    //     if( typeof user === "string" ) {
-    //         await setDoc(doc(db, user, "saved_coins"), { 
-    //         name: "Bitcoin",
-    //         price: 34567,
-    //     });
-    //     }
-    //     console.log(`user 2 ===> ${user}`);
-    //     console.log(`saved_coins 2 ===> ${saved_coins}`);
-    
-    // }
     
 
     const User_Sign_Out = () => {
         signOut(auth).then(() => {
             dispatch(removeUser())
             navigate("/")
-        
         }).catch((error) => {
             console.log(error);
         })
+    }
+    const DeleteCoin = async (id: string) => {
+        if( typeof user === "string" ) {
+            let coinDoc = doc(db, user, id)
+            await deleteDoc(coinDoc);
+        }
+        dispatch(removeSavedCoin(id))
     }
 
 
@@ -89,38 +56,7 @@ const Account = () => {
     
                     <div className='watch-list'>
                         <h2 className='list-header'>Watch list</h2>
-                        <div className='saved-coins-list'>
-                            {saved_coins.length === 0 ? (
-                                <div className='empty-list'>
-                                    <p className='text'>You don't have any coins saved. Please save a coin to add it to your watch list.</p>
-                                    <Link to='/' className='link-text'>Click here to search coins.</Link>
-                                </div>
-                            ) : (
-                                <ul className='saved-coins-list'>
-                                    {saved_coins.map((coin, index )=> (
-                                    <li className='list-item' key={coin.id}>
-                                        <h3 className='rank'># {coin.rank}</h3>
-                                        <div className='coin'>
-                                            <div className='logo'>
-                                                <img src={coin.image} alt='#'/>
-                                            </div>
-                                            <h3 className='name'>{coin.name}</h3>
-                                            <div className='symbol'>({coin.symbol.toUpperCase()})</div>
-                                        </div>
-                                        <h3 className='price'>${coin.price}</h3>
-                                        <div className='remove' onClick={() => {
-                                            dispatch(removeSavedCoin(coin.id))
-                                            }}>
-                                            <div className='remove-btn'>
-                                                <IoClose className='icon'/>
-                                                <h3 className='btn-text'>Remove</h3>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    ))}
-                                </ul>
-                            )}
-                        </div>
+                        <SavedCoin/>
                     </div>
     
                 </div>

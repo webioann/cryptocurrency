@@ -4,8 +4,6 @@ import axios from "axios"
 import { TrendingType } from '../Types/trending-types'
 import '../CSS/trend-coins.scss'
 
-// import Test from './test'
-
 const TrendCoins:React.FC = () => {
 
     const [trend_coins,setTrendCoins] = useState<TrendingType[]>([])

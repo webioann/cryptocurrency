@@ -43,18 +43,28 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
     // }
 
     const  toSaveCoin  = async (coin:CoinsType) => {
-        
         if( typeof user === "string" &&  !coin_is_saved ) {
-            await setDoc(doc(db, user, coin.id), { 
+            const coin_to_save = {
                 id: coin.id,
                 name: coin.name,
                 rank: coin.market_cap_rank,
                 symbol: coin.symbol,
                 image: coin.image,
                 price: coin.current_price,
-            });
+            }
+            await setDoc(doc(db, user, coin.id), { coin_to_save });
+            dispatch(pushSavedCoin( coin_to_save ))
+            setCoinIsSaved(true)
         }
     }
+    // await setDoc(doc(db, user, coin.id), { 
+    //     id: coin.id,
+    //     name: coin.name,
+    //     rank: coin.market_cap_rank,
+    //     symbol: coin.symbol,
+    //     image: coin.image,
+    //     price: coin.current_price,
+    // });
 
     return (
         <tr className={`tab-row ${theme}-tab-row`} >

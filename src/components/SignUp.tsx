@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { putUser } from '../Redux/reduxSlice'
 import { useNavigate } from 'react-router-dom'
 import { HiOutlineMail } from 'react-icons/hi'
 import { GoEye,GoEyeClosed } from 'react-icons/go'
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth"
+import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth"
+import { doc, setDoc } from 'firebase/firestore'
+import { auth, db } from '../Firebase/firebase-config';
 import '../CSS/sign-up.scss'
 
 const SignUp:React.FC = () => {
@@ -16,7 +18,6 @@ const SignUp:React.FC = () => {
     const [password,setPassword] = useState<string>('')
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
-    const auth = getAuth()
 
     const User_Sign_Up = (event: React.FormEvent) => {
         event.preventDefault()
@@ -28,7 +29,18 @@ const SignUp:React.FC = () => {
         .catch((error) => {
             console.log(error);
         })
+        return setDoc(doc(db, 'users', email), {
+            watchList: [],
+        });
     }
+    // useEffect(() => {
+    //     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    //         dispatch(putUser(currentUser))
+    //     });
+    //     return () => {
+    //         unsubscribe();
+    //     };
+    // }, []);
 
     const showPassword = () => {
         lock === 'password' ? setLock('text') : setLock('password')
