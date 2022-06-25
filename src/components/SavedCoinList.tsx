@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom'
 import { doc, deleteDoc, getDocs, collection  } from "firebase/firestore" 
 import { db } from "../Firebase/firebase-config"
 import { savedCoin }  from '../Types/saved_coins_types'
-import '../CSS/saved-coin.scss'
+import '../CSS/saved-coin-list.scss'
 
-const SavedCoin = () => {
+const SavedCoinList = () => {
 
     const saved_coins = useAppSelector(state => state.redux.saved_coins)
     const theme = useAppSelector(state => state.redux.theme_mode)
@@ -60,4 +60,4 @@ const SavedCoin = () => {
     else return null
 
 }
-export default SavedCoin;
+export default SavedCoinList;

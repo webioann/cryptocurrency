@@ -8,7 +8,7 @@ import { doc, deleteDoc, getDocs, collection  } from "firebase/firestore"
 import { db } from "../Firebase/firebase-config"
 import { savedCoin }  from '../Types/saved_coins_types'
 import '../CSS/account.scss'
-import SavedCoin from './SavedCoin'
+import SavedCoinList from './SavedCoinList'
 
 const Account = () => {
 
@@ -18,7 +18,6 @@ const Account = () => {
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
     const auth = getAuth()
-    
 
     const User_Sign_Out = () => {
         signOut(auth).then(() => {
@@ -42,23 +41,19 @@ const Account = () => {
             <div className='g-page-container'>
                 <div className={`account-page ${theme}-account`}>
                     <h1 className='account-header'>Account</h1>
-    
                     <div className='wellcome-sign-out'>
                         <div className='wellcome'>
                             <h3 className='wellcome-user'>Wellcome
                                 <span className='user-name'>{user}</span>
                             </h3>
-    
                         </div>
                         <button onClick={User_Sign_Out}
                             className='sign-out'>Sing Out</button>
                     </div>
-    
                     <div className='watch-list'>
                         <h2 className='list-header'>Watch list</h2>
-                        <SavedCoin/>
+                        <SavedCoinList/>
                     </div>
-    
                 </div>
             </div>
         )
