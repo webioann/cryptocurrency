@@ -26,21 +26,12 @@ const SignUp:React.FC = () => {
             dispatch(putUser(user.email))
             navigate("/account")
         })
-        .catch((error) => {
-            console.log(error);
-        })
-        return setDoc(doc(db, 'users', email), {
-            watchList: [],
+        .catch((error) => {console.log(error)})
+        // create database => db/user(email)/saved_coins/watch_list
+        return setDoc(doc(db, email, "saved_coins"), {
+            watch_list: [],
         });
     }
-    // useEffect(() => {
-    //     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-    //         dispatch(putUser(currentUser))
-    //     });
-    //     return () => {
-    //         unsubscribe();
-    //     };
-    // }, []);
 
     const showPassword = () => {
         lock === 'password' ? setLock('text') : setLock('password')

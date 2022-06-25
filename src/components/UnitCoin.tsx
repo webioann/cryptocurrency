@@ -9,9 +9,9 @@ import { savedCoin } from '../Types/saved_coins_types'
 import { pushSavedCoin } from '../Redux/reduxSlice'
 import '../CSS/unit-coin.scss'
 
-import { collection, addDoc } from "firebase/firestore"; 
+import { collection, addDoc, arrayUnion } from "firebase/firestore"; 
 import { db } from "../Firebase/firebase-config"; 
-import { doc, setDoc, deleteDoc } from "firebase/firestore"; 
+import { doc, setDoc, deleteDoc, updateDoc } from "firebase/firestore"; 
 
 const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
 
@@ -26,24 +26,9 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
         coin_in_array ? setCoinIsSaved(true) : setCoinIsSaved(false)
     },[saved_coins])
 
-
-    // const  toSaveCoin  = (coin:CoinsType) => {
-    //     if ( !coin_is_saved ) {
-    //         const raw = {
-    //             id: coin.id,
-    //             name: coin.name,
-    //             rank: coin.market_cap_rank,
-    //             symbol: coin.symbol,
-    //             image: coin.image,
-    //             price: coin.current_price,
-    //         }
-    //         dispatch(pushSavedCoin(raw))
-    //         setCoinIsSaved(true)
-    //     }
-    // }
-
-    const  toSaveCoin  = async (coin:CoinsType) => {
+    const  saveCoin  = async (coin:CoinsType) => {
         if( typeof user === "string" &&  !coin_is_saved ) {
+            setCoinIsSaved(true)
             const coin_to_save = {
                 id: coin.id,
                 name: coin.name,
@@ -52,10 +37,17 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
                 image: coin.image,
                 price: coin.current_price,
             }
-            await setDoc(doc(db, user, coin.id), { coin_to_save });
             dispatch(pushSavedCoin( coin_to_save ))
-            setCoinIsSaved(true)
+            await updateDoc(doc(db, user, "saved_coins"), { watch_list: arrayUnion({
+                id: coin.id,
+                name: coin.name,
+                rank: coin.market_cap_rank,
+                symbol: coin.symbol,
+                image: coin.image,
+                price: coin.current_price,
+            })});
         }
+        else { alert("Please sign up for save coins on watch list") }
     }
     // await setDoc(doc(db, user, coin.id), { 
     //     id: coin.id,
@@ -69,7 +61,7 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
     return (
         <tr className={`tab-row ${theme}-tab-row`} >
             { user ? (
-            <td onClick={() => {toSaveCoin(coin)}} className='star g-tab-hidden-640'> 
+            <td onClick={() => {saveCoin(coin)}} className='star g-tab-hidden-640'> 
                 { coin_is_saved ? <AiFillStar/> : <AiOutlineStar/> }
             </td>
             ) : (

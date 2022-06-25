@@ -21,13 +21,9 @@ const SignIn:React.FC = () => {
         event.preventDefault()
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
-        .then(({user}) => {
-            dispatch(putUser(user.email))
-            navigate('/')
-        })
-        .catch((error) => {
-            console.log(error);
-        });    
+        .then(({user}) => { dispatch(putUser(user.email)) })
+        .catch((error) => { console.log(error) })
+        navigate('/')   
     }
     
     const showPassword = () => {
@@ -37,7 +33,7 @@ const SignIn:React.FC = () => {
     return (
         <div className='g-page-container'>
             <div className={`sign-in-wrapper ${theme}-sign-in`}>
-                <h1 className='header'>Sing In</h1>
+                <h1 className='header'>Sign In</h1>
                 <form onSubmit={User_Sign_In}>
                     <div className='email-box'>
                         <label>Email</label>
@@ -64,7 +60,7 @@ const SignIn:React.FC = () => {
                             }
                         </div>
                     </div>
-                    <button className='btn'>Sing In</button>
+                    <button className='btn'>Sign In</button>
                 </form>
                 <div className='question'>
                     <p className='q-text'>Don't have an account ?</p>
