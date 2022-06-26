@@ -1,12 +1,14 @@
-import React,{ useState } from 'react'
+import React,{ useState,useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { putUser, setUserPhot } from '../Redux/reduxSlice'
 import { useNavigate } from 'react-router-dom'
 import { HiOutlineMail } from 'react-icons/hi'
 import { GoEye,GoEyeClosed } from 'react-icons/go'
+import { watchListCoin } from '../Types/saved_coins_types'
+
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth"
-import { doc, setDoc } from 'firebase/firestore'
+import { doc, setDoc, onSnapshot } from 'firebase/firestore'
 import { auth, provider, db } from '../Firebase/firebase-config'
 import '../CSS/sign-in.scss'
 
@@ -33,17 +35,39 @@ const SignIn:React.FC = () => {
         navigate('/')   
     }
 
+    // const signInWithGoogle = () => {
+    //     signInWithPopup(auth, provider)
+    //     .then((result) => {
+    //         dispatch(putUser(result.user.email))
+    //         dispatch(setUserPhot(result.user.photoURL))
+    //         const user = result.user.email 
+    //         if( typeof user === 'string' ) {
+    //             let temporary: watchListCoin[] = []
+    //             onSnapshot(doc(db, user, "saved_coins"), (doc)=> {
+    //                 temporary.push(doc.data()?.watch_list)
+    //             })
+    //             if ( temporary.length === 0 ) {
+    //                 setDoc(doc(db, user, "saved_coins"), { watch_list: [] })
+    //             }
+    //             else{ setDoc(doc(db, user, "saved_coins"), { watch_list: [...temporary] }) }
+    //         }
+    //     })
+    //     .catch((error) => {console.error(error)} )
+    //     navigate('/')
+    // }
+
     const signInWithGoogle = () => {
-        let temp_user: string | null = '';
         signInWithPopup(auth, provider)
         .then((result) => {
             dispatch(putUser(result.user.email))
-            dispatch(setUserPhot(result.user.photoURL)) 
-            temp_user = result.user.email
+            dispatch(setUserPhot(result.user.photoURL))
+            const user = result.user.email 
+            if( typeof user === 'string' ) {
+                setDoc(doc(db, user, "saved_coins"), { watch_list: [] })
+            }
         })
         .catch((error) => {console.error(error)} )
-
-        return setDoc(doc(db, temp_user, "saved_coins"), { watch_list: [],})
+        navigate('/')
     }
     
     const showPassword = () => {

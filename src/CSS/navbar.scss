@@ -13,6 +13,7 @@
         display: flex;
         align-items: center;
         flex: 1 1 auto;
+        border: 1px solid red;
         .logo{
             color: inherit;
             font-size: 1.5rem;
@@ -43,7 +44,8 @@
             border-radius: 0.5rem;
         }
         .user{
-            min-width: $button-big;
+            min-width: 200px;
+            border: 1px solid red;
             .img-wrapper{
                 width: 1rem;
                 height: 1rem;
@@ -115,7 +117,6 @@
     .navbar{
         .menu{
             .link{
-                width: $button-max-size;
                 margin-left: 1rem;
             }
         }

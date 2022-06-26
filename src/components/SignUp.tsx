@@ -29,17 +29,13 @@ const SignUp:React.FC = () => {
         createUserWithEmailAndPassword(auth, email, password)
         .then (({user}) => {
             dispatch(putUser(user.email))
-            navigate("/account")
+            navigate("/")
+            setDoc(doc(db, email, "saved_coins"), { watch_list: [] })
         })
         .catch((error) => {
             console.log(error)
             setWarning(true)
         })
-        // create database => db/user(email)/saved_coins/watch_list
-        return setDoc(doc(db, email, "saved_coins"), {
-            watch_list: [],
-        })
-
     }
 
     const showPassword = () => {

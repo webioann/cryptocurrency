@@ -23,7 +23,7 @@ const initialState:InitialStateType = {
     theme_mode: storedTheme,
     coins_data: [],
     input_value: "",
-    user: null,
+    user: storedUser,
     user_photo: null,
 }
 
