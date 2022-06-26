@@ -3,7 +3,6 @@ import { useAppSelector, useAppDispatch } from '../Redux/store'
 import { removeUser } from '../Redux/reduxSlice'
 import { Link,useNavigate } from 'react-router-dom'
 import { getAuth, signOut } from "firebase/auth"
-
 import ThemeToggle from './ThemeToggle'
 import BurgerSpiner from './BurgerSpiner'
 import { FaRegUser } from 'react-icons/fa'

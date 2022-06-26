@@ -1,4 +1,4 @@
-import React,{ useState,useEffect } from 'react'
+import React,{ useEffect } from 'react'
 import { Routes, Route, Link } from "react-router-dom"
 import Navbar from './Navbar'
 import CoinFullInfo from './CoinFullInfo'
@@ -12,7 +12,6 @@ import Container from './Container'
 import { useAppDispatch,useAppSelector } from '../Redux/store'
 import { getFetchCoins } from '../Redux/reduxSlice'
 import axios from "axios"
-import { CoinsType } from '../Types/coins_types'
 // -------------------------------------------
 import SearchCoins from './SearchCoins'
 import Table_Coins from './TableCoins'
@@ -24,7 +23,6 @@ const  App:React.FC = () => {
   const dispatch = useAppDispatch()
   // ===== get coin data =============
   const coins_url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=true&price_change_percentage=24h%2C7d%2C14d%2C30d%2C1y"
-  
   useEffect(() => {
       axios.get(coins_url)
       .then( respons => {
