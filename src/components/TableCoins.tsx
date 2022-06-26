@@ -1,6 +1,5 @@
 import React from 'react'
 import { useAppSelector } from '../Redux/store'
-import { CoinsType,UnitCoinType } from '../Types/coins_types'
 import UnitCoin from './UnitCoin'
 import '../CSS/table-coins.scss'
 
@@ -28,9 +27,9 @@ const CoinsTable = () => {
                 {coins.filter((value) => {
                     if (input_value === '') { return value }
                     else if (value.name.toLowerCase().includes(input_value.toLowerCase())) { return value }})
-                .map( (coin) => <UnitCoin key={coin.id} coin={coin}/>)}
-
-                
+                .map( (coin) => 
+                    <UnitCoin key={coin.id} coin={coin}/>)
+                }
             </tbody>
     </table>    )
 }

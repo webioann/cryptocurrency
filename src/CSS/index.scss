@@ -64,6 +64,16 @@ $button-big: 180px;
 }
 
 // === hidde table on min 756px ==
+.g-tab-hidden-700{
+    display: none;
+}
+@media (min-width: 700px) {
+    .g-tab-hidden-700{
+        display: table-cell;
+    }
+}
+
+// === hidde table on min 756px ==
 .g-tab-hidden-756{
     display: none;
 }

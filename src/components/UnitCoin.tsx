@@ -6,8 +6,8 @@ import { AiFillStar,AiOutlineStar } from 'react-icons/ai'
 import { HiArrowNarrowUp,HiArrowNarrowDown } from 'react-icons/hi'
 import { CoinsType,UnitCoinType } from '../Types/coins_types'
 import { watchListCoin } from '../Types/saved_coins_types'
+import { doc, onSnapshot, updateDoc, arrayUnion } from "firebase/firestore"
 import { db } from "../Firebase/firebase-config"; 
-import { doc, onSnapshot, updateDoc, arrayUnion } from "firebase/firestore"; 
 import '../CSS/unit-coin.scss'
 
 const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
@@ -32,7 +32,8 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
         coin_in_array ? setChosenStar(true) : setChosenStar(false)
     },[watchListCoins])
 
-    const  putCoinInWatchList  = async (coin:CoinsType) => {
+    const  updateWatchList  = async (coin:CoinsType) => {
+        // save coin in watch list on firebase db
         if( typeof user === "string" &&  !chosenStar ) {
             setChosenStar(true)
             await updateDoc(doc(db, user, "saved_coins"), { watch_list: arrayUnion({
@@ -44,21 +45,30 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
                 price: coin.current_price,
             })});
         }
-        else { alert("Please sign up for save coins on watch list") }
+        // delet coin from watch list ===
+        else if( typeof user === "string" &&  chosenStar ) {
+            setChosenStar(false)
+            try{
+                const result = watchListCoins.filter(item => item.id !== coin.id)
+                await updateDoc(doc(db, user, "saved_coins"), {
+                    watch_list: result
+                })
+            } catch(error) { console.log(error) }
+        }
     }
 
     return (
         <tr className={`tab-row ${theme}-tab-row`} >
             { user ? (
-            <td onClick={() => {putCoinInWatchList(coin)}} className='star g-tab-hidden-640'> 
-                { chosenStar ? <AiFillStar/> : <AiOutlineStar/> }
-            </td>
+                <td onClick={() => {updateWatchList(coin)}} className='star g-tab-hidden-640'> 
+                    { chosenStar ? <AiFillStar color='#f85904'/> : <AiOutlineStar/> }
+                </td>
             ) : (
                 <td className='star g-tab-hidden-640'>
-                <AiOutlineStar/> 
-            </td>
+                    <AiOutlineStar/> 
+                </td>
             ) }
-            <td className='rank g-tab-hidden-640'>{coin.market_cap_rank}</td>
+            <td className='rank g-tab-hidden-700'>{coin.market_cap_rank}</td>
 
             <td>
                 <Link to={`/coin/${coin.id}`}>

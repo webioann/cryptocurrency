@@ -24,27 +24,23 @@ const TrendCoins:React.FC = () => {
             </h2>
             <div className='trending-wrapper'>
                 {trend_coins.map( coin => (
-                <div key={coin.item.coin_id} className={`trend-coin ${theme}-trend`}>
-
-                    <div className='logo'>
-                        <img src={coin.item.small} alt={coin.item.name}/>
-                    </div>
-
-                    <div className='coin-data'>
-                        <h3 className='name'>{coin.item.name}</h3>
-
-                        <div className='bottom-row'>
-                            <p className='symbol'>{coin.item.symbol}</p>
-                            <div className='small-logo'>
-                                <img src={"https://assets.coingecko.com/coins/images/1/small/bitcoin.png"} alt="/"/>
-                            </div>
-                            <p>{coin.item.price_btc.toFixed(7)}</p>
+                    <div key={coin.item.coin_id} className={`trend-coin ${theme}-trend`}>
+                        <div className='logo'>
+                            <img src={coin.item.small} alt={coin.item.name}/>
                         </div>
-
+                        <div className='coin-data'>
+                            <h3 className='name'>{coin.item.name}</h3>
+                            <div className='bottom-row'>
+                                <p className='symbol'>{coin.item.symbol}</p>
+                                <div className='small-logo'>
+                                    <img src={"https://assets.coingecko.com/coins/images/1/small/bitcoin.png"} alt="/"/>
+                                </div>
+                                <p>{coin.item.price_btc.toFixed(7)}</p>
+                            </div>
+                        </div>
                     </div>
-
-                </div>
-                ))}
+                    ))
+                }
             </div>
         </div>
     )

@@ -3,7 +3,11 @@
 .tab-row{
     width: 100%;
     .star{
-        padding-left: 10px;
+        align-items: center;
+        cursor: pointer;
+    }
+    .rank{
+        text-align: center;
     }
     td{
         max-height: 50px;

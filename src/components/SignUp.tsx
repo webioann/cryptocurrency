@@ -13,7 +13,7 @@ import '../CSS/sign-up.scss'
 const SignUp:React.FC = () => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
-    const [lock,setLock] = useState<string>('password')
+    const [inputType,setInputType] = useState<string>('password')
     const [email,setEmail] = useState<string>('')
     const [password,setPassword] = useState<string>('')
     const dispatch = useAppDispatch()
@@ -34,7 +34,7 @@ const SignUp:React.FC = () => {
     }
 
     const showPassword = () => {
-        lock === 'password' ? setLock('text') : setLock('password')
+        inputType === 'password' ? setInputType('text') : setInputType('password')
     }
     
     return (
@@ -57,11 +57,11 @@ const SignUp:React.FC = () => {
                         <label>Password</label>
                         <div className='password-input-box'>
                             <input 
-                                type={lock} 
+                                type={inputType} 
                                 placeholder='password'
                                 value={password}
                                 onChange={event => setPassword(event.target.value)}/>
-                            {lock === 'text' 
+                            {inputType === 'text' 
                                 ? <GoEye className='input-icon' onClick={showPassword}/> 
                                 : <GoEyeClosed className='input-icon' onClick={showPassword}/>
                             }
