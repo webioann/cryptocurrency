@@ -31,7 +31,7 @@ const WatchList = () => {
             } catch(error) { console.log(error) }
         }
     }
-
+    console.log(`wl ==> ${watchListCoins}`);
     if( user ) {
         return (
             <div className='saved-coins-list'>

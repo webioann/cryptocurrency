@@ -6,6 +6,7 @@ type InitialStateType = {
     coins_data: CoinsType[];
     input_value: string;
     user: string | null;
+    user_photo: string | null;
 }
 // get state from LocalStorage  (setItem on App.tsx) ====
 const storedTheme = localStorage.getItem('theme') || "light";
@@ -22,7 +23,8 @@ const initialState:InitialStateType = {
     theme_mode: storedTheme,
     coins_data: [],
     input_value: "",
-    user: storedUser,
+    user: null,
+    user_photo: null,
 }
 
 export const reduxSlice = createSlice({
@@ -35,6 +37,9 @@ export const reduxSlice = createSlice({
         putInputValue: (state,actions) => {state.input_value = actions.payload},
         putUser: (state,actions) => {state.user = actions.payload},
         removeUser: (state) => {state.user = null},
+        setUserPhot: (state,actions) => {state.user_photo = actions.payload},
+        deleteUserPhoto: (state) => {state.user_photo = null},
+
     }
 });
 
@@ -44,7 +49,9 @@ export const {
     getFetchCoins,
     putInputValue,
     putUser,
-    removeUser
+    removeUser,
+    setUserPhot,
+    deleteUserPhoto,
 
 } = reduxSlice.actions;
 

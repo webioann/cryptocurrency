@@ -1,16 +1,20 @@
 import React,{ useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
-import { putUser } from '../Redux/reduxSlice'
+import { putUser, setUserPhot } from '../Redux/reduxSlice'
 import { useNavigate } from 'react-router-dom'
 import { HiOutlineMail } from 'react-icons/hi'
 import { GoEye,GoEyeClosed } from 'react-icons/go'
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth"
+import { doc, setDoc } from 'firebase/firestore'
+import { auth, provider, db } from '../Firebase/firebase-config'
 import '../CSS/sign-in.scss'
 
 const SignIn:React.FC = () => {
     
     const theme = useAppSelector(state => state.redux.theme_mode)
+    const user = useAppSelector(state => state.redux.user)
+
     const [inputType,setInputType] = useState<string>('password')
     const [email,setEmail] = useState<string>('')
     const [password,setPassword] = useState<string>('')
@@ -19,7 +23,6 @@ const SignIn:React.FC = () => {
 
     const User_Sign_In = (event: React.FormEvent) => {
         event.preventDefault()
-        const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
         .then(({user}) => {
             dispatch(putUser(user.email)) 
@@ -28,6 +31,19 @@ const SignIn:React.FC = () => {
             console.log(error) 
         })
         navigate('/')   
+    }
+
+    const signInWithGoogle = () => {
+        let temp_user: string | null = '';
+        signInWithPopup(auth, provider)
+        .then((result) => {
+            dispatch(putUser(result.user.email))
+            dispatch(setUserPhot(result.user.photoURL)) 
+            temp_user = result.user.email
+        })
+        .catch((error) => {console.error(error)} )
+
+        return setDoc(doc(db, temp_user, "saved_coins"), { watch_list: [],})
     }
     
     const showPassword = () => {
@@ -65,6 +81,9 @@ const SignIn:React.FC = () => {
                         </div>
                     </div>
                     <button className='btn'>Sign In</button>
+                    <button className='btn' onClick={signInWithGoogle}>
+                        Sign In with Google
+                    </button>
                 </form>
                 <div className='question'>
                     <p className='q-text'>Don't have an account ?</p>

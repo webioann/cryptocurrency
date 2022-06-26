@@ -26,7 +26,7 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
         }
     }, [])
 
-    // == check if coin is saved and check star
+    //== check if coin is saved and check star
     useEffect(() => {
         let coin_in_array = watchListCoins.some(item => item.id === coin.id)
         coin_in_array ? setChosenStar(true) : setChosenStar(false)

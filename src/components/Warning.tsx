@@ -1,4 +1,5 @@
 import React from 'react'
+import { IoClose } from 'react-icons/io5'
 import '../CSS/warning.scss'
 
 type closeWarningType = {
@@ -8,8 +9,11 @@ type closeWarningType = {
 const Warning: React.FC<closeWarningType> = ({ closeWarning }) => {
     return (
         <div className='warning-box' onClick={closeWarning}>
-            <h3>you are doing something wrong</h3>
-            <h3>Attention, please!</h3>
+            <div className='icon-row'>
+                <IoClose className='icon'/>
+            </div>
+            <h3>You are doing something wrong.</h3>
+            <h3>Attention, please.</h3>
         </div>
     )
 }

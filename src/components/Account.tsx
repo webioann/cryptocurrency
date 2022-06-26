@@ -20,25 +20,28 @@ const Account = () => {
             navigate("/")
         }).catch((error) => { console.log(error) })
     }
-    return (
-        <div className='g-page-container'>
-            <div className={`account-page ${theme}-account`}>
-                <h1 className='account-header'>Account</h1>
-                <div className='wellcome-sign-out'>
-                    <div className='wellcome'>
-                        <h3 className='wellcome-user'>Wellcome
-                            <span className='user-name'>{user}</span>
-                        </h3>
+    
+    if ( user !== null ) {
+        return (
+            <div className='g-page-container'>
+                <div className={`account-page ${theme}-account`}>
+                    <h1 className='account-header'>Account</h1>
+                    <div className='wellcome-sign-out'>
+                        <div className='wellcome'>
+                            <h3 className='wellcome-user'>Wellcome
+                                <span className='user-name'>{user}</span>
+                            </h3>
+                        </div>
+                        <button onClick={User_Sign_Out}
+                            className='sign-out'>Sing Out</button>
                     </div>
-                    <button onClick={User_Sign_Out}
-                        className='sign-out'>Sing Out</button>
-                </div>
-                <div className='watch-list'>
-                    <h2 className='list-header'>Watch list</h2>
-                    <WatchList/>
+                    <div className='watch-list'>
+                        <h2 className='list-header'>Watch list</h2>
+                        <WatchList/>
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    } else { return null }
 }
 export default Account;

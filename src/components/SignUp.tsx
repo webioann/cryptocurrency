@@ -15,6 +15,8 @@ import '../CSS/sign-up.scss'
 const SignUp:React.FC = () => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
+    const user = useAppSelector(state => state.redux.user)
+
     const [inputType,setInputType] = useState<string>('password')
     const [email,setEmail] = useState<string>('')
     const [password,setPassword] = useState<string>('')
@@ -24,11 +26,11 @@ const SignUp:React.FC = () => {
 
     const User_Sign_Up = async (event: React.FormEvent) => {
         event.preventDefault()
-            createUserWithEmailAndPassword(auth, email, password)
-            .then (({user}) => {
-                dispatch(putUser(user.email))
-                navigate("/account")
-            })
+        createUserWithEmailAndPassword(auth, email, password)
+        .then (({user}) => {
+            dispatch(putUser(user.email))
+            navigate("/account")
+        })
         .catch((error) => {
             console.log(error)
             setWarning(true)
@@ -36,7 +38,8 @@ const SignUp:React.FC = () => {
         // create database => db/user(email)/saved_coins/watch_list
         return setDoc(doc(db, email, "saved_coins"), {
             watch_list: [],
-        });
+        })
+
     }
 
     const showPassword = () => {
