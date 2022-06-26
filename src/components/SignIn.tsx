@@ -21,8 +21,12 @@ const SignIn:React.FC = () => {
         event.preventDefault()
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
-        .then(({user}) => { dispatch(putUser(user.email)) })
-        .catch((error) => { console.log(error) })
+        .then(({user}) => {
+            dispatch(putUser(user.email)) 
+        })
+        .catch((error) => {
+            console.log(error) 
+        })
         navigate('/')   
     }
     

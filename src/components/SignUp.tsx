@@ -5,6 +5,8 @@ import { putUser } from '../Redux/reduxSlice'
 import { useNavigate } from 'react-router-dom'
 import { HiOutlineMail } from 'react-icons/hi'
 import { GoEye,GoEyeClosed } from 'react-icons/go'
+import Warning from './Warning'
+// === firebase ===
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth"
 import { doc, setDoc } from 'firebase/firestore'
 import { auth, db } from '../Firebase/firebase-config';
@@ -16,17 +18,21 @@ const SignUp:React.FC = () => {
     const [inputType,setInputType] = useState<string>('password')
     const [email,setEmail] = useState<string>('')
     const [password,setPassword] = useState<string>('')
+    const [warning,setWarning] = useState<boolean>(false)
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
 
-    const User_Sign_Up = (event: React.FormEvent) => {
+    const User_Sign_Up = async (event: React.FormEvent) => {
         event.preventDefault()
-        createUserWithEmailAndPassword(auth, email, password)
-        .then(({user}) => {
-            dispatch(putUser(user.email))
-            navigate("/account")
+            createUserWithEmailAndPassword(auth, email, password)
+            .then (({user}) => {
+                dispatch(putUser(user.email))
+                navigate("/account")
+            })
+        .catch((error) => {
+            console.log(error)
+            setWarning(true)
         })
-        .catch((error) => {console.log(error)})
         // create database => db/user(email)/saved_coins/watch_list
         return setDoc(doc(db, email, "saved_coins"), {
             watch_list: [],
@@ -36,12 +42,16 @@ const SignUp:React.FC = () => {
     const showPassword = () => {
         inputType === 'password' ? setInputType('text') : setInputType('password')
     }
+    const closeWarning = () => {
+        setWarning(false)
+    }
     
     return (
         <div className='g-page-container'>
             <div className={`sign-up-wrapper ${theme}-sign-up`}>
                 <h1 className='header'>Sign Up</h1>
                 <form onSubmit={User_Sign_Up}>
+                    { warning ? <Warning closeWarning={closeWarning}/> : null }
                     <div className='email-box'>
                         <label>Email</label>
                         <div className='email-input-box'>
