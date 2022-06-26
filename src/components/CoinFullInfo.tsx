@@ -1,5 +1,5 @@
 import React,{ useState,useEffect } from 'react'
-import { useAppDispatch,useAppSelector } from '../Redux/store'
+import { useAppSelector } from '../Redux/store'
 import { Sparklines, SparklinesLine } from 'react-sparklines'
 import axios from "axios"
 import { FullDataCoinType } from '../Types/full_data_coin_types'
@@ -12,11 +12,11 @@ import '../CSS/coin-page.scss'
 
 const CoinFullInfo:React.FC = () => {
 
+    const theme = useAppSelector(state => state.redux.theme_mode)
     const [coin,setUnitCoin] = useState<FullDataCoinType>( {} as FullDataCoinType )
     const params = useParams()
     const coin_url = `https://api.coingecko.com/api/v3/coins/${params.coinId}?localization=false&sparkline=true`
-    const theme = useAppSelector(state => state.redux.theme_mode)
-    
+
     useEffect(() => {
         axios.get(coin_url)
         .then( respons => {

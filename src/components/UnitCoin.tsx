@@ -1,43 +1,40 @@
 import React,{ useState,useEffect } from 'react'
 import { Sparklines, SparklinesLine } from 'react-sparklines'
 import { Link } from 'react-router-dom'
-import { useAppSelector,useAppDispatch } from '../Redux/store'
+import { useAppSelector } from '../Redux/store'
 import { AiFillStar,AiOutlineStar } from 'react-icons/ai'
 import { HiArrowNarrowUp,HiArrowNarrowDown } from 'react-icons/hi'
 import { CoinsType,UnitCoinType } from '../Types/coins_types'
-import { savedCoin } from '../Types/saved_coins_types'
-import { pushSavedCoin } from '../Redux/reduxSlice'
-import '../CSS/unit-coin.scss'
-
-import { collection, addDoc, arrayUnion } from "firebase/firestore"; 
+import { watchListCoin } from '../Types/saved_coins_types'
 import { db } from "../Firebase/firebase-config"; 
-import { doc, setDoc, deleteDoc, updateDoc } from "firebase/firestore"; 
+import { doc, onSnapshot, updateDoc, arrayUnion } from "firebase/firestore"; 
+import '../CSS/unit-coin.scss'
 
 const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
-    const saved_coins = useAppSelector(state => state.redux.saved_coins)
     const user = useAppSelector(state => state.redux.user)
-    const dispatch = useAppDispatch()
-    const [coin_is_saved,setCoinIsSaved] = useState<boolean>(false)
+    const [watchListCoins, setWatchListCoins] = useState<watchListCoin[]>([])
+    const [chosenStar,setChosenStar] = useState<boolean>(false)
 
+    // == get watch list from firebase and update watchListCoins 
     useEffect(() => {
-        let coin_in_array = saved_coins.some(item => item.id === coin.id)
-        coin_in_array ? setCoinIsSaved(true) : setCoinIsSaved(false)
-    },[saved_coins])
+        if( typeof user === "string" ) {
+            onSnapshot(doc(db, user, "saved_coins"), (doc)=> {
+                setWatchListCoins(doc.data()?.watch_list)
+            })
+        }
+    }, [])
 
-    const  saveCoin  = async (coin:CoinsType) => {
-        if( typeof user === "string" &&  !coin_is_saved ) {
-            setCoinIsSaved(true)
-            const coin_to_save = {
-                id: coin.id,
-                name: coin.name,
-                rank: coin.market_cap_rank,
-                symbol: coin.symbol,
-                image: coin.image,
-                price: coin.current_price,
-            }
-            dispatch(pushSavedCoin( coin_to_save ))
+    // == check if coin is saved and check star
+    useEffect(() => {
+        let coin_in_array = watchListCoins.some(item => item.id === coin.id)
+        coin_in_array ? setChosenStar(true) : setChosenStar(false)
+    },[watchListCoins])
+
+    const  putCoinInWatchList  = async (coin:CoinsType) => {
+        if( typeof user === "string" &&  !chosenStar ) {
+            setChosenStar(true)
             await updateDoc(doc(db, user, "saved_coins"), { watch_list: arrayUnion({
                 id: coin.id,
                 name: coin.name,
@@ -49,20 +46,12 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
         }
         else { alert("Please sign up for save coins on watch list") }
     }
-    // await setDoc(doc(db, user, coin.id), { 
-    //     id: coin.id,
-    //     name: coin.name,
-    //     rank: coin.market_cap_rank,
-    //     symbol: coin.symbol,
-    //     image: coin.image,
-    //     price: coin.current_price,
-    // });
 
     return (
         <tr className={`tab-row ${theme}-tab-row`} >
             { user ? (
-            <td onClick={() => {saveCoin(coin)}} className='star g-tab-hidden-640'> 
-                { coin_is_saved ? <AiFillStar/> : <AiOutlineStar/> }
+            <td onClick={() => {putCoinInWatchList(coin)}} className='star g-tab-hidden-640'> 
+                { chosenStar ? <AiFillStar/> : <AiOutlineStar/> }
             </td>
             ) : (
                 <td className='star g-tab-hidden-640'>

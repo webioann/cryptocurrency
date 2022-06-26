@@ -1,4 +1,4 @@
-export interface savedCoin {
+export interface watchListCoin {
     id: string;
     name: string;
     rank: number;

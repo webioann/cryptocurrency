@@ -28,7 +28,7 @@ const  App:React.FC = () => {
   useEffect(() => {
       axios.get(coins_url)
       .then( respons => {
-          dispatch(getFetchCoins(respons.data))
+        dispatch(getFetchCoins(respons.data))
       })
   },[coins_url])
 
@@ -38,18 +38,11 @@ const  App:React.FC = () => {
     window.localStorage.setItem("theme", theme)
   },[theme])
 
-  // ===== put saved_coins in Localstorage (.getItem work in Redux) ====
-  const saved_coins = useAppSelector(state => state.redux.saved_coins)
+  // ===== save current user in Localstorage (.getItem work in Redux) ====
+  const user = useAppSelector(state => state.redux.user)
   useEffect(() => {
-    window.localStorage.setItem("savedCoins", JSON.stringify(saved_coins))
-  },[saved_coins])
-
-    // ===== save current user in Localstorage (.getItem work in Redux) ====
-    const user = useAppSelector(state => state.redux.user)
-    useEffect(() => {
-      window.localStorage.setItem("user", JSON.stringify(user))
-    },[user])
-  
+    window.localStorage.setItem("user", JSON.stringify(user))
+  },[user])
 
   return (
     <Container>
@@ -73,4 +66,5 @@ const  App:React.FC = () => {
     </Container>
   )
 }
+
 export default App;

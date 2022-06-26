@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
-import SavedCoinsList from './SavedCoinsList'
+import WatchList from './WatchList'
 import { removeUser } from '../Redux/reduxSlice'
 import { useNavigate } from 'react-router-dom'
 import { signOut } from "firebase/auth"
@@ -35,7 +35,7 @@ const Account = () => {
                 </div>
                 <div className='watch-list'>
                     <h2 className='list-header'>Watch list</h2>
-                    <SavedCoinsList/>
+                    <WatchList/>
                 </div>
             </div>
         </div>
