@@ -1,12 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { useSelector,useDispatch,TypedUseSelectorHook } from "react-redux"
-
 import reduxSlice  from './reduxSlice'
+import paginationSlice  from './paginationSlice'
 
 const store = configureStore({
 
     reducer: {
         redux: reduxSlice,
+        pagin: paginationSlice
     } 
 })
 

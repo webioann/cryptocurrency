@@ -18,8 +18,18 @@
         .tab-row{
             width: 100%;
             .star{
-                padding-left: 10px;
+                // padding-left: 10px;
+                width: 40px;
+                align-items: center;
+                text-align: center;
             }
+            .rank{
+                width: 4rem;
+                max-width: 4rem;
+                align-items: center;
+                text-align: center;
+            }
+
             td{
                 max-height: 50px;
                 .coin-link{

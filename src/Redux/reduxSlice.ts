@@ -4,6 +4,7 @@ import { CoinsType } from '../Types/coins_types'
 type InitialStateType = {
     theme_mode: string;
     coins_data: CoinsType[];
+    full_coins_data: CoinsType[];
     input_value: string;
     user: string | null;
     user_photo: string | null;
@@ -19,10 +20,10 @@ if ( typeof getUser === 'string' ) {
 }
 else { storedUser = null }
 
-
 const initialState:InitialStateType = {
     theme_mode: storedTheme,
     coins_data: [],
+    full_coins_data: [],
     input_value: "",
     user: storedUser,
     user_photo: storedUserPhoto,
@@ -34,20 +35,23 @@ export const reduxSlice = createSlice({
     reducers: {
         installLightTheme: (state) => { state.theme_mode = 'light' },
         installDarkTheme: (state) => { state.theme_mode = 'dark' },
-        getFetchCoins: (state,actions) => {state.coins_data = actions.payload},
+        getCoinsData: (state,actions) => {state.coins_data = actions.payload},
+
+        fillFullCoinsData: (state,actions) => {state.full_coins_data = actions.payload},
+
         putInputValue: (state,actions) => {state.input_value = actions.payload},
         putUser: (state,actions) => {state.user = actions.payload},
         removeUser: (state) => {state.user = null},
         setUserPhoto: (state,actions) => {state.user_photo = actions.payload},
         deleteUserPhoto: (state) => {state.user_photo = null},
-
     }
 });
 
 export const { 
     installLightTheme,
     installDarkTheme,
-    getFetchCoins,
+    getCoinsData,
+    fillFullCoinsData,
     putInputValue,
     putUser,
     removeUser,

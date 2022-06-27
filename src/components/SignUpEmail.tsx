@@ -84,6 +84,8 @@ const SignUpEmail:React.FC = () => {
                     <p className='q-text'>Already have an account ?</p>
                     <Link to='/signin' className='q-link'>Sign In</Link>
                 </div>
+
+            
             </div>
         </div>
     )

@@ -13,7 +13,7 @@ const CoinsTable = () => {
             <thead className='tab-head'>
                 <tr className='tab-head-row'>
                     <th className='star g-tab-hidden-640'></th>
-                    <th className='rank g-tab-hidden-640'>#</th>
+                    <th className='rank g-tab-hidden-640'>Rank</th>
                     <th className='coin'>Coin</th>
                     <th className='g-tab-hidden-756'></th>
                     <th>Price</th>
@@ -31,7 +31,8 @@ const CoinsTable = () => {
                     <UnitCoin key={coin.id} coin={coin}/>)
                 }
             </tbody>
-    </table>    )
+        </table>    
+    )
 }
 export default CoinsTable;
 
