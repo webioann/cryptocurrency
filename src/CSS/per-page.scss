@@ -1,0 +1,57 @@
+@import'./index.scss';
+
+.per-page{
+    width: 150px;
+    height: 30px;
+    
+    // margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+    // color: $text-blue;
+    font-weight: 700;
+    .title{
+        margin-right: 0.5rem;
+    }
+    .num-box{
+        position: relative;
+        width: 60px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        border: 1px solid red;
+
+        .cell{
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            border: 1px solid green;
+        }
+        .arrow{
+            position: absolute;
+            bottom: -0.5rem;
+            left: 36px;
+            color: $text-carrot;
+            font-size: 1.2rem;
+        }
+
+    
+    }
+}
+.light-per-page{
+    box-shadow: $box-shadow-lt;
+    color: $text-dark;
+
+}
+.dark-per-page{
+    background-color: $bg-block-dark;
+    color: $text-light;
+}
+
+@media (min-width: 768px) {
+    .per-page{
+        margin-left: 1rem;
+    }
+}

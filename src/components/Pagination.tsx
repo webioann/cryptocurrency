@@ -14,7 +14,7 @@ function Pagination() {
     const [lastPage,setLastPage] = useState<number>(0)
     const [pageNumberArray,setpageNumberArray] = useState<number[]>([])
 
-    const coins_per_page = 10;
+    const coins_per_page = 20;
     const total_coins = 470;
 
     useEffect(() => {

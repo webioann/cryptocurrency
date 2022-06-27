@@ -26,7 +26,8 @@ $button-big: 180px;
 .g-page-container{
     width: 100%;
     // === 60px hight Navbar 2rem = (1rem + 1rem padding container)
-    min-height: calc(100vh - 60px - 2rem);
+    margin-top: calc(60px - 1rem);
+    min-height: 100vh;
     position: relative;
 }
 

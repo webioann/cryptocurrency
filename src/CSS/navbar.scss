@@ -1,14 +1,17 @@
 @import'./index.scss';
 
 .navbar{
-    min-width: 100%;
-    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 60px; //hight wery important
     display: flex;
     padding: 1rem;
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     z-index: 1000;
+    border-bottom: 2px solid $text-carrot;
     .logo-wrapper{
         display: flex;
         align-items: center;
@@ -91,7 +94,8 @@
     }
 }
 .light-nav{
-    box-shadow: $box-shadow-lt;
+    background-color: $bg-light;
+    // box-shadow: $box-shadow-lt;
 }
 .dark-nav{
     background-color: $bg-dark;
@@ -102,8 +106,8 @@
     .navbar{
         flex-direction: row;
         align-items: center;
-        position: relative;
-        border-radius: 0.5rem;
+        // position: relative;
+        // border-radius: 0.5rem;
         .menu{
             width: auto;
             top: 0;

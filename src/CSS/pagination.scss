@@ -13,7 +13,7 @@
         .numy-dark{
             min-width: 25px;
             min-height: 25px; 
-            border-radius: 50%;
+            border-radius: 4px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -54,13 +54,13 @@
 }
 ::-webkit-scrollbar-thumb{
     border-radius: 5px;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.4);
 }
 ::-webkit-scrollbar-thumb:horizontal{
     border-radius: 2px; 
     background-color: #f85904;
+    cursor: pointer;
 }
-
 ::-webkit-scrollbar-track{
     background-color: transparent;
 }

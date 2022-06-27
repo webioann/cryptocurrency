@@ -10,7 +10,7 @@ type InitialStateType = {
     user_photo: string | null;
 }
 // get state from LocalStorage  (setItem on App.tsx) ====
-const storedTheme = localStorage.getItem('theme') || "light";
+const storedTheme = localStorage.getItem('theme') || "dark";
 const storedUserPhoto = localStorage.getItem('userPhoto') || null;
 
 const getUser: string | null  = localStorage.getItem("user");
@@ -23,7 +23,9 @@ else { storedUser = null }
 const initialState:InitialStateType = {
     theme_mode: storedTheme,
     coins_data: [],
+
     full_coins_data: [],
+    
     input_value: "",
     user: storedUser,
     user_photo: storedUserPhoto,
