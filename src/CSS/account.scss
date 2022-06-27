@@ -10,6 +10,7 @@
         }
         .wellcome-sign-out{
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
@@ -20,15 +21,6 @@
                         text-decoration: underline;
                     }
                 }
-            }
-            .sign-out{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 0.5rem 1rem;
-                border-radius: 0.5rem;
-                font-weight: 500;
-                background-color: $text-blue;
             }
         }
         .watch-list{

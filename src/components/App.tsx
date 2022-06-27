@@ -4,8 +4,8 @@ import Navbar from './Navbar'
 import CoinFullInfo from './CoinFullInfo'
 import HomePage from './HomePage'
 import Account from './Account'
-import SignIn from './SignIn'
-import SignUp from './SignUp'
+import SignIn from './SignInEmail'
+import SignUp from './SignUpEmail'
 import NotFounded from './NotFounded'
 import Container from './Container'
 // ==== Redux axios and ect ====
@@ -35,6 +35,13 @@ const  App:React.FC = () => {
   useEffect(() => {
     window.localStorage.setItem("theme", theme)
   },[theme])
+    // ===== save user photo in Localstorage (.getItem work in Redux) ====
+  const user_photo = useAppSelector(state => state.redux.user_photo)
+  useEffect(() => {
+    if ( user_photo !== null ) {
+      window.localStorage.setItem("userPhoto", user_photo)
+    }
+  },[user_photo])
 
   // ===== save current user in Localstorage (.getItem work in Redux) ====
   const user = useAppSelector(state => state.redux.user)

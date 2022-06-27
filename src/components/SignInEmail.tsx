@@ -1,56 +1,45 @@
-import React, { useState,useEffect } from 'react'
+import React,{ useState,useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { putUser } from '../Redux/reduxSlice'
 import { useNavigate } from 'react-router-dom'
 import { HiOutlineMail } from 'react-icons/hi'
 import { GoEye,GoEyeClosed } from 'react-icons/go'
-import Warning from './Warning'
-// === firebase ===
-import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth"
-import { doc, setDoc } from 'firebase/firestore'
-import { auth, db } from '../Firebase/firebase-config';
-import '../CSS/sign-up.scss'
+import { signInWithEmailAndPassword } from "firebase/auth"
+import { auth } from '../Firebase/firebase-config'
+import SignInGoogle from './SignInGoogle'
+import '../CSS/signin-signup.scss'
 
-const SignUp:React.FC = () => {
-
+const SignInEmail:React.FC = () => {
+    
     const theme = useAppSelector(state => state.redux.theme_mode)
-    const user = useAppSelector(state => state.redux.user)
-
     const [inputType,setInputType] = useState<string>('password')
     const [email,setEmail] = useState<string>('')
     const [password,setPassword] = useState<string>('')
-    const [warning,setWarning] = useState<boolean>(false)
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
 
-    const User_Sign_Up = async (event: React.FormEvent) => {
+    const signInWithEmail = (event: React.FormEvent) => {
         event.preventDefault()
-        createUserWithEmailAndPassword(auth, email, password)
-        .then (({user}) => {
-            dispatch(putUser(user.email))
-            navigate("/")
-            setDoc(doc(db, email, "saved_coins"), { watch_list: [] })
+        signInWithEmailAndPassword(auth, email, password)
+        .then(({user}) => {
+            dispatch(putUser(user.email)) 
         })
         .catch((error) => {
-            console.log(error)
-            setWarning(true)
+            console.log(error) 
         })
+        navigate('/')   
     }
-
+    
     const showPassword = () => {
         inputType === 'password' ? setInputType('text') : setInputType('password')
     }
-    const closeWarning = () => {
-        setWarning(false)
-    }
-    
+
     return (
         <div className='g-page-container'>
-            <div className={`sign-up-wrapper ${theme}-sign-up`}>
-                <h1 className='header'>Sign Up</h1>
-                <form onSubmit={User_Sign_Up}>
-                    { warning ? <Warning closeWarning={closeWarning}/> : null }
+            <div className={`sign-wrapper ${theme}-sign`}>
+                <h1 className='header'>Sign In</h1>
+                <form onSubmit={signInWithEmail}>
                     <div className='email-box'>
                         <label>Email</label>
                         <div className='email-input-box'>
@@ -76,15 +65,16 @@ const SignUp:React.FC = () => {
                             }
                         </div>
                     </div>
-                    <button className='btn'>Sign Up</button>
+                    <button className='btn'>Sign In</button>
+                    <SignInGoogle/>
                 </form>
                 <div className='question'>
-                    <p className='q-text'>Already have an account ?</p>
-                    <Link to='/signin' className='q-link'>Sign In</Link>
+                    <p className='q-text'>Don't have an account ?</p>
+                    <Link to='/signup' className='q-link'>Sing Up</Link>
                 </div>
             </div>
         </div>
     )
 }
-export default SignUp;
 
+export default SignInEmail;

@@ -8,7 +8,8 @@ import { FaTelegramPlane,FaTwitter,FaFacebook } from 'react-icons/fa';
 import { AiFillRedditCircle } from 'react-icons/ai';
 import DOMPurify from 'dompurify'
 import { useParams } from 'react-router-dom'
-import '../CSS/coin-page.scss'
+import SocialLink from './SocialLink'
+import '../CSS/coin-full-info.scss'
 
 const CoinFullInfo:React.FC = () => {
 
@@ -74,54 +75,11 @@ const CoinFullInfo:React.FC = () => {
                         </section>
                         {/* ------ LINKS ON SOCIAL -------------- */} 
                         <section className='social-links'>
-
-                            {/* ------- home page ------ */}
-                            <div className={`link ${theme}-lk`}>
-                                <div className='coin-icon'>
-                                    <img src={coin.image?.thumb} alt="coin image"></img>
-                                </div>
-                                <a href={coin.links?.homepage[0]} target="blank">
-                                    site
-                                </a>
-                            </div>
-                            {/* ------ facebook -------------------- */}
-                            { coin.links?.facebook_username ? (
-                                <div className={`link ${theme}-lk`}>
-                                    <FaFacebook className='link-icon' color='#5388cd'/>
-                                    <a href={`https://facebook.com/${coin.links?.facebook_username}/`} target="blank">
-                                        facebook
-                                    </a>
-                                </div>
-                            ) : null }
-                            {/* ------ reddit ---------------- */}
-                            { coin.links?.subreddit_url ? (
-                                <div className={`link ${theme}-lk`}>
-                                    <AiFillRedditCircle className='link-icon' color='#5388cd'/>
-                                    <a href={coin.links?.subreddit_url} target="blank">
-                                        reddit
-                                    </a>
-                                </div>
-                            ) : null }
-
-                            {/* ------ telegram ----------- */}
-                            { coin.links?.telegram_channel_identifier ? (
-                                <div className={`link ${theme}-lk`}>
-                                    <FaTelegramPlane className='link-icon' color='#5388cd'/>
-                                    <a href={`https://t.me/${coin.links?.telegram_channel_identifier}`} target="blank">
-                                        telegram
-                                    </a>
-                                </div>
-                            ) : null }
-                            {/* ---------- twitter ----------- */}
-                            { coin.links?.twitter_screen_name ? (
-                                <div className={`link ${theme}-lk`}>
-                                    <FaTwitter className='link-icon' color='#5388cd'/>
-                                    <a href={`https://twitter.com/${coin.links?.twitter_screen_name}`} target="blank">
-                                        twitter
-                                    </a>
-                                </div>
-                            ) : null }
-
+                            <SocialLink type='homepage' coin={coin}/>
+                            <SocialLink type='fasebook' coin={coin}/>
+                            <SocialLink type='reddit' coin={coin}/>
+                            <SocialLink type='telegram' coin={coin}/>
+                            <SocialLink type='twitter' coin={coin}/>
                         </section>
 
                     </div>
@@ -129,7 +87,7 @@ const CoinFullInfo:React.FC = () => {
                     <section className='market-info'>
                         <h2 className='stats-title'>Market stats</h2>
                         <section className='stats-table'>
-                        <div className='cell cap'>
+                            <div className='cell cap'>
                                 <p className='l-cell'>Market cap</p>
                                 <p className='r-cell'>$ {coin.market_data?.market_cap.usd}</p>
                             </div>

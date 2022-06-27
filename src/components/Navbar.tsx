@@ -1,10 +1,9 @@
 import React,{ useState } from 'react'
-import { useAppSelector, useAppDispatch } from '../Redux/store'
-import { removeUser } from '../Redux/reduxSlice'
-import { Link,useNavigate } from 'react-router-dom'
-import { getAuth, signOut } from "firebase/auth"
+import { useAppSelector } from '../Redux/store'
+import { Link } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
 import BurgerSpiner from './BurgerSpiner'
+import SignOut from './SignOut'
 import { FaRegUser } from 'react-icons/fa'
 
 import '../CSS/navbar.scss'
@@ -13,20 +12,8 @@ const Navbar:React.FC = () => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
     const user = useAppSelector(state => state.redux.user)
+    const user_photo = useAppSelector(state => state.redux.user_photo)
     const [active,setActive] = useState<boolean>(false)
-    const dispatch = useAppDispatch()
-    const navigate = useNavigate()
-    const auth = getAuth()
-
-    const User_Sign_Out = () => {
-        signOut(auth).then(() => {
-            dispatch(removeUser())
-            navigate("/")
-        }).catch((error) => {
-            console.log(error);
-        });    
-    }
-
 
     return (
         <nav className={`navbar ${theme}-nav`}>
@@ -38,14 +25,13 @@ const Navbar:React.FC = () => {
             <div className={active ? 'menu active' : 'menu'}>
                 { user ? (
                     <>
-                        <Link to="/account" className={`link user ${theme}-nl`}>
+                        <Link to="/account" className={`account ${theme}-account`}>
                             <div className='img-wrapper'>
-                                {/* <img src='' alt='#'/> */}
-                                <FaRegUser/>
+                                { user_photo !== null ? (<img src={user_photo} alt='user photo'/>) : <FaRegUser/> }
                             </div>
                             <span className='user-name'>{user}</span>
                         </Link>
-                        <button onClick={User_Sign_Out} className={`link ${theme}-sign-out`}>Sing Out</button>
+                        <SignOut/>
                     </>
                     ) : (
                     <>
