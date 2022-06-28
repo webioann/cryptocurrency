@@ -16,8 +16,14 @@ const PerPage = () => {
         <div className={`per-page ${theme}-per-page`}>
             <p className='title'>per page</p>
             <div className='num-box'>
-                <div className='cell' onClick={() => { setLeft('0px') }}>10</div>
-                <div className='cell' onClick={() => { setLeft('30px') }}>20</div>
+                <div className='cell' onClick={() => {
+                    setLeft('0px') 
+                    dispatch(setPerPage(10))
+                    }}>10</div>
+                <div className='cell' onClick={() => { 
+                    setLeft('30px')
+                    dispatch(setPerPage(20))
+                    }}>20</div>
                 <MdCheckBoxOutlineBlank style={{ left:  left }} className='arrow'/>
             </div>
 

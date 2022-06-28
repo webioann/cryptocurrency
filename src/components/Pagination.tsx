@@ -27,7 +27,7 @@ function Pagination() {
         <div className="pagination">
             <div className="numy-row">
                 {pageNumberArray.map((number,index) => (
-                <span className={currentPage === number ? `numy-${theme} active-${theme}` : `numy-${theme}`}
+                <span className={currentPage === number ? `numy-active-${theme}` : `numy-${theme}`}
                     key={index}
                     onClick={() => dispatch(changeCurrentPage(Number(number)))}>
                     {number}

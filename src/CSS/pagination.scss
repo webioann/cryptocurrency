@@ -27,19 +27,39 @@
         .numy-dark{
             color: $text-light;
         }
-        .active-light{
-            background-color: $text-blue;
-        }
-        .active-dark{
-            background-color: $text-blue;
-        }
-
         .numy-light:hover{
             background-color: $bg-hover;
         }
         .numy-dark:hover{
             background-color: $bg-hover;
         }
+
+        .numy-active-light,
+        .numy-active-dark{
+            min-width: 25px;
+            min-height: 25px; 
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            margin: 0 3px;
+            cursor: pointer;
+        }
+        .numy-active-light{
+            background-color: $text-blue;
+        }
+        .numy-active-dark{
+            background-color: $text-blue;
+        }
+        .numy-active-light:hover{
+            background-color: $text-blue;
+        }
+        .numy-active-dark:hover{
+            background-color: $text-blue;
+        }
+
+
     }
 }
 @media (min-width: 640px) {
