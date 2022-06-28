@@ -20,16 +20,14 @@ export const paginationSlice = createSlice({
     reducers: {
         changeCurrentPage: (state,actions) => {state.currentPage = actions.payload},
         getCoinsForCurrentPage: (state,actions) => {state.currentPageCoins = actions.payload},
-        lessPerPage: state => {state.perPage = 10},
-        morePerPage: state => {state.perPage = 20},
+        setPerPage: (state,actions) => {state.perPage = actions.payload},
     }
 });
 
 export const { 
     changeCurrentPage,
     getCoinsForCurrentPage,
-    lessPerPage,
-    morePerPage 
+    setPerPage,
 } = paginationSlice.actions;
 
 export default paginationSlice.reducer;

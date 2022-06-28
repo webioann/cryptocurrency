@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { TiArrowSortedDown } from 'react-icons/ti'
-import { lessPerPage, morePerPage } from '../Redux/paginationSlice'
+import { setPerPage } from '../Redux/paginationSlice'
 import '../CSS/per-page.scss'
 
 const PerPage = () => {
@@ -19,8 +19,8 @@ const PerPage = () => {
         <div className={`per-page ${theme}-per-page`}>
             <p className='title'>per page</p>
             <div className='num-box'>
-                <p className={`cell`} onClick={() => dispatch(lessPerPage())}>10</p>
-                <p className={`cell`} onClick={() => dispatch(morePerPage())}>20</p>
+                <p className={`cell`} onClick={() => dispatch(setPerPage(10))}>10</p>
+                <p className={`cell`} onClick={() => dispatch(setPerPage(20))}>20</p>
                 <TiArrowSortedDown className='arrow'/>
             </div>
 
