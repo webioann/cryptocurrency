@@ -20,22 +20,20 @@
         height: 30px;
         display: flex;
         justify-content: center;
-
         .cell{
             width: 30px;
             height: 30px;
             display: flex;
             justify-content: center;
+            cursor: pointer;
         }
         .arrow{
             position: absolute;
-            bottom: -0.5rem;
-            left: 36px;
-            color: $text-carrot;
-            font-size: 1.2rem;
+            top: -1px;
+            color: $text-blue;
+            font-size: 2.2rem;
+            transition: left 500ms linear 200ms;
         }
-
-    
     }
 }
 .light-per-page{

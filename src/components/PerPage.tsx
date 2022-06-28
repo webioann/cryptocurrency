@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
-import { TiArrowSortedDown } from 'react-icons/ti'
+// import { TiArrowSortedDown } from 'react-icons/ti'
+import { MdCheckBoxOutlineBlank } from 'react-icons/md'
 import { setPerPage } from '../Redux/paginationSlice'
 import '../CSS/per-page.scss'
 
@@ -9,19 +10,15 @@ const PerPage = () => {
     const theme = useAppSelector(state => state.redux.theme_mode)
     const perPage = useAppSelector(state => state.pagin.perPage)
     const dispatch = useAppDispatch()
-    const [active,setActive] = useState<boolean>(false)
-
-    useEffect(() => {
-        
-    }, [perPage])
+    const [left,setLeft] = useState<string>('0px')
 
     return (
         <div className={`per-page ${theme}-per-page`}>
             <p className='title'>per page</p>
             <div className='num-box'>
-                <p className={`cell`} onClick={() => dispatch(setPerPage(10))}>10</p>
-                <p className={`cell`} onClick={() => dispatch(setPerPage(20))}>20</p>
-                <TiArrowSortedDown className='arrow'/>
+                <div className='cell' onClick={() => { setLeft('0px') }}>10</div>
+                <div className='cell' onClick={() => { setLeft('30px') }}>20</div>
+                <MdCheckBoxOutlineBlank style={{ left:  left }} className='arrow'/>
             </div>
 
         </div>
