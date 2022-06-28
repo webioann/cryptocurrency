@@ -3,16 +3,15 @@
 .top-panel{
     display: flex;
     flex-direction: column;
-    padding: 1rem 0;
     .coin-search{
         display: flex;
-        flex-direction: column;
+        flex: 1 1 auto;
+        justify-content: flex-end;
+        align-items: center;
         padding: 1rem 0;
-        margin-bottom: 1rem;
         .search-title{
             display: flex;
-            // flex: 1 1 auto;
-            margin-bottom: 1rem;
+            margin-right: 1rem;
         }
         .form{
             color: inherit;
@@ -40,6 +39,7 @@
     .per-page-box{
         display: flex;
         justify-content: flex-end;
+        padding-left: 1rem;
     }
 }
 @media (min-width: 640px) {
@@ -47,16 +47,5 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 0;
-        border: 1px solid red;
-        .coin-search{
-            flex-direction: row;
-            align-items: center;
-    
-            .search-title{
-                margin-bottom: 0;
-            }
-    
-        }
     }
 }

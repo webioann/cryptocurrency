@@ -25,7 +25,7 @@ const SearchCoins:React.FC<PropsChildrenType> = ({ children }) => {
     return (
         <div className='top-panel'>
             <div className={`coin-search ${theme}-search`}>
-                <h4 className='search-title'>Search Crypto Currency</h4>
+                <h3 className='search-title'>Search coin</h3>
                 <form className='form' onSubmit={onSubmited}>
                     <input 
                         className={`input-${theme}`}
