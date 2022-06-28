@@ -12,15 +12,15 @@ const CoinsTable = () => {
         <table className='table'>
             <thead className='tab-head'>
                 <tr className='tab-head-row'>
-                    <th className='star g-tab-hidden-640'></th>
-                    <th className='rank g-tab-hidden-640'>Rank</th>
+                    <th className='star'></th>
+                    <th className='rank g-tab-hidden-576'>Rank</th>
                     <th className='coin'>Coin</th>
                     <th className='g-tab-hidden-756'></th>
                     <th>Price</th>
                     <th>24h</th>
-                    <th>24h volume</th>
+                    <th className='g-tab-hidden-640'>24h volume</th>
                     <th className='g-tab-hidden-640'>Mkt</th>
-                    <th className='spark-line g-tab-hidden-576'>Last 7 Days</th>
+                    <th className='spark-line'>Last 7 Days</th>
                 </tr>
             </thead>
             <tbody className='tab-body'>

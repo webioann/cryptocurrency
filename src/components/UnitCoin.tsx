@@ -45,7 +45,7 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
                 price: coin.current_price,
             })});
         }
-        // delet coin from watch list ===
+        // delete coin from watch list ===
         else if( typeof user === "string" &&  chosenStar ) {
             setChosenStar(false)
             try{
@@ -60,15 +60,15 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
     return (
         <tr className={`tab-row ${theme}-tab-row`} >
             { user ? (
-                <td onClick={() => {updateWatchList(coin)}} className='star g-tab-hidden-640'> 
+                <td onClick={() => {updateWatchList(coin)}} className='star'> 
                     { chosenStar ? <AiFillStar color='#f85904'/> : <AiOutlineStar/> }
                 </td>
             ) : (
-                <td className='star g-tab-hidden-640'>
+                <td className='star'>
                     <AiOutlineStar/> 
                 </td>
             ) }
-            <td className='rank g-tab-hidden-700'>{coin.market_cap_rank}</td>
+            <td className='rank g-tab-hidden-576'>{coin.market_cap_rank}</td>
 
             <td>
                 <Link to={`/coin/${coin.id}`}>
@@ -99,11 +99,11 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
                 </div>
             </td>
 
-            <td>${coin.total_volume.toLocaleString()}</td>
+            <td className='g-tab-hidden-640'>${coin.total_volume.toLocaleString()}</td>
 
             <td className='g-tab-hidden-640'>${coin.market_cap.toLocaleString()}</td>
 
-            <td className='spark-line g-tab-hidden-576'>
+            <td className='spark-line'>
                 <Sparklines data={coin.sparkline_in_7d.price}>
                     {/* to paint the SparkLine depending on the data for 7 days */}
                     {coin.price_change_percentage_7d_in_currency > 0 
@@ -118,11 +118,3 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
 
 export default UnitCoin;
 
-
-    // const [saved_coin,setSavedCoin] = useState<savedCoin>( {
-    //     id: "bitcoin",
-    //     name: "Bitcoin",
-    //     symbol: "btc",
-    //     image: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-    //     price: 21386,
-    // })
