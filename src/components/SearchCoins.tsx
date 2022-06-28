@@ -23,18 +23,22 @@ const SearchCoins:React.FC<PropsChildrenType> = ({ children }) => {
     }
 
     return (
-        <div className={`coin-search ${theme}-search`}>
-            <h2>Search Crypto Currency</h2>
-            <form className='form' onSubmit={onSubmited}>
-                <input 
-                    className={`input-${theme}`}
-                    type='text' 
-                    placeholder='Search a coins'
-                    value={value}
-                    onChange={searchCoins}
-                />
-            </form>
-            { children }
+        <div className='top-panel'>
+            <div className={`coin-search ${theme}-search`}>
+                <h4 className='search-title'>Search Crypto Currency</h4>
+                <form className='form' onSubmit={onSubmited}>
+                    <input 
+                        className={`input-${theme}`}
+                        type='text' 
+                        placeholder='Search a coins'
+                        value={value}
+                        onChange={searchCoins}
+                    />
+                </form>
+            </div>
+            <div className='per-page-box'>
+                { children }
+            </div>
         </div>
     )
 }
