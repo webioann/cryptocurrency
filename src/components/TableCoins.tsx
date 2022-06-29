@@ -13,14 +13,14 @@ const CoinsTable = () => {
             <thead className='tab-head'>
                 <tr className='tab-head-row'>
                     <th className='star'></th>
-                    <th className='rank g-tab-hidden-576'>Rank</th>
-                    <th className='coin'>Coin</th>
+                    <th className='rank g-tab-hidden-576'>rank</th>
+                    <th className='coin'>coin</th>
                     <th className='g-tab-hidden-756'></th>
-                    <th>Price</th>
+                    <th>price</th>
                     <th>24h</th>
                     <th className='g-tab-hidden-640'>24h volume</th>
-                    <th className='g-tab-hidden-640'>Mkt</th>
-                    <th className='spark-line'>Last 7 Days</th>
+                    <th className='g-tab-hidden-640'>mkt</th>
+                    <th className='spark-line'>per 7 days</th>
                 </tr>
             </thead>
             <tbody className='tab-body'>

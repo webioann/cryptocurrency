@@ -11,17 +11,26 @@ function Pagination() {
     const perPage = useAppSelector(state => state.pagin.perPage)
 
     const [pageNumberArray,setpageNumberArray] = useState<number[]>([])
-    const total_coins = 470;
+    const total_coins = 460;
 
     useEffect(() => {
         let fullArray: number[] = []
-        let totalPages  = Math.ceil( total_coins / perPage ) 
-        for (let i = 1; i <= totalPages; i++) {
-            fullArray.push(i)
+        if( perPage === 10 && currentPage === 1 ) {
+            let totalPages  = Math.ceil( total_coins / perPage ) 
+            for (let i = 1; i <= totalPages; i++) {
+                fullArray.push(i)
+            }
+            setpageNumberArray(fullArray)
         }
-        setpageNumberArray(fullArray)
+        if( perPage === 20 && fullArray.length > 24) {
+            let totalPages = 23
+            for (let i = 1; i <= totalPages; i++) {
+                fullArray.push(i)
+            }
+            dispatch(changeCurrentPage(1))
+            setpageNumberArray(fullArray)
+        }
     },[ perPage ])
-
 
     return (
         <div className="pagination">

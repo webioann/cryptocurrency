@@ -12,7 +12,7 @@ const SignInGoogle:React.FC = () => {
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
 
-    const signInWithGoogle = () => {
+    const logInWithGoogle = () => {
         signInWithPopup(auth, provider)
         .then((result) => {
             dispatch(putUser(result.user.email))
@@ -23,8 +23,8 @@ const SignInGoogle:React.FC = () => {
     }
     
     return (
-        <button className='btn' onClick={signInWithGoogle}>
-            Google Sign In 
+        <button className='btn' onClick={logInWithGoogle}>
+            Login with Google 
         </button>
     )
 }

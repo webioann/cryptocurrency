@@ -19,7 +19,7 @@ const SignInEmail:React.FC = () => {
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
 
-    const signInWithEmail = (event: React.FormEvent) => {
+    const logInWithEmail = (event: React.FormEvent) => {
         event.preventDefault()
         signInWithEmailAndPassword(auth, email, password)
         .then(({user}) => {
@@ -38,8 +38,8 @@ const SignInEmail:React.FC = () => {
     return (
         <div className='g-page-container'>
             <div className={`sign-wrapper ${theme}-sign`}>
-                <h1 className='header'>Sign In</h1>
-                <form onSubmit={signInWithEmail}>
+                <h1 className='header'>Login</h1>
+                <form onSubmit={logInWithEmail}>
                     <div className='email-box'>
                         <label>Email</label>
                         <div className='email-input-box'>

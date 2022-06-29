@@ -52,7 +52,7 @@ const WatchList = () => {
                                 <h3 className='name'>{coin.name}</h3>
                                 <div className='symbol'>({coin.symbol.toUpperCase()})</div>
                             </div>
-                            <h3 className='price'>${coin.price}</h3>
+                            <h3 className='price'>${coin.price.toFixed(2)}</h3>
                             <div className='remove' onClick={() => { DeleteCoin(coin.id) }}>
                                 <div className='remove-btn'>
                                     <IoClose className='icon'/>
