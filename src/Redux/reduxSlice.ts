@@ -10,6 +10,7 @@ type InitialStateType = {
 }
 // get state from LocalStorage  (setItem on App.tsx) ====
 const storedTheme = localStorage.getItem('theme') || "dark";
+
 const storedUserPhoto = localStorage.getItem('userPhoto') || null;
 
 const getUser: string | null  = localStorage.getItem("user");
@@ -54,25 +55,3 @@ export const {
 
 export default reduxSlice.reducer;
 
-//==== put stored data in saved_coins (setItem on App.tsx)
-// const getCoin: string | null  = localStorage.getItem("savedCoins");
-// let storedId;
-// if ( typeof getCoin === 'string' ) {
-//     storedId = JSON.parse(getCoin)
-// }
-// else{ storedId = [] }
-
-// // ==== put user in user
-// const getUser: string | null  = localStorage.getItem("user");
-// let storedUser;
-// if ( typeof getUser === 'string' ) {
-//     storedUser = JSON.parse(getUser)
-// }
-// else { storedUser = null }
-
-        // createWatchList: (state,actions) => {state.watch_list.push(actions.payload)},
-        // removeSavedCoin: (state,actions) => {
-        //     let filteredArrayCoins = state.watch_list.filter(item => 
-        //         item.id !== actions.payload)
-        //         state.watch_list = filteredArrayCoins
-        // },

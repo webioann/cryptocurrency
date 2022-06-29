@@ -10,8 +10,8 @@ function Pagination() {
     const currentPage = useAppSelector(state => state.pagin.currentPage)
 
     const [pageNumberArray,setpageNumberArray] = useState<number[]>([])
-    const total_coins = 460;
-    const per_page = 10
+    const total_coins = 450;
+    const per_page = 15;
 
     useEffect(() => {
         let numArray: number[] = []
