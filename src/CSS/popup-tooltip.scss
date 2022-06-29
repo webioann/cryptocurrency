@@ -1,6 +1,6 @@
 @import './index.scss';
-
-.warning-box{
+//  == Popup style ==
+.popup-box{
     position: absolute;
     top: 0;
     left: 0;
@@ -9,7 +9,6 @@
     flex-direction: column;
     padding: 1rem;
     border-radius: 0.5rem;
-    // backdrop-filter: blur(10px);
     background-color: rgba(0,0,0,0.8);
     z-index: 10000;
     cursor: pointer;
@@ -28,3 +27,27 @@
         color: $text-carrot;
     }
 }
+//  == Tooltip style ==
+.tooltip{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 240px;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(0,0,0,0.9);
+    // background-color: white;
+    z-index: 10000;
+    cursor: pointer;
+    h3{
+        font-weight: 500;
+        color: $text-carrot;
+    }
+}
+
+
+
+
+

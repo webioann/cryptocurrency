@@ -7,7 +7,9 @@ import { HiArrowNarrowUp,HiArrowNarrowDown } from 'react-icons/hi'
 import { CoinsType,UnitCoinType } from '../Types/coins_types'
 import { watchListCoin } from '../Types/saved_coins_types'
 import { doc, onSnapshot, updateDoc, arrayUnion } from "firebase/firestore"
-import { db } from "../Firebase/firebase-config"; 
+import { db } from "../Firebase/firebase-config"
+import Tooltip from './Tooltip'
+
 import '../CSS/unit-coin.scss'
 
 const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
@@ -16,6 +18,7 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
     const user = useAppSelector(state => state.redux.user)
     const [watchListCoins, setWatchListCoins] = useState<watchListCoin[]>([])
     const [chosenStar,setChosenStar] = useState<boolean>(false)
+    const [showTooltip,setShowTooltip] = useState<boolean>(false)
 
     // == get watch list from firebase and update watchListCoins 
     useEffect(() => {
@@ -64,8 +67,11 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
                     { chosenStar ? <AiFillStar color='#f85904'/> : <AiOutlineStar/> }
                 </td>
             ) : (
-                <td className='star'>
-                    <AiOutlineStar/> 
+                <td className='star' 
+                    onMouseOver={() => setShowTooltip(true)} 
+                    onMouseLeave={() => setShowTooltip(false)}>
+                    <AiOutlineStar/>
+                    { showTooltip ? <Tooltip message={'pleace sign up for save coins'}/> : null } 
                 </td>
             ) }
             <td className='rank g-tab-hidden-576'>{coin.market_cap_rank}</td>

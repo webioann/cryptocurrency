@@ -5,7 +5,7 @@ import { putUser } from '../Redux/reduxSlice'
 import { useNavigate } from 'react-router-dom'
 import { HiOutlineMail } from 'react-icons/hi'
 import { GoEye,GoEyeClosed } from 'react-icons/go'
-import Warning from './Warning'
+import Popup from './Popup'
 import SignUpGoogle from './SignUpGoogle'
 // === firebase ===
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth"
@@ -42,7 +42,7 @@ const SignUpEmail:React.FC = () => {
     const showPassword = () => {
         inputType === 'password' ? setInputType('text') : setInputType('password')
     }
-    const closeWarning = () => {
+    const closePopup = () => {
         setWarning(false)
     }
     
@@ -51,7 +51,7 @@ const SignUpEmail:React.FC = () => {
             <div className={`sign-wrapper ${theme}-sign`}>
                 <h1 className='header'>Sign Up</h1>
                 <form onSubmit={ signUpWithEmail }>
-                    { warning ? <Warning closeWarning={closeWarning}/> : null }
+                    { warning ? <Popup closePopup={closePopup}/> : null }
                     <div className='email-box'>
                         <label>Email</label>
                         <div className='email-input-box'>
@@ -84,8 +84,6 @@ const SignUpEmail:React.FC = () => {
                     <p className='q-text'>Already have an account ?</p>
                     <Link to='/signin' className='q-link'>Login</Link>
                 </div>
-
-            
             </div>
         </div>
     )
