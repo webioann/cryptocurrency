@@ -29,7 +29,7 @@ const SignUpGoogle:React.FC = () => {
     
     return (
         <button className='btn' onClick={signInWithGoogle}>
-            Google Sign Up 
+            Sign Up with Google 
         </button>
     )
 }

@@ -65,7 +65,7 @@ const SignInEmail:React.FC = () => {
                             }
                         </div>
                     </div>
-                    <button className='btn'>Sign In</button>
+                    <button className='btn'>Login</button>
                     <SignInGoogle/>
                 </form>
                 <div className='question'>
