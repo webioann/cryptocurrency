@@ -3,7 +3,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyPlugin = require("copy-webpack-plugin")
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+// const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
 
 module.exports = {
@@ -16,12 +16,15 @@ module.exports = {
         publicPath: '/'
     },
     devServer: {
-        port: 8001,
+        port: 8000,
         // down code string for correct work with React-Router
         historyApiFallback: true,
     },
     plugins: [
-        new HTMLWebpackPlugin({ template : 'src/index.html' }),
+        new HTMLWebpackPlugin({ 
+            template : 'src/index.html',
+            favicon: "src/assets/favicon.png"
+        }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: '[name].[hash:4].css', 
@@ -31,7 +34,6 @@ module.exports = {
                 { from: "./src/assets", to: "./static" },
             ],
         }),
-        new FaviconsWebpackPlugin('./src/assets/favicon.png'),
         new Dotenv(),
     ],
     resolve: {
@@ -67,3 +69,4 @@ module.exports = {
         ]
     }
 }
+// new FaviconsWebpackPlugin('src/assets/favicon.png')

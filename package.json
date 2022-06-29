@@ -4,13 +4,12 @@
   "description": "TS,React,Redux,React-router and ect app",
   "main": "index.js",
   "author": "Webioann",
+  "homepage": "https://webioann.github.io/cryptocurrency/",
   "license": "MIT",
   "scripts": {
     "start": "webpack server --open --hot --mode development",
     "build": "webpack --mode production",
-    "watch": "webpack --watch",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "watch": "webpack --watch"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
