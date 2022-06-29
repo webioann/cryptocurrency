@@ -5,8 +5,6 @@ import ThemeToggle from './ThemeToggle'
 import BurgerSpiner from './BurgerSpiner'
 import SignOut from './SignOut'
 import { FaRegUser } from 'react-icons/fa'
-import translator from '../hooks/translator'
-import { login, sign_up } from '../data/text'
 import '../CSS/navbar.scss'
 
 const Navbar:React.FC = () => {
@@ -36,8 +34,8 @@ const Navbar:React.FC = () => {
                     </>
                     ) : (
                     <>
-                        <Link to="/signin" className={`link ${theme}-nl`}>{translator(login)}</Link>
-                        <Link to="/signup" className={`link ${theme}-nl`}>{translator(sign_up)}</Link>
+                        <Link to="/signin" className={`link ${theme}-nl`}>Login</Link>
+                        <Link to="/signup" className={`link ${theme}-nl`}>Sign Up</Link>
                     </>
                 ) }
                 <ThemeToggle/>

@@ -1,11 +1,9 @@
 import React,{ useState } from 'react'
 import { useAppDispatch,useAppSelector } from '../Redux/store'
 import { putInputValue } from '../Redux/reduxSlice'
-import { PropsChildrenType } from '../Types/react_types'
-
 import '../CSS/search-coins.scss'
 
-const SearchCoins:React.FC<PropsChildrenType> = ({ children }) => {
+const SearchCoins:React.FC = () => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
     const dispatch = useAppDispatch()
@@ -35,9 +33,6 @@ const SearchCoins:React.FC<PropsChildrenType> = ({ children }) => {
                         onChange={searchCoins}
                     />
                 </form>
-            </div>
-            <div className='per-page-box'>
-                { children }
             </div>
         </div>
     )

@@ -15,7 +15,7 @@ const CoinsTable = () => {
                     <th className='star'></th>
                     <th className='rank g-tab-hidden-576'>rank</th>
                     <th className='coin'>coin</th>
-                    <th className='g-tab-hidden-756'></th>
+                    <th className='symbol g-tab-hidden-756'>symbol</th>
                     <th>price</th>
                     <th>24h</th>
                     <th className='g-tab-hidden-640'>24h volume</th>

@@ -8,19 +8,19 @@ function Pagination() {
     const dispatch = useAppDispatch()
     const theme = useAppSelector(state => state.redux.theme_mode)
     const currentPage = useAppSelector(state => state.pagin.currentPage)
-    const perPage = useAppSelector(state => state.pagin.perPage)
 
     const [pageNumberArray,setpageNumberArray] = useState<number[]>([])
     const total_coins = 460;
+    const per_page = 10
 
     useEffect(() => {
         let numArray: number[] = []
-            let totalPages  = Math.ceil( total_coins / perPage ) 
+            let totalPages  = Math.ceil( total_coins / per_page ) 
             for (let i = 1; i <= totalPages; i++) {
                 numArray.push(i)
             }
             setpageNumberArray(numArray)
-    },[ perPage ])
+    },[ currentPage ])
 
     return (
         <div className="pagination">

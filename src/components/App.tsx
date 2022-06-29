@@ -12,7 +12,6 @@ import SearchCoins from './SearchCoins'
 import Table_Coins from './TableCoins'
 import TrendCoins from './TrendCoins'
 import Pagination from './Pagination'
-import LangButton from './LangButton'
 // ==== Redux axios and ect ====
 import { useAppDispatch,useAppSelector } from '../Redux/store'
 import { getCoinsData } from '../Redux/reduxSlice'
@@ -58,9 +57,7 @@ const  App:React.FC = () => {
       <Routes>
         <Route path="/" element={
           <HomePage>
-              <SearchCoins>
-                <LangButton/>
-              </SearchCoins>
+              <SearchCoins/>
               <Table_Coins/>
               <Pagination/>
               <TrendCoins/>
