@@ -6,12 +6,14 @@ type InitialStateType = {
     currentPage: number;
     currentPageCoins: CoinsType[];
     perPage: number;
+    lang: string;
 }
 
 const initialState:InitialStateType = {
     currentPage: 1,
     currentPageCoins: [],
     perPage: 10,
+    lang: 'eng'
 }
 
 export const paginationSlice = createSlice({

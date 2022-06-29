@@ -1,6 +1,6 @@
 @import'./index.scss';
 
-.per-page{
+.lang{
     width: 150px;
     height: 30px;
     
@@ -11,10 +11,7 @@
     border-radius: 0.5rem;
     // color: $text-blue;
     font-weight: 700;
-    .title{
-        margin-right: 0.5rem;
-    }
-    .num-box{
+    .lang-box{
         position: relative;
         width: 60px;
         height: 30px;
@@ -27,27 +24,27 @@
             justify-content: center;
             cursor: pointer;
         }
-        .arrow{
+        .rectangle{
             position: absolute;
-            top: -1px;
+            top: -2px;
             color: $text-blue;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             transition: left 500ms linear 200ms;
         }
     }
 }
-.light-per-page{
+.light-lang{
     box-shadow: $box-shadow-lt;
     color: $text-dark;
 
 }
-.dark-per-page{
+.dark-lang{
     background-color: $bg-block-dark;
     color: $text-light;
 }
 
 @media (min-width: 768px) {
-    .per-page{
+    .lang{
         margin-left: 1rem;
     }
 }

@@ -14,22 +14,12 @@ function Pagination() {
     const total_coins = 460;
 
     useEffect(() => {
-        let fullArray: number[] = []
-        if( perPage === 10 && currentPage === 1 ) {
+        let numArray: number[] = []
             let totalPages  = Math.ceil( total_coins / perPage ) 
             for (let i = 1; i <= totalPages; i++) {
-                fullArray.push(i)
+                numArray.push(i)
             }
-            setpageNumberArray(fullArray)
-        }
-        if( perPage === 20 && fullArray.length > 24) {
-            let totalPages = 23
-            for (let i = 1; i <= totalPages; i++) {
-                fullArray.push(i)
-            }
-            dispatch(changeCurrentPage(1))
-            setpageNumberArray(fullArray)
-        }
+            setpageNumberArray(numArray)
     },[ perPage ])
 
     return (

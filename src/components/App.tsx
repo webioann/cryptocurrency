@@ -17,7 +17,7 @@ import SearchCoins from './SearchCoins'
 import Table_Coins from './TableCoins'
 import TrendCoins from './TrendCoins'
 import Pagination from './Pagination'
-import PerPage from './PerPage'
+import LangButton from './LangButton'
 import '../CSS/app.scss'
 
 const  App:React.FC = () => {
@@ -25,16 +25,15 @@ const  App:React.FC = () => {
   const dispatch = useAppDispatch()
   // ===== get coin data =============
   const currentPage = useAppSelector(state => state.pagin.currentPage)
-  const perPage = useAppSelector(state => state.pagin.perPage)
 
-  const coins_url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${perPage}&page=${currentPage}&sparkline=true&price_change_percentage=24h%2C7d%2C14d%2C30d%2C1y`
+  const coins_url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=${currentPage}&sparkline=true&price_change_percentage=24h%2C7d%2C14d%2C30d%2C1y`
   useEffect(() => {
       axios.get(coins_url)
       .then( respons => {
         dispatch(getCoinsData(respons.data))
         dispatch(fillFullCoinsData(respons.data))
       })
-  }, [currentPage,perPage])
+  }, [currentPage])
 
   // ===== save color theme mode in Localstorage (.getItem work in Redux) ====
   const theme = useAppSelector(state => state.redux.theme_mode)
@@ -62,7 +61,7 @@ const  App:React.FC = () => {
         <Route path="/" element={
           <HomePage>
               <SearchCoins>
-                <PerPage/>
+                <LangButton/>
               </SearchCoins>
               <Table_Coins/>
               <Pagination/>
