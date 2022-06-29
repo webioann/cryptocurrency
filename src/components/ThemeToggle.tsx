@@ -1,7 +1,10 @@
 import React from 'react'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
-import { installDarkTheme,installLightTheme } from '../Redux/reduxSlice'
+import { installThemeMode } from '../Redux/reduxSlice'
 import { FaSun,FaMoon } from 'react-icons/fa'
+import translator from '../hooks/translator'
+import { theme_text_lt,theme_text_dk } from '../data/text'
+
 import '../CSS/theme-toggle.scss'
 
 const ThemeToggle:React.FC = () => {
@@ -11,19 +14,19 @@ const ThemeToggle:React.FC = () => {
 
     if ( color_theme === 'light' ) {
         return (
-            <button className='toggle-light' onClick={() => dispatch(installDarkTheme())}>
+            <button className='toggle-light' onClick={() => dispatch(installThemeMode('dark'))}>
                 <FaMoon className='toggle-icon'/>
-                <span>Dark Mode</span>
+                <span>{ translator(theme_text_dk) }</span>
             </button>
         )
     }
     else {
         return (
-            <button className='toggle-dark' onClick={() => dispatch(installLightTheme())}>
+            <button className='toggle-dark' onClick={() => dispatch(installThemeMode('light'))}>
                 <FaSun className='toggle-icon'/>
-                <span>Light Mode</span>
+                <span>{ translator(theme_text_lt) }</span>
             </button>
-        )
+        ) 
     }
 }
 export default ThemeToggle;

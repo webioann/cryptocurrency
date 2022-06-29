@@ -5,14 +5,12 @@ import { CoinsType } from '../Types/coins_types'
 type InitialStateType = {
     currentPage: number;
     currentPageCoins: CoinsType[];
-    perPage: number;
     lang: string;
 }
 
 const initialState:InitialStateType = {
     currentPage: 1,
     currentPageCoins: [],
-    perPage: 10,
     lang: 'eng'
 }
 
@@ -22,14 +20,14 @@ export const paginationSlice = createSlice({
     reducers: {
         changeCurrentPage: (state,actions) => {state.currentPage = actions.payload},
         getCoinsForCurrentPage: (state,actions) => {state.currentPageCoins = actions.payload},
-        setPerPage: (state,actions) => {state.perPage = actions.payload},
+        setUILanguage: (state,actions) => {state.lang = actions.payload},
     }
 });
 
 export const { 
     changeCurrentPage,
     getCoinsForCurrentPage,
-    setPerPage,
+    setUILanguage,
 } = paginationSlice.actions;
 
 export default paginationSlice.reducer;

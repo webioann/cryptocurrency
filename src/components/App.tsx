@@ -8,16 +8,15 @@ import SignIn from './SignInEmail'
 import SignUp from './SignUpEmail'
 import NotFounded from './NotFounded'
 import Container from './Container'
-// ==== Redux axios and ect ====
-import { useAppDispatch,useAppSelector } from '../Redux/store'
-import { getCoinsData, fillFullCoinsData } from '../Redux/reduxSlice'
-import axios from "axios"
-// -------------------------------------------
 import SearchCoins from './SearchCoins'
 import Table_Coins from './TableCoins'
 import TrendCoins from './TrendCoins'
 import Pagination from './Pagination'
 import LangButton from './LangButton'
+// ==== Redux axios and ect ====
+import { useAppDispatch,useAppSelector } from '../Redux/store'
+import { getCoinsData } from '../Redux/reduxSlice'
+import axios from "axios"
 import '../CSS/app.scss'
 
 const  App:React.FC = () => {
@@ -31,7 +30,6 @@ const  App:React.FC = () => {
       axios.get(coins_url)
       .then( respons => {
         dispatch(getCoinsData(respons.data))
-        dispatch(fillFullCoinsData(respons.data))
       })
   }, [currentPage])
 
