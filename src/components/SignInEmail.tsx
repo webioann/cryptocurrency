@@ -7,6 +7,7 @@ import { HiOutlineMail } from 'react-icons/hi'
 import { GoEye,GoEyeClosed } from 'react-icons/go'
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from '../Firebase/firebase-config'
+import { deleteUserPhoto } from '../Redux/reduxSlice'
 import SignInGoogle from './SignInGoogle'
 import '../CSS/signin-signup.scss'
 
@@ -21,6 +22,7 @@ const SignInEmail:React.FC = () => {
 
     const logInWithEmail = (event: React.FormEvent) => {
         event.preventDefault()
+        dispatch(deleteUserPhoto())
         signInWithEmailAndPassword(auth, email, password)
         .then(({user}) => {
             dispatch(putUser(user.email)) 

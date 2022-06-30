@@ -7,6 +7,7 @@ import { HiOutlineMail } from 'react-icons/hi'
 import { GoEye,GoEyeClosed } from 'react-icons/go'
 import Popup from './Popup'
 import SignUpGoogle from './SignUpGoogle'
+import { deleteUserPhoto } from '../Redux/reduxSlice'
 // === firebase ===
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth"
 import { doc, setDoc } from 'firebase/firestore'
@@ -27,6 +28,7 @@ const SignUpEmail:React.FC = () => {
 
     const signUpWithEmail = async (event: React.FormEvent) => {
         event.preventDefault()
+        dispatch(deleteUserPhoto())
         createUserWithEmailAndPassword(auth, email, password)
         .then (({user}) => {
             dispatch(putUser(user.email))
