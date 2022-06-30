@@ -83,7 +83,17 @@ $button-big: 180px;
         display: table-cell;
     }
 }
+//  div hidden =========
 
+// === hidde table on min 756px ==
+.g-hidden-350{
+    display: none;
+}
+@media (min-width: 350px) {
+    .g-hidden-350{
+        display: block;
+    }
+}
 
 
 

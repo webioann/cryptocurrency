@@ -23,7 +23,7 @@ const CoinFullInfo:React.FC = () => {
         axios.get(coin_url)
         .then( respons => {
             setUnitCoin(respons.data)
-            console.log(respons.data);
+            // console.log(respons.data);
     })
     },[coin_url])
     
@@ -44,7 +44,7 @@ const CoinFullInfo:React.FC = () => {
                             <div className='name'>
                                 <div className='header'>
                                     <h2>{coin.name}</h2>
-                                    <h3>({coin.symbol?.toUpperCase()})</h3>
+                                    <h3 className='g-hidden-350'>({coin.symbol?.toUpperCase()})</h3>
                                 </div>
                                 <div className='rank'>
                                     Rank {coin.market_cap_rank}
