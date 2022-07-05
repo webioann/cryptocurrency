@@ -11,7 +11,7 @@ function Pagination() {
 
     const [pageNumberArray,setpageNumberArray] = useState<number[]>([])
     const total_coins = 450;
-    const per_page = 15;
+    const per_page = 14;
 
     useEffect(() => {
         let numArray: number[] = []

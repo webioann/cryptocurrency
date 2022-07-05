@@ -27,6 +27,7 @@ const Navbar:React.FC = () => {
                         <Link to="/account" className={`account ${theme}-account`}>
                             <div className='img-wrapper'>
                                 { user_photo !== null ? (<img src={user_photo} alt='user photo'/>) : <FaRegUser/> }
+                                
                             </div>
                             <span className='user-name'>{user}</span>
                         </Link>

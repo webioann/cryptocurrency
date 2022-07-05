@@ -71,7 +71,7 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
                     onMouseOver={() => setShowTooltip(true)} 
                     onMouseLeave={() => setShowTooltip(false)}>
                     <AiOutlineStar/>
-                    { showTooltip ? <Tooltip message={'pleace sign up for save coins'}/> : null } 
+                    { showTooltip ? <Tooltip message={'pleace login for save coins'}/> : null } 
                 </td>
             ) }
             <td className='rank g-tab-hidden-576'>{coin.market_cap_rank}</td>
