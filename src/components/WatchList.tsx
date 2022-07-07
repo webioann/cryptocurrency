@@ -71,4 +71,5 @@ const WatchList = () => {
     else return null
 
 }
+
 export default WatchList;

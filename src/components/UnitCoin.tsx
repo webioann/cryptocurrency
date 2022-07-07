@@ -9,7 +9,6 @@ import { watchListCoin } from '../Types/saved_coins_types'
 import { doc, onSnapshot, updateDoc, arrayUnion } from "firebase/firestore"
 import { db } from "../Firebase/firebase-config"
 import Tooltip from './Tooltip'
-
 import '../CSS/unit-coin.scss'
 
 const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
@@ -75,7 +74,6 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
                 </td>
             ) }
             <td className='rank g-tab-hidden-576'>{coin.market_cap_rank}</td>
-
             <td>
                 <Link to={`/coin/${coin.id}`}>
                     <div className='coin-link'>
@@ -86,11 +84,8 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
                     </div>
                 </Link>
             </td>
-
             <td className='g-tab-hidden-756'>{coin.symbol.toUpperCase()}</td>
-
             <td>${coin.current_price.toLocaleString()}</td>
-
             <td className='percent-change'>
                 <div className='wrapper'>
                     {coin.price_change_percentage_24h > 0 
@@ -104,11 +99,8 @@ const UnitCoin:React.FC<UnitCoinType> = ( {coin} ) => {
                     <span className='percent'>%</span>
                 </div>
             </td>
-
             <td className='g-tab-hidden-640'>${coin.total_volume.toLocaleString()}</td>
-
             <td className='g-tab-hidden-640'>${coin.market_cap.toLocaleString()}</td>
-
             <td className='spark-line'>
                 <Sparklines data={coin.sparkline_in_7d.price}>
                     {/* to paint the SparkLine depending on the data for 7 days */}

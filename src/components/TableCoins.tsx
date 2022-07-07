@@ -34,5 +34,6 @@ const CoinsTable = () => {
         </table>    
     )
 }
+
 export default CoinsTable;
 

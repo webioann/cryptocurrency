@@ -16,7 +16,6 @@ const ThemeToggle:React.FC = () => {
                     <span>Dark mode</span> 
             </button>
         )
-    
     }
     else {
         return (
@@ -28,5 +27,6 @@ const ThemeToggle:React.FC = () => {
     }
 
 }
+
 export default ThemeToggle;
 

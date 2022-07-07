@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { useAppSelector,useAppDispatch } from '../Redux/store'
-import { getCoinsForCurrentPage, changeCurrentPage } from '../Redux/paginationSlice'
+import { changeCurrentPage } from '../Redux/paginationSlice'
 import "../CSS/pagination.scss"
 
 function Pagination() {
@@ -8,7 +8,6 @@ function Pagination() {
     const dispatch = useAppDispatch()
     const theme = useAppSelector(state => state.redux.theme_mode)
     const currentPage = useAppSelector(state => state.pagin.currentPage)
-
     const [pageNumberArray,setpageNumberArray] = useState<number[]>([])
     const total_coins = 450;
     const per_page = 14;

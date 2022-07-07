@@ -1,5 +1,5 @@
 import React,{ useEffect } from 'react'
-import { Routes, Route, Link } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import Navbar from './Navbar'
 import CoinFullInfo from './CoinFullInfo'
 import HomePage from './HomePage'

@@ -13,7 +13,6 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                // ----- PRICE AND LOGO --------------
                 .main{
                     display: flex;
                     .logo{
@@ -64,7 +63,6 @@
                         }
                     }
                 }
-                // ---- SPRK_LINE -------------
                 .spark-line{
                     position: relative;
                     .absolut{
@@ -89,17 +87,13 @@
                         }
                     }
                 }
-                // ---- SOCIAL LINKS -------
                 .social-links{
                     display: flex;
                     justify-content: space-between;
                     flex-wrap: wrap;
-                    // padding 5px need because spark-line have padding 5px
                     padding: 0 0 0 5px ;
                 }
-
             }
-            // ----- MARKET STATS ---------------
             .market-info{
                 display: flex;
                 flex-direction: column;
@@ -129,11 +123,8 @@
                         grid-template-columns: 1fr 1fr;
                     }
                 }
-        
             }
-            
         }
-        // -----DISCRIPTION ------------
         .discription-light{
             padding: 1rem;
             margin-top: 1rem;
@@ -143,7 +134,6 @@
             }
             p{
                 line-height: 1.5;
-
             }
         }
         .discription-dark{
@@ -156,7 +146,6 @@
             }
             p{
                 line-height: 1.5;
-
             }
         }
         @media (min-width: 768px) {
@@ -170,15 +159,3 @@
             }
         }    }
 }
-// .cell{
-    //     display: flex;
-    //     justify-content: space-between;
-    //     align-items: center;
-    //     font-weight: 500;
-    //     .l-cell{
-    //         display: flex;
-    //         flex: 1 1 auto;
-    //         border-bottom: 1px solid rgba(0,0,0,0.05);
-    //     }
-    // }
-    

@@ -27,10 +27,8 @@
         width: 100%;
         position: absolute;
         top: 60px;
-        // == for animation ==
         left: -150%;
         transition: left 800ms linear;
-        // ===================
         z-index: 2;
         display: flex;
         flex-direction: column;
@@ -74,16 +72,6 @@
                     object-fit: cover;
                 }
             }
-            // .user-name{
-            //     position: relative;
-            //     .dot{
-            //         position: absolute;
-            //         top: -10px;
-            //         left: -5px;
-            //         color: $text-carrot;
-            //     }
-
-            // }
         }
         .light-account{
             box-shadow: $box-shadow-lt;
@@ -93,13 +81,11 @@
             background-color: $bg-block-dark;
             color: $text-light;
         }
-
         .light-nl{
             box-shadow: $box-shadow-lt;
         }
         .dark-nl{
             background-color: $bg-block-dark;
-
         }
     }
     .active{
@@ -114,13 +100,10 @@
     background-color: $bg-dark;
     color: $text-light;
 }
-
 @media (min-width: 640px) {
     .navbar{
         flex-direction: row;
         align-items: center;
-        // position: relative;
-        // border-radius: 0.5rem;
         .menu{
             width: auto;
             top: 0;
@@ -139,7 +122,6 @@
                 margin-top: 0;
                 margin-left: 0.5rem; 
             }
-
         }
     }
 }

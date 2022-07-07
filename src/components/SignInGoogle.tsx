@@ -1,11 +1,9 @@
-import React, { useState,useEffect } from 'react'
-import { useAppSelector,useAppDispatch } from '../Redux/store'
+import React from 'react'
+import { useAppDispatch } from '../Redux/store'
 import { putUser, setUserPhoto } from '../Redux/reduxSlice'
 import { useNavigate } from 'react-router-dom'
-import { FcGoogle } from 'react-icons/fc'
-
 // === firebase ===
-import { signInWithPopup, onAuthStateChanged } from "firebase/auth"
+import { signInWithPopup } from "firebase/auth"
 import { auth, provider } from '../Firebase/firebase-config'
 import '../CSS/button.scss'
 

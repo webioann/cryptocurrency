@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { putUser } from '../Redux/reduxSlice'
@@ -17,8 +17,6 @@ import '../CSS/signin-signup.scss'
 const SignUpEmail:React.FC = () => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
-    const user = useAppSelector(state => state.redux.user)
-
     const [inputType,setInputType] = useState<string>('password')
     const [email,setEmail] = useState<string>('')
     const [password,setPassword] = useState<string>('')
@@ -90,5 +88,6 @@ const SignUpEmail:React.FC = () => {
         </div>
     )
 }
+
 export default SignUpEmail;
 

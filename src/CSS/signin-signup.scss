@@ -2,10 +2,6 @@
 
 .g-page-container{
     .sign-wrapper{
-        // position: relative;
-        // z-index: 1000;
-
-
         width: 290px;
         margin: 0 auto;
         padding: 100px 1rem 2rem 1rem;
@@ -61,7 +57,6 @@
                     input{
                         width: 100%;
                         letter-spacing: 3px;
-
                         background-color: inherit;
                     }
                     .input-icon{
@@ -72,7 +67,6 @@
                         cursor: pointer;
                     }
                 }
-
             }
             .btn{
                 width: 100%;
@@ -108,7 +102,6 @@
         .email-input-box{
             box-shadow: $box-shadow-lt;
             background-color: #fff;
-
             input{
                 color: $text-dark;
             }

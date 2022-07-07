@@ -10,4 +10,5 @@ const HomePage:React.FC<PropsChildrenType> = ({ children }) => {
         </div>
     )
 }
+
 export default HomePage;

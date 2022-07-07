@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React from 'react'
 import { useAppSelector, useAppDispatch } from '../Redux/store'
 import { removeUser } from '../Redux/reduxSlice'
 import { Link,useNavigate } from 'react-router-dom'
@@ -8,8 +8,6 @@ import '../CSS/button.scss'
 const SignOut:React.FC = () => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
-    // const user = useAppSelector(state => state.redux.user)
-    // const [active,setActive] = useState<boolean>(false)
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
     const auth = getAuth()

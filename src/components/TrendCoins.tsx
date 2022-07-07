@@ -9,7 +9,6 @@ const TrendCoins:React.FC = () => {
 
     const [trend_coins,setTrendCoins] = useState<TrendingType[]>([])
     const theme = useAppSelector(state => state.redux.theme_mode)
-
     const url = "https://api.coingecko.com/api/v3/search/trending"
 
     useEffect(() => {

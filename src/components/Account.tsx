@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAppSelector,useAppDispatch } from '../Redux/store'
+import { useAppSelector } from '../Redux/store'
 import WatchList from './WatchList'
 import SignOut from './SignOut'
 import '../CSS/account.scss'
@@ -31,4 +31,5 @@ const Account = () => {
         )
     } else { return null }
 }
+
 export default Account;
