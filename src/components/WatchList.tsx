@@ -31,7 +31,7 @@ const WatchList = () => {
             } catch(error) { console.log(error) }
         }
     }
-    console.log(`wl ==> ${watchListCoins}`);
+
     if( user ) {
         return (
             <div className='saved-coins-list'>
@@ -45,13 +45,15 @@ const WatchList = () => {
                         {watchListCoins.map(( coin )=> (
                         <li className='list-item' key={coin.id}>
                             <h3 className='rank'># {coin.rank}</h3>
-                            <div className='coin'>
-                                <div className='logo'>
-                                    <img src={coin.image} alt='#'/>
+                            <Link to={`/coin/${coin.id}`}>
+                                <div className='coin'>
+                                    <div className='logo'>
+                                        <img src={coin.image} alt='#'/>
+                                    </div>
+                                    <h3 className='name'>{coin.name}</h3>
+                                    <div className='symbol'>({coin.symbol.toUpperCase()})</div>
                                 </div>
-                                <h3 className='name'>{coin.name}</h3>
-                                <div className='symbol'>({coin.symbol.toUpperCase()})</div>
-                            </div>
+                            </Link>
                             <h3 className='price'>${coin.price.toFixed(2)}</h3>
                             <div className='remove' onClick={() => { DeleteCoin(coin.id) }}>
                                 <div className='remove-btn'>

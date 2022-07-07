@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAppSelector } from '../Redux/store'
-import '../CSS/popup-tooltip.scss'
+import '../CSS/tooltip.scss'
 
 type tooltipType = {
     message: string;
