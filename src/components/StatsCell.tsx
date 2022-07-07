@@ -1,4 +1,5 @@
 import React from 'react'
+import { useAppSelector } from '../Redux/store'
 import '../CSS/stats-cell.scss'
 
 type statsCellType = {
@@ -9,9 +10,12 @@ type statsCellType = {
 }
 
 const StatsCell:React.FC<statsCellType> = ({ title, data, pref, syf }) => {
+
+    const theme = useAppSelector(state => state.redux.theme_mode)
+
     return (
         <div className='cell cap'>
-            <p className='l-cell'>
+            <p className={`l-cell ${theme}-l-cell`}>
                 {title}
             </p>
             <p className='r-cell'>
