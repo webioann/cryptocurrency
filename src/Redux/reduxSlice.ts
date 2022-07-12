@@ -8,8 +8,11 @@ type InitialStateType = {
     user: string | null;
     user_photo: string | null;
 }
+interface themePayload {
+    payload: 'light' | 'dark'
+}
 // get state from LocalStorage  (setItem on App.tsx) ====
-const storedTheme = localStorage.getItem('theme') || "dark";
+const storedTheme = localStorage.getItem('theme') || 'dark';
 
 const storedUserPhoto = localStorage.getItem('userPhoto') || null;
 
@@ -21,7 +24,7 @@ if ( typeof getUser === 'string' ) {
 else { storedUser = null }
 
 const initialState:InitialStateType = {
-    theme_mode: storedTheme,
+    theme_mode: storedTheme ,
     coins_data: [],
     input_value: "",
     user: storedUser,
