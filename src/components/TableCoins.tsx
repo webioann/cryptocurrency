@@ -9,7 +9,7 @@ const CoinsTable = () => {
     const input_value = useAppSelector(state => state.redux.input_value)
     const currentPage = useAppSelector(state => state.pagin.currentPage)
 
-    const { data = [], isLoading } = useFetchCoinsQuery(currentPage);
+    const { data = [] } = useFetchCoinsQuery(currentPage);
 
     return (
         <table className='table'>
