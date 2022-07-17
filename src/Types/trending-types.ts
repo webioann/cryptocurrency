@@ -15,3 +15,6 @@ type TrendingItem = {
 export interface TrendingType {
     item: TrendingItem;
 }
+export interface TrendingDataType {
+    coins: TrendingType[];
+}
