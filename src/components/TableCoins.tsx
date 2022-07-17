@@ -1,12 +1,15 @@
 import React from 'react'
 import { useAppSelector } from '../Redux/store'
+import { useFetchCoinsQuery } from '../Redux/coinsApi'
 import UnitCoin from './UnitCoin'
 import '../CSS/table-coins.scss'
 
 const CoinsTable = () => {
 
-    const coins = useAppSelector(state => state.redux.coins_data)
     const input_value = useAppSelector(state => state.redux.input_value)
+    const currentPage = useAppSelector(state => state.pagin.currentPage)
+
+    const { data = [], isLoading } = useFetchCoinsQuery(currentPage);
 
     return (
         <table className='table'>
@@ -24,7 +27,7 @@ const CoinsTable = () => {
                 </tr>
             </thead>
             <tbody className='tab-body'>
-                {coins.filter((value) => {
+                {data.filter((value) => {
                     if (input_value === '') { return value }
                     else if (value.name.toLowerCase().includes(input_value.toLowerCase())) { return value }})
                 .map( (coin) => 

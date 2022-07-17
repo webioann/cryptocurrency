@@ -18,19 +18,30 @@ import { getCoinsData } from '../Redux/reduxSlice'
 import axios from "axios"
 import '../CSS/app.scss'
 
+// import { useFetchCoinsQuery } from '../Redux/coinsApi'
+// import { CoinsType } from '../Types/coins_types'
+// const currentPage = useAppSelector(state => state.pagin.currentPage)
+
+
 const  App:React.FC = () => {
   
   const dispatch = useAppDispatch()
   // ===== get coin data =============
-  const currentPage = useAppSelector(state => state.pagin.currentPage)
+  // const currentPage = useAppSelector(state => state.pagin.currentPage)
 
-  const coins_url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=14&page=${currentPage}&sparkline=true&price_change_percentage=24h%2C7d%2C14d%2C30d%2C1y`
-  useEffect(() => {
-      axios.get(coins_url)
-      .then( respons => {
-        dispatch(getCoinsData(respons.data))
-      })
-  }, [currentPage])
+  // const coins_url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=14&page=${currentPage}&sparkline=true&price_change_percentage=24h%2C7d%2C14d%2C30d%2C1y`
+  // useEffect(() => {
+  //     axios.get(coins_url)
+  //     .then( respons => {
+  //       dispatch(getCoinsData(respons.data))
+  //     })
+  // }, [currentPage])
+
+  // const { data, isLoading } = useFetchCoinsQuery(currentPage);
+
+  // useEffect(() => {
+  //   dispatch(getCoinsData(data))
+  // },[data])
 
   // ===== save color theme mode in Localstorage (.getItem work in Redux) ====
   const theme = useAppSelector(state => state.redux.theme_mode)

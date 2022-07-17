@@ -10,12 +10,15 @@ import SocialLink from './SocialLink'
 import StatsCell from './StatsCell'
 import '../CSS/coin-full-info.scss'
 
+import { useGetCoinFullInfoQuery } from '../Redux/coinsApi'
+
 const CoinFullInfo:React.FC = () => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
-    const [coin,setUnitCoin] = useState<FullDataCoinType>( {} as FullDataCoinType )
+    const [coin,setUnitCoin] = useState<FullDataCoinType>( {}  as FullDataCoinType)
     const params = useParams()
-    const coin_url = `https://api.coingecko.com/api/v3/coins/${params.coinId}?localization=false&sparkline=true`
+    const coin_url = `https://api.coingecko.com/api/v3/coins/${params.coinId}?localization=false&sparkline=true`;
+    const { data } = useGetCoinFullInfoQuery('bitcoin');
 
     useEffect(() => {
         axios.get(coin_url)
@@ -23,6 +26,7 @@ const CoinFullInfo:React.FC = () => {
             setUnitCoin(respons.data)
     })
     },[coin_url])
+
 
     return (
         <div className='g-page-container'>
