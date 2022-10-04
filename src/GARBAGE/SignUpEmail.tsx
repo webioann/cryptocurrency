@@ -5,7 +5,7 @@ import { putUser } from '../Redux/reduxSlice'
 import { useNavigate } from 'react-router-dom'
 import { HiOutlineMail } from 'react-icons/hi'
 import { GoEye,GoEyeClosed } from 'react-icons/go'
-import Popup from './Popup'
+import Popup from '../components/Popup'
 import SignUpGoogle from './SignUpGoogle'
 import { deleteUserPhoto } from '../Redux/reduxSlice'
 // === firebase ===
