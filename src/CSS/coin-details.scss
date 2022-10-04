@@ -1,0 +1,49 @@
+@import './index.scss';
+
+.g-page-container{
+    .coin{
+        display: flex;
+        flex-direction: column;
+        padding-top: 1rem;
+        .info{
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 100%;
+                .coin-info{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                .social-links{
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    padding: 0 0 0 5px ;
+                }
+            }
+        }
+        @media (min-width: 768px) {
+            .info{
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+        .discription-light{
+            padding: 1rem 0px;
+            h2{
+                margin-bottom: 1rem;
+            }
+            p{
+                line-height: 1.5;
+            }
+        }
+        .discription-dark{
+            padding: 1rem 0px;
+            h2{
+                margin-bottom: 1rem;
+            }
+            p{
+                line-height: 1.5;
+            }
+        }
+    }
+}

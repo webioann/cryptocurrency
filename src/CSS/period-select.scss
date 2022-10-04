@@ -1,0 +1,40 @@
+@import './index.scss';
+
+.select{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0.5rem;
+    .button-snake{
+        display: flex;
+        border-radius: 3px;
+        .period{
+            width: 37px; /*must be 37px with border-right 1px for correct view on 320px devices*/
+            padding: 5px 3px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .period:first-child{
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+        .period:last-child{
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+        .active{
+            background-color: rgba(125,165,217,0.5);
+        }
+    }
+    .light-button-snake{
+        box-shadow: $box-shadow-lt;
+    }
+    .dark-button-snake{
+        background-color: $bg-block-dark;
+    }
+}
+@media (min-width: 640px) {
+    .select{
+        justify-content: space-between;
+        margin-bottom: 0;
+    }
+}

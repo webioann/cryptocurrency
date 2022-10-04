@@ -1,0 +1,48 @@
+@import'./index.scss';
+
+.toggle-light{
+    width: $button-max-size;
+    box-shadow: $box-shadow-lt;
+    background-color: $bg-light;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    .toggle-icon{
+        color: #f85904;
+    }
+    span{
+        margin-left: 0.5rem;
+    }
+}
+.toggle-dark{
+    width: $button-max-size;
+    background-color: $bg-block-dark;
+    color: $text-light;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    .toggle-icon{
+        color: #f85904;
+    }
+    span{
+        margin-left: 0.5rem;
+    }
+}
+@media (min-width: 640px) {
+    .toggle-light{
+        margin-top: 0;
+        margin-left: 0.5rem;
+    }
+    .toggle-dark{
+        margin-top: 0;
+        margin-left: 0.5rem;
+    }
+}

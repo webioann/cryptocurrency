@@ -1,0 +1,135 @@
+@import './index.scss';
+
+.g-page-container{
+    .sign-wrapper{
+        width: 290px;
+        margin: 0 auto;
+        padding: 100px 1rem 2rem 1rem;
+        padding-bottom: 20px;
+        .header{
+            font-weight: 600;
+        }
+        form{
+            position: relative;
+            .email-box{
+                margin-top: 2rem;
+                label{
+                    padding-left: 10px;
+                    font-weight: 600;
+                }
+                .email-input-box{
+                    width: 100%;
+                    margin-top: 10px;
+                    display: flex;
+                    align-items: center;
+                    padding: 0.5rem 1rem;
+                    border-radius: 0.5rem;
+                    position: relative;
+                    input{
+                        width: 100%;
+                        letter-spacing: 3px;
+                        background-color: inherit;
+                    }
+                    .input-icon{
+                        position: absolute;
+                        top: 0.5rem;
+                        right: 1rem;
+                        opacity: 0.9;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .password-box{
+                width: 100%;
+                margin-top: 2rem;
+                label{
+                    padding-left: 10px;
+                    font-weight: 600;
+                }
+                .password-input-box{
+                    width: 100%;
+                    margin-top: 10px;
+                    display: flex;
+                    align-items: center;
+                    padding: 0.5rem 1rem;
+                    border-radius: 0.5rem;
+                    position: relative;
+                    input{
+                        width: 100%;
+                        letter-spacing: 3px;
+                        background-color: inherit;
+                    }
+                    .input-icon{
+                        position: absolute;
+                        top: 0.5rem;
+                        right: 1rem;
+                        opacity: 0.7;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .btn{
+                width: 100%;
+                margin-top: 2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0.5rem 1rem;
+                border-radius: 0.5rem;
+                font-weight: 600;
+                background-color: $text-blue;
+                color: $text-light;
+                position: relative;
+            }
+        }
+        .question{
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            .q-text{
+                margin-right: 0.5rem;
+            }
+            .q-link{
+                color: $text-blue;
+                text-decoration: underline;
+            }
+        }
+    }
+    // ===== light color mode =====
+    .light-sign{
+        color: $text-dark;
+        // background-color: $bg-light;
+        .email-input-box{
+            box-shadow: $box-shadow-lt;
+            background-color: #fff;
+            input{
+                color: $text-dark;
+            }
+        }
+        .password-input-box{
+            box-shadow: $box-shadow-lt;
+            input{
+                color: $text-dark;
+            }
+        }
+    }
+    // ===== dark color mode =====
+    .dark-sign{
+        color: $text-light;
+        // background-color: $bg-dark;
+        .email-input-box{
+            background-color: $bg-block-dark;
+            input{
+                color: $text-light;
+                letter-spacing: 3px;
+            }
+        }
+        .password-input-box{
+            background-color: $bg-block-dark;
+            input{
+                color: $text-light;
+            }
+        }
+    }
+}
+

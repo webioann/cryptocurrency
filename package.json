@@ -1,0 +1,67 @@
+{
+  "name": "cryptovers",
+  "version": "1.0.0",
+  "description": "crypto informer version 2.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack server --open --hot --mode development",
+    "build": "webpack --mode production",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webioann/cryptoVers.git"
+  },
+  "author": "Webioann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webioann/cryptoVers/issues"
+  },
+  "homepage": "https://github.com/webioann/cryptoVers#readme",
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.17.12",
+    "@types/dompurify": "^2.3.3",
+    "@types/node": "^17.0.35",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.5",
+    "@types/react-sparklines": "^1.7.2",
+    "autoprefixer": "^10.3.4",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "css-loader": "^6.2.0",
+    "dotenv-webpack": "^7.1.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.2.0",
+    "postcss": "^8.3.6",
+    "postcss-loader": "^6.1.1",
+    "postcss-preset-env": "^6.7.0",
+    "sass": "^1.38.1",
+    "sass-loader": "^12.1.0",
+    "terser-webpack-plugin": "^5.1.4",
+    "ts-loader": "^9.3.0",
+    "typescript": "^4.7.2",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.0.0"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.8.2",
+    "axios": "^0.27.2",
+    "chart.js": "^3.9.1",
+    "dompurify": "^2.3.8",
+    "firebase": "^9.8.3",
+    "react": "^18.1.0",
+    "react-chartjs-2": "^4.3.1",
+    "react-dom": "^18.1.0",
+    "react-icons": "^4.4.0",
+    "react-redux": "^8.0.2",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
+    "react-sparklines": "^1.7.0"
+  }
+}

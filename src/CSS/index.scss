@@ -1,0 +1,96 @@
+//====== VARIABLES ======
+$text-carrot: #f85904;
+$text-blue: #5388cd;
+
+$bg-hover: rgba(0,0,0,0.1);
+$bg-active: rgba(0,0,0,0.2);
+$spark-line: #5388cd;
+
+// ===== light theme =====
+$bg-light: #ffffff;
+$text-dark: #212529;
+$box-shadow-lt: 0px 0px 10px 2px rgba(0,0,0,0.1);
+$bg-active-light: rgba(0,0,0,0.04);
+// ===== dark theme =====
+$bg-dark: #2e3137;
+// $bg-dark: green;
+$text-light: #e8eaed;
+$bg-block-dark: #3c4043;
+
+// ===== sizes =====
+$button-max-size: 120px;
+$button-min-size: 90px;
+$button-big: 180px;
+
+// ==== global classes =====
+.g-page-container{
+    width: 100%;
+    // === 60px hight Navbar 2rem = (1rem + 1rem padding container)
+    margin-top: calc(60px - 1rem);
+    min-height: 100vh;
+    position: relative;
+}
+
+// === hidde table on min 425px ==
+.g-tab-hidden-425{
+    display: none;
+}
+@media (min-width: 425px) {
+    .g-tab-hidden-425{
+        display: table-cell;
+    }
+}
+
+// === hidde table on min 576px ==
+.g-tab-hidden-576{
+    display: none;
+}
+@media (min-width: 576px) {
+    .g-tab-hidden-576{
+        display: table-cell;
+    }
+}
+
+// === hidde table on min 640px ==
+.g-tab-hidden-640{
+    display: none;
+}
+@media (min-width: 640px) {
+    .g-tab-hidden-640{
+        display: table-cell;
+    }
+}
+
+// === hidde table on min 700px ==
+.g-tab-hidden-700{
+    display: none;
+}
+@media (min-width: 700px) {
+    .g-tab-hidden-700{
+        display: table-cell;
+    }
+}
+
+// === hidde table on min 756px ==
+.g-tab-hidden-756{
+    display: none;
+}
+@media (min-width: 756px) {
+    .g-tab-hidden-756{
+        display: table-cell;
+    }
+}
+//  div hidden =========
+
+// === hidde table on min 756px ==
+.g-hidden-350{
+    display: none;
+}
+@media (min-width: 350px) {
+    .g-hidden-350{
+        display: block;
+    }
+}
+
+
+

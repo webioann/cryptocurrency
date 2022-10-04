@@ -1,0 +1,70 @@
+@import'./index.scss';
+
+.dropdown{
+    position: relative;
+    height: 2rem;
+    box-shadow: $box-shadow-lt;
+    background-color: $bg-light;
+    width: 80px;
+    border-radius: 0.5rem;
+    p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        height: 30px;
+    }
+    .dropdown-header{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        .arrow-spiner{
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            font-size: 1.2rem;
+        }
+    }
+    .dropdown-list{
+        position: absolute;
+        top: 30px;
+        right: 0;
+        height: 120px;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.75s;
+        overflow: hidden;
+        display: none;
+    }
+    .active-dropdown{
+        display: block;
+        opacity: 1;
+        transition: opacity 0.75s;
+    }
+    .light-list{
+        box-shadow: $box-shadow-lt;
+        background-color: $bg-light;
+        p:hover{
+            background-color: #eee;
+        }
+    }
+    .dark-list{
+        background-color: $bg-block-dark;
+        color: $text-light;
+        p:hover{
+            background-color: $bg-hover;
+        }
+    }
+}
+.light-dropdown{
+    box-shadow: $box-shadow-lt;
+    background-color: $bg-light;
+}
+.dark-dropdown{
+    background-color: $bg-block-dark;
+    color: $text-light;
+}
+

@@ -1,0 +1,113 @@
+@import './index.scss';
+
+.search-bar{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-size: 15px;
+    .searcher{
+        display: flex;
+        flex: 1 1 auto;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 15px 0;
+        position: relative;
+        .input{
+            border-radius: 0.5rem;
+            padding: 5px 1rem;
+            width: 285px;
+            height: 30px;
+            max-width: 285px;
+        }
+        .input:focus{
+            outline: none;
+        }
+        .input-light{
+            box-shadow: $box-shadow-lt;
+        }
+        .input-dark{
+            color: $text-light;
+            background-color: $bg-block-dark;
+        }
+        .icon{
+            position: absolute;
+            right: 10px;
+            color: #ccc;
+        }
+        .bigger{
+            font-size: 1.4rem;
+        }
+        .icon:hover{
+            cursor: pointer;
+        }
+    }
+    .searcher-light{
+        color: $text-dark;
+    }
+    .searcher-dark{
+        color: $text-light;
+        background-color: $bg-dark;
+    }
+    .result{
+        z-index: 1000;
+        position: absolute;
+        right: 0.5rem;
+        top: 50px;
+        width: 250px;
+        max-height: 150px;
+        max-width: 250px;
+        overflow: hidden;
+        overflow-y: auto;
+        font-size: 15px;
+        border-radius: 0.5rem;
+        .one-coin{
+            padding: 5px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            .img-wrapper{
+                width: 20px;
+                height: 20px;
+                margin-right: 1rem;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .name{
+                flex: 1 1 0;
+            }
+        }
+        .coin-light{
+            background-color: #fff;
+        }
+        .coin-dark{
+            background-color: $bg-block-dark;
+        }
+        .coin-light:hover{
+            background-color: #eee;
+        }
+        .coin-dark:hover{
+            background-color: $bg-hover;
+        }
+    }
+    .result-light{
+        box-shadow: $box-shadow-lt;
+    }
+    .result-dark{
+        color: $text-light;
+        background-color: $bg-dark;
+    }
+    .result::-webkit-scrollbar {
+        display: none;
+    }
+}
+@media (min-width: 640px) {
+    .search-bar{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

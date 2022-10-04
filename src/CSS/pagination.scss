@@ -1,0 +1,86 @@
+@import './index.scss';
+
+.pagination{
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    .numy-row{
+        display: flex;
+        margin-bottom: 1rem;
+        padding: 0 5px;
+        .numy-light,
+        .numy-dark{
+            min-width: 25px;
+            min-height: 25px; 
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            margin: 0 3px;
+            cursor: pointer;
+        }
+        .numy-light{
+            color: $text-dark;
+        }
+        .numy-dark{
+            color: $text-light;
+        }
+        .numy-light:hover{
+            background-color: $bg-hover;
+        }
+        .numy-dark:hover{
+            background-color: $bg-hover;
+        }
+        .numy-active-light,
+        .numy-active-dark{
+            min-width: 25px;
+            min-height: 25px; 
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            margin: 0 3px;
+            cursor: pointer;
+        }
+        .numy-active-light{
+            background-color: $text-blue;
+        }
+        .numy-active-dark{
+            background-color: $text-blue;
+        }
+        .numy-active-light:hover{
+            background-color: $text-blue;
+        }
+        .numy-active-dark:hover{
+            background-color: $text-blue;
+        }
+    }
+}
+@media (min-width: 640px) {
+    .pagination{
+        margin-bottom: 0;
+    }
+}
+/* =========== CUSTOM SCROLLBAR ========  */
+::-webkit-scrollbar{
+    width: 10px;
+    height: 4px;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0.4);
+}
+::-webkit-scrollbar-thumb:horizontal{
+    border-radius: 2px; 
+    background-color: #f85904;
+    cursor: pointer;
+}
+::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+::-webkit-scrollbar-track:horizontal{
+    background-color: rgba(0,0,0,0.2);
+}

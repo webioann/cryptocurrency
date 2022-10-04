@@ -1,0 +1,36 @@
+@import './index.scss';
+
+.table{
+    border-collapse: collapse;
+    width: 100%;
+    .tab-head{
+        .tab-head-row{
+            th{
+                padding: 1rem 0 0.5rem 1rem;
+                text-align: left;
+            }
+            .coin{
+                padding-left: 1rem;
+            }
+        }
+    }
+    .tab-body{
+        .tab-row{
+            width: 100%;
+            .star{
+                width: 30px;
+                align-items: center;
+                text-align: center;
+            }
+            .rank{
+                width: 30px;
+            }
+        }
+        .light-tab-row:nth-child(odd){
+            background-color: $bg-active-light;
+        }
+        .dark-tab-row:nth-child(odd){
+            background-color: $bg-block-dark;
+        }
+    }
+}

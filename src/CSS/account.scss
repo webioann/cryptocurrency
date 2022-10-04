@@ -1,0 +1,54 @@
+@import './index.scss';
+
+.g-page-container{
+    .account-page{
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 100px 0 2rem 0;
+        .account-header{
+            font-weight: 600;
+        }
+        .wellcome-sign-out{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            .wellcome{
+                .wellcome-user{
+                    .user-name{
+                        margin-left: 5px;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        .watch-list{
+            padding: 1rem 0;
+        }
+    }
+    .light-account{
+        color: $text-dark;
+        background-color: $bg-light;
+        .list-item{
+            box-shadow: $box-shadow-lt;
+            .remove{
+                .remove-btn{
+                    box-shadow: $box-shadow-lt;
+                }
+            }
+        }
+    }
+    .dark-account{
+        color: $text-light;
+        background-color: $bg-dark;
+        .list-item{
+            background-color: $bg-block-dark;
+            .remove{
+                .remove-btn{
+                    background-color: $bg-dark;
+                }
+            }
+        }
+    }
+}

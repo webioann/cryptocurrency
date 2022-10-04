@@ -1,0 +1,24 @@
+@import './index.scss';
+
+.chosen-period{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .date-box{
+        padding: 5px;
+        border-radius: 3px;
+        white-space: nowrap;
+    }
+    .light-date-box{
+        box-shadow: $box-shadow-lt;
+    }
+    .dark-date-box{
+        background-color: $bg-block-dark;
+    }
+    .icon-arrow-to{
+        // font-size: 20px;
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+}
