@@ -29,4 +29,7 @@ export interface ICoinDetailsParams {
     page: number
     currency: 'usd' | 'eur' | 'jpy' | 'uah'
 }
+export interface ICoins {
+    coins: CoinsType[]
+}
 

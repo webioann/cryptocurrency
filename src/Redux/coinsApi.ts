@@ -10,8 +10,8 @@ export const coinsApi = createApi({
         // baseUrl: 'https://coingecko.p.rapidapi.com'
     }),
     endpoints: builder => ({
+        // data for the start page with 14 coins
         fetchCoins: builder.query<CoinsType[], ICoinDetailsParams>({
-            // data for the start page with 14 coins
             query: (params: ICoinDetailsParams) => ({
                 url: `/coins/markets?vs_currency&order=market_cap_desc&per_page=14&page&sparkline=true&price_change_percentage=24h%2C7d%2C14d%2C30d%2C1`,
                 headers: {
@@ -54,7 +54,7 @@ export const coinsApi = createApi({
 })
 
 export const { 
-    useFetchCoinsQuery,
+    useLazyFetchCoinsQuery,
     useLazyCoinDetailsQuery,
     useLazySearchCoinsQuery
 } = coinsApi;

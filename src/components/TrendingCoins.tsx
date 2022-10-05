@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useAppSelector } from '../Redux/store'
 import { Link } from 'react-router-dom'
 import { useTrendingCoinsQuery } from '../Redux/trendingCoinsApi'
@@ -7,7 +7,7 @@ import '../CSS/trending-coins.scss'
 const TrendingCoins:React.FC = () => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
-    const { data = [] } = useTrendingCoinsQuery('')
+    const { data = [] }= useTrendingCoinsQuery('')
 
     if( data ) {
         return (
