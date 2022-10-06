@@ -34,11 +34,11 @@
             right: 10px;
             color: #ccc;
         }
-        .bigger{
-            font-size: 1.4rem;
-        }
-        .icon:hover{
-            cursor: pointer;
+        .filled{
+            color: $text-carrot;
+            &:hover{
+                cursor: pointer;
+            }
         }
     }
     .searcher-light{

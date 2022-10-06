@@ -64,3 +64,24 @@ export type coinDetailsType = {
 export interface ICoinData {
     data: coinDetailsType
 }
+// =========== MarketStats =====================
+interface dataInCurrency {
+    usd: number
+    eur: number
+    jpy: number
+    uah: number
+}
+export interface IMarketData {
+    current_price: dataInCurrency 
+    market_cap:  dataInCurrency
+    total_volume:  dataInCurrency
+    high_24h:  dataInCurrency
+    low_24h:  dataInCurrency
+    price_change_percentage_24h_in_currency: dataInCurrency
+    price_change_percentage_7d_in_currency: dataInCurrency
+    price_change_percentage_14d_in_currency: dataInCurrency
+    price_change_percentage_30d_in_currency: dataInCurrency
+    price_change_percentage_60d_in_currency: dataInCurrency
+    price_change_percentage_200d_in_currency: dataInCurrency
+    price_change_percentage_1y_in_currency: dataInCurrency
+}

@@ -7,7 +7,6 @@ export const coinsApi = createApi({
     reducerPath: 'coinsApi',
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://api.coingecko.com/api/v3'
-        // baseUrl: 'https://coingecko.p.rapidapi.com'
     }),
     endpoints: builder => ({
         // data for the start page with 14 coins

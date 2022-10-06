@@ -22,7 +22,7 @@ return (
     <Routes>
       <Route path="/" element={
         <HomePage>
-            {/* <SearchBar/> */}
+            <SearchBar/>
             <CoinsTable/>
             <Pagination/>
             <TrendingCoins/>

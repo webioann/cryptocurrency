@@ -1,19 +1,27 @@
 import React, { useEffect } from 'react'
 import Coin from './Coin'
-import { useAppSelector } from '../Redux/store'
+import { useAppSelector, useAppDispatch } from '../Redux/store'
 import { useLazyFetchCoinsQuery } from '../Redux/coinsApi'
+import { onFirstAppStart } from '../Redux/reduxSlice'
 import '../CSS/coins-table.scss'
 
 const CoinsTable: React.FC = () => {
-    const currentPage = useAppSelector(state => state.pagin.currentPage)
+    const dispatch = useAppDispatch()
+    const currentPage = useAppSelector(state => state.redux.currentPage)
     const currentCurrency = useAppSelector(state => state.chart.currency.currentCurrency)
-    const [ getCoinsData, { data: coins = [], isSuccess: status } ] = useLazyFetchCoinsQuery();
+    const [ getCoinsData, { data: coins = [], isSuccess: status } ] = useLazyFetchCoinsQuery()
+
+    const start = useAppSelector(state => state.redux.appStarted)
     
     
     useEffect(() => {
         getCoinsData({ page: currentPage, currency: currentCurrency })
     }, [currentCurrency, currentPage])
     
+    useEffect(() => {
+        status && dispatch(onFirstAppStart())
+        console.log(`STARTER ---> ${start}`)
+    })
     
     if(coins) {
         return (

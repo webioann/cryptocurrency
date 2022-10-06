@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useMemo } from 'react'
 import { FaLongArrowAltRight } from 'react-icons/fa'
 import { IChartData } from '../Types/chartData.types'
 import { useAppSelector } from '../Redux/store'
@@ -31,7 +31,7 @@ const PeriodInterval: React.FC<IChartData> = ({ chartData }) => {
         setLastTimeStamp(lastTimeStamp)
     }
 
-    useEffect(() => {
+    useMemo(() => {
         setCurrentPeriod()
     }, [chartData])
 

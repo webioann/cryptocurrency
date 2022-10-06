@@ -14,67 +14,58 @@ import '../CSS/coin.scss'
 const Coin: React.FC<UnitCoinType> = ({ coin }) => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
-    const user = useAppSelector(state => state.redux.user)
+    // const user = useAppSelector(state => state.redux.user)
     const currencyMark = useAppSelector(state => state.chart.currency.currencyMark)
 
-    const [watchListCoins, setWatchListCoins] = useState<IWatchListCoin[]>([])
-    const [chosenStar,setChosenStar] = useState<boolean>(false)
-    const [showTooltip,setShowTooltip] = useState<boolean>(false)
+    // const [watchListCoins, setWatchListCoins] = useState<IWatchListCoin[]>([])
+    // const [chosenStar,setChosenStar] = useState<boolean>(false)
+    // const [showTooltip,setShowTooltip] = useState<boolean>(false)
 
     // == get watch list from firebase and update WatchList
-    useEffect(() => {
-        if( typeof user === "string" ) {
-            onSnapshot(doc(db, user, "saved_coins"), (doc)=> {
-                setWatchListCoins(doc.data()?.watch_list)
-            })
-        }
-    }, [])
+    // useEffect(() => {
+    //     if( typeof user === "string" ) {
+    //         onSnapshot(doc(db, user, "saved_coins"), (doc)=> {
+    //             setWatchListCoins(doc.data()?.watch_list)
+    //         })
+    //     }
+    // }, [])
 
     //== check if coin is saved and check star
-    useEffect(() => {
-        let coin_in_array = watchListCoins.some(item => item.id === coin.id)
-        coin_in_array ? setChosenStar(true) : setChosenStar(false)
-    },[watchListCoins])
+    // useEffect(() => {
+    //     let coin_in_array = watchListCoins.some(item => item.id === coin.id)
+    //     coin_in_array ? setChosenStar(true) : setChosenStar(false)
+    // },[watchListCoins])
 
-    const  updateWatchList  = async (coin:CoinsType) => {
-        // save coin in watch list on firebase db
-        if( typeof user === "string" &&  !chosenStar ) {
-            setChosenStar(true)
-            await updateDoc(doc(db, user, "saved_coins"), { watch_list: arrayUnion({
-                id: coin.id,
-                name: coin.name,
-                rank: coin.market_cap_rank,
-                symbol: coin.symbol,
-                image: coin.image,
-                price: coin.current_price,
-            })});
-        }
-        // delete coin from watch list ===
-        else if( typeof user === "string" &&  chosenStar ) {
-            setChosenStar(false)
-            try{
-                const result = watchListCoins.filter(item => item.id !== coin.id)
-                await updateDoc(doc(db, user, "saved_coins"), {
-                    watch_list: result
-                })
-            } catch(error) { console.log(error) }
-        }
-    }
+    // const  updateWatchList  = async (coin:CoinsType) => {
+    //     // save coin in watch list on firebase db
+    //     if( typeof user === "string" &&  !chosenStar ) {
+    //         setChosenStar(true)
+    //         await updateDoc(doc(db, user, "saved_coins"), { watch_list: arrayUnion({
+    //             id: coin.id,
+    //             name: coin.name,
+    //             rank: coin.market_cap_rank,
+    //             symbol: coin.symbol,
+    //             image: coin.image,
+    //             price: coin.current_price,
+    //         })});
+    //     }
+    //     // delete coin from watch list ===
+    //     else if( typeof user === "string" &&  chosenStar ) {
+    //         setChosenStar(false)
+    //         try{
+    //             const result = watchListCoins.filter(item => item.id !== coin.id)
+    //             await updateDoc(doc(db, user, "saved_coins"), {
+    //                 watch_list: result
+    //             })
+    //         } catch(error) { console.log(error) }
+    //     }
+    // }
 
     return (
         <tr className={`tab-row ${theme}-tab-row`} >
-            { user ? (
-                <td onClick={() => {updateWatchList(coin)}} className='star'> 
-                    { chosenStar ? <AiFillStar color='#f85904'/> : <AiOutlineStar/> }
-                </td>
-            ) : (
-                <td className='star' 
-                    onMouseOver={() => setShowTooltip(true)} 
-                    onMouseLeave={() => setShowTooltip(false)}>
-                    <AiOutlineStar/>
-                    { showTooltip ? <Tooltip message={'pleace login for save coins'}/> : null } 
-                </td>
-            ) }
+            <td className='star'> 
+                <AiOutlineStar/> 
+            </td>
             <td className='rank g-tab-hidden-576'>{coin.market_cap_rank}</td>
             <td>
                 <Link to={`/coin/${coin.id}`}>

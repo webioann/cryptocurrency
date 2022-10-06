@@ -7,8 +7,9 @@ import MarketStats  from './MarketStats'
 import CoinDetailsTitle from './CoinDetailsTitle';
 import LineChart from './LineChart'
 import { useLazyCoinDetailsQuery } from '../Redux/coinsApi'
-import { useLazyFetchChartDataQuery } from '../Redux/chartDataApi'
 import { IQueryParams } from '../Types/chartData.types'
+import { useLazyFetchChartDataQuery } from '../Redux/chartDataApi'
+
 import '../CSS/coin-details.scss'
 
 const CoinDetails: React.FC = () => {
@@ -16,10 +17,10 @@ const CoinDetails: React.FC = () => {
     const theme = useAppSelector(state => state.redux.theme_mode)
     const { coinId } = useParams()
     const [ fetchCoinDetailsData, { data }] = useLazyCoinDetailsQuery()
-
-    const [ fetchChartData, { data: chartData } ] = useLazyFetchChartDataQuery()
-    const { currentCurrency } = useAppSelector(state => state.chart.currency)
     const { period, periodicity} = useAppSelector(state => state.chart)
+    const { currentCurrency } = useAppSelector(state => state.chart.currency)
+    const [ fetchChartData, { data: chartData } ] = useLazyFetchChartDataQuery()
+
 
     useEffect(() => {
         const queryParams:IQueryParams = {
@@ -42,7 +43,7 @@ const CoinDetails: React.FC = () => {
                     <div className='info'>
                         <div className='coin-info'>
                             <CoinDetailsTitle data={data}/>
-                            { chartData ? <LineChart chartData={chartData}/> : null }
+                            { chartData ? <LineChart chartData={chartData}/> : null}
                             <div className='social-links'>
                                 <SocialLink type='homepage' coin={data}/>
                                 <SocialLink type='fasebook' coin={data}/>

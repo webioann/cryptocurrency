@@ -4,15 +4,11 @@ import { Link } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
 import Burger from './Burger'
 import DropDown from './DropDown'
-// import SignOut from '../GARBAGE/SignOut'
-// import { FaRegUser } from 'react-icons/fa'
 import '../CSS/navbar.scss'
 
 const Navbar = () => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
-    // const user = useAppSelector(state => state.redux.user)
-    // const user_photo = useAppSelector(state => state.redux.user_photo)
     const [active,setActive] = useState<boolean>(false)
 
     return (
@@ -51,3 +47,5 @@ export default Navbar;
 //         <Link to="/signup" className={`link ${theme}-nl`} onClick={() => setActive(false)}>Sign Up</Link>
 //     </>
 // ) }
+// import SignOut from '../GARBAGE/SignOut'
+// import { FaRegUser } from 'react-icons/fa'

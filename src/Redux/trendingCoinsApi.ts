@@ -22,5 +22,5 @@ export const trendingCoinsApi = createApi({
     }), 
 })
 
-export const { useTrendingCoinsQuery } = trendingCoinsApi;
+export const { useLazyTrendingCoinsQuery } = trendingCoinsApi;
 

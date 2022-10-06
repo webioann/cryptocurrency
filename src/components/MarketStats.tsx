@@ -6,7 +6,7 @@ import '../CSS/market-stats.scss'
 
 const MarketStats: React.FC<ICoinData> = ({ data }) => {
 
-    const { currentCurrency, currencyMark} = useAppSelector(state => state.chart.currency)
+    const { currentCurrency, currencyMark } = useAppSelector(state => state.chart.currency)
     const [marketCap, setMarketCap] = useState(0)
     const [totalVolume, setTotalVolume] = useState(0)
     const [high24, setHigh24] = useState(0)

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
-import { IQueryParams, IChartDataResponse } from '../Types/chartData.types'
+import { IQueryParams, IChartDataResponse, IChartData } from '../Types/chartData.types'
 
 export const chartDataApi = createApi({
     reducerPath: 'chartDataApi',
