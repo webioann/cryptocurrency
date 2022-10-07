@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAppSelector, useAppDispatch } from '../Redux/store'
-import { setByPeriod } from '../Redux/chartDataStorage'
+import { setPeriod } from '../Redux/chartDataStorage'
 import '../CSS/period-select.scss'
 
 interface IDataForPeriodButton {
@@ -31,7 +31,7 @@ const PeriodSelect = () => {
                 { dataForPeriodButtons.map(btn => (
                     <span className={(period === btn.period) ? `period active` : `period`} key={btn.index}
                         onClick={() => {
-                            dispatch(setByPeriod(btn.period))
+                            dispatch(setPeriod(btn.period))
                             }}>
                         { btn.buttonInnerText }
                     </span>

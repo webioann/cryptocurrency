@@ -19,7 +19,7 @@ const StatsCell: React.FC<IStatsCell> = ({ title, data, pref, syf }) => {
                 {title}
             </p>
             <p className='r-cell'>
-                {pref} {data} {syf}
+                {data ? pref : ''} {data ? data : ''} {data ? syf : ''}
             </p>
         </div>
     )

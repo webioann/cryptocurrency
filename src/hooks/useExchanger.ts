@@ -14,10 +14,13 @@ export const useExchanger = ( data: dataInCurrency ) => {
     const [exData, setExData] = useState<number>(0)
 
     useEffect(() => {
-        if( currency === 'usd' ) { setExData(data.usd) }
-        if( currency === 'eur' ) { setExData(data.eur) }
-        if( currency === 'jpy' ) { setExData(data.jpy) }
-        if( currency === 'uah' ) { setExData(data.uah) }
+        if( data ) {
+            if( currency === 'usd' ) { setExData(data.usd) }
+            if( currency === 'eur' ) { setExData(data.eur) }
+            if( currency === 'jpy' ) { setExData(data.jpy) }
+            if( currency === 'uah' ) { setExData(data.uah) }
+        }
+        else { setExData(0) }
     }, [currency])
 
     return exData

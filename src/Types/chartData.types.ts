@@ -1,8 +1,7 @@
 export interface IQueryParams {
     coinId: string | undefined
     currency: 'usd' | 'eur' | 'jpy' | 'uah'
-    timePeriod:  1 | 7 | 14 | 30 | 90 | 180 | 365 |'max'
-    interval: 'daily' | 'hourly' | 'minute'
+    period:  1 | 7 | 14 | 30 | 90 | 180 | 365 |'max'
 }
 interface ICurrency {
     // \u0024 = usa dolar \u20AC = euro \u00A5 = japanis yena \u20B4 = ukrainian hrivna \u20BF = bitcoin
@@ -20,5 +19,4 @@ export interface IChartData {
 export interface IChatQueryParams {
     currency: ICurrency
     period: 1 | 7 | 14 | 30 | 90 | 180 | 365 |'max'
-    periodicity: 'daily' | 'hourly' | 'minute'
 }

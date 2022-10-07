@@ -9,7 +9,6 @@ import LineChart from './LineChart'
 import { useLazyCoinDetailsQuery } from '../Redux/coinsApi'
 import { IQueryParams } from '../Types/chartData.types'
 import { useLazyFetchChartDataQuery } from '../Redux/chartDataApi'
-
 import '../CSS/coin-details.scss'
 
 const CoinDetails: React.FC = () => {
@@ -17,24 +16,24 @@ const CoinDetails: React.FC = () => {
     const theme = useAppSelector(state => state.redux.theme_mode)
     const { coinId } = useParams()
     const [ fetchCoinDetailsData, { data }] = useLazyCoinDetailsQuery()
-    const { period, periodicity} = useAppSelector(state => state.chart)
-    const { currentCurrency } = useAppSelector(state => state.chart.currency)
+    const period = useAppSelector(state => state.chart.period)
+    const currentCurrency = useAppSelector(state => state.chart.currency.currentCurrency)
     const [ fetchChartData, { data: chartData } ] = useLazyFetchChartDataQuery()
-
 
     useEffect(() => {
         const queryParams:IQueryParams = {
             coinId: coinId,
             currency: currentCurrency,
-            timePeriod:  period,
-            interval: periodicity,
+            period:  period,
         }
         fetchChartData(queryParams)
+        console.log(`ChartData`)
     }, [period, currentCurrency])
 
     useEffect(() => {
         coinId !== null && fetchCoinDetailsData(coinId)
-    }, [coinId, currentCurrency])
+        console.log(`CoinDetails`)
+    }, [coinId])
     
     if( data ) {
         return (
@@ -43,7 +42,7 @@ const CoinDetails: React.FC = () => {
                     <div className='info'>
                         <div className='coin-info'>
                             <CoinDetailsTitle data={data}/>
-                            { chartData ? <LineChart chartData={chartData}/> : null}
+                            { chartData ? <LineChart chartData={chartData}/> : null }
                             <div className='social-links'>
                                 <SocialLink type='homepage' coin={data}/>
                                 <SocialLink type='fasebook' coin={data}/>

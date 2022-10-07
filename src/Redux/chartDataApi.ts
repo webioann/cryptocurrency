@@ -10,7 +10,7 @@ export const chartDataApi = createApi({
         // function to fetch data for coin charts, with eight different time periods and fours currencies
         fetchChartData: builder.query<IChartDataResponse, IQueryParams>({
             query: (params: IQueryParams) => ({
-                url: `/coins/${params.coinId}/market_chart?vs_currency&days&interval`,
+                url: `/coins/${params.coinId}/market_chart`,
                 headers: {
                     // 'X-RapidAPI-Key': 'b5630f9220msh48dcfd94725e69bp1ef056jsn1e6f0c739872',
                     // 'X-RapidAPI-Host': 'coingecko.p.rapidapi.com',
@@ -19,8 +19,7 @@ export const chartDataApi = createApi({
                 params: {
                     coinId: params.coinId,
                     vs_currency: params.currency,
-                    days: params.timePeriod,
-                    interval: params.interval
+                    days: params.period,
                 } 
             }),
         })
@@ -28,3 +27,5 @@ export const chartDataApi = createApi({
 })
 
 export const { useLazyFetchChartDataQuery } = chartDataApi;
+
+// ?vs_currency&days&interval

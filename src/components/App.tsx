@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Routes, Route } from "react-router-dom"
 import Navbar from './Navbar'
 import CoinDetails from './CoinDetails'
@@ -15,6 +15,12 @@ import '../CSS/app.scss'
 const  App: React.FC = () => {
 
   useLocalStorage();
+  //  == to count renders ==
+  const render = useRef(0)
+  useEffect(() => {
+    render.current++
+    console.log(`RENDER NUMBER ==> ${render.current}`);
+  })
   
 return (
   <Container>

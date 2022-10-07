@@ -25,7 +25,7 @@ export interface CoinsType {
 export interface UnitCoinType {
     coin: CoinsType
 }
-export interface IRequestParams {
+export interface ICoinsRequestParams {
     page: number
     currency: 'usd' | 'eur' | 'jpy' | 'uah'
 }

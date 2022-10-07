@@ -10,18 +10,20 @@ const CoinsTable: React.FC = () => {
     const currentPage = useAppSelector(state => state.redux.currentPage)
     const currentCurrency = useAppSelector(state => state.chart.currency.currentCurrency)
     const [ getCoinsData, { data: coins = [], isSuccess: status } ] = useLazyFetchCoinsQuery()
-
-    const start = useAppSelector(state => state.redux.appStarted)
-    
     
     useEffect(() => {
-        getCoinsData({ page: currentPage, currency: currentCurrency })
+        getCoinsData({
+            page: currentPage,
+            currency: currentCurrency
+        })
+        console.log(`Coin`)
     }, [currentCurrency, currentPage])
-    
+
+    // it is needed for lazy loading TrendingCoins after fetching start page data
+    const start = useAppSelector(state => state.redux.appStarted)
     useEffect(() => {
         status && dispatch(onFirstAppStart())
-        console.log(`STARTER ---> ${start}`)
-    })
+    }, [status])
     
     if(coins) {
         return (
@@ -40,9 +42,7 @@ const CoinsTable: React.FC = () => {
                     </tr>
                 </thead>
                 <tbody className='tab-body'>
-                    {coins.map((coin) => 
-                        <Coin key={coin.id} coin={coin}/>)
-                    }
+                    { coins.map((coin) => <Coin key={coin.id} coin={coin}/>) }
                 </tbody>
             </table>    
         )

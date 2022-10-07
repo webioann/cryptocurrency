@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useAppSelector } from '../Redux/store'
 import { useExchanger } from '../hooks/useExchanger';
 import { HiArrowNarrowDown, HiArrowNarrowUp } from 'react-icons/hi';
@@ -14,21 +14,17 @@ const CoinDetailsTitle: React.FC<ICoinData> = ({ data }) => {
             <div className='logo'>
                 <img src={data.image?.small} alt='/'/>
             </div>
-            <h2 className='rank'>
-                #{ data.market_cap_rank }
-            </h2>
+            <h2 className='rank'>#&#160;{ data.market_cap_rank }</h2>
             <div className='coin-name'>
                 <h2>{ data.name }</h2>
-                <h3>
-                    ( { data.symbol?.toUpperCase() } )
-                </h3>
+                <h3>( { data.symbol?.toUpperCase() } )</h3>
             </div>
             <div className='price-dinamic'>
                 {data.market_data?.price_change_percentage_24h_in_currency.usd > 0 ? <HiArrowNarrowUp color='green'/> : <HiArrowNarrowDown color='red'/>}
                 <span>{ useExchanger(data.market_data?.price_change_percentage_24h_in_currency).toFixed(1) }%</span>
             </div>
             <div className='price'>
-                {data.market_data?.current_price ? (
+                { data.market_data?.current_price ? (
                 <h2 className='bold'>
                     { currencyMark } 
                     &#160;
@@ -36,7 +32,7 @@ const CoinDetailsTitle: React.FC<ICoinData> = ({ data }) => {
                     &#160;
                     { currentCurrency.toLocaleUpperCase() }
                 </h2>
-                ) : null}
+                ) : null }
             </div>
         </div>
     )

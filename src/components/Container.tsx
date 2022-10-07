@@ -2,10 +2,7 @@ import React from 'react'
 import { useAppSelector } from '../Redux/store'
 import '../CSS/container.scss'
 
-interface IPropsChildren {
-    children: JSX.Element | JSX.Element[]
-};
-
+interface IPropsChildren { children: JSX.Element | JSX.Element[] };
 
 const Container: React.FC<IPropsChildren> = ({ children }) => {
 

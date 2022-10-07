@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useAppSelector } from '../Redux/store'
 import { useLazySearchCoinsQuery } from '../Redux/coinsApi'
 import { Link } from 'react-router-dom'
@@ -9,7 +9,11 @@ const SearchBar = () => {
     
     const theme = useAppSelector(state => state.redux.theme_mode)
     const [value,setValue] = useState<string>('')
-    const [ fetchSearchList, { data: coinsList = [] }] = useLazySearchCoinsQuery()
+    const [ fetchSearchList, { data: coinsList = [], isFetching }] = useLazySearchCoinsQuery()
+
+    useEffect(() => {
+        isFetching && console.log(`SearchCoins`)
+    }, [isFetching])
 
     return (
         <div className='search-bar'>
