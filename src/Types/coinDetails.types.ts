@@ -32,34 +32,21 @@ type links = {
     twitter_screen_name: string
     telegram_channel_identifier: string
 }
-export type marketDataType = {
-    current_price: any
-    sparkline_7d: priceType;
-    market_cap:  any
-    total_volume:  any
-    high_24h:  any
-    low_24h:  any
-    price_change_percentage_24h: number
-    price_change_percentage_7d: number
-    price_change_percentage_14d: number
-    price_change_percentage_30d: number
-    price_change_percentage_60d: number
-    price_change_percentage_1y: number
-}
+// export type marketDataType = {
+//     current_price: any
+//     sparkline_7d: priceType;
+//     market_cap:  any
+//     total_volume:  any
+//     high_24h:  any
+//     low_24h:  any
+//     price_change_percentage_24h: number
+//     price_change_percentage_7d: number
+//     price_change_percentage_14d: number
+//     price_change_percentage_30d: number
+//     price_change_percentage_60d: number
+//     price_change_percentage_1y: number
+// }
 
-export type coinDetailsType = {
-    id: string
-    symbol: string
-    name: string
-    image: imgType
-    market_data: marketDataType
-    market_cap_rank: number
-    hashing_algorithm: string
-    tickers: Array<ticker>
-    liquidity_score: number
-    description: enType
-    links: links
-}
 
 export interface ICoinData {
     data: coinDetailsType
@@ -71,7 +58,7 @@ interface dataInCurrency {
     jpy: number
     uah: number
 }
-export interface IMarketData {
+interface IMarketData {
     current_price: dataInCurrency 
     market_cap:  dataInCurrency
     total_volume:  dataInCurrency
@@ -84,4 +71,17 @@ export interface IMarketData {
     price_change_percentage_60d_in_currency: dataInCurrency
     price_change_percentage_200d_in_currency: dataInCurrency
     price_change_percentage_1y_in_currency: dataInCurrency
+}
+export type coinDetailsType = {
+    id: string
+    symbol: string
+    name: string
+    image: imgType
+    market_data: IMarketData
+    market_cap_rank: number
+    hashing_algorithm: string
+    tickers: Array<ticker>
+    liquidity_score: number
+    description: enType
+    links: links
 }

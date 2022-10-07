@@ -9,7 +9,7 @@ interface IStatsCell {
     syf?: string;
 }
 
-const StatsCell:React.FC<IStatsCell> = ({ title, data, pref, syf }) => {
+const StatsCell: React.FC<IStatsCell> = ({ title, data, pref, syf }) => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
 
