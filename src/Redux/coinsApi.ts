@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 import { CoinsSearchType, CoinsSearchData } from "../Types/coinsSearch.types"
-import { CoinsType, ICoinDetailsParams } from '../Types/coins.types'
+import { CoinsType, IRequestParams } from '../Types/coins.types'
 import { coinDetailsType } from '../Types/coinDetails.types'
 
 export const coinsApi = createApi({
@@ -10,8 +10,8 @@ export const coinsApi = createApi({
     }),
     endpoints: builder => ({
         // data for the start page with 14 coins
-        fetchCoins: builder.query<CoinsType[], ICoinDetailsParams>({
-            query: (params: ICoinDetailsParams) => ({
+        fetchCoins: builder.query<CoinsType[], IRequestParams>({
+            query: (params: IRequestParams) => ({
                 url: `/coins/markets?vs_currency&order=market_cap_desc&per_page=14&page&sparkline=true&price_change_percentage=24h%2C7d%2C14d%2C30d%2C1`,
                 headers: {
                     // 'X-RapidAPI-Key': 'b5630f9220msh48dcfd94725e69bp1ef056jsn1e6f0c739872',
