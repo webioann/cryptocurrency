@@ -9,6 +9,7 @@ import LineChart from './LineChart'
 import { useLazyCoinDetailsQuery } from '../Redux/coinsApi'
 import { IQueryParams } from '../Types/chartData.types'
 import { useLazyFetchChartDataQuery } from '../Redux/chartDataApi'
+import { useGetNewsQuery } from '../Redux/newsApi'
 import '../CSS/coin-details.scss'
 
 const CoinDetails: React.FC = () => {
@@ -18,7 +19,8 @@ const CoinDetails: React.FC = () => {
     const [ fetchCoinDetailsData, { data }] = useLazyCoinDetailsQuery()
     const period = useAppSelector(state => state.chart.period)
     const currentCurrency = useAppSelector(state => state.chart.currency.currentCurrency)
-    const [ fetchChartData, { data: chartData } ] = useLazyFetchChartDataQuery()
+    const [ fetchChartData, { data: chartData, isLoading } ] = useLazyFetchChartDataQuery()
+    const { data: news } = useGetNewsQuery({ newsCategory: coinId, count: 2 })
 
     useEffect(() => {
         const queryParams:IQueryParams = {
@@ -29,6 +31,8 @@ const CoinDetails: React.FC = () => {
         fetchChartData(queryParams)
         console.log(`ChartData`)
     }, [period, currentCurrency])
+
+    console.log(`news ${JSON.stringify(news)}`);
 
     useEffect(() => {
         coinId !== null && fetchCoinDetailsData(coinId)

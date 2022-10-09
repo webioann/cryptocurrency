@@ -4,6 +4,7 @@ import reduxSlice  from './reduxSlice'
 import { coinsApi } from './coinsApi'
 import { trendingCoinsApi } from './trendingCoinsApi'
 import { chartDataApi } from './chartDataApi'
+import { newsApi } from './newsApi'
 import chartDataStorage from './chartDataStorage'
 
 const store = configureStore({
@@ -13,12 +14,14 @@ const store = configureStore({
         [coinsApi.reducerPath]: coinsApi.reducer,
         [trendingCoinsApi.reducerPath]: trendingCoinsApi.reducer,
         [chartDataApi.reducerPath]: chartDataApi.reducer,
+        [newsApi.reducerPath]: newsApi.reducer,
     },
     middleware: getDefaultMiddleware =>  getDefaultMiddleware().concat(
         [
             coinsApi.middleware,
             trendingCoinsApi.middleware,
-            chartDataApi.middleware
+            chartDataApi.middleware,
+            newsApi.middleware
         ]
     ),
 })

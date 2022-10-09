@@ -8,7 +8,7 @@ export const trendingCoinsApi = createApi({
     }),
     endpoints: builder => ({
         // data for seven trending coins
-        trendingCoins: builder.query<TrendingType[],string>({
+        trendingCoins: builder.query<TrendingType[], string>({
             query: () => ({
                 url: '/search/trending',
             }),

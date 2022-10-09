@@ -3,6 +3,7 @@ import { CoinsSearchType, CoinsSearchData } from "../Types/coinsSearch.types"
 import { CoinsType, ICoinsRequestParams } from '../Types/coins.types'
 import { coinDetailsType } from '../Types/coinDetails.types'
 
+
 export const coinsApi = createApi({
     reducerPath: 'coinsApi',
     baseQuery: fetchBaseQuery({

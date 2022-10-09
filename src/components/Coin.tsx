@@ -18,9 +18,6 @@ const Coin: React.FC<UnitCoinType> = ({ coin }) => {
 
     return (
         <tr className={`tab-row ${theme}-tab-row`} >
-            {/* <td className='star'> 
-                <AiOutlineStar/> 
-            </td> */}
             <td className='rank'>#&#160;{ coin.market_cap_rank }</td>
             <td>
                 <Link to={`/coin/${coin.id}`}>
