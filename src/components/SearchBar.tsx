@@ -9,7 +9,7 @@ const SearchBar = () => {
     
     const theme = useAppSelector(state => state.redux.theme_mode)
     const [value,setValue] = useState<string>('')
-    const [ fetchSearchList, { data: coinsList = [], isFetching }] = useLazySearchCoinsQuery()
+    const [ fetchSearchList, { data = [], isFetching }] = useLazySearchCoinsQuery()
 
     useEffect(() => {
         isFetching && console.log(`SearchCoins`)
@@ -26,11 +26,11 @@ const SearchBar = () => {
                 />
                 { value.length < 2 
                     ? <FaSearch className='icon'/> 
-                    : <FaSearch className='icon filled' onClick={() => {coinsList.length < 1 ? fetchSearchList(value) : setValue('')}}/>
+                    : <FaSearch className='icon filled' onClick={() => {data.length < 1 ? fetchSearchList(value) : setValue('')}}/>
                 }
-                { coinsList.length !== 0 ? (
+                { data.length !== 0 && value.length > 1 ? (
                     <ul className={`result result-${theme}`}>
-                    { coinsList.map((coin) => (
+                    { data.map((coin) => (
                         <Link to={`/coin/${coin.id}`} key={coin.id} onClick={() => setValue('')}>
                             <li className={`one-coin coin-${theme}`}>
                                 <div className='img-wrapper'>
@@ -50,8 +50,4 @@ const SearchBar = () => {
 
 export default SearchBar;
 
-// { value !== "" 
-// ? <VscChromeClose className='icon bigger' onClick={clearInput}/> 
-// : <FaSearch className='icon'/>
-// }
-                    // onFocus={() => fetchSearchList(value)}
+
