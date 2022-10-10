@@ -4,12 +4,12 @@ import DOMPurify from 'dompurify'
 import { useParams } from 'react-router-dom'
 import SocialLink from './SocialLink'
 import MarketStats  from './MarketStats'
-import CoinDetailsTitle from './CoinDetailsTitle';
+import CoinDetailsTitle from './CoinDetailsTitle'
+import News from './News'
 import LineChart from './LineChart'
 import { useLazyCoinDetailsQuery } from '../Redux/coinsApi'
 import { IQueryParams } from '../Types/chartData.types'
 import { useLazyFetchChartDataQuery } from '../Redux/chartDataApi'
-import { useGetNewsQuery } from '../Redux/newsApi'
 import '../CSS/coin-details.scss'
 
 const CoinDetails: React.FC = () => {
@@ -20,7 +20,6 @@ const CoinDetails: React.FC = () => {
     const period = useAppSelector(state => state.chart.period)
     const currentCurrency = useAppSelector(state => state.chart.currency.currentCurrency)
     const [ fetchChartData, { data: chartData, isLoading } ] = useLazyFetchChartDataQuery()
-    const { data: news } = useGetNewsQuery({ newsCategory: coinId, count: 2 })
 
     useEffect(() => {
         const queryParams:IQueryParams = {
@@ -32,7 +31,6 @@ const CoinDetails: React.FC = () => {
         console.log(`ChartData`)
     }, [period, currentCurrency])
 
-    console.log(`news ${JSON.stringify(news)}`);
 
     useEffect(() => {
         coinId !== null && fetchCoinDetailsData(coinId)
@@ -58,6 +56,7 @@ const CoinDetails: React.FC = () => {
                         <MarketStats data={data}/>
                     </div>
                     <div className={`discription-${theme}`}>
+                        <News/> 
                         <h2>About {data.name}</h2>
                         <p dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(data.description ? data.description.en : ''),}} ></p>
                     </div>

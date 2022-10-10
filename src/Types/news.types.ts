@@ -13,8 +13,13 @@ interface sortObject {
 interface thumbnail {
     _type: string
     contentUrl: string
-    width: number
-    height: number
+    width?: number
+    height?: number
+}
+interface aboutObj {
+    _type: string
+    readLink: string
+    name: string
 }
 interface imageValueObject {
     _type: string
@@ -31,6 +36,7 @@ export interface valueObject {
     url: string
     image: imageValueObject
     description: string
+    about: aboutObj[]
     provider: providerValueObject[]
     datePublished: string
     category: string

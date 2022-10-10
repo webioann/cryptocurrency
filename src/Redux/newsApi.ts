@@ -3,7 +3,7 @@ import { INewsResponse } from '../Types/news.types'
 
 interface INewsRequestParams {
     newsCategory: string | undefined
-    count: 1 | 2
+    count: 3 | 6
 }
 
 export const newsApi = createApi({
