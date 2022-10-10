@@ -30,7 +30,6 @@ const CoinsTable: React.FC = () => {
             <table className='table'>
                 <thead className='tab-head'>
                     <tr className='tab-head-row'>
-                        <th className='star'></th>
                         <th className='rank g-tab-hidden-576'>rank</th>
                         <th className='coin'>coin</th>
                         <th className='symbol g-tab-hidden-756'>symbol</th>
