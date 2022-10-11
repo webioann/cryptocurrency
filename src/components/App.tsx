@@ -17,11 +17,11 @@ const  App: React.FC = () => {
 
   useLocalStorage();
   //  == to count renders ==
-  const render = useRef(0)
-  useEffect(() => {
-    render.current++
-    console.log(`RENDER NUMBER ==> ${render.current}`);
-  })
+  // const render = useRef(0)
+  // useEffect(() => {
+  //   render.current++
+  //   console.log(`RENDER NUMBER ==> ${render.current}`);
+  // })
   
 return (
   <Container>

@@ -16,7 +16,6 @@ const CoinsTable: React.FC = () => {
             page: currentPage,
             currency: currentCurrency
         })
-        console.log(`Coin`)
     }, [currentCurrency, currentPage])
 
     // it is needed for lazy loading TrendingCoins after fetching start page data

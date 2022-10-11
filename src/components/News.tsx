@@ -4,6 +4,7 @@ import { useGetNewsQuery } from '../Redux/newsApi'
 // import useMomentHook from '../hooks/useMomentHook'
 import { useAppSelector } from '../Redux/store'
 import momment from 'moment'
+import { BiNews } from 'react-icons/bi'
 import '../CSS/news.scss'
 
 interface INewsProps { 
@@ -35,7 +36,10 @@ const News: React.FC<INewsProps> = ({ category, count, providerLogo }) => {
                         <div className='provider-container'>
                             <div className='provider'>
                                 <div className='provider-avatar'>
-                                    <img src={news.provider[0]?.image?.thumbnail?.contentUrl || providerLogo} alt='provider avatar'/>
+                                    { news.provider[0]?.image?.thumbnail?.contentUrl ?
+                                        <img src={news.provider[0]?.image?.thumbnail?.contentUrl} alt='avatar'/> :
+                                        <BiNews size='30px' color='#f85904'/> 
+                                    }
                                 </div>
                                 <p className='provider-name'>{news.provider[0]?.name}</p>
                             </div>
