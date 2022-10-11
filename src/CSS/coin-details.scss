@@ -27,22 +27,16 @@
                 grid-template-columns: 2fr 1fr;
             }
         }
-        .discription-light{
+        .news-light{
             padding: 1rem 0px;
-            h2{
-                margin-bottom: 1rem;
-            }
-            p{
-                line-height: 1.5;
+            .news-title{
+                padding: 1rem;
             }
         }
-        .discription-dark{
+        .news-dark{
             padding: 1rem 0px;
-            h2{
-                margin-bottom: 1rem;
-            }
-            p{
-                line-height: 1.5;
+            .news-title{
+                padding: 1rem;
             }
         }
     }

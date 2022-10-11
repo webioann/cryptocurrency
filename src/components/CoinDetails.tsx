@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { useAppSelector } from '../Redux/store'
-import DOMPurify from 'dompurify'
 import { useParams } from 'react-router-dom'
 import SocialLink from './SocialLink'
 import MarketStats  from './MarketStats'
@@ -55,10 +54,9 @@ const CoinDetails: React.FC = () => {
                         </div>
                         <MarketStats data={data}/>
                     </div>
-                    <div className={`discription-${theme}`}>
-                        <News/> 
-                        <h2>About {data.name}</h2>
-                        <p dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(data.description ? data.description.en : ''),}} ></p>
+                    <div className={`news-${theme}`}>
+                        <h2 className='news-title'>{`Fresh ${coinId?.toLocaleUpperCase()} news`}</h2>
+                        { coinId && <News category={coinId} count={6} providerLogo={data.image?.small}/>  }
                     </div>
                 </div>
             </div>

@@ -5,7 +5,7 @@ interface IPropsChildren {
     children: JSX.Element | JSX.Element[]
 }
 
-const HomePage: React.FC<IPropsChildren> = ({ children }) => {
+const PageContainer: React.FC<IPropsChildren> = ({ children }) => {
 
     return (
         <div className='g-page-container'>
@@ -14,4 +14,4 @@ const HomePage: React.FC<IPropsChildren> = ({ children }) => {
     )
 }
 
-export default HomePage;
+export default PageContainer;

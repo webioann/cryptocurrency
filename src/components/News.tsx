@@ -6,14 +6,15 @@ import { useAppSelector } from '../Redux/store'
 import momment from 'moment'
 import '../CSS/news.scss'
 
-// interface INewsProps { coinId: string }
+interface INewsProps { 
+    category: string
+    count: 3 | 6 | 12 
+    providerLogo?: string
+}
 
-const News: React.FC = () => {
+const News: React.FC<INewsProps> = ({ category, count, providerLogo }) => {
     const theme = useAppSelector(state => state.redux.theme_mode)
-    const demoAvatar = 'https://assets.coingecko.com/coins/images/1/thumb/bitcoin.png?1547033579'
-    const { data: newsList } = useGetNewsQuery({ newsCategory: 'cryptocurrency', count: 6 })
-
-    // useMoment();
+    const { data: newsList } = useGetNewsQuery({ newsCategory: category, count: count })
 
     if( newsList ) {
         return (
@@ -27,19 +28,18 @@ const News: React.FC = () => {
                         <header className='news-header'>
                             <h3 className='news-title'>{news.name}</h3>
                             <div className='news-avatar'>
-                                <img src={news.image?.thumbnail?.contentUrl || demoAvatar} alt='news'/>
+                                <img src={news.image?.thumbnail?.contentUrl || providerLogo} alt='news'/>
                             </div>
                         </header>
                         <p>{news.description}</p>
                         <div className='provider-container'>
                             <div className='provider'>
                                 <div className='provider-avatar'>
-                                    <img src={news.provider[0]?.image?.thumbnail?.contentUrl || demoAvatar} alt='provider avatar'/>
+                                    <img src={news.provider[0]?.image?.thumbnail?.contentUrl || providerLogo} alt='provider avatar'/>
                                 </div>
                                 <p className='provider-name'>{news.provider[0]?.name}</p>
                             </div>
                             <p>{momment(news.datePublished).startOf('ms').fromNow()}</p>
-                            {/* <p className='date-published'>an 5 hours ago </p> */}
                         </div>
                         
                     </a>
