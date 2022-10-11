@@ -32,22 +32,3 @@ const Navbar = () => {
 }
 
 export default Navbar;
-// { user ? (
-//     <>
-//         <Link to="/account" className={`account ${theme}-account`} onClick={() => setActive(false)}>
-//             <div className='img-wrapper'>
-//                 { user_photo !== null ? (<img src={user_photo} alt='user photo'/>) : <FaRegUser/> }
-                
-//             </div>
-//             <span className='user-name'>{user}</span>
-//         </Link>
-//         <SignOut/>
-//     </>
-//     ) : (
-//     <>
-//         <Link to="/signin" className={`link ${theme}-nl`} onClick={() => setActive(false)}>Login</Link>
-//         <Link to="/signup" className={`link ${theme}-nl`} onClick={() => setActive(false)}>Sign Up</Link>
-//     </>
-// ) }
-// import SignOut from '../GARBAGE/SignOut'
-// import { FaRegUser } from 'react-icons/fa'

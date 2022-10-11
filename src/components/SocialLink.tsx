@@ -85,7 +85,7 @@ const SocialLink: React.FC<variantType> = ({ type, coin }) => {
             </>
         )
     }
-    else { return null }
+    else  return null 
 }
 
 export default SocialLink;

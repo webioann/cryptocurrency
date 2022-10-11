@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useAppSelector } from '../Redux/store'
 import { useExchanger } from '../hooks/useExchanger';
 import StatsCell from './StatsCell'

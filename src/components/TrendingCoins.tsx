@@ -42,7 +42,8 @@ const TrendingCoins:React.FC = () => {
             </div>
         )
     
-    } else { return null }
+    } 
+    else  return null 
 }
 
 export default TrendingCoins;

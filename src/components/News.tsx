@@ -1,7 +1,5 @@
 import React from 'react'
 import { useGetNewsQuery } from '../Redux/newsApi'
-// import { Link } from 'react-router-dom'
-// import useMomentHook from '../hooks/useMomentHook'
 import { useAppSelector } from '../Redux/store'
 import momment from 'moment'
 import { BiNews } from 'react-icons/bi'

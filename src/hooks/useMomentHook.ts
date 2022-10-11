@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 
-const useMoment = ( ) => {
+const useMoment = (datePublished: string ) => {
     const [moment, setMoment] = useState<string>('')
 
-    // useEffect(() => {
-        let past = Date.parse("2022-10-10T15:56:00.0000000Z")
+    useEffect(() => {
+        let past = Date.parse(datePublished)
         let nowTime = new Date()
         let now = Date.parse(nowTime.toString())
         let result = now - past
@@ -15,7 +15,7 @@ const useMoment = ( ) => {
         if(result >= 172800000) {
             setMoment(`an ${result / 3600000} hours ago`)
         }    
-    // }, [datePublished])
+    }, [datePublished])
 
     return moment
 }

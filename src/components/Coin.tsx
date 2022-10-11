@@ -1,14 +1,9 @@
-import React,{ useState,useEffect } from 'react'
+import React from 'react'
 import { Sparklines, SparklinesLine } from 'react-sparklines'
 import { Link } from 'react-router-dom'
 import { useAppSelector } from '../Redux/store'
-import { AiFillStar,AiOutlineStar } from 'react-icons/ai'
 import { HiArrowNarrowUp,HiArrowNarrowDown } from 'react-icons/hi'
-import { CoinsType,UnitCoinType } from '../Types/coins.types'
-import { IWatchListCoin } from '../Types/watchList.types'
-import { doc, onSnapshot, updateDoc, arrayUnion } from "firebase/firestore"
-import { db } from "../Firebase/firebase-config"
-import Tooltip from './Tooltip'
+import { UnitCoinType } from '../Types/coins.types'
 import '../CSS/coin.scss'
 
 const Coin: React.FC<UnitCoinType> = ({ coin }) => {
