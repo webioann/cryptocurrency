@@ -13,6 +13,7 @@
         cursor: pointer;
         .news-header{
             display: flex;
+            justify-content: space-between;
             padding-bottom: 1rem;
             .news-title{
                 font-weight: 600;

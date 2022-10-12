@@ -8,12 +8,12 @@ import '../CSS/news.scss'
 interface INewsProps { 
     category: string
     count: 3 | 6 | 12 
-    providerLogo?: string
 }
 
-const News: React.FC<INewsProps> = ({ category, count, providerLogo }) => {
+const News: React.FC<INewsProps> = ({ category, count }) => {
     const theme = useAppSelector(state => state.redux.theme_mode)
     const { data: newsList } = useGetNewsQuery({ newsCategory: category, count: count })
+    const defaultImage = "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579"
 
     if( newsList ) {
         return (
@@ -27,7 +27,7 @@ const News: React.FC<INewsProps> = ({ category, count, providerLogo }) => {
                         <header className='news-header'>
                             <h3 className='news-title'>{news.name}</h3>
                             <div className='news-avatar'>
-                                <img src={news.image?.thumbnail?.contentUrl || providerLogo} alt='news'/>
+                                <img src={news.image?.thumbnail?.contentUrl || defaultImage} alt='news'/>
                             </div>
                         </header>
                         <p>{news.description}</p>
