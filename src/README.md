@@ -6,7 +6,7 @@
 ![react-router](https://img.shields.io/badge/react_router-CA4245?style=flat&logo=react-router&logoColor=white)&nbsp;
 ![sass](https://img.shields.io/badge/SASS-hotpink.svg?style=flat&logo=sass&logoColor=white)&nbsp;
 ![webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=flat&logo=webpack&logoColor=black)&nbsp;
-![yarn](https://img.shields.io/badge/yarn-%232C8EBB.svg?style=flat&logo=yarn&logoColor=white)&nbsp;
+![npm](https://img.shields.io/badge/NPM-%23323330.svg?style=flat&logo=npm&logoColor=white)&nbsp;
 
 ### start app in brouser 🚀
 
