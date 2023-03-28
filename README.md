@@ -1,4 +1,4 @@
-# Cryptocurrency informer by <span style="color:green;">CoinGecko API</span> <img src='https://avatars.githubusercontent.com/u/7111837?s=280&v=4' width='30px'/>
+# Cryptocurrency informer by <span style="color: green">CoinGecko API</span> <img src='https://avatars.githubusercontent.com/u/7111837?s=280&v=4' width='30px'/>
 
 ![react](https://img.shields.io/badge/react-blue.svg?style=flat&logo=react&logoColor=white)&nbsp;
 ![typescript](https://img.shields.io/badge/typescript-%231572B6.svg?style=flat&logo=typescript&logoColor=white)&nbsp;
