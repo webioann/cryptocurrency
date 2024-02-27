@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGetNewsQuery } from '../Redux/newsApi'
+import { useGetNewsQuery, useLazyGetNewsQuery } from '../Redux/newsApi'
 import { useAppSelector } from '../Redux/store'
 import momment from 'moment'
 import { BiNews } from 'react-icons/bi'

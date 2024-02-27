@@ -12,7 +12,6 @@ export const newsApi = createApi({
         baseUrl: 'https://bing-news-search1.p.rapidapi.com'
     }),
     endpoints: builder => ({
-        // data for seven trending coins
         getNews: builder.query<INewsResponse, INewsRequestParams | undefined>({
             query: (params: INewsRequestParams) => ({
                 url: `/news/search`,
@@ -33,4 +32,4 @@ export const newsApi = createApi({
     }), 
 })
 
-export const { useGetNewsQuery } = newsApi;
+export const { useGetNewsQuery, useLazyGetNewsQuery } = newsApi;

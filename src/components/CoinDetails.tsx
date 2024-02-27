@@ -54,7 +54,8 @@ const CoinDetails: React.FC = () => {
                     </div>
                     <div className={`news-${theme}`}>
                         <h2 className='news-title'>{`Fresh ${coinId?.toLocaleUpperCase()} news`}</h2>
-                        { coinId && <News category={coinId} count={6} providerLogo={data.image?.large}/>  }
+                        { coinId && <News category={coinId} count={6}/>  }
+                        {/* providerLogo={data.image?.large} */}
                     </div>
                 </div>
             </div>
