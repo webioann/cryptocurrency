@@ -6,7 +6,7 @@ interface InitialStateType {
     appStarted: 'started' | null
 }
 // get state from LocalStorage  (setItem on App.tsx) ====
-const storedTheme = localStorage.getItem('theme') || 'dark';
+const storedTheme = localStorage.getItem('theme') || 'light';
 
 const initialState: InitialStateType = {
     theme_mode: storedTheme ,

@@ -17,11 +17,11 @@ export const coinsApi = createApi({
                 params: {
                     page: params.page,
                     vs_currency: params.currency,
-                    price_change_percentage: '24h, 7d',
+                    price_change_percentage: '24h,7d',
                     sparkline: 'true',
-                    per_page: '14',
-                    order: 'market_cap_desc'
-                }
+                    per_page: 14,
+                    order: 'market_cap_desc',
+                },
             })
         }),
         // data for one (chosen) coin with all details

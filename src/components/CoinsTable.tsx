@@ -18,13 +18,15 @@ const CoinsTable: React.FC = () => {
         })
     }, [currentCurrency, currentPage])
 
+    console.log(coins)
+
     // it is needed for lazy loading TrendingCoins after fetching start page data
     const start = useAppSelector(state => state.redux.appStarted)
     useEffect(() => {
         status && dispatch(onFirstAppStart())
     }, [status])
     
-    if(coins) {
+    if(coins.length > 0) {
         return (
             <table className='table'>
                 <thead className='tab-head'>

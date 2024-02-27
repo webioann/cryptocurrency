@@ -25,7 +25,7 @@ export const newsApi = createApi({
                 },
                 headers: {
                     'X-BingApis-SDK': 'true',
-                    'X-RapidAPI-Key': 'b5630f9220msh48dcfd94725e69bp1ef056jsn1e6f0c739872',
+                    'X-RapidAPI-Key': process.env.NEWS_API_KEY,
                     'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
                 },
             }),
