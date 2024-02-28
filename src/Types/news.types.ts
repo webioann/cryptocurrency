@@ -1,52 +1,63 @@
-interface queryContext {
-    _type: "QueryContext"
-    originalQuery: string
-    adultIntent: boolean
-}
-interface sortObject {
-    _type: string
-    name: string
-    id: string
-    isSelected: boolean
+interface ICryptoNews {
     url: string
-}
-interface thumbnail {
-    _type: string
-    contentUrl: string
-    width?: number
-    height?: number
-}
-interface aboutObj {
-    _type: string
-    readLink: string
-    name: string
-}
-interface imageValueObject {
-    _type: string
-    thumbnail: thumbnail
-}
-interface providerValueObject {
-    _type: string
-    name: string
-    image: imageValueObject
-}
-export interface valueObject {
-    _type: string
-    name: string
-    url: string
-    image: imageValueObject
+    title: string
     description: string
-    about: aboutObj[]
-    provider: providerValueObject[]
-    datePublished: string
-    category: string
+    thumbnail: string
+    createdAt: string
 }
+export type CryptoNewsResponse = {
+    data: ICryptoNews []
+}
+// interface queryContext {
+//     _type: "QueryContext"
+//     originalQuery: string
+//     adultIntent: boolean
+// }
+// interface sortObject {
+//     _type: string
+//     name: string
+//     id: string
+//     isSelected: boolean
+//     url: string
+// }
+// interface thumbnail {
+//     _type: string
+//     contentUrl: string
+//     width?: number
+//     height?: number
+// }
+// interface aboutObj {
+//     _type: string
+//     readLink: string
+//     name: string
+// }
+// interface imageValueObject {
+//     _type: string
+//     thumbnail: thumbnail
+// }
+// interface providerValueObject {
+//     _type: string
+//     name: string
+//     image: imageValueObject
+// }
+// export interface valueObject {
+//     _type: string
+//     name: string
+//     url: string
+//     image: imageValueObject
+//     description: string
+//     about: aboutObj[]
+//     provider: providerValueObject[]
+//     datePublished: string
+//     category: string
+// }
 
-export interface INewsResponse {
-    _type: string
-    readLink: string
-    queryContext: queryContext
-    totalEstimatedMatches: number
-    sort: sortObject[]
-    value: valueObject[]
-}
+// export interface INewsResponse {
+//     _type: string
+//     readLink: string
+//     queryContext: queryContext
+//     totalEstimatedMatches: number
+//     sort: sortObject[]
+//     value: valueObject[]
+// }
+

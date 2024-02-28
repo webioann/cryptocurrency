@@ -12,36 +12,38 @@ interface INewsProps {
 
 const News: React.FC<INewsProps> = ({ category, count }) => {
     const theme = useAppSelector(state => state.redux.theme_mode)
-    const { data: newsList } = useGetNewsQuery({ newsCategory: category, count: count })
+    const { data: newsList } = useGetNewsQuery('')
+    // TODO: 
+    console.log(newsList)
     const defaultImage = "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579"
 
     if( newsList ) {
         return (
             <section className='news-container'>
-                { newsList.value.map((news, i)=> (
+                { newsList.data.map((news, i)=> (
                     <a href={news.url}  
                         target="_blank" 
                         rel='noreferrer' 
                         key={i} 
                         className={`one-news one-news-${theme}`}>
                         <header className='news-header'>
-                            <h3 className='news-title'>{news.name}</h3>
+                            <h3 className='news-title'>{news.title}</h3>
                             <div className='news-avatar'>
-                                <img src={news.image?.thumbnail?.contentUrl || defaultImage} alt='news'/>
+                                <img src={news.thumbnail ? news.thumbnail : defaultImage} alt='news'/>
                             </div>
                         </header>
                         <p>{news.description}</p>
                         <div className='provider-container'>
                             <div className='provider'>
                                 <div className='provider-avatar'>
-                                    { news.provider[0]?.image?.thumbnail?.contentUrl ?
-                                        <img src={news.provider[0]?.image?.thumbnail?.contentUrl} alt='avatar'/> :
+                                    { news.thumbnail ?
+                                        <img src={news.thumbnail} alt='avatar'/> :
                                         <BiNews size='30px' color='#f85904'/> 
                                     }
                                 </div>
-                                <p className='provider-name'>{news.provider[0]?.name}</p>
+                                <p className='provider-name'>{`BITCOINIST`}</p>
                             </div>
-                            <p>{momment(news.datePublished).startOf('ms').fromNow()}</p>
+                            {/* <p>{momment(news.createdAt).startOf('ms').fromNow()}</p> */}
                         </div>
                         
                     </a>
