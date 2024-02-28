@@ -16,6 +16,7 @@ const News: React.FC<INewsProps> = ({ category, count }) => {
     // TODO: 
     console.log(newsList)
     const defaultImage = "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579"
+    const logo = 'https://e2xr.io/wp-content/uploads/2022/05/bitcoinist-4.png'
 
     if( newsList ) {
         return (
@@ -35,15 +36,20 @@ const News: React.FC<INewsProps> = ({ category, count }) => {
                         <p>{news.description}</p>
                         <div className='provider-container'>
                             <div className='provider'>
-                                <div className='provider-avatar'>
+                                {/* <div className='provider-avatar'>
                                     { news.thumbnail ?
                                         <img src={news.thumbnail} alt='avatar'/> :
                                         <BiNews size='30px' color='#f85904'/> 
                                     }
-                                </div>
-                                <p className='provider-name'>{`BITCOINIST`}</p>
+                                </div> */}
+                                    { logo ?
+                                        <img src={logo} alt='avatar'/> :
+                                        <BiNews size='30px' color='#f85904'/> 
+                                    }
+
+                                {/* <p className='provider-name'>{`BITCOINIST`}</p> */}
                             </div>
-                            {/* <p>{momment(news.createdAt).startOf('ms').fromNow()}</p> */}
+                            <p>{momment(news.createdAt).startOf('ms').fromNow()}</p>
                         </div>
                         
                     </a>
