@@ -1,4 +1,7 @@
-<h1> Cryptocurrency informer by <span style="color: green">CoinGecko API</span> <img src='https://avatars.githubusercontent.com/u/7111837?s=280&v=4' width='30px'/></h1>
+<h1> Cryptocurrency tracker on base <span style="color: green">CoinGecko API</span> <img src='https://avatars.githubusercontent.com/u/7111837?s=280&v=4' width='30px'/></h1>
+
+ 🚀 **[THIS IS A LINK TO THE WORKING APP](https://ioanncryptovers.web.app/)** 🚀
+
 
 ![react](https://img.shields.io/badge/react-blue.svg?style=flat&logo=react&logoColor=white)&nbsp;
 ![typescript](https://img.shields.io/badge/typescript-%231572B6.svg?style=flat&logo=typescript&logoColor=white)&nbsp;
@@ -8,8 +11,4 @@
 ![webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=flat&logo=webpack&logoColor=black)&nbsp;
 ![npm](https://img.shields.io/badge/NPM-%23323330.svg?style=flat&logo=npm&logoColor=white)&nbsp;
 
-### start app in brouser 🚀
-
-```bash
-  npm start   or   yarn start
-```
+![app screenshot](./src/assets/app_screenshot.png)
