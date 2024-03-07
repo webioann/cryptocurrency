@@ -1,4 +1,5 @@
-<h1> Cryptocurrencies tracker on base <span style="color: green">CoinGecko API</span> <img src='https://avatars.githubusercontent.com/u/7111837?s=280&v=4' width='30px'/></h1>
+# Cryptocurrencies tracker on base [CoinGecko API <img src='https://avatars.githubusercontent.com/u/7111837?s=280&v=4' width='40px'/></h1>](https://www.coingecko.com/uk/api "CoinGecko API website link")
+
 
  🚀 **[THIS IS A LINK TO THE WORKING APP](https://ioanncryptovers.web.app/)** 🚀
 
