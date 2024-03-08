@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { newsProviderType } from '../Types/news.types'
 
 interface InitialStateType {
     theme_mode:  'light' | 'dark' | string
     currentPage: number
     appStarted: 'started' | null
+    newsProvider: newsProviderType
 }
 // get state from LocalStorage  (setItem on App.tsx) ====
 const storedTheme = localStorage.getItem('theme') || 'light';
@@ -11,7 +13,8 @@ const storedTheme = localStorage.getItem('theme') || 'light';
 const initialState: InitialStateType = {
     theme_mode: storedTheme ,
     currentPage: 1,
-    appStarted: null
+    appStarted: null,
+    newsProvider: 'coindesk'
 }
 
 export const reduxSlice = createSlice({
@@ -21,13 +24,15 @@ export const reduxSlice = createSlice({
         installThemeMode: (state,actions) => { state.theme_mode = actions.payload },
         changeCurrentPage: (state,actions) => {state.currentPage = actions.payload},
         onFirstAppStart: (state) => {state.appStarted = 'started'},
+        changeNewsProvider: (state,actions) => { state.newsProvider = actions.payload }
     }
 });
 
 export const { 
     installThemeMode,
     changeCurrentPage,
-    onFirstAppStart
+    onFirstAppStart,
+    changeNewsProvider
 } = reduxSlice.actions;
 
 export default reduxSlice.reducer;

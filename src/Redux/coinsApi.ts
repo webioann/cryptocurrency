@@ -46,11 +46,3 @@ export const {
     useLazySearchCoinsQuery
 } = coinsApi;
 
-// respons.coins.filter(coin => coin.market_cap_rank < 100),
-
-// headers: {
-    // 'X-RapidAPI-Key': 'b5630f9220msh48dcfd94725e69bp1ef056jsn1e6f0c739872',
-    // 'X-RapidAPI-Host': 'coingecko.p.rapidapi.com',
-//     'Access-Control-Allow-Origin': 'https://api.coingecko.com/api/v3'                  
-// },
-// ?vs_currency&order=market_cap_desc&per_page=14&page&sparkline=true&price_change_percentage=24h%2C7d%2C14d%2C30d%2C1

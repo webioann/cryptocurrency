@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useGetNewsQuery, useLazyGetNewsQuery } from '../Redux/newsApi'
 import { useAppSelector } from '../Redux/store'
 import momment from 'moment'
@@ -12,7 +12,12 @@ interface INewsProps {
 
 const News: React.FC<INewsProps> = ({ category, count }) => {
     const theme = useAppSelector(state => state.redux.theme_mode)
-    const { data: newsList } = useGetNewsQuery('')
+    const [fetchNewsList, {data: newsList}] = useLazyGetNewsQuery()
+
+    useEffect(() => {
+        fetchNewsList('bitcoinist')
+    }, [])
+    // const { data: newsList } = useGetNewsQuery('')
     // TODO: 
     console.log(newsList)
     const defaultImage = "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579"
