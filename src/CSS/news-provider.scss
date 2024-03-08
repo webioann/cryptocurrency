@@ -2,12 +2,18 @@
 
 .provider-list{
     display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     gap: 1rem;
     padding: 1rem;
+    padding-left: 0;
     .provider{
         padding: 5px;
         border: 1px solid #ccc;
         border-radius: 5px;
         cursor: pointer;
+    }
+    .active-provider{
+        background-color: #eee;
     }
 }
