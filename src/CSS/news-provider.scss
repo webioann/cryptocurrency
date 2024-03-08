@@ -1,0 +1,13 @@
+@import './index.scss';
+
+.provider-list{
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    .provider{
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}

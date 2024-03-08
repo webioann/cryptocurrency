@@ -5,21 +5,16 @@ import momment from 'moment'
 import { BiNews } from 'react-icons/bi'
 import '../CSS/news.scss'
 
-interface INewsProps { 
-    category: string
-    count: 3 | 6 | 12 
-}
-
-const News: React.FC<INewsProps> = ({ category, count }) => {
+const News = () => {
     const theme = useAppSelector(state => state.redux.theme_mode)
+    const newsProvider = useAppSelector(state => state.redux.newsProvider)
     const [fetchNewsList, {data: newsList}] = useLazyGetNewsQuery()
 
     useEffect(() => {
-        fetchNewsList('bitcoinist')
-    }, [])
-    // const { data: newsList } = useGetNewsQuery('')
-    // TODO: 
-    console.log(newsList)
+        fetchNewsList(newsProvider)
+        console.log(newsProvider)
+    }, [newsProvider])
+    
     const defaultImage = "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579"
     const logo = 'https://e2xr.io/wp-content/uploads/2022/05/bitcoinist-4.png'
 
@@ -47,10 +42,10 @@ const News: React.FC<INewsProps> = ({ category, count }) => {
                                         <BiNews size='30px' color='#f85904'/> 
                                     }
                                 </div> */}
-                                    { logo ?
+                                    {/* { logo ?
                                         <img src={logo} alt='avatar'/> :
                                         <BiNews size='30px' color='#f85904'/> 
-                                    }
+                                    } */}
 
                                 {/* <p className='provider-name'>{`BITCOINIST`}</p> */}
                             </div>

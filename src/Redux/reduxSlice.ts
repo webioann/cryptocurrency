@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { newsProviderType } from '../Types/news.types'
 
 interface InitialStateType {
@@ -24,7 +24,7 @@ export const reduxSlice = createSlice({
         installThemeMode: (state,actions) => { state.theme_mode = actions.payload },
         changeCurrentPage: (state,actions) => {state.currentPage = actions.payload},
         onFirstAppStart: (state) => {state.appStarted = 'started'},
-        changeNewsProvider: (state,actions) => { state.newsProvider = actions.payload }
+        changeNewsProvider: (state,actions: PayloadAction<newsProviderType>) => { state.newsProvider = actions.payload }
     }
 });
 

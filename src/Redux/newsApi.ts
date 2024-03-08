@@ -9,7 +9,7 @@ export const newsApi = createApi({
     endpoints: builder => ({
         getNews: builder.query<CryptoNewsResponse, newsProviderType>({
             query: (newsProvider: newsProviderType) => ({
-                url: newsProvider,
+                url: `${newsProvider}`,
                 headers: {
                     'X-RapidAPI-Key': process.env.NEWS_API_KEY,
                     'X-RapidAPI-Host': 'cryptocurrency-news2.p.rapidapi.com'
