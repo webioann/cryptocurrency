@@ -9,11 +9,23 @@
     padding-left: 0;
     .provider{
         padding: 5px;
-        border: 1px solid #ccc;
         border-radius: 5px;
         cursor: pointer;
     }
-    .active-provider{
-        background-color: #eee;
+    .provider-light{
+        box-shadow: $box-shadow-lt;
     }
+    .provider-dark{
+        background-color: $bg-block-dark;
+    }
+    .active-provider-light{
+        color: $text-blue;
+        font-weight: 600;
+    }
+    .active-provider-dark{
+        background-color: #000;
+        color: $text-blue;
+        font-weight: 600;
+    }
+
 }
