@@ -15,10 +15,10 @@ const CoinDetails: React.FC = () => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
     const { coinId } = useParams()
-    const [ fetchCoinDetailsData, { data }] = useLazyCoinDetailsQuery()
     const period = useAppSelector(state => state.chart.period)
     const currentCurrency = useAppSelector(state => state.chart.currency.currentCurrency)
     const [ fetchChartData, { data: chartData, isLoading } ] = useLazyFetchChartDataQuery()
+    const [ fetchCoinDetailsData, { data: coinData }] = useLazyCoinDetailsQuery()
 
     useEffect(() => {
         const queryParams:IQueryParams = {
@@ -34,27 +34,27 @@ const CoinDetails: React.FC = () => {
         coinId !== null && fetchCoinDetailsData(coinId)
     }, [coinId])
     
-    if( data ) {
+    if( coinData ) {
         return (
             <div className='g-page-container'>
                 <div className='coin'>
                     <div className='info'>
                         <div className='coin-info'>
-                            <CoinDetailsTitle data={data}/>
+                            <CoinDetailsTitle data={coinData}/>
                             { chartData ? <LineChart chartData={chartData}/> : null }
                             <div className='social-links'>
-                                <SocialLink type='homepage' coin={data}/>
-                                <SocialLink type='fasebook' coin={data}/>
-                                <SocialLink type='reddit' coin={data}/>
-                                <SocialLink type='telegram' coin={data}/>
-                                <SocialLink type='twitter' coin={data}/>
+                                <SocialLink type='homepage' coin={coinData}/>
+                                <SocialLink type='fasebook' coin={coinData}/>
+                                <SocialLink type='reddit' coin={coinData}/>
+                                <SocialLink type='telegram' coin={coinData}/>
+                                <SocialLink type='twitter' coin={coinData}/>
                             </div>
                         </div>
-                        <MarketStats data={data}/>
+                        <MarketStats data={coinData}/>
                     </div>
                     <div className={`news-${theme}`}>
                         <h2 className='news-title'>{`Fresh ${coinId?.toLocaleUpperCase()} news`}</h2>
-                        { coinId && <News languages='en' batchSize={12}/>  }
+                        <News  token={coinData.symbol.toUpperCase()} languages='en' batchSize={6}/>  
                         {/* providerLogo={data.image?.large} */}
                     </div>
                 </div>
