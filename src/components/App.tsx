@@ -10,7 +10,6 @@ import CoinsTable from './CoinsTable'
 import TrendingCoins from './TrendingCoins'
 import Pagination from './Pagination'
 import News from './News'
-import NewsProviderToggler from './NewsProviderToggler'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import '../CSS/app.scss'
 
@@ -33,7 +32,6 @@ const  App: React.FC = () => {
         <Route path='/news' element={
           <PageContainer>
             <h2 className='news-page-title'>CRYPTO NEWS</h2>
-            <NewsProviderToggler/>
             <News/>
           </PageContainer>
         }/>
