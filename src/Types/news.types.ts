@@ -20,7 +20,7 @@ interface IResult {
     response: string
     newsCount: number
 }
-interface INewsItem {
+export interface INewsItem {
     Title: string
     Source: string
     Url: string
@@ -37,8 +37,13 @@ interface INewsItem {
     Countries: string[]
     CryptoCurrencies: string[]
 }
+export interface INewsApiRequestParams {
+    token?: string
+    languages: string
+    batchSize: number
+}
 
-type RawNewsApiResponse = {
+export interface INewsApiResponse {
     result: IResult
     news: INewsItem[]
 }
