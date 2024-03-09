@@ -32,7 +32,7 @@ const  App: React.FC = () => {
         <Route path='/news' element={
           <PageContainer>
             <h2 className='news-page-title'>CRYPTO NEWS</h2>
-            <News/>
+            <News languages='en' batchSize={12}/>
           </PageContainer>
         }/>
         <Route path="/coin/:coinId" element={<CoinDetails/>}>

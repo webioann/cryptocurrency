@@ -1,20 +1,3 @@
-interface ICryptoNews {
-    url: string
-    title: string
-    description: string
-    thumbnail: string
-    createdAt: string
-}
-export type CryptoNewsResponse = {
-    data: ICryptoNews []
-}
-export type newsProviderType = 
-    | 'coindesk' 
-    | 'cointelegraph' 
-    | 'bitcoinist' 
-    | 'decrypt'
-    | 'bsc'
-    | 'theguardian'
 // TYPES FOR NEWS API ==========
 interface IResult {
     response: string
@@ -25,7 +8,7 @@ export interface INewsItem {
     Source: string
     Url: string
     PublishedOn: string
-    Discription: string
+    Description: string
     Language: string
     Image: string
     SourceNationality: string
