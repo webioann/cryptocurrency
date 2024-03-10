@@ -1,4 +1,3 @@
-
 export interface CoinsSearchType {
     id: string;
     name: string;

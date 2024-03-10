@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useAppSelector } from '../Redux/store'
 import type { ChartOptions } from 'chart.js'
 
@@ -51,7 +51,6 @@ export const useOptionsForChart = () => {
         interaction: { intersect: false , mode: 'index', axis: 'x' },
     }
     return options
-    
 };
 
 

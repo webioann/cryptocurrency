@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 import { INewsApiResponse, INewsItem, INewsApiRequestParams } from '../Types/news.types'
 
-
 export const newsApi = createApi({
     reducerPath: 'newsApi',
     baseQuery: fetchBaseQuery({

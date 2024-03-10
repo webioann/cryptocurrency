@@ -21,7 +21,7 @@ const CoinDetails: React.FC = () => {
     const [ fetchCoinDetailsData, { data: coinData }] = useLazyCoinDetailsQuery()
 
     useEffect(() => {
-        const queryParams:IQueryParams = {
+        const queryParams: IQueryParams = {
             coinId: coinId,
             currency: currentCurrency,
             period:  period,
@@ -55,7 +55,6 @@ const CoinDetails: React.FC = () => {
                     <div className={`news-${theme}`}>
                         <h2 className='news-title'>{`Fresh ${coinId?.toLocaleUpperCase()} news`}</h2>
                         <News  token={coinData.symbol.toUpperCase()} languages='en' batchSize={6}/>  
-                        {/* providerLogo={data.image?.large} */}
                     </div>
                 </div>
             </div>

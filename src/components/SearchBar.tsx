@@ -9,7 +9,7 @@ const SearchBar = () => {
     
     const theme = useAppSelector(state => state.redux.theme_mode)
     const [value,setValue] = useState<string>('')
-    const [ fetchSearchList, { data = [], isFetching }] = useLazySearchCoinsQuery()
+    const [ fetchSearchedCoinsList, { data = [], isFetching }] = useLazySearchCoinsQuery()
 
     useEffect(() => {
         isFetching && console.log(`SearchCoins`)
@@ -26,7 +26,7 @@ const SearchBar = () => {
                 />
                 { value.length < 2 
                     ? <FaSearch className='icon'/> 
-                    : <FaSearch className='icon filled' onClick={() => {data.length < 1 ? fetchSearchList(value) : setValue('')}}/>
+                    : <FaSearch className='icon filled' onClick={() => {data.length < 1 ? fetchSearchedCoinsList(value) : setValue('')}}/>
                 }
                 { data.length !== 0 && value.length > 1 ? (
                     <ul className={`result result-${theme}`}>

@@ -12,8 +12,6 @@ export const chartDataApi = createApi({
             query: (params: IQueryParams) => ({
                 url: `/coins/${params.coinId}/market_chart`,
                 headers: {
-                    // 'X-RapidAPI-Key': 'b5630f9220msh48dcfd94725e69bp1ef056jsn1e6f0c739872',
-                    // 'X-RapidAPI-Host': 'coingecko.p.rapidapi.com',
                     'Access-Control-Allow-Origin': 'https://api.coingecko.com/api/v3'                  
                 },
                 params: {
@@ -28,4 +26,3 @@ export const chartDataApi = createApi({
 
 export const { useLazyFetchChartDataQuery } = chartDataApi;
 
-// ?vs_currency&days&interval

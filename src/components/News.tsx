@@ -1,20 +1,17 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useFetchCryptoNewsQuery } from '../Redux/newsApi'
 import { useAppSelector } from '../Redux/store'
 import momment from 'moment'
 import { INewsApiRequestParams } from '../Types/news.types'
 import '../CSS/news.scss'
-// TODO: remove later this mock response
-import { mockNewsApiResponseData as newsList } from '../utils/mockNewsApiResponseData'
-
 
 const News: React.FC<INewsApiRequestParams> = ({ token, languages, batchSize }) => {
     const theme = useAppSelector(state => state.redux.theme_mode)
-    // const {data: newsList} = useFetchCryptoNewsQuery({
-    //     token: token,
-    //     languages: languages, 
-    //     batchSize: batchSize
-    // })
+    const {data: newsList} = useFetchCryptoNewsQuery({
+        token: token,
+        languages: languages, 
+        batchSize: batchSize
+    })
 
     if( newsList ) {
         return (

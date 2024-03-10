@@ -7,7 +7,6 @@ import '../CSS/trending-coins.scss'
 const TrendingCoins:React.FC = () => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
-    // const appStarted = useAppSelector(state => state.redux.appStarted)
     const [ fetchTrendingCoins, { data = [] }] = useLazyTrendingCoinsQuery()
 
     useEffect(() => {
@@ -47,6 +46,3 @@ const TrendingCoins:React.FC = () => {
 }
 
 export default TrendingCoins;
-// useEffect(() => {
-//     appStarted === 'started' && fetchTrendingCoins('')
-// }, [appStarted])

@@ -9,17 +9,15 @@ const CoinsTable: React.FC = () => {
     const dispatch = useAppDispatch()
     const currentPage = useAppSelector(state => state.redux.currentPage)
     const currentCurrency = useAppSelector(state => state.chart.currency.currentCurrency)
-    const [ getCoinsData, { data: coins = [], isSuccess: status } ] = useLazyFetchCoinsQuery()
+    const [ fetchCoinsData, { data: coins = [], isSuccess: status } ] = useLazyFetchCoinsQuery()
     
     useEffect(() => {
-        getCoinsData({
+        fetchCoinsData({
             page: currentPage,
             currency: currentCurrency
         })
     }, [currentCurrency, currentPage])
 
-    // it is needed for lazy loading TrendingCoins after fetching start page data
-    const start = useAppSelector(state => state.redux.appStarted)
     useEffect(() => {
         status && dispatch(onFirstAppStart())
     }, [status])
