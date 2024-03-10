@@ -8,7 +8,7 @@ export const mockNewsApiResponseData: INewsItem[] = [
         PublishedOn:"2024-03-10T06:33:28.115Z",
         Description:"NEW YORK: Bitcoin has captured the limelight in recent weeks as it surged to a new record high, yet another major cryptocurrency, Ether, has been enjoying its own meteoric rise. Launched in 2015, Ether, al",
         Language:"en",
-        Image:"https://onecms-res.cloudinary.com/image/upload/s--BBwEkJxI--/fl_relative,g_south_east,l_mediacorp:cna:watermark:2023-11:afp_watermark_14112023,w_0.1/f_auto,q_auto/c_fill,g_auto,h_676,w_1200/v1/one-cms/core/d445b9884b52d9beaecf83ccaeb1f9ca9d4d303c.jpg?itok=haRH1Mc-",
+        Image:"",
         SourceNationality:"sg",
         TitleSentiment: {
             sentiment:"positive",

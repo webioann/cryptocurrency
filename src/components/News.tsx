@@ -4,16 +4,20 @@ import { useAppSelector } from '../Redux/store'
 import momment from 'moment'
 import { INewsApiRequestParams } from '../Types/news.types'
 import '../CSS/news.scss'
+// TODO: remove later this mock response
+import { mockNewsApiResponseData as newsList } from '../utils/mockNewsApiResponseData'
+
 
 const News: React.FC<INewsApiRequestParams> = ({ token, languages, batchSize }) => {
     const theme = useAppSelector(state => state.redux.theme_mode)
-    const {data: newsList} = useFetchCryptoNewsQuery({
-        token: token,
-        languages: languages, 
-        batchSize: batchSize
-    })
+    // const {data: newsList} = useFetchCryptoNewsQuery({
+    //     token: token,
+    //     languages: languages, 
+    //     batchSize: batchSize
+    // })
 
-    const defaultImage = "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579"
+    // const defaultImage = "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579"
+    const defaultImage = "https://static-00.iconduck.com/assets.00/bitcoin-cryptocurrency-icon-512x512-szvojdy7.png"
     const logo = 'https://e2xr.io/wp-content/uploads/2022/05/bitcoinist-4.png'
 
     if( newsList ) {
@@ -28,7 +32,7 @@ const News: React.FC<INewsApiRequestParams> = ({ token, languages, batchSize }) 
                         <header className='news-header'>
                             <h3 className='news-title'>{news.Title}</h3>
                             <div className='news-avatar'>
-                                <img src={news.Image ? news.Image : defaultImage} alt='news'/>
+                                <img src={news.Image ? news.Image : require('../assets/bitcoin.jpg')} alt='news'/>
                             </div>
                         </header>
                         <p>{news.Description}</p>
