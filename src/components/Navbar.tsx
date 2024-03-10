@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
 import Burger from './Burger'
 import DropDown from './DropDown'
-import OnNewsPage from '../utils/OnNewsPage'
+import OnNewsPage from './OneNewsPage'
 import '../CSS/navbar.scss'
 
 const Navbar = () => {

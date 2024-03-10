@@ -1,0 +1,26 @@
+@import './index.scss';
+.on-news-page{
+    width: $button-max-size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin-top: 1rem;
+
+}
+.on-news-page-light{
+    box-shadow: $box-shadow-lt;
+    background-color: $bg-light;
+}
+.on-news-page-dark{
+    background-color: $bg-block-dark;
+    color: $text-light;
+}
+@media (min-width: 640px) {
+    .on-news-page{
+        margin-top: 0;
+        margin-right: 0.5rem;
+    }
+}
