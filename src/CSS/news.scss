@@ -14,7 +14,8 @@
         .news-header{
             display: flex;
             justify-content: space-between;
-            gap: 5px;
+            gap: 10px;
+            padding-bottom: 10px;
             .news-title{
                 font-weight: 600;
                 flex: 0 1 auto;
@@ -31,9 +32,6 @@
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
-                }
-                .demo-news-icon{
-                    font-size: 30px;
                 }
             }
         }

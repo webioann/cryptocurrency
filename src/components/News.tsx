@@ -16,10 +16,6 @@ const News: React.FC<INewsApiRequestParams> = ({ token, languages, batchSize }) 
     //     batchSize: batchSize
     // })
 
-    // const defaultImage = "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579"
-    const defaultImage = "https://static-00.iconduck.com/assets.00/bitcoin-cryptocurrency-icon-512x512-szvojdy7.png"
-    const logo = 'https://e2xr.io/wp-content/uploads/2022/05/bitcoinist-4.png'
-
     if( newsList ) {
         return (
             <section className='news-container'>
@@ -36,6 +32,7 @@ const News: React.FC<INewsApiRequestParams> = ({ token, languages, batchSize }) 
                             </div>
                         </header>
                         <p>{news.Description}</p>
+                        <p>{news.Summary}</p>
                         <div className='provider-container'>
                             <p>{momment(news.PublishedOn).startOf('ms').fromNow()}</p>
                         </div>
