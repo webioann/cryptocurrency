@@ -27,14 +27,14 @@ const News: React.FC<INewsApiRequestParams> = ({ token, languages, batchSize }) 
                         className={`one-news one-news-${theme}`}>
                         <header className='news-header'>
                             <h3 className='news-title'>{news.Title}</h3>
-                            <div className='news-avatar'>
+                            <div className='news-provider-logo'>
                                 <img src={news.Image ? news.Image : require('../assets/bitcoin.jpg')} alt='news'/>
                             </div>
                         </header>
-                        <p>{news.Description}</p>
-                        <p>{news.Summary}</p>
+                        <p>{news.Description.length > 150 ? news.Description.substring(0, 150 - 1) + '...' : news.Description}</p>
+                        <p>{news.Summary.length > 250 ? news.Summary.substring(0, 250 - 1) + '...' : news.Summary}</p>
                         <div className='provider-container'>
-                            <p>{momment(news.PublishedOn).startOf('ms').fromNow()}</p>
+                            <p>published {momment(news.PublishedOn).startOf('ms').fromNow()}</p>
                         </div>
                     </a>
                     ))
