@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { IChatQueryParams } from '../Types/chartData.types'
 
-const initialState:IChatQueryParams = {
+const initialState:  IChatQueryParams = {
     currency: {
         currentCurrency: 'usd',
         currencyMark: '\u0024' 

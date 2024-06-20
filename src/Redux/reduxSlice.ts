@@ -32,23 +32,4 @@ export const {
 
 export default reduxSlice.reducer;
 
-        // putUser: (state,actions) => {state.user = actions.payload},
-        // removeUser: (state) => {state.user = null},
-        // setUserPhoto: (state,actions) => {state.user_photo = actions.payload},
-        // deleteUserPhoto: (state) => {state.user_photo = null},
-
-// const storedUserPhoto = localStorage.getItem('userPhoto') || null;
-
-// const getUser: string | null  = localStorage.getItem("user");
-// let storedUser;
-// if ( typeof getUser === 'string' ) {
-//     storedUser = JSON.parse(getUser)
-// }
-// else { storedUser = null }
-
-    // user: storedUser,
-    // user_photo: storedUserPhoto,
-
-    // user: string | null
-    // user_photo: string | null
 
