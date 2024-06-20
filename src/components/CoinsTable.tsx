@@ -38,6 +38,7 @@ const CoinsTable: React.FC = () => {
                     </tr>
                 </thead>
                 <tbody className='tab-body'>
+                    {/* coins list output */}
                     { coins.map((coin) => <Coin key={coin.id} coin={coin}/>) }
                 </tbody>
             </table>    

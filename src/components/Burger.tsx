@@ -9,7 +9,7 @@ interface IBurgerProps  {
 const Burger: React.FC<IBurgerProps> = ({ active }) => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
-
+    // animated burger menu icon for screen less 640 px
     return (
         <div className='burger-spiner'>
             <span className={ active ? `line ${theme} top-line` : `line ${theme}` }></span>

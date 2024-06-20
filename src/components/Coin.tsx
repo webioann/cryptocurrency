@@ -10,7 +10,7 @@ const Coin: React.FC<UnitCoinType> = ({ coin }) => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
     const currencyMark = useAppSelector(state => state.chart.currency.currencyMark)
-
+    // single coin info row
     return (
         <tr className={`tab-row ${theme}-tab-row`} >
             <td className='rank'>#&#160;{ coin.market_cap_rank }</td>
@@ -27,6 +27,7 @@ const Coin: React.FC<UnitCoinType> = ({ coin }) => {
             <td className='g-tab-hidden-756'>{ coin.symbol.toUpperCase() }</td>
             <td>
                 { currencyMark }&#160;
+                {/* currency price in local format */}
                 { new Intl.NumberFormat().format(coin.current_price) }
             </td>
             <td className='percent-change'>

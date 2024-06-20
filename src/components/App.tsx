@@ -14,7 +14,7 @@ import { useLocalStorage } from '../hooks/useLocalStorage'
 import '../CSS/app.scss'
 
 const  App: React.FC = () => {
-
+  // run localStorage hook for app color theme
   useLocalStorage();
     
   return (

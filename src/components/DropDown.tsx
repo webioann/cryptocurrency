@@ -10,7 +10,7 @@ interface ICurrencyData {
 }
 
 const DropDown = () => {
-
+    // dropdown menu for 4 currencies changing
     const dispatch = useAppDispatch()
     const theme = useAppSelector(state => state.redux.theme_mode)
     const currentCurrency = useAppSelector(state => state.chart.currency.currentCurrency)
