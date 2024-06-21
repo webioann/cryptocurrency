@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAppSelector } from '../Redux/store'
-import '../CSS/burger.scss'
+import '../Styles/burger.scss'
 
 interface IBurgerProps  { 
     active: boolean;

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useAppSelector } from '../Redux/store'
 import { Link } from 'react-router-dom'
-import '../CSS/on-news-page.scss'
+import '../Styles/on-news-page.scss'
 
 const OnNewsPage: React.FC = () => {
 

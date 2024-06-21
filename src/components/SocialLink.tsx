@@ -3,7 +3,7 @@ import { useAppSelector } from '../Redux/store'
 import { coinDetailsType } from '../Types/coinDetails.types'
 import { FaTelegramPlane,FaTwitter,FaFacebook } from 'react-icons/fa';
 import { AiFillRedditCircle } from 'react-icons/ai';
-import '../CSS/social-link.scss'
+import '../Styles/social-link.scss'
 
 interface variantType {
     type: string;

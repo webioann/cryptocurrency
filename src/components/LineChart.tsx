@@ -7,7 +7,7 @@ import PeriodInterval from './PeriodInterval'
 import { useAppSelector } from '../Redux/store'
 import { IChartData } from '../Types/chartData.types'
 import type { ChartData } from 'chart.js';
-import '../CSS/line-chart.scss'
+import '../Styles/line-chart.scss'
 
 interface IChartGradientColor {
     startColor: string

@@ -3,7 +3,7 @@ import { useAppSelector } from '../Redux/store'
 import { useLazySearchCoinsQuery } from '../Redux/coinsApi'
 import { Link } from 'react-router-dom'
 import { FaSearch } from 'react-icons/fa'
-import '../CSS/search-bar.scss'
+import '../Styles/search-bar.scss'
 
 const SearchBar = () => {
     

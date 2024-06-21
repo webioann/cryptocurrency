@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useAppSelector } from '../Redux/store'
 import { Link } from 'react-router-dom'
 import { useLazyTrendingCoinsQuery } from '../Redux/trendingCoinsApi'
-import '../CSS/trending-coins.scss'
+import '../Styles/trending-coins.scss'
 
 const TrendingCoins:React.FC = () => {
 

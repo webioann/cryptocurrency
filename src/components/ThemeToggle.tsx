@@ -2,7 +2,7 @@ import React from 'react'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { installThemeMode } from '../Redux/reduxSlice'
 import { FaSun,FaMoon } from 'react-icons/fa'
-import '../CSS/theme-toggle.scss'
+import '../Styles/theme-toggle.scss'
 
 const ThemeToggle = () => {
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { setCurrency } from '../Redux/chartDataStorage'
 import { RiArrowDownSLine } from 'react-icons/ri'
-import '../CSS/dropdown.scss'
+import '../Styles/dropdown.scss'
 
 interface ICurrencyData {
     currency: string

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAppSelector } from '../Redux/store'
-import '../CSS/container.scss'
+import '../Styles/container.scss'
 
 interface IPropsChildren { children: JSX.Element | JSX.Element[] };
 

@@ -5,7 +5,7 @@ import ThemeToggle from './ThemeToggle'
 import Burger from './Burger'
 import DropDown from './DropDown'
 import OnNewsPage from './OneNewsPage'
-import '../CSS/navbar.scss'
+import '../Styles/navbar.scss'
 
 const Navbar = () => {
 

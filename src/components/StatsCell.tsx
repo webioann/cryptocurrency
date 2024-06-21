@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAppSelector } from '../Redux/store'
-import '../CSS/stats-cell.scss'
+import '../Styles/stats-cell.scss'
 
 interface IStatsCell {
     title: string;

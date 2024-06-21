@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useAppSelector } from '../Redux/store'
 import { HiArrowNarrowUp,HiArrowNarrowDown } from 'react-icons/hi'
 import { UnitCoinType } from '../Types/coins.types'
-import '../CSS/coin.scss'
+import '../Styles/coin.scss'
 
 const Coin: React.FC<UnitCoinType> = ({ coin }) => {
 

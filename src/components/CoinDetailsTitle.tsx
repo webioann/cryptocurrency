@@ -3,7 +3,7 @@ import { useAppSelector } from '../Redux/store'
 import { useExchanger } from '../hooks/useExchanger';
 import { HiArrowNarrowDown, HiArrowNarrowUp } from 'react-icons/hi';
 import { ICoinData } from '../Types/coinDetails.types'
-import '../CSS/coin-details-title.scss'
+import '../Styles/coin-details-title.scss'
 
 const CoinDetailsTitle: React.FC<ICoinData> = ({ data }) => {
 

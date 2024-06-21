@@ -3,7 +3,7 @@ import Coin from './Coin'
 import { useAppSelector, useAppDispatch } from '../Redux/store'
 import { useLazyFetchCoinsQuery } from '../Redux/coinsApi'
 import { onFirstAppStart } from '../Redux/reduxSlice'
-import '../CSS/coins-table.scss'
+import '../Styles/coins-table.scss'
 
 const CoinsTable: React.FC = () => {
     const dispatch = useAppDispatch()

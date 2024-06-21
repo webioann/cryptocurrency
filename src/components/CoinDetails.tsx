@@ -9,7 +9,7 @@ import LineChart from './LineChart'
 import { useLazyCoinDetailsQuery } from '../Redux/coinsApi'
 import { IQueryParams } from '../Types/chartData.types'
 import { useLazyFetchChartDataQuery } from '../Redux/chartDataApi'
-import '../CSS/coin-details.scss'
+import '../Styles/coin-details.scss'
 
 const CoinDetails: React.FC = () => {
 

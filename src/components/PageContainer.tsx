@@ -1,5 +1,5 @@
 import React from 'react'
-import '../CSS/index.scss'
+import '../Styles/index.scss'
 
 interface IPropsChildren {
     children: JSX.Element | JSX.Element[]

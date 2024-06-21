@@ -3,7 +3,7 @@ import { useAppSelector } from '../Redux/store'
 import { useExchanger } from '../hooks/useExchanger';
 import StatsCell from './StatsCell'
 import { ICoinData } from '../Types/coinDetails.types'
-import '../CSS/market-stats.scss'
+import '../Styles/market-stats.scss'
 
 const MarketStats: React.FC<ICoinData> = ({ data }) => {
 

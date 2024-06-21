@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useAppSelector,useAppDispatch } from '../Redux/store'
 import { changeCurrentPage } from '../Redux/reduxSlice'
-import "../CSS/pagination.scss"
+import "../Styles/pagination.scss"
 
 const Pagination: React.FC = () => {
 

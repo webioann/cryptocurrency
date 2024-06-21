@@ -11,7 +11,7 @@ import TrendingCoins from './TrendingCoins'
 import Pagination from './Pagination'
 import News from './News'
 import { useLocalStorage } from '../hooks/useLocalStorage'
-import '../CSS/app.scss'
+import '../Styles/app.scss'
 
 const  App: React.FC = () => {
   // run localStorage hook for app color theme

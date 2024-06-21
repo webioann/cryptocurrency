@@ -1,6 +1,6 @@
 import React from 'react'
 import { IoClose } from 'react-icons/io5'
-import '../CSS/popup.scss'
+import '../Styles/popup.scss'
 
 type closePopupType = {
     closePopup: () => void;

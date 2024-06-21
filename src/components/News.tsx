@@ -3,7 +3,7 @@ import { useFetchCryptoNewsQuery } from '../Redux/newsApi'
 import { useAppSelector } from '../Redux/store'
 import momment from 'moment'
 import { INewsApiRequestParams } from '../Types/news.types'
-import '../CSS/news.scss'
+import '../Styles/news.scss'
 
 const News: React.FC<INewsApiRequestParams> = ({ token, languages, batchSize }) => {
     const theme = useAppSelector(state => state.redux.theme_mode)

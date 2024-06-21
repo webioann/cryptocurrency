@@ -1,7 +1,7 @@
 import React from 'react'
 import { useAppSelector, useAppDispatch } from '../Redux/store'
 import { setPeriod } from '../Redux/chartDataStorage'
-import '../CSS/period-select.scss'
+import '../Styles/period-select.scss'
 
 interface IDataForPeriodButton {
     period:   1 | 7 | 14 | 30 | 90 | 180 | 365 |'max'

@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react'
 import { FaLongArrowAltRight } from 'react-icons/fa'
 import { IChartData } from '../Types/chartData.types'
 import { useAppSelector } from '../Redux/store'
-import '../CSS/period-interval.scss'
+import '../Styles/period-interval.scss'
 
 const PeriodInterval: React.FC<IChartData> = ({ chartData }) => {
     
