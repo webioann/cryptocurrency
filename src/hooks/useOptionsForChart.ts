@@ -3,7 +3,7 @@ import { useAppSelector } from '../Redux/store'
 import type { ChartOptions } from 'chart.js'
 
 export const useOptionsForChart = () => {
-
+    // to create chart option object data
     const theme = useAppSelector(state => state.redux.theme_mode)
     const currencyMark = useAppSelector(state => state.chart.currency.currencyMark)
     const [chartColor, setChartColor] = useState<string>('#212529')
