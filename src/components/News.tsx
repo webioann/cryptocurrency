@@ -6,6 +6,7 @@ import { INewsApiRequestParams } from '../Types/news.types'
 import '../Styles/news.scss'
 
 const News: React.FC<INewsApiRequestParams> = ({ token, languages, batchSize }) => {
+    // just news page
     const theme = useAppSelector(state => state.redux.theme_mode)
     const {data: newsList} = useFetchCryptoNewsQuery({
         token: token,

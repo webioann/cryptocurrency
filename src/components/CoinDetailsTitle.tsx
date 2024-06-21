@@ -6,7 +6,7 @@ import { ICoinData } from '../Types/coinDetails.types'
 import '../Styles/coin-details-title.scss'
 
 const CoinDetailsTitle: React.FC<ICoinData> = ({ data }) => {
-
+    // CoinDetails top row with main info
     const { currencyMark, currentCurrency } = useAppSelector(state => state.chart.currency)
 
     return (

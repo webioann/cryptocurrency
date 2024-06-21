@@ -5,7 +5,7 @@ import { useLazyTrendingCoinsQuery } from '../Redux/trendingCoinsApi'
 import '../Styles/trending-coins.scss'
 
 const TrendingCoins:React.FC = () => {
-
+    // trending coins section
     const theme = useAppSelector(state => state.redux.theme_mode)
     const [ fetchTrendingCoins, { data = [] }] = useLazyTrendingCoinsQuery()
 

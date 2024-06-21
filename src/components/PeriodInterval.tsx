@@ -5,7 +5,7 @@ import { useAppSelector } from '../Redux/store'
 import '../Styles/period-interval.scss'
 
 const PeriodInterval: React.FC<IChartData> = ({ chartData }) => {
-    
+    // the period from date A to date B which is shown in the chart (like 20 Jun 2020 --> 20 Jun 2021)
     const theme = useAppSelector(state => state.redux.theme_mode)
     const [firstTimeStamp, setFirstTimeStamp] = useState('')
     const [lastTimeStamp, setLastTimeStamp] = useState('')

@@ -6,7 +6,7 @@ import { ICoinData } from '../Types/coinDetails.types'
 import '../Styles/market-stats.scss'
 
 const MarketStats: React.FC<ICoinData> = ({ data }) => {
-
+    //I do not use map() for more visualization
     const currencyMark = useAppSelector(state => state.chart.currency.currencyMark)
 
     return (

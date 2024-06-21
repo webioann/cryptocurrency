@@ -9,7 +9,7 @@ interface IDataForPeriodButton {
     index: number
 }
 const PeriodSelect = () => {
-
+    // row of buttons with periods data for chart
     const theme = useAppSelector(state => state.redux.theme_mode)
     const period = useAppSelector(state => state.chart.period)
     const dispatch = useAppDispatch()

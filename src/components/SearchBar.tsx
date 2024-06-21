@@ -6,7 +6,7 @@ import { FaSearch } from 'react-icons/fa'
 import '../Styles/search-bar.scss'
 
 const SearchBar = () => {
-    
+    // can find currencies from the list with 13000 coins
     const theme = useAppSelector(state => state.redux.theme_mode)
     const [value,setValue] = useState<string>('')
     const [ fetchSearchedCoinsList, { data = [], isFetching }] = useLazySearchCoinsQuery()

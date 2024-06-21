@@ -10,7 +10,7 @@ interface variantType {
     coin: coinDetailsType;
 }
 const SocialLink: React.FC<variantType> = ({ type, coin }) => {
-
+    //I do not use map() for more visualization
     const theme = useAppSelector(state => state.redux.theme_mode)
 
     if ( type === 'homepage' ) {
