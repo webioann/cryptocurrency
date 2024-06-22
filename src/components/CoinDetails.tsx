@@ -12,7 +12,7 @@ import { useLazyFetchChartDataQuery } from '../Redux/chartDataApi'
 import '../Styles/coin-details.scss'
 
 const CoinDetails: React.FC = () => {
-
+    // chosen coin full info with chart
     const theme = useAppSelector(state => state.redux.theme_mode)
     const { coinId } = useParams()
     const period = useAppSelector(state => state.chart.period)

@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webioann/cryptoVers.git"
+    "url": "https://github.com/webioann/cryptocurrency.git"
   },
   "author": "Webioann",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/webioann/cryptoVers/issues"
+    "url": "https://github.com/webioann/cryptocurrency/issues"
   },
-  "homepage": "https://github.com/webioann/cryptoVers#readme",
+  "homepage": "https://github.com/webioann/cryptocurrency#readme",
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",

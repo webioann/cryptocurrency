@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
 import Burger from './Burger'
 import DropDown from './DropDown'
-import OnNewsPage from './OneNewsPage'
+import LinkToNewsPage from './LinkToNewsPage'
 import '../Styles/navbar.scss'
 
 const Navbar = () => {
@@ -20,7 +20,7 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className={active ? 'menu active' : 'menu'}>
-                <OnNewsPage/>
+                <LinkToNewsPage/>
                 <DropDown/>
                 <ThemeToggle/>
             </div>

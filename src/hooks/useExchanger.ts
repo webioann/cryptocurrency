@@ -9,7 +9,7 @@ interface dataInCurrency {
 }
 
 export const useExchanger = ( data: dataInCurrency ) => {
-
+    // setting current currencies 
     const currency = useAppSelector(state => state.chart.currency.currentCurrency)
     const [exData, setExData] = useState<number>(0)
 

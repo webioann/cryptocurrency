@@ -1,8 +1,8 @@
 import React from 'react'
 import { useAppSelector } from '../Redux/store'
 import { coinDetailsType } from '../Types/coinDetails.types'
-import { FaTelegramPlane,FaTwitter,FaFacebook } from 'react-icons/fa';
-import { AiFillRedditCircle } from 'react-icons/ai';
+import { FaTelegramPlane,FaTwitter,FaFacebook } from 'react-icons/fa'
+import { AiFillRedditCircle } from 'react-icons/ai'
 import '../Styles/social-link.scss'
 
 interface variantType {
@@ -10,7 +10,7 @@ interface variantType {
     coin: coinDetailsType;
 }
 const SocialLink: React.FC<variantType> = ({ type, coin }) => {
-    //I do not use map() for more visualization
+    //I do not use map() special for more visualization of code logic
     const theme = useAppSelector(state => state.redux.theme_mode)
 
     if ( type === 'homepage' ) {

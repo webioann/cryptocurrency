@@ -3,7 +3,7 @@ import { useAppSelector } from '../Redux/store'
 import { Link } from 'react-router-dom'
 import '../Styles/on-news-page.scss'
 
-const OnNewsPage: React.FC = () => {
+const LinkToNewsPage: React.FC = () => {
 
     const theme = useAppSelector(state => state.redux.theme_mode)
 
@@ -16,4 +16,4 @@ const OnNewsPage: React.FC = () => {
     )
 }
 
-export default OnNewsPage;
+export default LinkToNewsPage;
