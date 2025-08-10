@@ -6,15 +6,154 @@
 # testing
 /coverage
 
-# production
-/build
+# Build artifacts
+build/
+dist/
+.next/ # For Next.js projects
+out/    # For Next.js static exports
+coverage/
 
-# misc
-.DS_Store
+# Environment variables
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
+
+# Editor/IDE specific files
+.idea/ # IntelliJ IDEA
+.vscode/ # VS Code
+*.iml # IntelliJ IDEA module files
+.DS_Store # macOS specific
+Thumbs.db # Windows specific
+*.suo # Visual Studio Solution User Options
+*.user # Visual Studio User Options
+*.bak # Backup files
+
+# Other temporary files
+*.log
+*.tmp
+*.swp
+
+# React Native specific
+android/app/build/
+ios/build/
+ios/*.xcworkspace
+ios/*.xcodeproj/project.xcworkspace/
+ios/*.xcodeproj/xcuserdata/
+ios/*.xcodeproj/project.pbxproj.orig
+ios/*.xcodeproj/project.pbxproj.backup
+ios/*.xcscheme
+ios/*.mode1v3
+ios/*.mode2v3
+ios/*.perspectivev3
+ios/Pods/
+ios/.xcode.env.local
+ios/DerivedData/
+android/.gradle/
+android/local.properties
+android/app/src/main/assets/
+android/app/src/debug/
+android/app/src/release/
+android/app/src/androidTest/
+android/app/.idea/
+android/app/build/generated/
+android/app/build/intermediates/
+android/app/build/outputs/
+android/app/build/tmp/
+android/app/build/test-results/
+android/app/build/reports/
+android/app/build/intermediates/signing_config/debug/signing-config.json
+android/app/build/intermediates/signing_config/release/signing-config.json
+android/app/build/intermediates/merged_assets/
+android/app/build/intermediates/merged_resources/
+android/app/build/intermediates/res/
+android/app/build/intermediates/symbols/
+android/app/build/intermediates/tmp/
+android/app/build/intermediates/transforms/
+android/app/build/intermediates/incremental/
+android/app/build/intermediates/manifests/
+android/app/build/intermediates/rs/
+android/app/build/intermediates/shaders/
+android/app/build/intermediates/split-apk/
+android/app/build/intermediates/exploded-aar/
+android/app/build/intermediates/dex/
+android/app/build/intermediates/javac/
+android/app/build/intermediates/pre-dexed/
+android/app/build/intermediates/packaged_res/
+android/app/build/intermediates/processed_res/
+android/app/build/intermediates/instant_app_manifest/
+android/app/build/intermediates/bundle_manifest/
+android/app/build/intermediates/apk/
+android/app/build/intermediates/merged_not_compiled_resources/
+android/app/build/intermediates/merged_java_res/
+android/app/build/intermediates/lint_jar/
+android/app/build/intermediates/project_dex_archive/
+android/app/build/intermediates/runtime_symbol_list/
+android/app/build/intermediates/data_binding_base_classes_artifacts/
+android/app/build/intermediates/incremental_classes_proguard/
+android/app/build/intermediates/incremental_runtime_classes/
+android/app/build/intermediates/incremental_verifier/
+android/app/build/intermediates/kotlin_class_files_jar/
+android/app/build/intermediates/library_and_local_jars_info/
+android/app/build/intermediates/merged_manifests/
+android/app/build/intermediates/multi_dex/
+android/app/build/intermediates/navigation_json/
+android/app/build/intermediates/packaged_bundled_res/
+android/app/build/intermediates/packaged_manifests/
+android/app/build/intermediates/processed_proguard_files/
+android/app/build/intermediates/proguard_files/
+android/app/build/intermediates/res_stripped/
+android/app/build/intermediates/root_classes/
+android/app/build/intermediates/runtime_library_classes/
+android/app/build/intermediates/stripped_native_libs/
+android/app/build/intermediates/tmp/
+android/app/build/outputs/
+android/app/build/reports/
+android/app/build/test-results/
+android/app/build/intermediates/source_jars/
+android/app/build/intermediates/split_list/
+android/app/build/intermediates/transforms/
+android/app/build/intermediates/tmp/
+android/app/build/intermediates/incremental/
+android/app/build/intermediates/manifests/
+android/app/build/intermediates/rs/
+android/app/build/intermediates/shaders/
+android/app/build/intermediates/split-apk/
+android/app/build/intermediates/exploded-aar/
+android/app/build/intermediates/dex/
+android/app/build/intermediates/javac/
+android/app/build/intermediates/pre-dexed/
+android/app/build/intermediates/packaged_res/
+android/app/build/intermediates/processed_res/
+android/app/build/intermediates/instant_app_manifest/
+android/app/build/intermediates/bundle_manifest/
+android/app/build/intermediates/apk/
+android/app/build/intermediates/merged_not_compiled_resources/
+android/app/build/intermediates/merged_java_res/
+android/app/build/intermediates/lint_jar/
+android/app/build/intermediates/project_dex_archive/
+android/app/build/intermediates/runtime_symbol_list/
+android/app/build/intermediates/data_binding_base_classes_artifacts/
+android/app/build/intermediates/incremental_classes_proguard/
+android/app/build/intermediates/incremental_runtime_classes/
+android/app/build/intermediates/incremental_verifier/
+android/app/build/intermediates/kotlin_class_files_jar/
+android/app/build/intermediates/library_and_local_jars_info/
+android/app/build/intermediates/merged_manifests/
+android/app/build/intermediates/multi_dex/
+android/app/build/intermediates/navigation_json/
+android/app/build/intermediates/packaged_bundled_res/
+android/app/build/intermediates/packaged_manifests/
+android/app/build/intermediates/processed_proguard_files/
+android/app/build/intermediates/proguard_files/
+android/app/build/intermediates/res_stripped/
+android/app/build/intermediates/root_classes/
+android/app/build/intermediates/runtime_library_classes/
+android/app/build/intermediates/stripped_native_libs/
